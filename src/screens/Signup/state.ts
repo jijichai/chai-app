@@ -8,7 +8,7 @@ import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import * as EmailValidator from 'email-validator'
 
-import {DEFAULT_SERVICE} from '#/lib/constants'
+import {CHAI_PDS_SERVICE} from '#/lib/constants'
 import {cleanError} from '#/lib/strings/errors'
 import {createFullHandle} from '#/lib/strings/handles'
 import {getAge} from '#/lib/strings/time'
@@ -92,7 +92,7 @@ export const initialState: SignupState = {
   activeStep: SignupStep.INFO,
   screenTransitionDirection: 'Forward',
 
-  serviceUrl: DEFAULT_SERVICE,
+  serviceUrl: CHAI_PDS_SERVICE,
   serviceDescription: undefined,
   userDomain: '',
   dateOfBirth: DEFAULT_DATE,

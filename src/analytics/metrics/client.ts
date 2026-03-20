@@ -42,6 +42,7 @@ export class MetricsClient<M extends Record<string, any>> {
     payload: M[E],
     metadata: Record<string, any> = {},
   ) {
+    if (!env.METRICS_API_HOST) return
     this.start()
 
     const e: Event<M> = {

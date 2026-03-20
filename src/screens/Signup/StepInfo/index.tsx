@@ -17,7 +17,6 @@ import {DeviceLocationRequestDialog} from '#/components/dialogs/DeviceLocationRe
 import * as DateField from '#/components/forms/DateField'
 import {type DateFieldRef} from '#/components/forms/DateField/types'
 import {FormError} from '#/components/forms/FormError'
-import {HostingProvider} from '#/components/forms/HostingProvider'
 import * as TextField from '#/components/forms/TextField'
 import {Envelope_Stroke2_Corner0_Rounded as Envelope} from '#/components/icons/Envelope'
 import {Lock_Stroke2_Corner0_Rounded as Lock} from '#/components/icons/Lock'
@@ -177,11 +176,6 @@ export function StepInfo({
     <>
       <View style={[a.gap_md, a.pt_lg]}>
         <FormError error={state.error} />
-        <HostingProvider
-          minimal
-          serviceUrl={state.serviceUrl}
-          onSelectServiceUrl={v => dispatch({type: 'setServiceUrl', value: v})}
-        />
         {state.isLoading || isLoadingStarterPack ? (
           <View style={[a.align_center]}>
             <Loader size="xl" />
