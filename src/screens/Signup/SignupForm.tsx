@@ -202,9 +202,6 @@ export function SignupForm({
 
       {/* Handle */}
       <View>
-        <TextField.LabelText>
-          <Trans>Username</Trans>
-        </TextField.LabelText>
         <TextField.Root isInvalid={textFieldInvalid}>
           <TextField.Icon icon={AtIcon} />
           <TextField.Input
@@ -215,7 +212,8 @@ export function SignupForm({
               }
               setHandleDraft(val.toLocaleLowerCase())
             }}
-            label={state.userDomain}
+            label={_(msg`Choose your username`)}
+            placeholder={null}
             value={handleDraft}
             keyboardType="ascii-capable"
             autoCapitalize="none"
