@@ -28,6 +28,7 @@ const onGeolocationServiceResponseUpdate = (
 async function fetchGeolocationServiceData(
   url: string,
 ): Promise<Geolocation | undefined> {
+  if (!url) return FALLBACK_GEOLOCATION_SERVICE_RESPONSE
   if (debug.enabled) return debug.resolve(debug.geolocation)
   const res = await fetch(url)
   if (!res.ok) {

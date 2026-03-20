@@ -29,6 +29,7 @@ export const DEFAULT_APP_CONFIG_RESPONSE: AppConfigResponse = {
 let fetchAppConfigPromise: Promise<AppConfigResponse> | undefined
 
 async function fetchAppConfig(): Promise<AppConfigResponse | null> {
+  if (!APP_CONFIG_URL) return DEFAULT_APP_CONFIG_RESPONSE
   try {
     if (!fetchAppConfigPromise) {
       fetchAppConfigPromise = (async () => {

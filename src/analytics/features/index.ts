@@ -44,7 +44,9 @@ export const features = new GrowthBook({
  * initialization completes.
  */
 export const init = new Promise<void>(async y => {
-  await features.init({timeout: TIMEOUT_INIT})
+  if (env.GROWTHBOOK_CLIENT_KEY) {
+    await features.init({timeout: TIMEOUT_INIT})
+  }
   y()
 })
 
