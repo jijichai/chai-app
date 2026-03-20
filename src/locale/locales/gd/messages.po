@@ -136,7 +136,7 @@ msgstr "{0, plural, one {phost} two {phost} few {puist} other {post}}"
 #. placeholder {0}: starterPack.joinedAllTimeCount || 0
 #: src/screens/StarterPack/StarterPackScreen.tsx:506
 msgid "{0, plural, other {# people have}} joined Bluesky via this starter pack!"
-msgstr "Chaidh {0, plural, one {# neach} two {# neach} few {# daoine} other {# daoine}} an sàs Bluesky leis a’ phacaid-thòiseachaidh seo!"
+msgstr "Chaidh {0, plural, one {# neach} two {# neach} few {# daoine} other {# daoine}} an sàs Chai leis a’ phacaid-thòiseachaidh seo!"
 
 #. placeholder {0}: starterPack.list.listItemCount - 4
 #: src/components/dialogs/StarterPackDialog.tsx:362
@@ -493,11 +493,11 @@ msgstr "{numMatches, plural, one {Chaidh # neach-aithne a lorg} two {Chaidh # ne
 
 #: src/components/NewskieDialog.tsx:115
 msgid "{profileName} joined Bluesky {timeAgoString} ago"
-msgstr "Chaidh {profileName} an sàs Bluesky {timeAgoString} air ais"
+msgstr "Chaidh {profileName} an sàs Chai {timeAgoString} air ais"
 
 #: src/components/NewskieDialog.tsx:112
 msgid "{profileName} joined Bluesky using a starter pack {timeAgoString} ago"
-msgstr "Chaidh {profileName} an sàs Bluesky {timeAgoString} air ais, a’ cleachdadh pacaid-thòiseachaidh"
+msgstr "Chaidh {profileName} an sàs Chai {timeAgoString} air ais, a’ cleachdadh pacaid-thòiseachaidh"
 
 #. The trending topic rank, i.e. "1. March Madness", "2. The Bachelor"
 #: src/screens/Search/modules/ExploreTrendingTopics.tsx:101
@@ -608,7 +608,7 @@ msgstr "<0>{date}</0> aig {time}"
 #: src/screens/Hashtag.tsx:239
 #: src/screens/Search/SearchResults.tsx:315
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
-msgstr "<0>Clàraich a-steach</0><1> no </1><2>cruthaich cunntas</2><3> </3><4>airson naidheachdan, spòrs, poileataigs is rud sam bith eile a tha a’ dol air Bluesky a lorg.</4>"
+msgstr "<0>Clàraich a-steach</0><1> no </1><2>cruthaich cunntas</2><3> </3><4>airson naidheachdan, spòrs, poileataigs is rud sam bith eile a tha a’ dol air Chai a lorg.</4>"
 
 #. placeholder {0}: getName(items[1] /* [0] is self, skip it */)
 #: src/screens/StarterPack/Wizard/index.tsx:505
@@ -643,7 +643,7 @@ msgstr "7 làithean"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:17
 msgid "A collection of popular feeds you can find on Bluesky, including News, Booksky, Game Dev, Blacksky, and Fountain Pens"
-msgstr "Cruinneachadh de dh’inbhirean air a bheil fèill mhòr air Bluesky, a’ gabhail a-staigh News, Booksky, Game Dev, Blacksky agus Fountain Pens"
+msgstr "Cruinneachadh de dh’inbhirean air a bheil fèill mhòr air Chai, a’ gabhail a-staigh News, Booksky, Game Dev, Blacksky agus Fountain Pens"
 
 #. If last message does not contain text, fall back to "{user} reacted to {a message}"
 #: src/screens/Messages/components/ChatListItem.tsx:209
@@ -670,7 +670,7 @@ msgstr "Dòigh dearbhaidh ùr"
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:147
 msgid "A screenshot of a post from @esb.lol, showing the user is currently livestreaming content on Twitch. The post reads: \"Hello! I'm live on Twitch, and I'm testing Bluesky's latest feature too!\""
-msgstr "Glacadh-sgrìn de phost le @esb.lol, a’ sealltainn gu bheil an cleachdaiche ri craoladh beò air Twitch. Tha am post ag ràdh: “\"Hello! I'm live on Twitch, and I'm testing Bluesky's latest feature too!”"
+msgstr "Glacadh-sgrìn de phost le @esb.lol, a’ sealltainn gu bheil an cleachdaiche ri craoladh beò air Twitch. Tha am post ag ràdh: “\"Hello! I'm live on Twitch, and I'm testing Chai's latest feature too!”"
 
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:121
@@ -684,7 +684,7 @@ msgstr "Glacadh-sgrìn de dhuilleag pròifil le ìomhaigheag cluig ri taobh a’
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/DraftsAnnouncement.tsx:98
 msgid "A screenshot of the post composer with a new button next to the post button that says \"Drafts\", with a rainbow firework effect. Below, the text in the composer reads \"Hey, did you hear the news? Bluesky has drafts now!!!\"."
-msgstr "Glacadh-sgrìn de dh’uinneag sgrìobhadh nam post le putan ùr ri taobh a’ phutain “Postaich” a tha ag ràdh “Dreachdan”, le bogh-fhrois de chleasan-teine. Tha an teacsa foidhe anns an bhogsa-sgrìobhaidh ag ràdh “Sin thu, a charaid, an cuala tu an naidheachd? Tha gleus dhreachdan aig Bluesky a-nis!!!”."
+msgstr "Glacadh-sgrìn de dh’uinneag sgrìobhadh nam post le putan ùr ri taobh a’ phutain “Postaich” a tha ag ràdh “Dreachdan”, le bogh-fhrois de chleasan-teine. Tha an teacsa foidhe anns an bhogsa-sgrìobhaidh ag ràdh “Sin thu, a charaid, an cuala tu an naidheachd? Tha gleus dhreachdan aig Chai a-nis!!!”."
 
 #: src/Navigation.tsx:544
 #: src/screens/Settings/AboutSettings.tsx:74
@@ -800,7 +800,7 @@ msgstr "Chaidh an cunntas a neo-mhùchadh"
 
 #: src/components/verification/VerifierDialog.tsx:99
 msgid "Accounts with a scalloped blue check mark <0><1/></0> can verify others. These trusted verifiers are selected by Bluesky."
-msgstr "’S urrainn do chunntasan aig a bheil cromag chrom-bhileach ghorm <0><1/></0> cunntasan eile a dhearbhadh. ’S e Bluesky a thaghas an luchd-dearbhaidh earbsach seo."
+msgstr "’S urrainn do chunntasan aig a bheil cromag chrom-bhileach ghorm <0><1/></0> cunntasan eile a dhearbhadh. ’S e Chai a thaghas an luchd-dearbhaidh earbsach seo."
 
 #: src/lib/hooks/useNotificationHandler.ts:185
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:105
@@ -1262,16 +1262,16 @@ msgstr "Dh’èirich mearachd. {0}"
 #: src/components/contacts/components/HeroImage.tsx:28
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:79
 msgid "An illustration depicting user avatars flowing from a contact book into the Bluesky app"
-msgstr "Dealbh dhe na h-avataran aig cleachdaichean a’ sruthadh à leabhar luchd-aithne dha aplacaid Bluesky"
+msgstr "Dealbh dhe na h-avataran aig cleachdaichean a’ sruthadh à leabhar luchd-aithne dha aplacaid Chai"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:35
 msgid "An illustration of several Bluesky posts alongside repost, like, and comment icons"
-msgstr "Dealbh de ghrunn puist Bluesky ri taobh ìomhaigheadan ath-phostaidh, ’s toil agus bheachdan"
+msgstr "Dealbh de ghrunn puist Chai ri taobh ìomhaigheadan ath-phostaidh, ’s toil agus bheachdan"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:86
 #: src/components/verification/VerifierDialog.tsx:88
 msgid "An illustration showing that Bluesky selects trusted verifiers, and trusted verifiers in turn verify individual user accounts."
-msgstr "Dealbh a sheallas gun tagh Bluesky luchd-dearbhaidh earbsach agus gun dearbh an luchd-dearbhaidh earbsach seo cunntasan fa leth aig an luchd-chleachdaidh an uair sin."
+msgstr "Dealbh a sheallas gun tagh Chai luchd-dearbhaidh earbsach agus gun dearbh an luchd-dearbhaidh earbsach seo cunntasan fa leth aig an luchd-chleachdaidh an uair sin."
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:239
 msgid "An issue not included in these options"
@@ -1296,7 +1296,7 @@ msgstr "Dh’èirich duilgheadas, feuch ris a-rithist."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:120
 msgid "An mockup of a iPhone showing the Bluesky app open to the profile of a verified user with a blue checkmark next to their display name."
-msgstr "Dealbh mas fhìor dhe iPhone a tha a’ sealltainn aplacaid Bluesky agus a’ phròifil aig cleachdaiche dearbhte le cromag ghorm ris an ainm-taisbeanaidh aca."
+msgstr "Dealbh mas fhìor dhe iPhone a tha a’ sealltainn aplacaid Chai agus a’ phròifil aig cleachdaiche dearbhte le cromag ghorm ris an ainm-taisbeanaidh aca."
 
 #: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:165
 msgid "An unknown error occurred."
@@ -1333,7 +1333,7 @@ msgstr "Fios-naidheachd"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:39
 msgid "Announcing verification on Bluesky"
-msgstr "Naidheachd mu dhearbhadh air Bluesky"
+msgstr "Naidheachd mu dhearbhadh air Chai"
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:457
 msgid "Anyone"
@@ -1735,72 +1735,72 @@ msgstr "Bloga"
 #: src/components/dialogs/ServerInput.tsx:144
 #: src/components/dialogs/ServerInput.tsx:146
 msgid "Bluesky"
-msgstr "Bluesky"
+msgstr "Chai"
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:652
 msgid "Bluesky cannot confirm the authenticity of the claimed date."
-msgstr "Chan urrainn dha Bluesky dearbhadh gu bheil an ceann-là a thathar a’ cumail a-mach fìor."
+msgstr "Chan urrainn dha Chai dearbhadh gu bheil an ceann-là a thathar a’ cumail a-mach fìor."
 
 #: src/screens/Settings/AppIconSettings/useAppIconSets.ts:165
 msgctxt "Name of app icon variant"
 msgid "Bluesky Classic™"
-msgstr "Bluesky Classic™"
+msgstr "Chai Classic™"
 
 #: src/components/contacts/screens/GetContacts.tsx:235
 msgid "Bluesky helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
-msgstr "’S urrainn dhut lorg-meòir digiteach a chruthachadh air Bluesky, rud air a bheil “hais” agus is urrainn dhut do charaidean a lorg leis na haisichean seo gun duilgheadas."
+msgstr "’S urrainn dhut lorg-meòir digiteach a chruthachadh air Chai, rud air a bheil “hais” agus is urrainn dhut do charaidean a lorg leis na haisichean seo gun duilgheadas."
 
 #: src/components/dialogs/ServerInput.tsx:214
 msgid "Bluesky is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
-msgstr "’S e lìonra fosgailte a th’ ann am Bluesky far an urrainn dhut solaraiche òstaireachd a thaghadh thu fhèin. Mas e neach-leasachaidh a th’ annad, is urrainn dhut frithealaiche a chur air chois thu fhèin."
+msgstr "’S e lìonra fosgailte a th’ ann am Chai far an urrainn dhut solaraiche òstaireachd a thaghadh thu fhèin. Mas e neach-leasachaidh a th’ annad, is urrainn dhut frithealaiche a chur air chois thu fhèin."
 
 #: src/components/dialogs/ServerInput.tsx:162
 msgid "Bluesky is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default Bluesky Social option."
-msgstr "’S e lìonra fosgailte a th’ ann am Bluesky far an urrainn dhut solaraiche a thaghadh thu fhèin. Ma tha thu air ùr-thighinn dhan àite, mholamaid dhut a’ bhun-roghainn, Bluesky Social, a chleachdadh an toiseach."
+msgstr "’S e lìonra fosgailte a th’ ann am Chai far an urrainn dhut solaraiche a thaghadh thu fhèin. Ma tha thu air ùr-thighinn dhan àite, mholamaid dhut a’ bhun-roghainn, Chai, a chleachdadh an toiseach."
 
 #: src/components/ProgressGuide/List.tsx:117
 msgid "Bluesky is better with friends!"
-msgstr "Tha Bluesky nas fheàrr le caraidean!"
+msgstr "Tha Chai nas fheàrr le caraidean!"
 
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:43
 msgid "Bluesky is more fun with friends"
-msgstr "’S fheàirrde Bluesky do charaidean fhèin"
+msgstr "’S fheàirrde Chai do charaidean fhèin"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:107
 msgid "Bluesky is more fun with friends! Import your contacts to see who’s already here."
-msgstr "’S fheàirrde Bluesky do charaidean fhèin! Ion-phortaich an luchd-aithne agad is faic cò tha an-seo mar-thà."
+msgstr "’S fheàirrde Chai do charaidean fhèin! Ion-phortaich an luchd-aithne agad is faic cò tha an-seo mar-thà."
 
 #: src/components/contacts/screens/ViewMatches.tsx:315
 msgid "Bluesky is more fun with friends. Do you want to invite some of yours? <0/>"
-msgstr "’S fheàirrde Bluesky do charaidean fhèin. A bheil thu airson cuireadh a thoirt dha do charaidean fhèin? <0/>"
+msgstr "’S fheàirrde Chai do charaidean fhèin. A bheil thu airson cuireadh a thoirt dha do charaidean fhèin? <0/>"
 
 #: src/screens/Takendown.tsx:213
 msgid "Bluesky Social Terms of Service"
-msgstr "Teirmichean na seirbheise aig Bluesky Social"
+msgstr "Teirmichean na seirbheise aig Chai"
 
 #: src/screens/Settings/FindContactsSettings.tsx:549
 msgid "Bluesky stores your contacts as encoded data. Removing your contacts will immediately delete this data."
-msgstr "Glèidhidh Bluesky an luchd-aithne agad an cruth dàta còdaichte. Ma bheir thu luchd-aithne air falbh, thèid an dàta seo a sguabadh às sa bhad."
+msgstr "Glèidhidh Chai an luchd-aithne agad an cruth dàta còdaichte. Ma bheir thu luchd-aithne air falbh, thèid an dàta seo a sguabadh às sa bhad."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:340
 msgid "Bluesky will choose a set of recommended accounts from people in your network."
-msgstr "Taghaidh Bluesky grunn chunntasan aig daoine air an lìonra agad a mholar."
+msgstr "Taghaidh Chai grunn chunntasan aig daoine air an lìonra agad a mholar."
 
 #: src/screens/Settings/components/PwiOptOut.tsx:100
 msgid "Bluesky will not show your profile and posts to logged-out users. Other apps may not honor this request. This does not make your account private."
-msgstr "Cha leig Bluesky a’ phròifil agus na puist agad ri daoine nach eil clàraichte a-staigh. Dh’fhaodte nach gèill aplacaidean eile ris an iarrtas seo. Cha dèan seo cunntas prìobhaideach dheth."
+msgstr "Cha leig Chai a’ phròifil agus na puist agad ri daoine nach eil clàraichte a-staigh. Dh’fhaodte nach gèill aplacaidean eile ris an iarrtas seo. Cha dèan seo cunntas prìobhaideach dheth."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:134
 msgid "Bluesky will proactively verify notable and authentic accounts."
-msgstr "Nì Bluesky dearbhadh iad fhèin air fìor-chunntasan mòra."
+msgstr "Nì Chai dearbhadh iad fhèin air fìor-chunntasan mòra."
 
 #: src/screens/Settings/AppIconSettings/index.tsx:97
 msgid "Bluesky+"
-msgstr "Bluesky+"
+msgstr "Chai+"
 
 #: src/screens/Settings/AppIconSettings/index.tsx:100
 msgid "Bluesky+ icons"
-msgstr "Ìomhaigheagan Bluesky+"
+msgstr "Ìomhaigheagan Chai+"
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:56
 msgid "Blur images"
@@ -3374,7 +3374,7 @@ msgstr "Thoir gnogag dhùbailte a dh’innse gur toil leat e"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:331
 msgid "Download Bluesky"
-msgstr "Luchdaich a-nuas Bluesky"
+msgstr "Luchdaich a-nuas Chai"
 
 #: src/screens/Settings/components/ExportCarDialog.tsx:115
 #: src/screens/Settings/components/ExportCarDialog.tsx:120
@@ -3408,7 +3408,7 @@ msgstr "Leig às dealbh airson a chur ris"
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:20
 msgid "Due to laws in your region, certain features on Bluesky are currently restricted until you're able to verify you're an adult."
-msgstr "Air sgàth laghan far a bheil thusa, chan fhaigh thu cothrom air gach rud air Bluesky gus an dearbh thu gur e inbheach a th’ annad."
+msgstr "Air sgàth laghan far a bheil thusa, chan fhaigh thu cothrom air gach rud air Chai gus an dearbh thu gur e inbheach a th’ annad."
 
 #: src/components/dialogs/MutedWords.tsx:162
 msgid "Duration:"
@@ -4332,7 +4332,7 @@ msgstr "Lorg daoine airson an leantainn"
 
 #: src/screens/Search/Shell.tsx:529
 msgid "Find posts, users, and feeds on Bluesky"
-msgstr "Lorg puist, cleachdaichean is inbhirean air Bluesky"
+msgstr "Lorg puist, cleachdaichean is inbhirean air Chai"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:97
 msgid "Find your friends"
@@ -4341,7 +4341,7 @@ msgstr "Lorg do charaidean"
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:46
 #: src/screens/Settings/FindContactsSettings.tsx:126
 msgid "Find your friends on Bluesky by verifying your phone number and matching with your contacts. We protect your information and you control what happens next. <0>Learn more</0>"
-msgstr "Lorg do charaidean air Bluesky le bhith a’ dearbhadh na h-àireimh fòn agad is a’ sireadh an luchd-aithne agad. Cumaidh sinn am fiosrachadh agad fo dhìon agus is ann agadsa a tha smachd air na thachras san ath-cheum. <0>Barrachd fiosrachaidh</0>"
+msgstr "Lorg do charaidean air Chai le bhith a’ dearbhadh na h-àireimh fòn agad is a’ sireadh an luchd-aithne agad. Cumaidh sinn am fiosrachadh agad fo dhìon agus is ann agadsa a tha smachd air na thachras san ath-cheum. <0>Barrachd fiosrachaidh</0>"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:21
 msgid "Find your people"
@@ -4910,7 +4910,7 @@ msgstr "A bheil duilgheadasan agad?"
 
 #: src/components/contacts/screens/PhoneInput.tsx:290
 msgid "Held by Bluesky for 7 days to prevent abuse, then deleted"
-msgstr "Cumaidh Bluesky seo fad 7 làithean airson casg a chur air mì-ghnàthachadh is thèid a sguabadh às an uair sin"
+msgstr "Cumaidh Chai seo fad 7 làithean airson casg a chur air mì-ghnàthachadh is thèid a sguabadh às an uair sin"
 
 #: src/screens/Settings/Settings.tsx:249
 #: src/screens/Settings/Settings.tsx:253
@@ -5129,7 +5129,7 @@ msgstr "Malairt dhaoine"
 
 #: src/components/contacts/screens/GetContacts.tsx:267
 msgid "I consent to Bluesky using my contacts for mutual friend discovery and to retain hashed data for matching until I opt out."
-msgstr "Tha mi ag aontachadh gun cleachd Bluesky an luchd-aithne agam airson mo charaidean a lorg dhomh agus haisichean an dàta a chumail gus an toir mi air falbh m’ aonta."
+msgstr "Tha mi ag aontachadh gun cleachd Chai an luchd-aithne agam airson mo charaidean a lorg dhomh agus haisichean an dàta a chumail gus an toir mi air falbh m’ aonta."
 
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:134
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:137
@@ -5149,7 +5149,7 @@ msgstr "Tha mi a’ tuigsinn"
 #. placeholder {0}: currentAccount.handle
 #: src/components/contacts/screens/ViewMatches.tsx:578
 msgid "I'm on Bluesky as {0} - come find me! https://bsky.app/download"
-msgstr "Tha mi air Bluesky mar {0} – tiugainn! https://bsky.app/download"
+msgstr "Tha mi air Chai mar {0} – tiugainn! https://bsky.app/download"
 
 #: src/view/com/lightbox/Lightbox.web.tsx:232
 msgid "If alt text is long, toggles alt text expanded state"
@@ -5391,7 +5391,7 @@ msgstr "Thoir cuireadh"
 
 #: src/components/contacts/screens/ViewMatches.tsx:567
 msgid "Invite {name} to join Bluesky"
-msgstr "Thoir cuireadh dha {name} gu Bluesky"
+msgstr "Thoir cuireadh dha {name} gu Chai"
 
 #: src/screens/Signup/StepInfo/index.tsx:194
 msgid "Invite code"
@@ -5459,7 +5459,7 @@ msgstr "Obraichean"
 #: src/screens/StarterPack/StarterPackScreen.tsx:478
 #: src/screens/StarterPack/StarterPackScreen.tsx:489
 msgid "Join Bluesky"
-msgstr "Rach an sàs Bluesky"
+msgstr "Rach an sàs Chai"
 
 #: src/components/StarterPack/QrCode.tsx:72
 #: src/view/shell/NavSignupCard.tsx:41
@@ -5563,7 +5563,7 @@ msgstr "Barrachd fiosrachadh mu dhearbhadh na h-aoise"
 
 #: src/view/com/auth/SplashScreen.web.tsx:173
 msgid "Learn more about Bluesky"
-msgstr "Barrachd fiosrachaidh mu dhèidhinn Bluesky"
+msgstr "Barrachd fiosrachaidh mu dhèidhinn Chai"
 
 #: src/components/contacts/components/InviteInfo.tsx:33
 msgid "Learn more about how inviting friends works"
@@ -5606,12 +5606,12 @@ msgstr "Barrachd fiosrachaidh mun rabhadh seo"
 #: src/components/verification/VerifierDialog.tsx:121
 msgctxt "english-only-resource"
 msgid "Learn more about verification on Bluesky"
-msgstr "Barrachd fiosrachaidh mun dearbhadh air Bluesky"
+msgstr "Barrachd fiosrachaidh mun dearbhadh air Chai"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:128
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:131
 msgid "Learn more about what is public on Bluesky."
-msgstr "Barrachd fiosrachaidh mu na rudan a tha poblach air Bluesky."
+msgstr "Barrachd fiosrachaidh mu na rudan a tha poblach air Chai."
 
 #: src/screens/Profile/components/GermButton.tsx:211
 msgid "Learn more about your Germ DM link"
@@ -5646,7 +5646,7 @@ msgstr "Fàg an còmhradh"
 #: src/components/dialogs/LinkWarning.tsx:83
 #: src/components/dialogs/LinkWarning.tsx:91
 msgid "Leaving Bluesky"
-msgstr "A’ fàgail Bluesky"
+msgstr "A’ fàgail Chai"
 
 #: src/screens/SignupQueued.tsx:158
 msgid "left to go."
@@ -6511,7 +6511,7 @@ msgstr "An t-ath-dhealbh"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:32
 msgid "No ads, no invasive tracking, no engagement traps. Bluesky respects your time and attention."
-msgstr "Gun sanasachd, gun tracadh a bhriseas a-steach air do phrìobhaideachd, gun ribean com-pàirteachaidh. Tha suim aig Bluesky dha d’ ùine is aire."
+msgstr "Gun sanasachd, gun tracadh a bhriseas a-steach air do phrìobhaideachd, gun ribean com-pàirteachaidh. Tha suim aig Chai dha d’ ùine is aire."
 
 #: src/screens/Settings/AppPasswords.tsx:108
 msgid "No app passwords yet"
@@ -6741,7 +6741,7 @@ msgstr "Fiosrachadh mu cho-roinneadh"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:117
 msgid "Note: Bluesky is an open and public network. This setting only limits the visibility of your content on the Bluesky app and website, and other apps may not respect this setting. Your content may still be shown to logged-out users by other apps and websites."
-msgstr "An aire: Tha Bluesky na lìonra fosgailte agus poblach. Chan eil an roghainn seo a’ cuingeachadh ach faicsinneachd na susbainte agad ann an aplacaid Bluesky is air an làrach-lìn ach dh’fhaodte nach gèill aplacaidean eile ris an roghainn seo. Dh’fhaoidte gun seall aplacaidean is làraichean-lìn eile an t-susbaint agad do luchd-cleachdaidh a rinn clàradh a-mach."
+msgstr "An aire: Tha Chai na lìonra fosgailte agus poblach. Chan eil an roghainn seo a’ cuingeachadh ach faicsinneachd na susbainte agad ann an aplacaid Chai is air an làrach-lìn ach dh’fhaodte nach gèill aplacaidean eile ris an roghainn seo. Dh’fhaoidte gun seall aplacaidean is làraichean-lìn eile an t-susbaint agad do luchd-cleachdaidh a rinn clàradh a-mach."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:135
 msgid "Note: This post is only visible to logged-in users."
@@ -7190,7 +7190,7 @@ msgstr "Fhuair an sgioba modarataireachd againn an aithris a chuir thu thugainn.
 
 #: src/screens/Messages/components/ChatDisabled.tsx:35
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
-msgstr "Thug na modaratairean againn sùil air aithrisean a fhuair sinn is chuir iad romhpa cead-inntrigidh do chabadaich air Bluesky a thoirt air falbh uat."
+msgstr "Thug na modaratairean againn sùil air aithrisean a fhuair sinn is chuir iad romhpa cead-inntrigidh do chabadaich air Chai a thoirt air falbh uat."
 
 #: src/components/dialogs/StarterPackDialog.tsx:384
 msgid "Owner"
@@ -7403,7 +7403,7 @@ msgstr "Tagh facal-faire."
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:291
 msgid "Please click on the link in the email we just sent you to verify your new email address. This is an important step to allow you to continue enjoying all the features of Bluesky."
-msgstr "Briog air a’ cheangal sa phost-d a chuir sinn thugad airson an seòladh puist-d ùr agad a dhearbhadh. Seo ceum cudromach a nì cinnteach gum faigh thu làn-chothrom air Bluesky fhathast."
+msgstr "Briog air a’ cheangal sa phost-d a chuir sinn thugad airson an seòladh puist-d ùr agad a dhearbhadh. Seo ceum cudromach a nì cinnteach gum faigh thu làn-chothrom air Chai fhathast."
 
 #: src/screens/Signup/state.ts:308
 msgid "Please complete the verification captcha."
@@ -7931,7 +7931,7 @@ msgstr "Leugh am post sa bhloga againn"
 
 #: src/view/com/auth/SplashScreen.web.tsx:178
 msgid "Read the Bluesky blog"
-msgstr "Leugh am bloga aig Bluesky"
+msgstr "Leugh am bloga aig Chai"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:53
 #: src/screens/Signup/StepInfo/Policies.tsx:79
@@ -7941,7 +7941,7 @@ msgstr "Leugh poileasaidh prìobhaideachd Bhluesky"
 #: src/screens/Signup/StepInfo/Policies.tsx:46
 #: src/screens/Signup/StepInfo/Policies.tsx:66
 msgid "Read the Bluesky Terms of Service"
-msgstr "Leugh teirmichean na seirbheise aig Bluesky"
+msgstr "Leugh teirmichean na seirbheise aig Chai"
 
 #: src/components/WelcomeModal.tsx:149
 msgid "Real conversations."
@@ -8820,7 +8820,7 @@ msgstr "Seall puist ris a bheil taga #{tag} leis a’ chleachdaiche"
 
 #: src/view/com/auth/SplashScreen.web.tsx:183
 msgid "See jobs at Bluesky"
-msgstr "Faic dè na dreuchdan bàna aig Bluesky"
+msgstr "Faic dè na dreuchdan bàna aig Chai"
 
 #: src/components/FeedInterstitials.tsx:592
 #: src/components/FeedInterstitials.tsx:655
@@ -9226,7 +9226,7 @@ msgstr "Co-roinn a’ phacaid tòiseachaidh seo"
 
 #: src/components/StarterPack/ShareDialog.tsx:86
 msgid "Share this starter pack and help people join your community on Bluesky."
-msgstr "Co-roinn a’ phacaid tòiseachaidh seo agus cuidich daoine nad choimhearsnachd a tha air ùr-thighinn gu Bluesky."
+msgstr "Co-roinn a’ phacaid tòiseachaidh seo agus cuidich daoine nad choimhearsnachd a tha air ùr-thighinn gu Chai."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:121
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:124
@@ -9425,7 +9425,7 @@ msgstr "Clàraich a-steach gu cunntas nach eil air an liosta"
 
 #: src/components/dialogs/Signin.tsx:47
 msgid "Sign in to Bluesky or create a new account"
-msgstr "Clàraich a-steach gu Bluesky no cruthaich cunntas ùr"
+msgstr "Clàraich a-steach gu Chai no cruthaich cunntas ùr"
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:571
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:573
@@ -9706,7 +9706,7 @@ msgstr "Leabhar-sgeulachd"
 
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:181
 msgid "Streaming on Twitch? Set your live status on Bluesky to add a badge to your avatar. Tapping it takes people straight to your stream."
-msgstr "Ri sruthadh air Twitch? Leig ris air Bluesky gu bheil thu beò agus nochd baidse air an avatar agad. Ma bhriogas cuideigin air, thèid an ath-stiùireadh chun an t-srutha agad."
+msgstr "Ri sruthadh air Twitch? Leig ris air Chai gu bheil thu beò agus nochd baidse air an avatar agad. Ma bhriogas cuideigin air, thèid an ath-stiùireadh chun an t-srutha agad."
 
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:122
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:128
@@ -9845,7 +9845,7 @@ msgstr "Tagaichean a-mhàin"
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:110
 msgid "Tap below to allow Bluesky to access your GPS location. We will then use that data to more accurately determine the content and features available in your region."
-msgstr "Thoir gnogag gu h-ìosal airson cothrom dhan ionad GPS a thoirt dha Bluesky. Leis an dàta seo, ’s urrainn dhuinn susbaint is gleusan a bhuineas dhan àite far a bheil thusa a shealltann dhut."
+msgstr "Thoir gnogag gu h-ìosal airson cothrom dhan ionad GPS a thoirt dha Chai. Leis an dàta seo, ’s urrainn dhuinn susbaint is gleusan a bhuineas dhan àite far a bheil thusa a shealltann dhut."
 
 #: src/view/com/feeds/MissingFeed.tsx:90
 msgid "Tap for information"
@@ -9861,7 +9861,7 @@ msgstr "Thoir gnogag an-seo ’s daingnich d’ ionad le GPS."
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:165
 msgid "Tap to acknowledge that you understand and agree to these updates and continue using Bluesky"
-msgstr "Thoir gnogag airson innse gu bheil thu a’ tuigsinn na tha ùr agus ag aontachadh ris airson cumail a’ dol le Bluesky"
+msgstr "Thoir gnogag airson innse gu bheil thu a’ tuigsinn na tha ùr agus ag aontachadh ris airson cumail a’ dol le Chai"
 
 #: src/components/ContextMenu/Backdrop.ios.tsx:54
 #: src/components/ContextMenu/Backdrop.ios.tsx:80
@@ -9992,7 +9992,7 @@ msgstr "A rèir latha do bhreith, tha thu nas òige na 18 bliadhna. Bidh cuid a 
 
 #: src/screens/Moderation/index.tsx:424
 msgid "The Bluesky web application"
-msgstr "Aplacaid-lìn Bluesky"
+msgstr "Aplacaid-lìn Chai"
 
 #: src/view/screens/CommunityGuidelines.tsx:42
 msgid "The Community Guidelines have been moved to <0/>"
@@ -10012,7 +10012,7 @@ msgstr "Tha fios aig an inbhir “Fidir” a-nis dè na rudan as toil leat"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:334
 msgid "The experience is better in the app. Download Bluesky now and we'll pick back up where you left off."
-msgstr "Gheibh thu àrainneachd nas fheàrr san aplacaid. Luchdaich a-nuas Bluesky an-dràsta agus leanamaid oirnn far an do stad thu."
+msgstr "Gheibh thu àrainneachd nas fheàrr san aplacaid. Luchdaich a-nuas Chai an-dràsta agus leanamaid oirnn far an do stad thu."
 
 #: src/view/com/posts/FeedShutdownMsg.tsx:70
 msgid "The feed has been replaced with Discover."
@@ -10191,7 +10191,7 @@ msgstr "Dh’èirich duilgheadas ris nach robh dùil san aplacaid. Innis dhuinn 
 
 #: src/screens/SignupQueued.tsx:133
 msgid "There's been a rush of new users to Bluesky! We'll activate your account as soon as we can."
-msgstr "Tha sluagh mòr air ùr-thighinn dha Bluesky! Cuiridh sinn an cunntas agad an gnìomh cho luath ’s a ghabhas."
+msgstr "Tha sluagh mòr air ùr-thighinn dha Chai! Cuiridh sinn an cunntas agad an gnìomh cho luath ’s a ghabhas."
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:660
 msgid "These are your default settings"
@@ -10245,7 +10245,7 @@ msgstr "Cho-dhùin an t-ùghdar seo nach fhaic ach daoine a tha clàraichte a-st
 
 #: src/screens/Profile/components/GermButton.tsx:243
 msgid "This button lets others open the Germ DM app to send you a message. You can manage its visibility from the Germ DM app, or you can disconnect your Bluesky account from Germ DM altogether by clicking the button below."
-msgstr "Bheir am putan seo comas do dhaoine eile aplacaid Germ DM fhosgladh is teachdaireachd a chur thugad. Is urrainn dhut co-dhùnadh am faicear seo san aplacaid Germ DM no ’s urrainn dhut an cunntas Bluesky agad a dhì-cheangal o Germ DM uile gu lèir le bhith a’ putadh air a’ phutan gu h-ìosal."
+msgstr "Bheir am putan seo comas do dhaoine eile aplacaid Germ DM fhosgladh is teachdaireachd a chur thugad. Is urrainn dhut co-dhùnadh am faicear seo san aplacaid Germ DM no ’s urrainn dhut an cunntas Chai agad a dhì-cheangal o Germ DM uile gu lèir le bhith a’ putadh air a’ phutan gu h-ìosal."
 
 #: src/screens/Messages/components/MessageListError.tsx:18
 msgid "This chat was disconnected"
@@ -10389,7 +10389,7 @@ msgstr "Chan eil an t-seirbheis modarataireachd seo ri làimh. Chì thu barrachd
 #. placeholder {1}: niceDate(i18n, indexedAt)
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:639
 msgid "This post claims to have been created on <0>{0}</0>, but was first seen by Bluesky on <1>{1}</1>."
-msgstr "Tha am post seo a’ cumail a-mach gun deach a chruthachadh <0>{0}</0> ach chunnacas e air Bluesky <1>{1}</1> an toiseach."
+msgstr "Tha am post seo a’ cumail a-mach gun deach a chruthachadh <0>{0}</0> ach chunnacas e air Chai <1>{1}</1> an toiseach."
 
 #: src/components/WhoCanReply.tsx:274
 msgid "This post has an unknown type of threadgate on it. Your app may be out of date."
@@ -10485,7 +10485,7 @@ msgstr "Sguabaidh seo “{0}” às na faclan mùchte agad. ’S urrainn dhut a 
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:337
 msgid "This will irreversibly delete your Bluesky account <0>{currentHandle}</0> and all associated data. Note that this will affect any other <1>AT Protocol</1> services you use with this account."
-msgstr "Ma nì thu seo, thèid an cunntas Bluesky <0>{currentHandle}</0> agad agus an dàta air fad a tha co-cheangailte ris a sguabadh às gu buan. Thoir an aire gum bi buaidh air seirbheisean <1>AT Protocol</1> eile a chleachdas tu leis a’ chunntas seo."
+msgstr "Ma nì thu seo, thèid an cunntas Chai <0>{currentHandle}</0> agad agus an dàta air fad a tha co-cheangailte ris a sguabadh às gu buan. Thoir an aire gum bi buaidh air seirbheisean <1>AT Protocol</1> eile a chleachdas tu leis a’ chunntas seo."
 
 #. placeholder {0}: account.handle
 #: src/screens/Settings/Settings.tsx:671
@@ -10667,7 +10667,7 @@ msgstr "An seòrsa:"
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:86
 msgid "Unable to access location. You'll need to visit your system settings to enable location services for Bluesky."
-msgstr "Chan fhaigh sinn cothrom air an ionad. Feumaidh tu sùil a thoirt air roghainnean an t-siostaim agad agus seirbheisean ionaid a chur an comas dha Bluesky."
+msgstr "Chan fhaigh sinn cothrom air an ionad. Feumaidh tu sùil a thoirt air roghainnean an t-siostaim agad agus seirbheisean ionaid a chur an comas dha Chai."
 
 #: src/lib/hooks/useCleanError.ts:27
 #: src/lib/strings/errors.ts:12
@@ -10794,11 +10794,11 @@ msgstr "Gu mì-fhortanach, chan eil taic do dh’aithrisean dhen t-seòrsa seo a
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:200
 msgid "Unfortunately, the birthdate you have saved to your profile makes you too young to access Bluesky."
-msgstr "Gu mì-fhortanach, a rèir latha do bhreith a shàbhail thu sa chunntas agad, tha thu ro òg is chan urrainn dhut Bluesky a chleachdadh."
+msgstr "Gu mì-fhortanach, a rèir latha do bhreith a shàbhail thu sa chunntas agad, tha thu ro òg is chan urrainn dhut Chai a chleachdadh."
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:185
 msgid "Unfortunately, your declared age indicates that you are not old enough to access Bluesky in your region."
-msgstr "Gu mì-fhortanach, a rèir na h-aoise a thug thu dhuinn, chan eil thu aosta gu leòr ’s chan fhaigh thu cothrom air Bluesky far a bheil thusa."
+msgstr "Gu mì-fhortanach, a rèir na h-aoise a thug thu dhuinn, chan eil thu aosta gu leòr ’s chan fhaigh thu cothrom air Chai far a bheil thusa."
 
 #: src/components/verification/VerificationsDialog.tsx:209
 msgid "Unknown verifier"
@@ -11042,7 +11042,7 @@ msgstr "Cleachd seo airson clàradh a-steach gun aplacaid eile leis an làmhrach
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:278
 msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
-msgstr "Cleachd seòladh post-d a’ chunntais agad no seòladh puist-d ceart eile agad air eagal ’s gum bi aig KWS no Bluesky fios a chur thugad."
+msgstr "Cleachd seòladh post-d a’ chunntais agad no seòladh puist-d ceart eile agad air eagal ’s gum bi aig KWS no Chai fios a chur thugad."
 
 #: src/components/dms/AfterReportDialog.tsx:154
 msgctxt "toast"
@@ -11149,7 +11149,7 @@ msgstr "Roghainnean dearbhaidh"
 
 #: src/screens/Moderation/VerificationSettings.tsx:43
 msgid "Verifications on Bluesky work differently than on other platforms. <0>Learn more here.</0>"
-msgstr "Tha dearbhadh air Bluesky caran eadar-dhealaichte an coimeas ri ùrlaran eile. <0>Barrachd fiosrachaidh an-seo</0>"
+msgstr "Tha dearbhadh air Chai caran eadar-dhealaichte an coimeas ri ùrlaran eile. <0>Barrachd fiosrachaidh an-seo</0>"
 
 #: src/components/verification/VerificationsDialog.tsx:105
 msgid "Verified by:"
@@ -11516,7 +11516,7 @@ msgstr "Bidh e mu thuaiream {estimatedTime} gus am bi an cunntas agad deiseil."
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:197
 msgid "We have partnered with <0>KWS</0> to handle age verification. When you click \"Begin\" below, KWS will email you instructions to complete the verification process. If your email address has already been used to verify your age for another game or service that uses KWS, you won’t need to do it again. When you’re done, you'll be brought back to continue using Bluesky."
-msgstr "Tha sinn ann an com-pàirteachas le <0>KWS</0> a thaobh dearbhadh aoise. Nuair a bhriogas tu air “Tòisich” gu h-ìosal, bheir KWS stiùireadh dhut air a’ phost-d a dh’innseas dhut mar a choileanas tu an dearbhadh. Ma chleachd thu am post-d agad mar-thà airson d’ aois a dhearbhadh aig geama no seirbheis eile le KWS, cha leig thu leas sin a dhèanamh as ùr. Nuair a bhios tu deiseil leis, thèid d’ ath-stiùireadh gu Bluesky."
+msgstr "Tha sinn ann an com-pàirteachas le <0>KWS</0> a thaobh dearbhadh aoise. Nuair a bhriogas tu air “Tòisich” gu h-ìosal, bheir KWS stiùireadh dhut air a’ phost-d a dh’innseas dhut mar a choileanas tu an dearbhadh. Ma chleachd thu am post-d agad mar-thà airson d’ aois a dhearbhadh aig geama no seirbheis eile le KWS, cha leig thu leas sin a dhèanamh as ùr. Nuair a bhios tu deiseil leis, thèid d’ ath-stiùireadh gu Chai."
 
 #. placeholder {0}: currentAccount?.email
 #: src/components/intents/VerifyEmailIntentDialog.tsx:102
@@ -11610,7 +11610,7 @@ msgstr "Tha duilgheadasan aig an lìonra againn, feuch ris a-rithist"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:96
 msgid "We’re introducing a new layer of verification on Bluesky — an easy-to-see checkmark."
-msgstr "Tha sinn a’ toirt a-steach ìre eile de dhearbhadh air Bluesky – cromag fhollaiseach."
+msgstr "Tha sinn a’ toirt a-steach ìre eile de dhearbhadh air Chai – cromag fhollaiseach."
 
 #: src/screens/Signup/index.tsx:137
 msgid "We're so excited to have you join us!"
@@ -11842,7 +11842,7 @@ msgstr "’S e neach-dearbhaidh earbsach a th’ annad"
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:176
 msgid "You are accessing Bluesky from a region that legally requires us to verify your age before allowing you to access the app."
-msgstr "Tha thu airson Bluesky a chleachdadh ann an àite far a bheil an lagh a sparradh oirnn dearbhadh dè an aois a tha thu mus fhaigh thu cothrom air an aplacaid."
+msgstr "Tha thu airson Chai a chleachdadh ann an àite far a bheil an lagh a sparradh oirnn dearbhadh dè an aois a tha thu mus fhaigh thu cothrom air an aplacaid."
 
 #: src/components/forms/HostingProvider.tsx:46
 msgid "You are creating an account on"
@@ -11855,7 +11855,7 @@ msgstr "Chaidh do bhacadh agus chan urrainn dhut a dhol beò. Airson ath-thagrad
 #: src/ageAssurance/components/NoAccessScreen.tsx:330
 #: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:155
 msgid "You are currently unable to access Bluesky's Age Assurance flow. Please <0>contact our moderation team</0> if you believe this is an error."
-msgstr "Chan eil cead-inntrigidh agad do shruth dearbhadh na h-aoise aig Bluesky. <0>Cuir fios gu sgioba na modarataireachd againn</0> mas e mearachd a tha seo nad bheachd."
+msgstr "Chan eil cead-inntrigidh agad do shruth dearbhadh na h-aoise aig Chai. <0>Cuir fios gu sgioba na modarataireachd againn</0> mas e mearachd a tha seo nad bheachd."
 
 #: src/screens/SignupQueued.tsx:160
 msgid "You are in line."
@@ -11900,7 +11900,7 @@ msgstr "’S urrainn dhut na rudan sa bheil ùidh agad a chur air gleus uair sam
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:214
 msgid "You can also <0>temporarily deactivate</0> your account instead. Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "B’ urrainn dhut an cunntas agad <0>a chur à gnìomh fad greis</0> an àite sin. Chan fhaiceadh cleachdaichean Bluesky eile a’ phròifil, na puist, inbhirean is liostaichean agad tuilleadh. Agus b’ urrainn dhut an cunntas agad a chur an gnìomh a-rithist uair sam bith le bhith a’ clàradh a-steach."
+msgstr "B’ urrainn dhut an cunntas agad <0>a chur à gnìomh fad greis</0> an àite sin. Chan fhaiceadh cleachdaichean Chai eile a’ phròifil, na puist, inbhirean is liostaichean agad tuilleadh. Agus b’ urrainn dhut an cunntas agad a chur an gnìomh a-rithist uair sam bith le bhith a’ clàradh a-steach."
 
 #: src/view/com/posts/FollowingEmptyState.tsx:63
 #: src/view/com/posts/FollowingEndOfFeed.tsx:64
@@ -12006,7 +12006,7 @@ msgstr "Bhac thu an chleachdaiche seo. Chan fhaic thu an t-susbaint aca."
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:17
 msgid "You have completed the Age Assurance process, but based on the results, we cannot be sure that you are 18 years of age or older. Due to laws in your region, certain features on Bluesky must remain restricted until you're able to verify you're an adult."
-msgstr "Dhearbh thu d’ aois ach a rèir na thàinig às, chan urrainn dhuinn a bhith cinnteach gu bheil thu 18 bliadhna a dh’aois no nas sine. Air sgàth nan laghan far a bheil thu, bidh cuing air cuid dhe na gleusan ann am Bluesky gus an dearbh thu gur e inbheach a th’ annad."
+msgstr "Dhearbh thu d’ aois ach a rèir na thàinig às, chan urrainn dhuinn a bhith cinnteach gu bheil thu 18 bliadhna a dh’aois no nas sine. Air sgàth nan laghan far a bheil thu, bidh cuing air cuid dhe na gleusan ann am Chai gus an dearbh thu gur e inbheach a th’ annad."
 
 #: src/view/screens/Notifications.tsx:298
 msgid "You have completely disabled reply, quote, and mention notifications, so this tab will no longer update. To adjust this, visit your <0>notification settings</0>."
@@ -12107,11 +12107,11 @@ msgstr "Dhùisg thu an struth seo {0} air ais mar-thà. Dh’fhaodte gun toir po
 
 #: src/components/NewskieDialog.tsx:107
 msgid "You joined Bluesky {timeAgoString} ago"
-msgstr "Chaidh thu an sàs Bluesky {timeAgoString} air ais"
+msgstr "Chaidh thu an sàs Chai {timeAgoString} air ais"
 
 #: src/components/NewskieDialog.tsx:104
 msgid "You joined Bluesky using a starter pack {timeAgoString} ago"
-msgstr "Chaidh thu an sàs Bluesky {timeAgoString} air ais, a’ cleachdadh pacaid-thòiseachaidh"
+msgstr "Chaidh thu an sàs Chai {timeAgoString} air ais, a’ cleachdadh pacaid-thòiseachaidh"
 
 #: src/components/moderation/LabelsOnMeDialog.tsx:84
 msgid "You may appeal non-self labels if you feel they were placed in error."
@@ -12131,7 +12131,7 @@ msgstr "Chan fhaod thu barrachd air trì inbhirean a chur ris"
 
 #: src/components/dialogs/BirthDateSettings.tsx:177
 msgid "You must be at least 13 years old to use Bluesky. Read our <0>Terms of Service</0> for more information."
-msgstr "Feumaidh tu a bhith co-dhiù 13 bliadhna a dh’aois mus urrainn dhut Bluesky a chleachadh. Leugh <0>teirmichean na seirbheise</0> againn airson barrachd fiosrachaidh."
+msgstr "Feumaidh tu a bhith co-dhiù 13 bliadhna a dh’aois mus urrainn dhut Chai a chleachadh. Leugh <0>teirmichean na seirbheise</0> againn airson barrachd fiosrachaidh."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:365
 msgid "You must be following at least seven other people to generate a starter pack."
@@ -12228,7 +12228,7 @@ msgstr "Bidh tu a’ leantainn nan daoine seo sa bhad"
 
 #: src/components/contacts/screens/GetContacts.tsx:314
 msgid "You'll need to go to the System Settings for Bluesky and give permission if you want to use this feature."
-msgstr "Feumaidh tu tadhal air roghainnean siostam Bluesky agus cead a thoirt ma tha thu airson an gleus seo a chleachdadh."
+msgstr "Feumaidh tu tadhal air roghainnean siostam Chai agus cead a thoirt ma tha thu airson an gleus seo a chleachdadh."
 
 #. placeholder {0}: sanitizeHandle(profile.handle, '@')
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:172
@@ -12319,7 +12319,7 @@ msgstr "’S urrainn dhut ionad-tasgaidh a’ chunntais agad, a’ gabhail a-sta
 
 #: src/screens/Takendown.tsx:210
 msgid "Your account was found to be in violation of the <0>Bluesky Social Terms of Service</0>. You have been sent an email outlining the specific violation and suspension period, if applicable. You can appeal this decision if you believe it was made in error."
-msgstr "Chaidh co-dhùnadh gu bheil an cunntas agad a’ briseadh <0>teirmichean na seirbheise aig Bluesky Social</0>. Chaidh post-d a chur thugad a mhìnicheas mar a bhris thu iad agus dè cho fada ’s a bhios e na dhàil, mas e sin a rinneadh. ’S urrainn dhut ath-thagradh a thogail an aghaidh a’ cho-dhùnaidh seo mas e mearachd a th’ ann nad bheachd."
+msgstr "Chaidh co-dhùnadh gu bheil an cunntas agad a’ briseadh <0>teirmichean na seirbheise aig Chai</0>. Chaidh post-d a chur thugad a mhìnicheas mar a bhris thu iad agus dè cho fada ’s a bhios e na dhàil, mas e sin a rinneadh. ’S urrainn dhut ath-thagradh a thogail an aghaidh a’ cho-dhùnaidh seo mas e mearachd a th’ ann nad bheachd."
 
 #: src/screens/Takendown.tsx:150
 msgid "Your appeal has been submitted. If your appeal succeeds, you will receive an email."
@@ -12343,11 +12343,11 @@ msgstr "Cumaidh sinn seo nar cuimhne airson ceanglaichean san àm ri teachd. ’
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:367
 msgid "Your contact {firstAuthorLink} is on Bluesky"
-msgstr "Tha neach-aithne agad, {firstAuthorLink}, air Bluesky"
+msgstr "Tha neach-aithne agad, {firstAuthorLink}, air Chai"
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:365
 msgid "Your contact {firstAuthorName} is on Bluesky"
-msgstr "Tha neach-aithne agad, {firstAuthorName}, air Bluesky"
+msgstr "Tha neach-aithne agad, {firstAuthorName}, air Chai"
 
 #: src/components/contacts/screens/ViewMatches.tsx:454
 msgid "Your contact {name}"
@@ -12377,7 +12377,7 @@ msgstr "Tha coltas nach eil am post-d agad dligheach."
 
 #: src/components/dialogs/EmailDialog/screens/VerificationReminder.tsx:66
 msgid "Your email has not yet been verified. Please verify your email in order to enjoy all the features of Bluesky."
-msgstr "Cha deach am post-d agad a dhearbhadh fhathast. Dearbh e ’s faigh làn-chothrom air Bluesky."
+msgstr "Cha deach am post-d agad a dhearbhadh fhathast. Dearbh e ’s faigh làn-chothrom air Chai."
 
 #: src/state/shell/progress-guide.tsx:216
 msgid "Your first like!"
@@ -12427,7 +12427,7 @@ msgstr "Na faclan a mhùch thu"
 
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:72
 msgid "Your password has been changed successfully! Please use your new password when you sign in to Bluesky from now on."
-msgstr "Chaidh am facal-faire agad atharrachadh! Cleachd am fear ùr o seo a-mach airson clàradh a-steach gu Bluesky."
+msgstr "Chaidh am facal-faire agad atharrachadh! Cleachd am fear ùr o seo a-mach airson clàradh a-steach gu Chai."
 
 #: src/screens/Signup/StepInfo/index.tsx:161
 msgid "Your password must be at least 8 characters long."

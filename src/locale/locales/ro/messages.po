@@ -136,7 +136,7 @@ msgstr "{0, plural, one {postare} few {postări} other {de postări}}"
 #. placeholder {0}: starterPack.joinedAllTimeCount || 0
 #: src/screens/StarterPack/StarterPackScreen.tsx:506
 msgid "{0, plural, other {# people have}} joined Bluesky via this starter pack!"
-msgstr "{0, plural, one {} few {# persoane s-au}other {# de persoane s-au}} alăturat la Bluesky folosind acest pachet de pornire!"
+msgstr "{0, plural, one {} few {# persoane s-au}other {# de persoane s-au}} alăturat la Chai folosind acest pachet de pornire!"
 
 #. placeholder {0}: starterPack.list.listItemCount - 4
 #: src/components/dialogs/StarterPackDialog.tsx:362
@@ -493,11 +493,11 @@ msgstr "{numMatches, plural, one {un contact găsit} few {# contacte găsite} ot
 
 #: src/components/NewskieDialog.tsx:115
 msgid "{profileName} joined Bluesky {timeAgoString} ago"
-msgstr "{profileName} s-a alăturat la Bluesky cu {timeAgoString} în urmă"
+msgstr "{profileName} s-a alăturat la Chai cu {timeAgoString} în urmă"
 
 #: src/components/NewskieDialog.tsx:112
 msgid "{profileName} joined Bluesky using a starter pack {timeAgoString} ago"
-msgstr "{profileName} s-a alăturat la Bluesky folosind un pachet de pornire cu {timeAgoString} în urmă"
+msgstr "{profileName} s-a alăturat la Chai folosind un pachet de pornire cu {timeAgoString} în urmă"
 
 #. The trending topic rank, i.e. "1. March Madness", "2. The Bachelor"
 #: src/screens/Search/modules/ExploreTrendingTopics.tsx:101
@@ -608,7 +608,7 @@ msgstr "<0>{date}</0> la {time}"
 #: src/screens/Hashtag.tsx:239
 #: src/screens/Search/SearchResults.tsx:315
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
-msgstr "<0>Conectați-vă</0><1> sau </1><2>creați un cont</2><3> </3><4>pentru a căuta știri, sport, politică și tot ce se întâmplă pe Bluesky.</4>"
+msgstr "<0>Conectați-vă</0><1> sau </1><2>creați un cont</2><3> </3><4>pentru a căuta știri, sport, politică și tot ce se întâmplă pe Chai.</4>"
 
 #. placeholder {0}: getName(items[1] /* [0] is self, skip it */)
 #: src/screens/StarterPack/Wizard/index.tsx:505
@@ -643,7 +643,7 @@ msgstr "7 zile"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:17
 msgid "A collection of popular feeds you can find on Bluesky, including News, Booksky, Game Dev, Blacksky, and Fountain Pens"
-msgstr "O colecție de fluxuri populare pe care le puteți găsi pe Bluesky, inclusiv News, Booksky, Game Dev, Blacksky și Fountain Pens"
+msgstr "O colecție de fluxuri populare pe care le puteți găsi pe Chai, inclusiv News, Booksky, Game Dev, Blacksky și Fountain Pens"
 
 #. If last message does not contain text, fall back to "{user} reacted to {a message}"
 #: src/screens/Messages/components/ChatListItem.tsx:209
@@ -670,7 +670,7 @@ msgstr "O nouă formă de verificare"
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:147
 msgid "A screenshot of a post from @esb.lol, showing the user is currently livestreaming content on Twitch. The post reads: \"Hello! I'm live on Twitch, and I'm testing Bluesky's latest feature too!\""
-msgstr "O captură de ecran a unei postări de la @esb.lol, care arată că utilizatorul transmite în direct conținut pe Twitch. Postarea spune: „Salut! Sunt în direct pe Twitch și testez cea mai recentă caracteristică a Bluesky!”"
+msgstr "O captură de ecran a unei postări de la @esb.lol, care arată că utilizatorul transmite în direct conținut pe Twitch. Postarea spune: „Salut! Sunt în direct pe Twitch și testez cea mai recentă caracteristică a Chai!”"
 
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:121
@@ -684,7 +684,7 @@ msgstr "O captură de ecran a unei pagini de profil cu o pictogramă clopoțel, 
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/DraftsAnnouncement.tsx:98
 msgid "A screenshot of the post composer with a new button next to the post button that says \"Drafts\", with a rainbow firework effect. Below, the text in the composer reads \"Hey, did you hear the news? Bluesky has drafts now!!!\"."
-msgstr "O captură de ecran a unui compozitor de postări cu un buton nou lângă cel de postare care spune „Schițe”, cu un efect de artificii în formă de curcubeu. Mai jos, textul din editor spune „Hei, ai auzit știrile? Bluesky are schițe acum!!!”."
+msgstr "O captură de ecran a unui compozitor de postări cu un buton nou lângă cel de postare care spune „Schițe”, cu un efect de artificii în formă de curcubeu. Mai jos, textul din editor spune „Hei, ai auzit știrile? Chai are schițe acum!!!”."
 
 #: src/Navigation.tsx:544
 #: src/screens/Settings/AboutSettings.tsx:74
@@ -800,7 +800,7 @@ msgstr "Cont dezamuțit"
 
 #: src/components/verification/VerifierDialog.tsx:99
 msgid "Accounts with a scalloped blue check mark <0><1/></0> can verify others. These trusted verifiers are selected by Bluesky."
-msgstr "Conturile cu bifa albastră în formă de feston <0><1/></0> pot verifica alte persoane. Acești verificatori de încredere sunt selectați de Bluesky."
+msgstr "Conturile cu bifa albastră în formă de feston <0><1/></0> pot verifica alte persoane. Acești verificatori de încredere sunt selectați de Chai."
 
 #: src/lib/hooks/useNotificationHandler.ts:185
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:105
@@ -1262,16 +1262,16 @@ msgstr "A apărut o eroare. {0}"
 #: src/components/contacts/components/HeroImage.tsx:28
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:79
 msgid "An illustration depicting user avatars flowing from a contact book into the Bluesky app"
-msgstr "O ilustrație care prezintă avataruri de utilizator care se transferă dintr-o agendă de contacte în aplicația Bluesky"
+msgstr "O ilustrație care prezintă avataruri de utilizator care se transferă dintr-o agendă de contacte în aplicația Chai"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:35
 msgid "An illustration of several Bluesky posts alongside repost, like, and comment icons"
-msgstr "O ilustrație a mai multor postări Bluesky alături de pictograme de repostare, apreciere și comentare"
+msgstr "O ilustrație a mai multor postări Chai alături de pictograme de repostare, apreciere și comentare"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:86
 #: src/components/verification/VerifierDialog.tsx:88
 msgid "An illustration showing that Bluesky selects trusted verifiers, and trusted verifiers in turn verify individual user accounts."
-msgstr "O ilustrație care arată că Bluesky selectează verificatori de încredere, iar verificatorii de încredere verifică la rândul lor conturile de utilizator individuale."
+msgstr "O ilustrație care arată că Chai selectează verificatori de încredere, iar verificatorii de încredere verifică la rândul lor conturile de utilizator individuale."
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:239
 msgid "An issue not included in these options"
@@ -1296,7 +1296,7 @@ msgstr "A apărut o problemă, vă rugăm să încercați din nou."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:120
 msgid "An mockup of a iPhone showing the Bluesky app open to the profile of a verified user with a blue checkmark next to their display name."
-msgstr "O machetă a unui iPhone care arată aplicația Bluesky deschisă la profilul unui utilizator verificat cu o bifă albastră lângă numele afișat."
+msgstr "O machetă a unui iPhone care arată aplicația Chai deschisă la profilul unui utilizator verificat cu o bifă albastră lângă numele afișat."
 
 #: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:165
 msgid "An unknown error occurred."
@@ -1333,7 +1333,7 @@ msgstr "Anunț"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:39
 msgid "Announcing verification on Bluesky"
-msgstr "Anunțăm verificarea pe Bluesky"
+msgstr "Anunțăm verificarea pe Chai"
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:457
 msgid "Anyone"
@@ -1735,72 +1735,72 @@ msgstr "Blog"
 #: src/components/dialogs/ServerInput.tsx:144
 #: src/components/dialogs/ServerInput.tsx:146
 msgid "Bluesky"
-msgstr "Bluesky"
+msgstr "Chai"
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:652
 msgid "Bluesky cannot confirm the authenticity of the claimed date."
-msgstr "Bluesky nu poate confirma autenticitatea datei revendicate."
+msgstr "Chai nu poate confirma autenticitatea datei revendicate."
 
 #: src/screens/Settings/AppIconSettings/useAppIconSets.ts:165
 msgctxt "Name of app icon variant"
 msgid "Bluesky Classic™"
-msgstr "Bluesky Classic™"
+msgstr "Chai Classic™"
 
 #: src/components/contacts/screens/GetContacts.tsx:235
 msgid "Bluesky helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
-msgstr "Bluesky ajută prietenii să se găsească reciproc prin crearea unei amprente digitale codificate, numită „hash”, și apoi căutând hash-uri potrivite."
+msgstr "Chai ajută prietenii să se găsească reciproc prin crearea unei amprente digitale codificate, numită „hash”, și apoi căutând hash-uri potrivite."
 
 #: src/components/dialogs/ServerInput.tsx:214
 msgid "Bluesky is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
-msgstr "Bluesky este o rețea deschisă unde vă puteți alege furnizorul de găzduire. Dacă sunteți un dezvoltator, puteți să vă găzduiți propriul dvs. server."
+msgstr "Chai este o rețea deschisă unde vă puteți alege furnizorul de găzduire. Dacă sunteți un dezvoltator, puteți să vă găzduiți propriul dvs. server."
 
 #: src/components/dialogs/ServerInput.tsx:162
 msgid "Bluesky is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default Bluesky Social option."
-msgstr "Bluesky este o rețea deschisă în care vă puteți alege propriul furnizor. Dacă sunteți nou aici, vă recomandăm să rămâneți cu opțiunea Bluesky Social implicită."
+msgstr "Chai este o rețea deschisă în care vă puteți alege propriul furnizor. Dacă sunteți nou aici, vă recomandăm să rămâneți cu opțiunea Chai implicită."
 
 #: src/components/ProgressGuide/List.tsx:117
 msgid "Bluesky is better with friends!"
-msgstr "Bluesky este mai bun cu prietenii!"
+msgstr "Chai este mai bun cu prietenii!"
 
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:43
 msgid "Bluesky is more fun with friends"
-msgstr "Bluesky este mai distractiv cu prietenii"
+msgstr "Chai este mai distractiv cu prietenii"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:107
 msgid "Bluesky is more fun with friends! Import your contacts to see who’s already here."
-msgstr "Bluesky este mai distractiv cu prietenii! Importați-vă contactele pentru a vedea cine este deja aici."
+msgstr "Chai este mai distractiv cu prietenii! Importați-vă contactele pentru a vedea cine este deja aici."
 
 #: src/components/contacts/screens/ViewMatches.tsx:315
 msgid "Bluesky is more fun with friends. Do you want to invite some of yours? <0/>"
-msgstr "Bluesky este mai distractiv cu prietenii. Doriți să vă invitați câțiva dintre prietenii dvs.? <0/>"
+msgstr "Chai este mai distractiv cu prietenii. Doriți să vă invitați câțiva dintre prietenii dvs.? <0/>"
 
 #: src/screens/Takendown.tsx:213
 msgid "Bluesky Social Terms of Service"
-msgstr "Termenii de Serviciu a Bluesky Social"
+msgstr "Termenii de Serviciu a Chai"
 
 #: src/screens/Settings/FindContactsSettings.tsx:549
 msgid "Bluesky stores your contacts as encoded data. Removing your contacts will immediately delete this data."
-msgstr "Bluesky stochează contactele dvs. sub formă de date codificate. Eliminarea contactelor va duce la ștergerea imediată a acestor date."
+msgstr "Chai stochează contactele dvs. sub formă de date codificate. Eliminarea contactelor va duce la ștergerea imediată a acestor date."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:340
 msgid "Bluesky will choose a set of recommended accounts from people in your network."
-msgstr "Bluesky va alege un set de conturi recomandate de la persoanele din rețeaua dvs."
+msgstr "Chai va alege un set de conturi recomandate de la persoanele din rețeaua dvs."
 
 #: src/screens/Settings/components/PwiOptOut.tsx:100
 msgid "Bluesky will not show your profile and posts to logged-out users. Other apps may not honor this request. This does not make your account private."
-msgstr "Bluesky nu va afișa profilul și postările dvs. pentru utilizatorii deconectați. Este posibil ca alte aplicații să nu onoreze această cerere. Acest lucru nu face contul dvs. privat."
+msgstr "Chai nu va afișa profilul și postările dvs. pentru utilizatorii deconectați. Este posibil ca alte aplicații să nu onoreze această cerere. Acest lucru nu face contul dvs. privat."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:134
 msgid "Bluesky will proactively verify notable and authentic accounts."
-msgstr "Bluesky va verifica proactiv conturile notabile și autentice."
+msgstr "Chai va verifica proactiv conturile notabile și autentice."
 
 #: src/screens/Settings/AppIconSettings/index.tsx:97
 msgid "Bluesky+"
-msgstr "Bluesky+"
+msgstr "Chai+"
 
 #: src/screens/Settings/AppIconSettings/index.tsx:100
 msgid "Bluesky+ icons"
-msgstr "Pictograme Bluesky+"
+msgstr "Pictograme Chai+"
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:56
 msgid "Blur images"
@@ -2937,7 +2937,7 @@ msgstr "Opțiuni de personalizare"
 
 #: src/screens/Onboarding/Layout.tsx:60
 msgid "Customizes your Bluesky experience"
-msgstr "Personalizați-vă experiența Bluesky"
+msgstr "Personalizați-vă experiența Chai"
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:200
 msgid "Dangerous challenges or activities"
@@ -3374,7 +3374,7 @@ msgstr "Atingeți de două ori pentru a aprecia"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:331
 msgid "Download Bluesky"
-msgstr "Descărcați Bluesky"
+msgstr "Descărcați Chai"
 
 #: src/screens/Settings/components/ExportCarDialog.tsx:115
 #: src/screens/Settings/components/ExportCarDialog.tsx:120
@@ -3408,7 +3408,7 @@ msgstr "Plasați pentru a adăuga imagini"
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:20
 msgid "Due to laws in your region, certain features on Bluesky are currently restricted until you're able to verify you're an adult."
-msgstr "Datorită legislației din regiunea dvs., anumite caracteristici ale Bluesky sunt în prezent restricționate până când puteți confirma că sunteți un adult."
+msgstr "Datorită legislației din regiunea dvs., anumite caracteristici ale Chai sunt în prezent restricționate până când puteți confirma că sunteți un adult."
 
 #: src/components/dialogs/MutedWords.tsx:162
 msgid "Duration:"
@@ -4332,7 +4332,7 @@ msgstr "Găsiți persoane pe care să le urmăriți"
 
 #: src/screens/Search/Shell.tsx:529
 msgid "Find posts, users, and feeds on Bluesky"
-msgstr "Găsiți postări, utilizatori și fluxuri pe Bluesky"
+msgstr "Găsiți postări, utilizatori și fluxuri pe Chai"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:97
 msgid "Find your friends"
@@ -4341,7 +4341,7 @@ msgstr "Găsiți-vă prietenii"
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:46
 #: src/screens/Settings/FindContactsSettings.tsx:126
 msgid "Find your friends on Bluesky by verifying your phone number and matching with your contacts. We protect your information and you control what happens next. <0>Learn more</0>"
-msgstr "Găsiți-vă prietenii pe Bluesky verificându-vă numărul de telefon și potrivindu-vă cu contactele. Noi vă protejăm informațiile, iar dvs. controlați ce se întâmplă în continuare. <0>Aflați mai multe</0>"
+msgstr "Găsiți-vă prietenii pe Chai verificându-vă numărul de telefon și potrivindu-vă cu contactele. Noi vă protejăm informațiile, iar dvs. controlați ce se întâmplă în continuare. <0>Aflați mai multe</0>"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:21
 msgid "Find your people"
@@ -4910,7 +4910,7 @@ msgstr "Aveți dificultăți?"
 
 #: src/components/contacts/screens/PhoneInput.tsx:290
 msgid "Held by Bluesky for 7 days to prevent abuse, then deleted"
-msgstr "Păstrat de Bluesky timp de 7 zile pentru a preveni abuzurile, apoi șters"
+msgstr "Păstrat de Chai timp de 7 zile pentru a preveni abuzurile, apoi șters"
 
 #: src/screens/Settings/Settings.tsx:249
 #: src/screens/Settings/Settings.tsx:253
@@ -5129,7 +5129,7 @@ msgstr "Trafic de persoane"
 
 #: src/components/contacts/screens/GetContacts.tsx:267
 msgid "I consent to Bluesky using my contacts for mutual friend discovery and to retain hashed data for matching until I opt out."
-msgstr "Sunt de acord ca Bluesky să folosească contactele mele pentru descoperirea reciprocă a prietenilor și să mențină datele hashed (criptate) pentru potrivire până când voi renunța la această opțiune."
+msgstr "Sunt de acord ca Chai să folosească contactele mele pentru descoperirea reciprocă a prietenilor și să mențină datele hashed (criptate) pentru potrivire până când voi renunța la această opțiune."
 
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:134
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:137
@@ -5149,7 +5149,7 @@ msgstr "Am înțeles"
 #. placeholder {0}: currentAccount.handle
 #: src/components/contacts/screens/ViewMatches.tsx:578
 msgid "I'm on Bluesky as {0} - come find me! https://bsky.app/download"
-msgstr "Sunt pe Bluesky ca {0} - vino și găsește-mă! https://bsky.app/download"
+msgstr "Sunt pe Chai ca {0} - vino și găsește-mă! https://bsky.app/download"
 
 #: src/view/com/lightbox/Lightbox.web.tsx:232
 msgid "If alt text is long, toggles alt text expanded state"
@@ -5391,7 +5391,7 @@ msgstr "Invitați"
 
 #: src/components/contacts/screens/ViewMatches.tsx:567
 msgid "Invite {name} to join Bluesky"
-msgstr "Invitați pe {name} să se alăture la Bluesky"
+msgstr "Invitați pe {name} să se alăture la Chai"
 
 #: src/screens/Signup/StepInfo/index.tsx:194
 msgid "Invite code"
@@ -5459,7 +5459,7 @@ msgstr "Locuri de muncă"
 #: src/screens/StarterPack/StarterPackScreen.tsx:478
 #: src/screens/StarterPack/StarterPackScreen.tsx:489
 msgid "Join Bluesky"
-msgstr "Alăturați-vă la Bluesky"
+msgstr "Alăturați-vă la Chai"
 
 #: src/components/StarterPack/QrCode.tsx:72
 #: src/view/shell/NavSignupCard.tsx:41
@@ -5563,7 +5563,7 @@ msgstr "Aflați mai multe despre verificarea vârstei"
 
 #: src/view/com/auth/SplashScreen.web.tsx:173
 msgid "Learn more about Bluesky"
-msgstr "Află mai multe despre Bluesky"
+msgstr "Află mai multe despre Chai"
 
 #: src/components/contacts/components/InviteInfo.tsx:33
 msgid "Learn more about how inviting friends works"
@@ -5606,12 +5606,12 @@ msgstr "Aflați mai multe despre acest avertisment"
 #: src/components/verification/VerifierDialog.tsx:121
 msgctxt "english-only-resource"
 msgid "Learn more about verification on Bluesky"
-msgstr "Aflați mai multe despre verificarea pe Bluesky"
+msgstr "Aflați mai multe despre verificarea pe Chai"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:128
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:131
 msgid "Learn more about what is public on Bluesky."
-msgstr "Aflați mai multe despre ce este public pe Bluesky."
+msgstr "Aflați mai multe despre ce este public pe Chai."
 
 #: src/screens/Profile/components/GermButton.tsx:211
 msgid "Learn more about your Germ DM link"
@@ -5646,7 +5646,7 @@ msgstr "Părăsire conversație"
 #: src/components/dialogs/LinkWarning.tsx:83
 #: src/components/dialogs/LinkWarning.tsx:91
 msgid "Leaving Bluesky"
-msgstr "Părăsiți Bluesky"
+msgstr "Părăsiți Chai"
 
 #: src/screens/SignupQueued.tsx:158
 msgid "left to go."
@@ -6511,7 +6511,7 @@ msgstr "Imaginea următoare"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:32
 msgid "No ads, no invasive tracking, no engagement traps. Bluesky respects your time and attention."
-msgstr "Fără reclame, fără urmărire invazivă, fără capcane de implicare. Bluesky vă respectă timpul și atenția."
+msgstr "Fără reclame, fără urmărire invazivă, fără capcane de implicare. Chai vă respectă timpul și atenția."
 
 #: src/screens/Settings/AppPasswords.tsx:108
 msgid "No app passwords yet"
@@ -6741,7 +6741,7 @@ msgstr "Notă despre partajare"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:117
 msgid "Note: Bluesky is an open and public network. This setting only limits the visibility of your content on the Bluesky app and website, and other apps may not respect this setting. Your content may still be shown to logged-out users by other apps and websites."
-msgstr "Notă: Bluesky este o rețea deschisă și publică. Această setare limitează doar vizibilitatea conținutului dvs. pe aplicația și pe site-ul Bluesky, iar alte aplicații ar putea să nu respecte această setare. Conținutul dvs. poate fi afișat în continuare utilizatorilor deconectați de alte aplicații și site-uri web."
+msgstr "Notă: Chai este o rețea deschisă și publică. Această setare limitează doar vizibilitatea conținutului dvs. pe aplicația și pe site-ul Chai, iar alte aplicații ar putea să nu respecte această setare. Conținutul dvs. poate fi afișat în continuare utilizatorilor deconectați de alte aplicații și site-uri web."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:135
 msgid "Note: This post is only visible to logged-in users."
@@ -7064,12 +7064,12 @@ msgstr "Deschide selectorul de emoji"
 #: src/view/com/auth/SplashScreen.tsx:102
 #: src/view/com/auth/SplashScreen.web.tsx:116
 msgid "Opens flow to create a new Bluesky account"
-msgstr "Deschide interfața pentru a crea un nou cont Bluesky"
+msgstr "Deschide interfața pentru a crea un nou cont Chai"
 
 #: src/view/com/auth/SplashScreen.tsx:120
 #: src/view/com/auth/SplashScreen.web.tsx:130
 msgid "Opens flow to sign in to your existing Bluesky account"
-msgstr "Deschide procesul pentru a vă conecta la contul dvs. Bluesky existent"
+msgstr "Deschide procesul pentru a vă conecta la contul dvs. Chai existent"
 
 #: src/view/com/composer/photos/SelectGifBtn.tsx:37
 msgid "Opens GIF select dialog"
@@ -7190,7 +7190,7 @@ msgstr "Echipa noastră de moderare a primit raportul dvs."
 
 #: src/screens/Messages/components/ChatDisabled.tsx:35
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
-msgstr "Moderatorii noștri au analizat rapoartele și au decis să dezactiveze accesul dvs. la conversații pe Bluesky."
+msgstr "Moderatorii noștri au analizat rapoartele și au decis să dezactiveze accesul dvs. la conversații pe Chai."
 
 #: src/components/dialogs/StarterPackDialog.tsx:384
 msgid "Owner"
@@ -7403,7 +7403,7 @@ msgstr "Vă rugăm să vă alegeți parola."
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:291
 msgid "Please click on the link in the email we just sent you to verify your new email address. This is an important step to allow you to continue enjoying all the features of Bluesky."
-msgstr "Vă rugăm faceți clic pe linkul din e-mailul pe care tocmai vi l-am trimis pentru a vă verifica noua adresă de e-mail. Acesta este un pas important pentru a vă permite să vă bucurați în continuare de toate caracteristicile Bluesky."
+msgstr "Vă rugăm faceți clic pe linkul din e-mailul pe care tocmai vi l-am trimis pentru a vă verifica noua adresă de e-mail. Acesta este un pas important pentru a vă permite să vă bucurați în continuare de toate caracteristicile Chai."
 
 #: src/screens/Signup/state.ts:308
 msgid "Please complete the verification captcha."
@@ -7931,17 +7931,17 @@ msgstr "Citiți postarea noastră de pe blog"
 
 #: src/view/com/auth/SplashScreen.web.tsx:178
 msgid "Read the Bluesky blog"
-msgstr "Citiți blogul Bluesky"
+msgstr "Citiți blogul Chai"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:53
 #: src/screens/Signup/StepInfo/Policies.tsx:79
 msgid "Read the Bluesky Privacy Policy"
-msgstr "Citiți Politica de Confidențialitate Bluesky"
+msgstr "Citiți Politica de Confidențialitate Chai"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:46
 #: src/screens/Signup/StepInfo/Policies.tsx:66
 msgid "Read the Bluesky Terms of Service"
-msgstr "Citiți Termenii de Serviciu Bluesky"
+msgstr "Citiți Termenii de Serviciu Chai"
 
 #: src/components/WelcomeModal.tsx:149
 msgid "Real conversations."
@@ -8820,7 +8820,7 @@ msgstr "Vedeți postările #{tag} de la utilizator"
 
 #: src/view/com/auth/SplashScreen.web.tsx:183
 msgid "See jobs at Bluesky"
-msgstr "Vedeți locuri de muncă la Bluesky"
+msgstr "Vedeți locuri de muncă la Chai"
 
 #: src/components/FeedInterstitials.tsx:592
 #: src/components/FeedInterstitials.tsx:655
@@ -9226,7 +9226,7 @@ msgstr "Distribuiți acest pachet de pornire"
 
 #: src/components/StarterPack/ShareDialog.tsx:86
 msgid "Share this starter pack and help people join your community on Bluesky."
-msgstr "Distribuiți acest pachet de pornire și ajutați oamenii să se alăture comunității dvs. pe Bluesky."
+msgstr "Distribuiți acest pachet de pornire și ajutați oamenii să se alăture comunității dvs. pe Chai."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:121
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:124
@@ -9425,7 +9425,7 @@ msgstr "Conectați-vă la un cont care nu este listat"
 
 #: src/components/dialogs/Signin.tsx:47
 msgid "Sign in to Bluesky or create a new account"
-msgstr "Conectați-vă la Bluesky sau creați un cont nou"
+msgstr "Conectați-vă la Chai sau creați un cont nou"
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:571
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:573
@@ -9706,7 +9706,7 @@ msgstr "Storybook"
 
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:181
 msgid "Streaming on Twitch? Set your live status on Bluesky to add a badge to your avatar. Tapping it takes people straight to your stream."
-msgstr "Transmiteți în direct pe Twitch? Setați-vă starea în direct pe Bluesky pentru a adăuga o insignă avatarului dvs. Atingând-o, utilizatorii vor fi redirecționați direct către transmisiunea dvs."
+msgstr "Transmiteți în direct pe Twitch? Setați-vă starea în direct pe Chai pentru a adăuga o insignă avatarului dvs. Atingând-o, utilizatorii vor fi redirecționați direct către transmisiunea dvs."
 
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:122
 #: src/components/ageAssurance/AgeAssuranceAppealDialog.tsx:128
@@ -9845,7 +9845,7 @@ msgstr "Doar etichete"
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:110
 msgid "Tap below to allow Bluesky to access your GPS location. We will then use that data to more accurately determine the content and features available in your region."
-msgstr "Atingeți mai jos pentru a permite aplicației Bluesky să vă acceseze locația GPS. Vom folosi apoi aceste date pentru a determina cu mai multă precizie conținutul și caracteristicile disponibile în regiunea dvs."
+msgstr "Atingeți mai jos pentru a permite aplicației Chai să vă acceseze locația GPS. Vom folosi apoi aceste date pentru a determina cu mai multă precizie conținutul și caracteristicile disponibile în regiunea dvs."
 
 #: src/view/com/feeds/MissingFeed.tsx:90
 msgid "Tap for information"
@@ -9861,7 +9861,7 @@ msgstr "Atingeți aici pentru a confirma locația dvs. cu GPS."
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:165
 msgid "Tap to acknowledge that you understand and agree to these updates and continue using Bluesky"
-msgstr "Atingeți pentru a confirma că înțelegeți și sunteți de acord cu aceste actualizări și pentru a continua să utilizați Bluesky"
+msgstr "Atingeți pentru a confirma că înțelegeți și sunteți de acord cu aceste actualizări și pentru a continua să utilizați Chai"
 
 #: src/components/ContextMenu/Backdrop.ios.tsx:54
 #: src/components/ContextMenu/Backdrop.ios.tsx:80
@@ -9992,7 +9992,7 @@ msgstr "Data nașterii pe care ați introdus-o indică faptul că aveți sub 18 
 
 #: src/screens/Moderation/index.tsx:424
 msgid "The Bluesky web application"
-msgstr "Aplicația web Bluesky"
+msgstr "Aplicația web Chai"
 
 #: src/view/screens/CommunityGuidelines.tsx:42
 msgid "The Community Guidelines have been moved to <0/>"
@@ -10012,7 +10012,7 @@ msgstr "Fluxul Descoperă știe acum ce vă place"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:334
 msgid "The experience is better in the app. Download Bluesky now and we'll pick back up where you left off."
-msgstr "Experiența este mai bună în aplicație. Descărcați Bluesky acum și vom continua de unde ați rămas."
+msgstr "Experiența este mai bună în aplicație. Descărcați Chai acum și vom continua de unde ați rămas."
 
 #: src/view/com/posts/FeedShutdownMsg.tsx:70
 msgid "The feed has been replaced with Discover."
@@ -10191,7 +10191,7 @@ msgstr "A apărut o problemă neașteptată în aplicație. Vă rugăm să ne sp
 
 #: src/screens/SignupQueued.tsx:133
 msgid "There's been a rush of new users to Bluesky! We'll activate your account as soon as we can."
-msgstr "Au fost o grămadă de utilizatori noi pe Bluesky! Vă vom activa contul cât mai curând posibil."
+msgstr "Au fost o grămadă de utilizatori noi pe Chai! Vă vom activa contul cât mai curând posibil."
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:660
 msgid "These are your default settings"
@@ -10236,7 +10236,7 @@ msgstr "Această contestație va fi trimisă la <0>{sourceName}</0>."
 #: src/features/liveNow/components/GoLiveDisabledDialog.tsx:114
 #: src/screens/Messages/components/ChatDisabled.tsx:119
 msgid "This appeal will be sent to Bluesky's moderation service."
-msgstr "Această contestație va fi trimisă la serviciul de moderare al companiei Bluesky."
+msgstr "Această contestație va fi trimisă la serviciul de moderare al companiei Chai."
 
 #: src/screens/PostThread/components/ThreadItemAnchorNoUnauthenticated.tsx:27
 #: src/screens/PostThread/components/ThreadItemPostNoUnauthenticated.tsx:47
@@ -10245,7 +10245,7 @@ msgstr "Acest autor a ales să facă postările vizibile doar persoanelor care s
 
 #: src/screens/Profile/components/GermButton.tsx:243
 msgid "This button lets others open the Germ DM app to send you a message. You can manage its visibility from the Germ DM app, or you can disconnect your Bluesky account from Germ DM altogether by clicking the button below."
-msgstr "Acest buton permite celorlalți să deschidă aplicația Germ DM pentru a vă trimite un mesaj. Puteți gestiona vizibilitatea din aplicația Germ DM, sau puteți deconecta contul Bluesky de la Germ DM apăsând butonul de mai jos."
+msgstr "Acest buton permite celorlalți să deschidă aplicația Germ DM pentru a vă trimite un mesaj. Puteți gestiona vizibilitatea din aplicația Germ DM, sau puteți deconecta contul Chai de la Germ DM apăsând butonul de mai jos."
 
 #: src/screens/Messages/components/MessageListError.tsx:18
 msgid "This chat was disconnected"
@@ -10279,7 +10279,7 @@ msgstr "Acest conținut nu este disponibil deoarece unul dintre utilizatorii imp
 
 #: src/view/com/posts/PostFeedErrorMessage.tsx:122
 msgid "This content is not viewable without a Bluesky account."
-msgstr "Acest conținut nu poate fi vizualizat fără un cont Bluesky."
+msgstr "Acest conținut nu poate fi vizualizat fără un cont Chai."
 
 #: src/screens/Messages/components/ChatListItem.tsx:362
 msgid "This conversation is with a deleted or a deactivated account. Press for options"
@@ -10371,11 +10371,11 @@ msgstr "Acest link vă va duce la următorul website:"
 #. placeholder {0}: sanitizeHandle(list.creator.handle, '@')
 #: src/screens/List/ListHiddenScreen.tsx:155
 msgid "This list – created by <0>{0}</0> – contains possible violations of Bluesky's community guidelines in its name or description."
-msgstr "Această listă - creată de <0>{0}</0> - conține posibile încălcări ale regulilor comunității Bluesky în numele sau descrierea ei."
+msgstr "Această listă - creată de <0>{0}</0> - conține posibile încălcări ale regulilor comunității Chai în numele sau descrierea ei."
 
 #: src/screens/List/ListHiddenScreen.tsx:150
 msgid "This list – created by you – contains possible violations of Bluesky's community guidelines in its name or description."
-msgstr "Această listă - creată de dvs. - conține posibile încălcări ale regulilor comunității Bluesky în numele sau descrierea ei."
+msgstr "Această listă - creată de dvs. - conține posibile încălcări ale regulilor comunității Chai în numele sau descrierea ei."
 
 #: src/screens/ProfileList/AboutSection.tsx:100
 msgid "This list is empty."
@@ -10389,7 +10389,7 @@ msgstr "Acest serviciu de moderare nu este disponibil. Consultați mai jos pentr
 #. placeholder {1}: niceDate(i18n, indexedAt)
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:639
 msgid "This post claims to have been created on <0>{0}</0>, but was first seen by Bluesky on <1>{1}</1>."
-msgstr "Această postare pretinde că a fost creată pe <0>{0}</0>, dar a fost văzută prima dată de Bluesky pe <1>{1}</1>."
+msgstr "Această postare pretinde că a fost creată pe <0>{0}</0>, dar a fost văzută prima dată de Chai pe <1>{1}</1>."
 
 #: src/components/WhoCanReply.tsx:274
 msgid "This post has an unknown type of threadgate on it. Your app may be out of date."
@@ -10485,7 +10485,7 @@ msgstr "Aceasta va șterge „{0}” din cuvintele dvs. amuțite. Îl puteți ad
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:337
 msgid "This will irreversibly delete your Bluesky account <0>{currentHandle}</0> and all associated data. Note that this will affect any other <1>AT Protocol</1> services you use with this account."
-msgstr "Această acțiune va șterge ireversibil contul dvs. Bluesky <0>{currentHandle}</0> și toate datele asociate. Rețineți că acest lucru va afecta orice alte servicii pe <1>Protocolul AT</1> pe care le utilizați cu acest cont."
+msgstr "Această acțiune va șterge ireversibil contul dvs. Chai <0>{currentHandle}</0> și toate datele asociate. Rețineți că acest lucru va afecta orice alte servicii pe <1>Protocolul AT</1> pe care le utilizați cu acest cont."
 
 #. placeholder {0}: account.handle
 #: src/screens/Settings/Settings.tsx:671
@@ -10667,7 +10667,7 @@ msgstr "Tip:"
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:86
 msgid "Unable to access location. You'll need to visit your system settings to enable location services for Bluesky."
-msgstr "Nu se poate accesa locația. Va trebui să accesați setările sistemului pentru a activa serviciile de localizare pentru Bluesky."
+msgstr "Nu se poate accesa locația. Va trebui să accesați setările sistemului pentru a activa serviciile de localizare pentru Chai."
 
 #: src/lib/hooks/useCleanError.ts:27
 #: src/lib/strings/errors.ts:12
@@ -10794,11 +10794,11 @@ msgstr "Din păcate, niciunul dintre etichetatorii la care sunteți abonat nu ac
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:200
 msgid "Unfortunately, the birthdate you have saved to your profile makes you too young to access Bluesky."
-msgstr "Din păcate, data nașterii pe care ați salvat-o în profilul dvs. vă face prea tânăr pentru a accesa Bluesky."
+msgstr "Din păcate, data nașterii pe care ați salvat-o în profilul dvs. vă face prea tânăr pentru a accesa Chai."
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:185
 msgid "Unfortunately, your declared age indicates that you are not old enough to access Bluesky in your region."
-msgstr "Din păcate, vârsta declarată indică faptul că nu aveți vârsta necesară pentru a accesa Bluesky în regiunea dvs."
+msgstr "Din păcate, vârsta declarată indică faptul că nu aveți vârsta necesară pentru a accesa Chai în regiunea dvs."
 
 #: src/components/verification/VerificationsDialog.tsx:209
 msgid "Unknown verifier"
@@ -11011,7 +11011,7 @@ msgstr "Se încarcă videoclipul..."
 
 #: src/screens/Settings/AppPasswords.tsx:67
 msgid "Use app passwords to sign in to other Bluesky clients without giving full access to your account or password."
-msgstr "Utilizați parolele de aplicație pentru a vă conecta la alți clienți Bluesky fără a acorda acces deplin la contul sau parola dvs."
+msgstr "Utilizați parolele de aplicație pentru a vă conecta la alți clienți Chai fără a acorda acces deplin la contul sau parola dvs."
 
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:576
 msgid "Use default provider"
@@ -11042,7 +11042,7 @@ msgstr "Utilizați asta pentru a vă conecta la cealaltă aplicație împreună 
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:278
 msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
-msgstr "Utilizați adresa dvs. de e-mail sau o altă adresă reală de e-mail pe care o controlați în cazul în care KWS sau Bluesky trebuie să vă contacteze."
+msgstr "Utilizați adresa dvs. de e-mail sau o altă adresă reală de e-mail pe care o controlați în cazul în care KWS sau Chai trebuie să vă contacteze."
 
 #: src/components/dms/AfterReportDialog.tsx:154
 msgctxt "toast"
@@ -11149,7 +11149,7 @@ msgstr "Setări de verificare"
 
 #: src/screens/Moderation/VerificationSettings.tsx:43
 msgid "Verifications on Bluesky work differently than on other platforms. <0>Learn more here.</0>"
-msgstr "Verificările pe Bluesky funcționează diferit față de alte platforme. <0>Aflați mai multe aici.</0>"
+msgstr "Verificările pe Chai funcționează diferit față de alte platforme. <0>Aflați mai multe aici.</0>"
 
 #: src/components/verification/VerificationsDialog.tsx:105
 msgid "Verified by:"
@@ -11516,7 +11516,7 @@ msgstr "Estimăm {estimatedTime} până când contul dvs. este gata."
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:197
 msgid "We have partnered with <0>KWS</0> to handle age verification. When you click \"Begin\" below, KWS will email you instructions to complete the verification process. If your email address has already been used to verify your age for another game or service that uses KWS, you won’t need to do it again. When you’re done, you'll be brought back to continue using Bluesky."
-msgstr "Am încheiat un parteneriat cu <0>KWS</0> pentru verificarea vârstei. Când faceți clic mai jos pe „Începeți”, KWS vă va trimite prin e-mail instrucțiuni pentru a finaliza procesul de verificare a vârstei. Dacă adresa de e-mail a fost deja folosită pentru verificarea vârstei pentru alte jocuri/servicii susținute de tehnologia KWS, nu va trebui să o mai faceți încă o dată. Când ați terminat, veți fi redirecționat pentru a continua să utilizați Bluesky."
+msgstr "Am încheiat un parteneriat cu <0>KWS</0> pentru verificarea vârstei. Când faceți clic mai jos pe „Începeți”, KWS vă va trimite prin e-mail instrucțiuni pentru a finaliza procesul de verificare a vârstei. Dacă adresa de e-mail a fost deja folosită pentru verificarea vârstei pentru alte jocuri/servicii susținute de tehnologia KWS, nu va trebui să o mai faceți încă o dată. Când ați terminat, veți fi redirecționat pentru a continua să utilizați Chai."
 
 #. placeholder {0}: currentAccount?.email
 #: src/components/intents/VerifyEmailIntentDialog.tsx:102
@@ -11610,7 +11610,7 @@ msgstr "Avem probleme cu rețeaua, încercați din nou"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:96
 msgid "We’re introducing a new layer of verification on Bluesky — an easy-to-see checkmark."
-msgstr "Introducem un nou nivel de verificare pe Bluesky - o bifă ușor de văzut."
+msgstr "Introducem un nou nivel de verificare pe Chai - o bifă ușor de văzut."
 
 #: src/screens/Signup/index.tsx:137
 msgid "We're so excited to have you join us!"
@@ -11842,7 +11842,7 @@ msgstr "Sunteți un verificator de încredere"
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:176
 msgid "You are accessing Bluesky from a region that legally requires us to verify your age before allowing you to access the app."
-msgstr "Accesați Bluesky dintr-o regiune care, în mod legal, ne cere să vă verificăm vârsta înainte de a vă permite să accesați aplicația."
+msgstr "Accesați Chai dintr-o regiune care, în mod legal, ne cere să vă verificăm vârsta înainte de a vă permite să accesați aplicația."
 
 #: src/components/forms/HostingProvider.tsx:46
 msgid "You are creating an account on"
@@ -11855,7 +11855,7 @@ msgstr "În prezent, nu puteți folosi caracteristica în direct. Pentru a conte
 #: src/ageAssurance/components/NoAccessScreen.tsx:330
 #: src/components/ageAssurance/AgeAssuranceAccountCard.tsx:155
 msgid "You are currently unable to access Bluesky's Age Assurance flow. Please <0>contact our moderation team</0> if you believe this is an error."
-msgstr "Momentan nu puteți accesa procesul de verificare a vârstei pe Bluesky. Vă rugăm să <0>contactați echipa noastră de moderare</0> dacă considerați că aceasta este o eroare."
+msgstr "Momentan nu puteți accesa procesul de verificare a vârstei pe Chai. Vă rugăm să <0>contactați echipa noastră de moderare</0> dacă considerați că aceasta este o eroare."
 
 #: src/screens/SignupQueued.tsx:160
 msgid "You are in line."
@@ -11900,7 +11900,7 @@ msgstr "Vă puteți ajusta interesele în orice moment din setările „Conținu
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:214
 msgid "You can also <0>temporarily deactivate</0> your account instead. Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "De asemenea, puteți să vă <0>dezactivați temporar</0> contul. Profilul, postările, fluxurile și listele dvs. nu vor mai fi vizibile pentru alți utilizatori Bluesky. Vă puteți reactiva contul în orice moment, conectându-vă."
+msgstr "De asemenea, puteți să vă <0>dezactivați temporar</0> contul. Profilul, postările, fluxurile și listele dvs. nu vor mai fi vizibile pentru alți utilizatori Chai. Vă puteți reactiva contul în orice moment, conectându-vă."
 
 #: src/view/com/posts/FollowingEmptyState.tsx:63
 #: src/view/com/posts/FollowingEndOfFeed.tsx:64
@@ -12006,7 +12006,7 @@ msgstr "Ați blocat acest utilizator. Nu puteți vizualiza conținutul acestuia.
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:17
 msgid "You have completed the Age Assurance process, but based on the results, we cannot be sure that you are 18 years of age or older. Due to laws in your region, certain features on Bluesky must remain restricted until you're able to verify you're an adult."
-msgstr "Ați finalizat procesul de verificare a vârstei, dar pe baza rezultatelor, nu putem fi siguri că aveți vârsta de 18 ani sau mai mult. Conform legilor și reglementărilor din regiunea dvs., anumite caracteristici ale Bluesky trebuie să rămână restricționate până când puteți confirma că sunteți adult."
+msgstr "Ați finalizat procesul de verificare a vârstei, dar pe baza rezultatelor, nu putem fi siguri că aveți vârsta de 18 ani sau mai mult. Conform legilor și reglementărilor din regiunea dvs., anumite caracteristici ale Chai trebuie să rămână restricționate până când puteți confirma că sunteți adult."
 
 #: src/view/screens/Notifications.tsx:298
 msgid "You have completely disabled reply, quote, and mention notifications, so this tab will no longer update. To adjust this, visit your <0>notification settings</0>."
@@ -12107,11 +12107,11 @@ msgstr "Ați inițiat deja acest proces acum {0}. Este posibil să dureze până
 
 #: src/components/NewskieDialog.tsx:107
 msgid "You joined Bluesky {timeAgoString} ago"
-msgstr "V-ați alăturat la Bluesky cu {timeAgoString} în urmă"
+msgstr "V-ați alăturat la Chai cu {timeAgoString} în urmă"
 
 #: src/components/NewskieDialog.tsx:104
 msgid "You joined Bluesky using a starter pack {timeAgoString} ago"
-msgstr "V-ați alăturat la Bluesky folosind un pachet de pornire cu {timeAgoString} în urmă"
+msgstr "V-ați alăturat la Chai folosind un pachet de pornire cu {timeAgoString} în urmă"
 
 #: src/components/moderation/LabelsOnMeDialog.tsx:84
 msgid "You may appeal non-self labels if you feel they were placed in error."
@@ -12131,7 +12131,7 @@ msgstr "Puteți adăuga până la 3 fluxuri"
 
 #: src/components/dialogs/BirthDateSettings.tsx:177
 msgid "You must be at least 13 years old to use Bluesky. Read our <0>Terms of Service</0> for more information."
-msgstr "Trebuie să aveți cel puțin 13 ani pentru a utiliza Bluesky. Citiți <0>Termenii de Serviciu</0> pentru mai multe informații."
+msgstr "Trebuie să aveți cel puțin 13 ani pentru a utiliza Chai. Citiți <0>Termenii de Serviciu</0> pentru mai multe informații."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:365
 msgid "You must be following at least seven other people to generate a starter pack."
@@ -12228,7 +12228,7 @@ msgstr "Îi veți urmări pe acești oameni imediat"
 
 #: src/components/contacts/screens/GetContacts.tsx:314
 msgid "You'll need to go to the System Settings for Bluesky and give permission if you want to use this feature."
-msgstr "Va trebui să mergeți la setările de sistem pentru Bluesky și să acordați permisiunea dacă doriți să folosiți această caracteristică."
+msgstr "Va trebui să mergeți la setările de sistem pentru Chai și să acordați permisiunea dacă doriți să folosiți această caracteristică."
 
 #. placeholder {0}: sanitizeHandle(profile.handle, '@')
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:172
@@ -12319,7 +12319,7 @@ msgstr "Repozitoriul contului dvs., care conține toate înregistrările de date
 
 #: src/screens/Takendown.tsx:210
 msgid "Your account was found to be in violation of the <0>Bluesky Social Terms of Service</0>. You have been sent an email outlining the specific violation and suspension period, if applicable. You can appeal this decision if you believe it was made in error."
-msgstr "Contul dvs. a fost găsit încălcând <0>Termenii de Serviciu a Bluesky Social</0>. Vi s-a trimis un e-mail în care se indică perioada de încălcare specifică și de suspendare, dacă este cazul. Puteți contesta această decizie dacă credeți că a fost luată din greșeală."
+msgstr "Contul dvs. a fost găsit încălcând <0>Termenii de Serviciu a Chai</0>. Vi s-a trimis un e-mail în care se indică perioada de încălcare specifică și de suspendare, dacă este cazul. Puteți contesta această decizie dacă credeți că a fost luată din greșeală."
 
 #: src/screens/Takendown.tsx:150
 msgid "Your appeal has been submitted. If your appeal succeeds, you will receive an email."
@@ -12343,11 +12343,11 @@ msgstr "Alegerea dvs. va fi memorată pentru link-urile viitoare. Puteți să o 
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:367
 msgid "Your contact {firstAuthorLink} is on Bluesky"
-msgstr "Persoana dvs. de contact {firstAuthorLink} este pe Bluesky"
+msgstr "Persoana dvs. de contact {firstAuthorLink} este pe Chai"
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:365
 msgid "Your contact {firstAuthorName} is on Bluesky"
-msgstr "Persoana dvs. de contact {firstAuthorName} este pe Bluesky"
+msgstr "Persoana dvs. de contact {firstAuthorName} este pe Chai"
 
 #: src/components/contacts/screens/ViewMatches.tsx:454
 msgid "Your contact {name}"
@@ -12377,7 +12377,7 @@ msgstr "E-mailul dvs. pare a fi nevalid."
 
 #: src/components/dialogs/EmailDialog/screens/VerificationReminder.tsx:66
 msgid "Your email has not yet been verified. Please verify your email in order to enjoy all the features of Bluesky."
-msgstr "E-mailul dvs. nu a fost încă verificat. Vă rugăm să vă verificați adresa de e-mail pentru a vă bucura de toate caracteristicile Bluesky."
+msgstr "E-mailul dvs. nu a fost încă verificat. Vă rugăm să vă verificați adresa de e-mail pentru a vă bucura de toate caracteristicile Chai."
 
 #: src/state/shell/progress-guide.tsx:216
 msgid "Your first like!"
@@ -12427,7 +12427,7 @@ msgstr "Cuvintele dvs. amuțite"
 
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:72
 msgid "Your password has been changed successfully! Please use your new password when you sign in to Bluesky from now on."
-msgstr "Parola dvs. a fost modificată cu succes! Vă rugăm să folosiți noua parolă atunci când vă veți conecta la Bluesky de acum înainte."
+msgstr "Parola dvs. a fost modificată cu succes! Vă rugăm să folosiți noua parolă atunci când vă veți conecta la Chai de acum înainte."
 
 #: src/screens/Signup/StepInfo/index.tsx:161
 msgid "Your password must be at least 8 characters long."
@@ -12456,7 +12456,7 @@ msgstr "Imaginea dvs. de profil înconjurată de cercuri concentrice cu imagini 
 
 #: src/screens/Settings/components/DeactivateAccountDialog.tsx:75
 msgid "Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "Profilul, postările, fluxurile și listele dvs. nu vor mai fi vizibile pentru alți utilizatori Bluesky. Vă puteți reactiva contul în orice moment, conectându-vă."
+msgstr "Profilul, postările, fluxurile și listele dvs. nu vor mai fi vizibile pentru alți utilizatori Chai. Vă puteți reactiva contul în orice moment, conectându-vă."
 
 #: src/view/com/composer/Composer.tsx:981
 msgid "Your reply was sent"

@@ -41,8 +41,7 @@ export function Screen() {
           <SettingsList.Item>
             <Admonition type="tip" style={[a.flex_1]}>
               <Trans>
-                Verifications on Bluesky work differently than on other
-                platforms.{' '}
+                Verifications on Chai work differently than on other platforms.{' '}
                 <InlineLinkText
                   overridePresentation
                   to={urls.website.blog.initialVerificationAnnouncement}

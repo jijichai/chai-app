@@ -1735,11 +1735,11 @@ msgstr "Blog"
 #: src/components/dialogs/ServerInput.tsx:144
 #: src/components/dialogs/ServerInput.tsx:146
 msgid "Bluesky"
-msgstr "Bluesky"
+msgstr "Chai"
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:652
 msgid "Bluesky cannot confirm the authenticity of the claimed date."
-msgstr "Bluesky nie może potwierdzić autentyczności podanej daty."
+msgstr "Chai nie może potwierdzić autentyczności podanej daty."
 
 #: src/screens/Settings/AppIconSettings/useAppIconSets.ts:165
 msgctxt "Name of app icon variant"
@@ -1752,15 +1752,15 @@ msgstr ""
 
 #: src/components/dialogs/ServerInput.tsx:214
 msgid "Bluesky is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
-msgstr "Bluesky to otwarta sieć, w której możesz wybrać swojego dostawcę hostingu. Jeśli jesteś deweloperem, możesz hostować własny serwer."
+msgstr "Chai to otwarta sieć, w której możesz wybrać swojego dostawcę hostingu. Jeśli jesteś deweloperem, możesz hostować własny serwer."
 
 #: src/components/dialogs/ServerInput.tsx:162
 msgid "Bluesky is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default Bluesky Social option."
-msgstr "Bluesky to otwarta sieć, w której możesz wybrać swojego dostawcę usług. Dla nowych użytkowników zalecamy użycie domyślnej opcji – Bluesky Social."
+msgstr "Chai to otwarta sieć, w której możesz wybrać swojego dostawcę usług. Dla nowych użytkowników zalecamy użycie domyślnej opcji – Chai."
 
 #: src/components/ProgressGuide/List.tsx:117
 msgid "Bluesky is better with friends!"
-msgstr "Bluesky jest lepszy ze znajomymi!"
+msgstr "Chai jest lepszy ze znajomymi!"
 
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:43
 msgid "Bluesky is more fun with friends"
@@ -1776,7 +1776,7 @@ msgstr ""
 
 #: src/screens/Takendown.tsx:213
 msgid "Bluesky Social Terms of Service"
-msgstr "Regulamin Bluesky Social"
+msgstr "Regulamin Chai"
 
 #: src/screens/Settings/FindContactsSettings.tsx:549
 msgid "Bluesky stores your contacts as encoded data. Removing your contacts will immediately delete this data."
@@ -1784,11 +1784,11 @@ msgstr ""
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:340
 msgid "Bluesky will choose a set of recommended accounts from people in your network."
-msgstr "Bluesky wybierze zestaw polecanych kont spośród osób w Twojej sieci."
+msgstr "Chai wybierze zestaw polecanych kont spośród osób w Twojej sieci."
 
 #: src/screens/Settings/components/PwiOptOut.tsx:100
 msgid "Bluesky will not show your profile and posts to logged-out users. Other apps may not honor this request. This does not make your account private."
-msgstr "Bluesky nie pokaże twojego profilu i wpisów niezalogowanym użytkownikom. Inne aplikacje mogą nie respektować tej prośby. Nie spowoduje to, że twoje konto stanie się prywatne."
+msgstr "Chai nie pokaże twojego profilu i wpisów niezalogowanym użytkownikom. Inne aplikacje mogą nie respektować tej prośby. Nie spowoduje to, że twoje konto stanie się prywatne."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:134
 msgid "Bluesky will proactively verify notable and authentic accounts."
@@ -1796,11 +1796,11 @@ msgstr ""
 
 #: src/screens/Settings/AppIconSettings/index.tsx:97
 msgid "Bluesky+"
-msgstr "Bluesky+"
+msgstr "Chai+"
 
 #: src/screens/Settings/AppIconSettings/index.tsx:100
 msgid "Bluesky+ icons"
-msgstr "Ikony Bluesky+"
+msgstr "Ikony Chai+"
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:56
 msgid "Blur images"
@@ -2937,7 +2937,7 @@ msgstr ""
 
 #: src/screens/Onboarding/Layout.tsx:60
 msgid "Customizes your Bluesky experience"
-msgstr "Dostosowuje twoje doświadczenie w Bluesky"
+msgstr "Dostosowuje twoje doświadczenie w Chai"
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:200
 msgid "Dangerous challenges or activities"
@@ -3374,7 +3374,7 @@ msgstr "Kliknij dwukrotnie, aby polubić"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:331
 msgid "Download Bluesky"
-msgstr "Pobierz Bluesky"
+msgstr "Pobierz Chai"
 
 #: src/screens/Settings/components/ExportCarDialog.tsx:115
 #: src/screens/Settings/components/ExportCarDialog.tsx:120
@@ -5459,7 +5459,7 @@ msgstr "Praca"
 #: src/screens/StarterPack/StarterPackScreen.tsx:478
 #: src/screens/StarterPack/StarterPackScreen.tsx:489
 msgid "Join Bluesky"
-msgstr "Dołącz do Bluesky"
+msgstr "Dołącz do Chai"
 
 #: src/components/StarterPack/QrCode.tsx:72
 #: src/view/shell/NavSignupCard.tsx:41
@@ -5563,7 +5563,7 @@ msgstr ""
 
 #: src/view/com/auth/SplashScreen.web.tsx:173
 msgid "Learn more about Bluesky"
-msgstr "Dowiedz się więcej o Bluesky"
+msgstr "Dowiedz się więcej o Chai"
 
 #: src/components/contacts/components/InviteInfo.tsx:33
 msgid "Learn more about how inviting friends works"
@@ -5611,7 +5611,7 @@ msgstr ""
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:128
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:131
 msgid "Learn more about what is public on Bluesky."
-msgstr "Dowiedz się więcej o tym, co jest publiczne na Bluesky."
+msgstr "Dowiedz się więcej o tym, co jest publiczne na Chai."
 
 #: src/screens/Profile/components/GermButton.tsx:211
 msgid "Learn more about your Germ DM link"
@@ -5646,7 +5646,7 @@ msgstr "Opuść rozmowę"
 #: src/components/dialogs/LinkWarning.tsx:83
 #: src/components/dialogs/LinkWarning.tsx:91
 msgid "Leaving Bluesky"
-msgstr "Opuszczasz Bluesky"
+msgstr "Opuszczasz Chai"
 
 #: src/screens/SignupQueued.tsx:158
 msgid "left to go."
@@ -6741,7 +6741,7 @@ msgstr "Uwaga o udostępnianiu"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:117
 msgid "Note: Bluesky is an open and public network. This setting only limits the visibility of your content on the Bluesky app and website, and other apps may not respect this setting. Your content may still be shown to logged-out users by other apps and websites."
-msgstr "Uwaga: Bluesky jest otwartą i publiczną społecznością. To ustawienie ogranicza jedynie widoczność twoich treści w aplikacji i serwisie Bluesky, inne aplikacje mogą tego nie respektować. Twoje treści mogą być nadal wyświetlane niezalogowanym osobom przez inne aplikacje i strony internetowe."
+msgstr "Uwaga: Chai jest otwartą i publiczną społecznością. To ustawienie ogranicza jedynie widoczność twoich treści w aplikacji i serwisie Chai, inne aplikacje mogą tego nie respektować. Twoje treści mogą być nadal wyświetlane niezalogowanym osobom przez inne aplikacje i strony internetowe."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:135
 msgid "Note: This post is only visible to logged-in users."
@@ -7064,12 +7064,12 @@ msgstr "Otwiera selektor emoji"
 #: src/view/com/auth/SplashScreen.tsx:102
 #: src/view/com/auth/SplashScreen.web.tsx:116
 msgid "Opens flow to create a new Bluesky account"
-msgstr "Otwiera proces tworzenia nowego konta Bluesky"
+msgstr "Otwiera proces tworzenia nowego konta Chai"
 
 #: src/view/com/auth/SplashScreen.tsx:120
 #: src/view/com/auth/SplashScreen.web.tsx:130
 msgid "Opens flow to sign in to your existing Bluesky account"
-msgstr "Otwiera proces logowania do istniejącego konta Bluesky"
+msgstr "Otwiera proces logowania do istniejącego konta Chai"
 
 #: src/view/com/composer/photos/SelectGifBtn.tsx:37
 msgid "Opens GIF select dialog"
@@ -7190,7 +7190,7 @@ msgstr "Nasz zespół moderatorów otrzymał twoje zgłoszenie."
 
 #: src/screens/Messages/components/ChatDisabled.tsx:35
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
-msgstr "Nasi moderatorzy przeanalizowali zgłoszenia i zdecydowali o zablokowaniu dostępu do czatów na Bluesky."
+msgstr "Nasi moderatorzy przeanalizowali zgłoszenia i zdecydowali o zablokowaniu dostępu do czatów na Chai."
 
 #: src/components/dialogs/StarterPackDialog.tsx:384
 msgid "Owner"
@@ -7931,17 +7931,17 @@ msgstr ""
 
 #: src/view/com/auth/SplashScreen.web.tsx:178
 msgid "Read the Bluesky blog"
-msgstr "Czytaj blog Bluesky"
+msgstr "Czytaj blog Chai"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:53
 #: src/screens/Signup/StepInfo/Policies.tsx:79
 msgid "Read the Bluesky Privacy Policy"
-msgstr "Zapoznaj się z Polityką prywatności Bluesky"
+msgstr "Zapoznaj się z Polityką prywatności Chai"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:46
 #: src/screens/Signup/StepInfo/Policies.tsx:66
 msgid "Read the Bluesky Terms of Service"
-msgstr "Zapoznaj się z Regulaminem Bluesky"
+msgstr "Zapoznaj się z Regulaminem Chai"
 
 #: src/components/WelcomeModal.tsx:149
 msgid "Real conversations."
@@ -8820,7 +8820,7 @@ msgstr "Zobacz wpisy tej osoby o #{tag}"
 
 #: src/view/com/auth/SplashScreen.web.tsx:183
 msgid "See jobs at Bluesky"
-msgstr "Zobacz oferty pracy w Bluesky"
+msgstr "Zobacz oferty pracy w Chai"
 
 #: src/components/FeedInterstitials.tsx:592
 #: src/components/FeedInterstitials.tsx:655
@@ -9226,7 +9226,7 @@ msgstr "Udostępnij pakiet startowy"
 
 #: src/components/StarterPack/ShareDialog.tsx:86
 msgid "Share this starter pack and help people join your community on Bluesky."
-msgstr "Udostępnij ten pakiet startowy i pomóż innym dołączyć do twojej społeczności na Bluesky."
+msgstr "Udostępnij ten pakiet startowy i pomóż innym dołączyć do twojej społeczności na Chai."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:121
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:124
@@ -9425,7 +9425,7 @@ msgstr "Zaloguj się na konto, którego nie ma na liście"
 
 #: src/components/dialogs/Signin.tsx:47
 msgid "Sign in to Bluesky or create a new account"
-msgstr "Zaloguj się na Bluesky lub utwórz nowe konto"
+msgstr "Zaloguj się na Chai lub utwórz nowe konto"
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:571
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:573
@@ -9992,7 +9992,7 @@ msgstr ""
 
 #: src/screens/Moderation/index.tsx:424
 msgid "The Bluesky web application"
-msgstr "Aplikacja internetowa Bluesky"
+msgstr "Aplikacja internetowa Chai"
 
 #: src/view/screens/CommunityGuidelines.tsx:42
 msgid "The Community Guidelines have been moved to <0/>"
@@ -10012,7 +10012,7 @@ msgstr "Kanał główny już wie, co lubisz"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:334
 msgid "The experience is better in the app. Download Bluesky now and we'll pick back up where you left off."
-msgstr "Aplikacja zapewnia lepsze doświadczenia. Pobierz Bluesky teraz, dokończymy w tym samym miejscu."
+msgstr "Aplikacja zapewnia lepsze doświadczenia. Pobierz Chai teraz, dokończymy w tym samym miejscu."
 
 #: src/view/com/posts/FeedShutdownMsg.tsx:70
 msgid "The feed has been replaced with Discover."
@@ -10191,7 +10191,7 @@ msgstr "Wystąpił nieoczekiwany błąd w aplikacji. Daj nam znać, jeśli tak s
 
 #: src/screens/SignupQueued.tsx:133
 msgid "There's been a rush of new users to Bluesky! We'll activate your account as soon as we can."
-msgstr "Do Bluesky dołączyło wiele nowych osób! Twoje konto zostanie aktywowane tak szybko, jak to możliwe."
+msgstr "Do Chai dołączyło wiele nowych osób! Twoje konto zostanie aktywowane tak szybko, jak to możliwe."
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:660
 msgid "These are your default settings"
@@ -10236,7 +10236,7 @@ msgstr "Odwołanie zostanie wysłane do <0>{sourceName}</0>."
 #: src/features/liveNow/components/GoLiveDisabledDialog.tsx:114
 #: src/screens/Messages/components/ChatDisabled.tsx:119
 msgid "This appeal will be sent to Bluesky's moderation service."
-msgstr "Odwołanie zostanie wysłane do działu moderacji Bluesky."
+msgstr "Odwołanie zostanie wysłane do działu moderacji Chai."
 
 #: src/screens/PostThread/components/ThreadItemAnchorNoUnauthenticated.tsx:27
 #: src/screens/PostThread/components/ThreadItemPostNoUnauthenticated.tsx:47
@@ -10279,7 +10279,7 @@ msgstr "Ta zawartość jest niedostępna, ponieważ jeden z jej uczestników zab
 
 #: src/view/com/posts/PostFeedErrorMessage.tsx:122
 msgid "This content is not viewable without a Bluesky account."
-msgstr "Ta zawartość nie jest dostępna bez konta Bluesky."
+msgstr "Ta zawartość nie jest dostępna bez konta Chai."
 
 #: src/screens/Messages/components/ChatListItem.tsx:362
 msgid "This conversation is with a deleted or a deactivated account. Press for options"
@@ -10389,7 +10389,7 @@ msgstr "Ta usługa moderacji jest niedostępna. Więcej informacji znajduje się
 #. placeholder {1}: niceDate(i18n, indexedAt)
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:639
 msgid "This post claims to have been created on <0>{0}</0>, but was first seen by Bluesky on <1>{1}</1>."
-msgstr "Ten wpis został utworzony <0>{0}</0>, ale po raz pierwszy pojawił się na Bluesky <1>{1}</1>."
+msgstr "Ten wpis został utworzony <0>{0}</0>, ale po raz pierwszy pojawił się na Chai <1>{1}</1>."
 
 #: src/components/WhoCanReply.tsx:274
 msgid "This post has an unknown type of threadgate on it. Your app may be out of date."
@@ -11011,7 +11011,7 @@ msgstr "Przesyłanie wideo..."
 
 #: src/screens/Settings/AppPasswords.tsx:67
 msgid "Use app passwords to sign in to other Bluesky clients without giving full access to your account or password."
-msgstr "Używaj haseł aplikacji do logowania się do innych aplikacji obsługujących Bluesky bez konieczności udzielania pełnego dostępu do swojego konta czy hasła."
+msgstr "Używaj haseł aplikacji do logowania się do innych aplikacji obsługujących Chai bez konieczności udzielania pełnego dostępu do swojego konta czy hasła."
 
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:576
 msgid "Use default provider"
@@ -12319,7 +12319,7 @@ msgstr "Wszystkie publiczne dane konta można pobrać jako plik \"CAR\". Plik te
 
 #: src/screens/Takendown.tsx:210
 msgid "Your account was found to be in violation of the <0>Bluesky Social Terms of Service</0>. You have been sent an email outlining the specific violation and suspension period, if applicable. You can appeal this decision if you believe it was made in error."
-msgstr "Twoje konto zostało uznane za naruszające <0>Regulamin Bluesky Social</0>. Wysłano wiadomość email zawierającą informacje o szczegółach naruszenia i czasie zawieszenia, jeśli dotyczy. Możesz odwołać się od tej decyzji, jeśli uważasz, że to błąd."
+msgstr "Twoje konto zostało uznane za naruszające <0>Regulamin Chai</0>. Wysłano wiadomość email zawierającą informacje o szczegółach naruszenia i czasie zawieszenia, jeśli dotyczy. Możesz odwołać się od tej decyzji, jeśli uważasz, że to błąd."
 
 #: src/screens/Takendown.tsx:150
 msgid "Your appeal has been submitted. If your appeal succeeds, you will receive an email."
@@ -12456,7 +12456,7 @@ msgstr ""
 
 #: src/screens/Settings/components/DeactivateAccountDialog.tsx:75
 msgid "Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "Twój profil, wpisy, kanały i listy nie będą już widoczne dla innych na Bluesky. Możesz ponownie aktywować swoje konto w dowolnym momencie po zalogowaniu."
+msgstr "Twój profil, wpisy, kanały i listy nie będą już widoczne dla innych na Chai. Możesz ponownie aktywować swoje konto w dowolnym momencie po zalogowaniu."
 
 #: src/view/com/composer/Composer.tsx:981
 msgid "Your reply was sent"

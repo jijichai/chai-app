@@ -149,7 +149,7 @@ export function ListHiddenScreen({
             ) : isOwner ? (
               <Trans>
                 This list – created by you – contains possible violations of
-                Bluesky's community guidelines in its name or description.
+                Chai's community guidelines in its name or description.
               </Trans>
             ) : (
               <Trans>
@@ -157,8 +157,8 @@ export function ListHiddenScreen({
                 <Text style={[a.font_semi_bold]}>
                   {sanitizeHandle(list.creator.handle, '@')}
                 </Text>{' '}
-                – contains possible violations of Bluesky's community guidelines
-                in its name or description.
+                – contains possible violations of Chai's community guidelines in
+                its name or description.
               </Trans>
             )}
           </Text>

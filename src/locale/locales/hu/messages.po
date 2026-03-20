@@ -493,11 +493,11 @@ msgstr "{numMatches, plural, other {# névjegyet találtunk}}"
 
 #: src/components/NewskieDialog.tsx:115
 msgid "{profileName} joined Bluesky {timeAgoString} ago"
-msgstr "{profileName} {timeAgoString} csatlakozott a Blueskyhoz"
+msgstr "{profileName} {timeAgoString} csatlakozott a Chaihoz"
 
 #: src/components/NewskieDialog.tsx:112
 msgid "{profileName} joined Bluesky using a starter pack {timeAgoString} ago"
-msgstr "{profileName} {timeAgoString} csatlakozott a Blueskyhoz egy kezdőcsomag igénybevételével"
+msgstr "{profileName} {timeAgoString} csatlakozott a Chaihoz egy kezdőcsomag igénybevételével"
 
 #. The trending topic rank, i.e. "1. March Madness", "2. The Bachelor"
 #: src/screens/Search/modules/ExploreTrendingTopics.tsx:101
@@ -608,7 +608,7 @@ msgstr "<0>{date}</0>, {time}"
 #: src/screens/Hashtag.tsx:239
 #: src/screens/Search/SearchResults.tsx:315
 msgid "<0>Sign in</0><1> or </1><2>create an account</2><3> </3><4>to search for news, sports, politics, and everything else happening on Bluesky.</4>"
-msgstr "<0>Jelentkezz be</0><1> vagy </1><2>regisztrálj</2><3>, </3><4>ha szeretnél a Blueskyon híreket, sport- és politikai bejegyzéseket, vagy bármi mást keresni!</4>"
+msgstr "<0>Jelentkezz be</0><1> vagy </1><2>regisztrálj</2><3>, </3><4>ha szeretnél a Chaion híreket, sport- és politikai bejegyzéseket, vagy bármi mást keresni!</4>"
 
 #. placeholder {0}: getName(items[1] /* [0] is self, skip it */)
 #: src/screens/StarterPack/Wizard/index.tsx:505
@@ -643,7 +643,7 @@ msgstr "7 napig"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:17
 msgid "A collection of popular feeds you can find on Bluesky, including News, Booksky, Game Dev, Blacksky, and Fountain Pens"
-msgstr "A Bluesky néhány hírfolyamát ábrázoló illusztráció. Az alábbi hírfolyamok vannak megjelenítve: News, Booksky, Game Dev, Blacksky és Fountain Pens"
+msgstr "A Chai néhány hírfolyamát ábrázoló illusztráció. Az alábbi hírfolyamok vannak megjelenítve: News, Booksky, Game Dev, Blacksky és Fountain Pens"
 
 #. If last message does not contain text, fall back to "{user} reacted to {a message}"
 #: src/screens/Messages/components/ChatListItem.tsx:209
@@ -670,7 +670,7 @@ msgstr "A hitelesítés egy új formája"
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/LiveNowBetaDialog.tsx:147
 msgid "A screenshot of a post from @esb.lol, showing the user is currently livestreaming content on Twitch. The post reads: \"Hello! I'm live on Twitch, and I'm testing Bluesky's latest feature too!\""
-msgstr "@esb.lol bejegyzése, amelyen látszik, hogy a felhasználó épp élő adást közvetít. Az angol nyelvű bejegyzés lefordított szövege: „Üdv! Épp a Twitchen élőzöm és a Bluesky legújabb funkcióját próbálom ki!”"
+msgstr "@esb.lol bejegyzése, amelyen látszik, hogy a felhasználó épp élő adást közvetít. Az angol nyelvű bejegyzés lefordított szövege: „Üdv! Épp a Twitchen élőzöm és a Chai legújabb funkcióját próbálom ki!”"
 
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/BookmarksAnnouncement.tsx:121
@@ -684,7 +684,7 @@ msgstr "Képernyőkép egy felhasználói profilról, amelyen egy harang ikon l�
 #. Contains a post that originally appeared in English. Consider translating the post text if it makes sense in your language, and noting that the post was translated from English.
 #: src/components/dialogs/nuxs/DraftsAnnouncement.tsx:98
 msgid "A screenshot of the post composer with a new button next to the post button that says \"Drafts\", with a rainbow firework effect. Below, the text in the composer reads \"Hey, did you hear the news? Bluesky has drafts now!!!\"."
-msgstr "A bejegyzésíró felületet ábrázoló képernyőkép, amelyen egy új, „Piszkozatok” feliratú gomb található, szivárványos tűzijátékok mellett. A szövegmezőben – magyarra fordítva – a következő szöveg olvasható: „Hallottátok már? A Blueskyon mostantól piszkozatokat is lehet menteni!!!”."
+msgstr "A bejegyzésíró felületet ábrázoló képernyőkép, amelyen egy új, „Piszkozatok” feliratú gomb található, szivárványos tűzijátékok mellett. A szövegmezőben – magyarra fordítva – a következő szöveg olvasható: „Hallottátok már? A Chaion mostantól piszkozatokat is lehet menteni!!!”."
 
 #: src/Navigation.tsx:544
 #: src/screens/Settings/AboutSettings.tsx:74
@@ -800,7 +800,7 @@ msgstr "Fiók némítása feloldva"
 
 #: src/components/verification/VerifierDialog.tsx:99
 msgid "Accounts with a scalloped blue check mark <0><1/></0> can verify others. These trusted verifiers are selected by Bluesky."
-msgstr "Másokat hitelesíteni csak a <0><1/></0> recés pipával rendelkező fiókok képesek. Ezeket a megbízható hitelesítőket a Bluesky jelöli ki."
+msgstr "Másokat hitelesíteni csak a <0><1/></0> recés pipával rendelkező fiókok képesek. Ezeket a megbízható hitelesítőket a Chai jelöli ki."
 
 #: src/lib/hooks/useNotificationHandler.ts:185
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:105
@@ -1262,16 +1262,16 @@ msgstr "Hiba történt. {0}"
 #: src/components/contacts/components/HeroImage.tsx:28
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:79
 msgid "An illustration depicting user avatars flowing from a contact book into the Bluesky app"
-msgstr "Egy telefonkönyvből a Bluesky alkalmazásba áramló profilképeket ábrázoló kép"
+msgstr "Egy telefonkönyvből a Chai alkalmazásba áramló profilképeket ábrázoló kép"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:35
 msgid "An illustration of several Bluesky posts alongside repost, like, and comment icons"
-msgstr "Illusztráció, amely számos Bluesky-bejegyzést ábrázol megosztási-, kedvelési- és hozzászólási ikonok között"
+msgstr "Illusztráció, amely számos Chai-bejegyzést ábrázol megosztási-, kedvelési- és hozzászólási ikonok között"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:86
 #: src/components/verification/VerifierDialog.tsx:88
 msgid "An illustration showing that Bluesky selects trusted verifiers, and trusted verifiers in turn verify individual user accounts."
-msgstr "A megbízható hitelesítőket a Bluesky jelöli ki, akik ezután képesek más személyeket hitelesíteni."
+msgstr "A megbízható hitelesítőket a Chai jelöli ki, akik ezután képesek más személyeket hitelesíteni."
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:239
 msgid "An issue not included in these options"
@@ -1296,7 +1296,7 @@ msgstr "Hiba történt. Próbáld újra."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:120
 msgid "An mockup of a iPhone showing the Bluesky app open to the profile of a verified user with a blue checkmark next to their display name."
-msgstr "Egy kék pipával rendelkező felhasználó, az iPhone-os Bluesky alkalmazásban megjelenítve."
+msgstr "Egy kék pipával rendelkező felhasználó, az iPhone-os Chai alkalmazásban megjelenítve."
 
 #: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:165
 msgid "An unknown error occurred."
@@ -1333,7 +1333,7 @@ msgstr "Közlemény"
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:39
 msgid "Announcing verification on Bluesky"
-msgstr "Hitelesítés a Blueskyon"
+msgstr "Hitelesítés a Chaion"
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:457
 msgid "Anyone"
@@ -1735,72 +1735,72 @@ msgstr "Blog"
 #: src/components/dialogs/ServerInput.tsx:144
 #: src/components/dialogs/ServerInput.tsx:146
 msgid "Bluesky"
-msgstr "Bluesky"
+msgstr "Chai"
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:652
 msgid "Bluesky cannot confirm the authenticity of the claimed date."
-msgstr "A Bluesky nem tudja megerősíteni a létrehozás dátumát."
+msgstr "A Chai nem tudja megerősíteni a létrehozás dátumát."
 
 #: src/screens/Settings/AppIconSettings/useAppIconSets.ts:165
 msgctxt "Name of app icon variant"
 msgid "Bluesky Classic™"
-msgstr "Klasszikus Bluesky"
+msgstr "Klasszikus Chai"
 
 #: src/components/contacts/screens/GetContacts.tsx:235
 msgid "Bluesky helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
-msgstr "A Bluesky segít felkutatni az ismerőseidet! Minden importált névjegyedből képesek vagyunk létrehozni egy titkosított kivonatot – egyfajta digitális ujjlenyomatot – majd megkeresni az adatbázisban már szereplő kivonatokat."
+msgstr "A Chai segít felkutatni az ismerőseidet! Minden importált névjegyedből képesek vagyunk létrehozni egy titkosított kivonatot – egyfajta digitális ujjlenyomatot – majd megkeresni az adatbázisban már szereplő kivonatokat."
 
 #: src/components/dialogs/ServerInput.tsx:214
 msgid "Bluesky is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
-msgstr "A Bluesky egy nyílt hálózat, ahol saját szolgáltatót választhatsz. Ha fejlesztő vagy, saját kiszolgálót is üzemeltethetsz."
+msgstr "A Chai egy nyílt hálózat, ahol saját szolgáltatót választhatsz. Ha fejlesztő vagy, saját kiszolgálót is üzemeltethetsz."
 
 #: src/components/dialogs/ServerInput.tsx:162
 msgid "Bluesky is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default Bluesky Social option."
-msgstr "A Bluesky egy nyílt hálózat, ahol saját szolgáltatót választhatsz. Ha kezdő felhasználó vagy, akkor az alapértelmezett Bluesky Social lehetőséget javasoljuk."
+msgstr "A Chai egy nyílt hálózat, ahol saját szolgáltatót választhatsz. Ha kezdő felhasználó vagy, akkor az alapértelmezett Chai lehetőséget javasoljuk."
 
 #: src/components/ProgressGuide/List.tsx:117
 msgid "Bluesky is better with friends!"
-msgstr "A Bluesky ismerősökkel még jobb!"
+msgstr "A Chai ismerősökkel még jobb!"
 
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:43
 msgid "Bluesky is more fun with friends"
-msgstr "A Bluesky ismerősökkel még mókásabb"
+msgstr "A Chai ismerősökkel még mókásabb"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:107
 msgid "Bluesky is more fun with friends! Import your contacts to see who’s already here."
-msgstr "A Bluesky ismerősökkel még mókásabb! Importáld a névjegyeidet, hogy könnyebben megtalálhasd a barátaidat!"
+msgstr "A Chai ismerősökkel még mókásabb! Importáld a névjegyeidet, hogy könnyebben megtalálhasd a barátaidat!"
 
 #: src/components/contacts/screens/ViewMatches.tsx:315
 msgid "Bluesky is more fun with friends. Do you want to invite some of yours? <0/>"
-msgstr "A Bluesky ismerősökkel még mókásabb. Szeretnél meghívni valakit? <0/>"
+msgstr "A Chai ismerősökkel még mókásabb. Szeretnél meghívni valakit? <0/>"
 
 #: src/screens/Takendown.tsx:213
 msgid "Bluesky Social Terms of Service"
-msgstr "A Bluesky felhasználási feltételei"
+msgstr "A Chai felhasználási feltételei"
 
 #: src/screens/Settings/FindContactsSettings.tsx:549
 msgid "Bluesky stores your contacts as encoded data. Removing your contacts will immediately delete this data."
-msgstr "A Bluesky titkosítva tárolja a névjegyeidet. Ha törölsz egy névjegyet, akkor a Bluesky ugyancsak azonnal törli azt."
+msgstr "A Chai titkosítva tárolja a névjegyeidet. Ha törölsz egy névjegyet, akkor a Chai ugyancsak azonnal törli azt."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:340
 msgid "Bluesky will choose a set of recommended accounts from people in your network."
-msgstr "A Bluesky egy javasolt felhasználócsoportot fog kijelölni a hálózatodon."
+msgstr "A Chai egy javasolt felhasználócsoportot fog kijelölni a hálózatodon."
 
 #: src/screens/Settings/components/PwiOptOut.tsx:100
 msgid "Bluesky will not show your profile and posts to logged-out users. Other apps may not honor this request. This does not make your account private."
-msgstr "A Bluesky nem fogja megjeleníteni a profilodat és a bejegyzéseidet a kijelentkezett felhasználók számára. Lehetséges, hogy ezt a kérést nem minden alkalmazás fogja tiszteletben tartani. Ez a beállítás nem teszi priváttá a profilodat."
+msgstr "A Chai nem fogja megjeleníteni a profilodat és a bejegyzéseidet a kijelentkezett felhasználók számára. Lehetséges, hogy ezt a kérést nem minden alkalmazás fogja tiszteletben tartani. Ez a beállítás nem teszi priváttá a profilodat."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:134
 msgid "Bluesky will proactively verify notable and authentic accounts."
-msgstr "A Bluesky mostantól hitelesíti a jelentős és megbízható fiókokat."
+msgstr "A Chai mostantól hitelesíti a jelentős és megbízható fiókokat."
 
 #: src/screens/Settings/AppIconSettings/index.tsx:97
 msgid "Bluesky+"
-msgstr "Bluesky+"
+msgstr "Chai+"
 
 #: src/screens/Settings/AppIconSettings/index.tsx:100
 msgid "Bluesky+ icons"
-msgstr "Bluesky+-ikonok"
+msgstr "Chai+-ikonok"
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:56
 msgid "Blur images"
@@ -1816,7 +1816,7 @@ msgstr "Könyvek"
 
 #: src/components/moderation/ReportDialog/utils/useReportOptions.ts:215
 msgid "Breaking site rules"
-msgstr "A Bluesky szabályzatának megszegése"
+msgstr "A Chai szabályzatának megszegése"
 
 #: src/view/com/feeds/ProfileFeedgens.tsx:167
 #: src/view/com/feeds/ProfileFeedgens.tsx:168
@@ -2414,7 +2414,7 @@ msgstr "Közösségi irányelvek"
 
 #: src/screens/Onboarding/StepFinished/index.tsx:329
 msgid "Complete onboarding and start using your account"
-msgstr "Regisztrációs varázsló befejezése és a Bluesky használatának megkezdése"
+msgstr "Regisztrációs varázsló befejezése és a Chai használatának megkezdése"
 
 #: src/screens/Signup/index.tsx:195
 msgid "Complete the challenge"
@@ -3374,7 +3374,7 @@ msgstr "Koppints kétszer a kedveléshez"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:331
 msgid "Download Bluesky"
-msgstr "A Bluesky letöltése"
+msgstr "A Chai letöltése"
 
 #: src/screens/Settings/components/ExportCarDialog.tsx:115
 #: src/screens/Settings/components/ExportCarDialog.tsx:120
@@ -3408,7 +3408,7 @@ msgstr "A csatoláshoz húzd ide a képet."
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:20
 msgid "Due to laws in your region, certain features on Bluesky are currently restricted until you're able to verify you're an adult."
-msgstr "Helyi törvények miatt a Bluesky bizonyos funkciói jelenleg korlátozás alatt állnak, amíg be nem bizonyítod, hogy felnőtt vagy."
+msgstr "Helyi törvények miatt a Chai bizonyos funkciói jelenleg korlátozás alatt állnak, amíg be nem bizonyítod, hogy felnőtt vagy."
 
 #: src/components/dialogs/MutedWords.tsx:162
 msgid "Duration:"
@@ -4332,7 +4332,7 @@ msgstr "Követendő személyek felfedezése"
 
 #: src/screens/Search/Shell.tsx:529
 msgid "Find posts, users, and feeds on Bluesky"
-msgstr "Bejegyzések, felhasználók és hírfolyamok felfedezése a Blueskyon"
+msgstr "Bejegyzések, felhasználók és hírfolyamok felfedezése a Chaion"
 
 #: src/components/dialogs/nuxs/FindContactsAnnouncement.tsx:97
 msgid "Find your friends"
@@ -4341,7 +4341,7 @@ msgstr "Ismerősök felkutatása"
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:46
 #: src/screens/Settings/FindContactsSettings.tsx:126
 msgid "Find your friends on Bluesky by verifying your phone number and matching with your contacts. We protect your information and you control what happens next. <0>Learn more</0>"
-msgstr "A Bluesky – a telefonszámod hitelesítése után – képes segíteni az ismerőseid felkutatásában, a készülékeden és az adatbázisunkban található névjegyek összehasonlításával. A folyamat végén Te döntheted el, hogy kiket kívánsz bejelölni. <0>További információ</0>"
+msgstr "A Chai – a telefonszámod hitelesítése után – képes segíteni az ismerőseid felkutatásában, a készülékeden és az adatbázisunkban található névjegyek összehasonlításával. A folyamat végén Te döntheted el, hogy kiket kívánsz bejelölni. <0>További információ</0>"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:21
 msgid "Find your people"
@@ -4910,7 +4910,7 @@ msgstr "Problémába ütköztél?"
 
 #: src/components/contacts/screens/PhoneInput.tsx:290
 msgid "Held by Bluesky for 7 days to prevent abuse, then deleted"
-msgstr "A visszaélések elkerülése érdekében a Bluesky 7 napig megtartja, majd törli ezeket az adatokat"
+msgstr "A visszaélések elkerülése érdekében a Chai 7 napig megtartja, majd törli ezeket az adatokat"
 
 #: src/screens/Settings/Settings.tsx:249
 #: src/screens/Settings/Settings.tsx:253
@@ -5129,7 +5129,7 @@ msgstr "Embercsempészet"
 
 #: src/components/contacts/screens/GetContacts.tsx:267
 msgid "I consent to Bluesky using my contacts for mutual friend discovery and to retain hashed data for matching until I opt out."
-msgstr "Beleegyezem abba, hogy a Bluesky ismerősfelkutatás céljából felhasználja a névjegyeimből előállított titkosított kivonatokat, és hogy ezeket az adatokat későbbi ismerősfelkutatásokhoz is megtartsa, amíg ezt az engedélyt vissza nem vonom."
+msgstr "Beleegyezem abba, hogy a Chai ismerősfelkutatás céljából felhasználja a névjegyeimből előállított titkosított kivonatokat, és hogy ezeket az adatokat későbbi ismerősfelkutatásokhoz is megtartsa, amíg ezt az engedélyt vissza nem vonom."
 
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:134
 #: src/screens/Settings/components/DisableEmail2FADialog.tsx:137
@@ -5149,7 +5149,7 @@ msgstr "Értettem"
 #. placeholder {0}: currentAccount.handle
 #: src/components/contacts/screens/ViewMatches.tsx:578
 msgid "I'm on Bluesky as {0} - come find me! https://bsky.app/download"
-msgstr "A Blueskyon {0} néven találhatsz meg. Csatlakozz Te is! https://bsky.app/download"
+msgstr "A Chaion {0} néven találhatsz meg. Csatlakozz Te is! https://bsky.app/download"
 
 #: src/view/com/lightbox/Lightbox.web.tsx:232
 msgid "If alt text is long, toggles alt text expanded state"
@@ -5391,7 +5391,7 @@ msgstr "Meghívás"
 
 #: src/components/contacts/screens/ViewMatches.tsx:567
 msgid "Invite {name} to join Bluesky"
-msgstr "{name} meghívása a Blueskyra"
+msgstr "{name} meghívása a Chaira"
 
 #: src/screens/Signup/StepInfo/index.tsx:194
 msgid "Invite code"
@@ -5429,7 +5429,7 @@ msgstr "Helytelenül állapítottuk meg a tartózkodási helyedet? <0>Koppints i
 
 #: src/components/contacts/components/InviteInfo.tsx:47
 msgid "It looks like some of your contacts have not tried to find you here yet. You can personally invite them by customizing a draft message we will provide."
-msgstr "Úgy tűnik, hogy még nem minden névjegyed regisztrált a Blueskyra vagy ily módon nem próbálták megkeresni az ismerőseiket. Ha szeretnéd, akkor meghívhatod őket egy személyre szabható üzenettel."
+msgstr "Úgy tűnik, hogy még nem minden névjegyed regisztrált a Chaira vagy ily módon nem próbálták megkeresni az ismerőseiket. Ha szeretnéd, akkor meghívhatod őket egy személyre szabható üzenettel."
 
 #: src/screens/Signup/StepInfo/index.tsx:383
 msgid "It's correct"
@@ -5459,7 +5459,7 @@ msgstr "Karrier"
 #: src/screens/StarterPack/StarterPackScreen.tsx:478
 #: src/screens/StarterPack/StarterPackScreen.tsx:489
 msgid "Join Bluesky"
-msgstr "Csatlakozz a Blueskyhoz!"
+msgstr "Csatlakozz a Chaihoz!"
 
 #: src/components/StarterPack/QrCode.tsx:72
 #: src/view/shell/NavSignupCard.tsx:41
@@ -5563,7 +5563,7 @@ msgstr "További információ az életkor-igazolásról"
 
 #: src/view/com/auth/SplashScreen.web.tsx:173
 msgid "Learn more about Bluesky"
-msgstr "További információ a Blueskyról"
+msgstr "További információ a Chairól"
 
 #: src/components/contacts/components/InviteInfo.tsx:33
 msgid "Learn more about how inviting friends works"
@@ -5606,12 +5606,12 @@ msgstr "További információ erről a figyelmeztetésről"
 #: src/components/verification/VerifierDialog.tsx:121
 msgctxt "english-only-resource"
 msgid "Learn more about verification on Bluesky"
-msgstr "További információ a Blueskyos hitelesítésől"
+msgstr "További információ a Chaios hitelesítésől"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:128
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:131
 msgid "Learn more about what is public on Bluesky."
-msgstr "További információ a Bluesky-tartalmak nyilvánosságáról."
+msgstr "További információ a Chai-tartalmak nyilvánosságáról."
 
 #: src/screens/Profile/components/GermButton.tsx:211
 msgid "Learn more about your Germ DM link"
@@ -5646,7 +5646,7 @@ msgstr "Beszélgetés elhagyása"
 #: src/components/dialogs/LinkWarning.tsx:83
 #: src/components/dialogs/LinkWarning.tsx:91
 msgid "Leaving Bluesky"
-msgstr "A Bluesky elhagyása"
+msgstr "A Chai elhagyása"
 
 #: src/screens/SignupQueued.tsx:158
 msgid "left to go."
@@ -6511,7 +6511,7 @@ msgstr "Következő kép"
 
 #: src/screens/Onboarding/StepFinished/ValuePropositionPager.shared.tsx:32
 msgid "No ads, no invasive tracking, no engagement traps. Bluesky respects your time and attention."
-msgstr "Ilyen egy közösségi oldal hirdetések, magánéletsértő nyomonkövetés és visszarángatás nélkül. A Bluesky tiszteletben tartja az idődet és a figyelmedet."
+msgstr "Ilyen egy közösségi oldal hirdetések, magánéletsértő nyomonkövetés és visszarángatás nélkül. A Chai tiszteletben tartja az idődet és a figyelmedet."
 
 #: src/screens/Settings/AppPasswords.tsx:108
 msgid "No app passwords yet"
@@ -6741,7 +6741,7 @@ msgstr "Korlátozott láthatóság"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:117
 msgid "Note: Bluesky is an open and public network. This setting only limits the visibility of your content on the Bluesky app and website, and other apps may not respect this setting. Your content may still be shown to logged-out users by other apps and websites."
-msgstr "Megjegyzés: A Bluesky egy nyílt és nyilvános hálózat. Ez a beállítás csak a Bluesky alkalmazásban és -honlapon korlátozza a tartalmaid láthatóságát és nem biztos, hogy más alkalmazások is tiszteletben tartják. Lehetséges, hogy más alkalmazásokban és honlapokon ugyanúgy láthatóak maradnak a tartalmaid kijelentkezett felhasználók számára is."
+msgstr "Megjegyzés: A Chai egy nyílt és nyilvános hálózat. Ez a beállítás csak a Chai alkalmazásban és -honlapon korlátozza a tartalmaid láthatóságát és nem biztos, hogy más alkalmazások is tiszteletben tartják. Lehetséges, hogy más alkalmazásokban és honlapokon ugyanúgy láthatóak maradnak a tartalmaid kijelentkezett felhasználók számára is."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:135
 msgid "Note: This post is only visible to logged-in users."
@@ -6855,7 +6855,7 @@ msgstr "Be"
 
 #: src/components/StarterPack/QrCode.tsx:86
 msgid "on<0><1/><2><3/></2></0>"
-msgstr "a <0><1/></0> Blueskyon"
+msgstr "a <0><1/></0> Chaion"
 
 #: src/screens/Settings/Settings.tsx:398
 msgid "Onboarding reset"
@@ -7190,7 +7190,7 @@ msgstr "Megkaptuk a jelentésedet."
 
 #: src/screens/Messages/components/ChatDisabled.tsx:35
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
-msgstr "A fiókod ellen jelentések érkeztek, és miután a moderátoraink felülvizsgálták őket, úgy döntöttek, hogy megfosztanak a csevegési jogosultságoktól a Blueskyon."
+msgstr "A fiókod ellen jelentések érkeztek, és miután a moderátoraink felülvizsgálták őket, úgy döntöttek, hogy megfosztanak a csevegési jogosultságoktól a Chaion."
 
 #: src/components/dialogs/StarterPackDialog.tsx:384
 msgid "Owner"
@@ -7403,7 +7403,7 @@ msgstr "Válassz egy jelszót."
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:291
 msgid "Please click on the link in the email we just sent you to verify your new email address. This is an important step to allow you to continue enjoying all the features of Bluesky."
-msgstr "Kérjük, kattints a tőlünk kapott e-mailben található hivatkozásra a címed visszaigazolásához. Ez fontos, ha továbbra is használni kívánod a Bluesky összes funkcióját."
+msgstr "Kérjük, kattints a tőlünk kapott e-mailben található hivatkozásra a címed visszaigazolásához. Ez fontos, ha továbbra is használni kívánod a Chai összes funkcióját."
 
 #: src/screens/Signup/state.ts:308
 msgid "Please complete the verification captcha."
@@ -7931,17 +7931,17 @@ msgstr "Blogbejegyzés megtekintése"
 
 #: src/view/com/auth/SplashScreen.web.tsx:178
 msgid "Read the Bluesky blog"
-msgstr "A Bluesky blog megnyitása (angolul)"
+msgstr "A Chai blog megnyitása (angolul)"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:53
 #: src/screens/Signup/StepInfo/Policies.tsx:79
 msgid "Read the Bluesky Privacy Policy"
-msgstr "A Bluesky adatvédelmi irányelveinek megtekintése"
+msgstr "A Chai adatvédelmi irányelveinek megtekintése"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:46
 #: src/screens/Signup/StepInfo/Policies.tsx:66
 msgid "Read the Bluesky Terms of Service"
-msgstr "A Bluesky felhasználói feltételeinek megtekintése"
+msgstr "A Chai felhasználói feltételeinek megtekintése"
 
 #: src/components/WelcomeModal.tsx:149
 msgid "Real conversations."
@@ -8820,7 +8820,7 @@ msgstr "A felhasználó #{tag} címkével ellátott bejegyzéseinek megtekintés
 
 #: src/view/com/auth/SplashScreen.web.tsx:183
 msgid "See jobs at Bluesky"
-msgstr "Állások a Blueskynál"
+msgstr "Állások a Chainál"
 
 #: src/components/FeedInterstitials.tsx:592
 #: src/components/FeedInterstitials.tsx:655
@@ -9226,7 +9226,7 @@ msgstr "Kezdőcsomag továbbítása"
 
 #: src/components/StarterPack/ShareDialog.tsx:86
 msgid "Share this starter pack and help people join your community on Bluesky."
-msgstr "Oszd meg ezt a kezdőcsomagot, hogy mások is csatlakozhassanak a Blueskyos közösségedhez!"
+msgstr "Oszd meg ezt a kezdőcsomagot, hogy mások is csatlakozhassanak a Chaios közösségedhez!"
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:121
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:124
@@ -9425,7 +9425,7 @@ msgstr "Bejelentkezés egy másik felhasználói fiókba"
 
 #: src/components/dialogs/Signin.tsx:47
 msgid "Sign in to Bluesky or create a new account"
-msgstr "Jelentkezz be vagy hozz létre egy Bluesky-fiókot."
+msgstr "Jelentkezz be vagy hozz létre egy Chai-fiókot."
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:571
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:573
@@ -9845,7 +9845,7 @@ msgstr "Csak címkék"
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:110
 msgid "Tap below to allow Bluesky to access your GPS location. We will then use that data to more accurately determine the content and features available in your region."
-msgstr "Koppints az alábbi gombra, hogy hozzáférést biztosíts a Blueskynak a tartózkodási helyedhez. Ezzel az információval automatikusan és pontosan meghatározhatjuk a régiódban megjeleníthető tartalmakat és beállításokat."
+msgstr "Koppints az alábbi gombra, hogy hozzáférést biztosíts a Chainak a tartózkodási helyedhez. Ezzel az információval automatikusan és pontosan meghatározhatjuk a régiódban megjeleníthető tartalmakat és beállításokat."
 
 #: src/view/com/feeds/MissingFeed.tsx:90
 msgid "Tap for information"
@@ -9861,7 +9861,7 @@ msgstr "Koppints ide a GPS-es ellenőrzéshez."
 
 #: src/components/PolicyUpdateOverlay/updates/202508/index.tsx:165
 msgid "Tap to acknowledge that you understand and agree to these updates and continue using Bluesky"
-msgstr "A Blueskyt érintő változtatások megértésének jelzéséhez és elfogadásához koppints ide"
+msgstr "A Chait érintő változtatások megértésének jelzéséhez és elfogadásához koppints ide"
 
 #: src/components/ContextMenu/Backdrop.ios.tsx:54
 #: src/components/ContextMenu/Backdrop.ios.tsx:80
@@ -9990,11 +9990,11 @@ msgstr "A válaszlánc szerzője elrejtette ezt a választ."
 
 #: src/components/dialogs/BirthDateSettings.tsx:168
 msgid "The birthdate you've entered means you are under 18 years old. Certain content and features may be unavailable to you."
-msgstr "A megadott születési dátum szerint még nem vagy felnőttkorú. Ez azt jelenti, hogy a Bluesky bizonyos tartalmai és funkciói nem lesznek elérhetőek Számodra."
+msgstr "A megadott születési dátum szerint még nem vagy felnőttkorú. Ez azt jelenti, hogy a Chai bizonyos tartalmai és funkciói nem lesznek elérhetőek Számodra."
 
 #: src/screens/Moderation/index.tsx:424
 msgid "The Bluesky web application"
-msgstr "A Bluesky webalkalmazás"
+msgstr "A Chai webalkalmazás"
 
 #: src/view/screens/CommunityGuidelines.tsx:42
 msgid "The Community Guidelines have been moved to <0/>"
@@ -10014,7 +10014,7 @@ msgstr "A Felfedezés hírfolyam olyan tartalmakat jelenít meg, amelyek tetszhe
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:334
 msgid "The experience is better in the app. Download Bluesky now and we'll pick back up where you left off."
-msgstr "Az alkalmazás jobb. Töltsd le a Blueskyt és onnan folytatjuk, ahol abbahagytad!"
+msgstr "Az alkalmazás jobb. Töltsd le a Chait és onnan folytatjuk, ahol abbahagytad!"
 
 #: src/view/com/posts/FeedShutdownMsg.tsx:70
 msgid "The feed has been replaced with Discover."
@@ -10193,7 +10193,7 @@ msgstr "Váratlan alkalmazáshiba történt. Kérjük jelentsd!"
 
 #: src/screens/SignupQueued.tsx:133
 msgid "There's been a rush of new users to Bluesky! We'll activate your account as soon as we can."
-msgstr "Jelenleg rengeteg új felhasználó csatlakozik a Blueskyhoz. A fiókodat aktiválni fogjuk, amint tudjuk!"
+msgstr "Jelenleg rengeteg új felhasználó csatlakozik a Chaihoz. A fiókodat aktiválni fogjuk, amint tudjuk!"
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:660
 msgid "These are your default settings"
@@ -10238,7 +10238,7 @@ msgstr "A fellebbezés címzettje: <0>{sourceName}</0>."
 #: src/features/liveNow/components/GoLiveDisabledDialog.tsx:114
 #: src/screens/Messages/components/ChatDisabled.tsx:119
 msgid "This appeal will be sent to Bluesky's moderation service."
-msgstr "Ez a fellebbezés a Bluesky moderálási szolgáltatásához lesz elküldve."
+msgstr "Ez a fellebbezés a Chai moderálási szolgáltatásához lesz elküldve."
 
 #: src/screens/PostThread/components/ThreadItemAnchorNoUnauthenticated.tsx:27
 #: src/screens/PostThread/components/ThreadItemPostNoUnauthenticated.tsx:47
@@ -10247,7 +10247,7 @@ msgstr "Ez a szerző csak a bejelentkezett felhasználók számára kívánja me
 
 #: src/screens/Profile/components/GermButton.tsx:243
 msgid "This button lets others open the Germ DM app to send you a message. You can manage its visibility from the Germ DM app, or you can disconnect your Bluesky account from Germ DM altogether by clicking the button below."
-msgstr "Ezzel a gombbal mások megnyithatják a Germ DM-profilodat üzenetküldés céljából. Az elérhetőség láthatósága a Germ DM-alkalmazásban kezelheő. Ha szét kívánod választani a Bluesky- és Germ DM-fiókjaidat, azt az alábbi gombbal teheted meg."
+msgstr "Ezzel a gombbal mások megnyithatják a Germ DM-profilodat üzenetküldés céljából. Az elérhetőség láthatósága a Germ DM-alkalmazásban kezelheő. Ha szét kívánod választani a Chai- és Germ DM-fiókjaidat, azt az alábbi gombbal teheted meg."
 
 #: src/screens/Messages/components/MessageListError.tsx:18
 msgid "This chat was disconnected"
@@ -10373,11 +10373,11 @@ msgstr "Ez a hivatkozás az alábbi honlapra mutat:"
 #. placeholder {0}: sanitizeHandle(list.creator.handle, '@')
 #: src/screens/List/ListHiddenScreen.tsx:155
 msgid "This list – created by <0>{0}</0> – contains possible violations of Bluesky's community guidelines in its name or description."
-msgstr "Ennek a(z) <0>{0}</0> által létrehozott listának a címe vagy leírása lehetséges, hogy megsérti a Bluesky közösségi irányelveit."
+msgstr "Ennek a(z) <0>{0}</0> által létrehozott listának a címe vagy leírása lehetséges, hogy megsérti a Chai közösségi irányelveit."
 
 #: src/screens/List/ListHiddenScreen.tsx:150
 msgid "This list – created by you – contains possible violations of Bluesky's community guidelines in its name or description."
-msgstr "Ennek az Általad létrehozott listának a címe vagy leírása lehetséges, hogy megsérti a Bluesky közösségi irányelveit."
+msgstr "Ennek az Általad létrehozott listának a címe vagy leírása lehetséges, hogy megsérti a Chai közösségi irányelveit."
 
 #: src/screens/ProfileList/AboutSection.tsx:100
 msgid "This list is empty."
@@ -10391,7 +10391,7 @@ msgstr "Ez a moderálási szolgáltatás jelenleg nem elérhető. A részleteket
 #. placeholder {1}: niceDate(i18n, indexedAt)
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:639
 msgid "This post claims to have been created on <0>{0}</0>, but was first seen by Bluesky on <1>{1}</1>."
-msgstr "A bejegyzés adatai szerint az eredeti létrehozási dátuma <0>{0}</0> volt, de először ekkor jelent meg a Blueskyon: <1>{1}</1>"
+msgstr "A bejegyzés adatai szerint az eredeti létrehozási dátuma <0>{0}</0> volt, de először ekkor jelent meg a Chaion: <1>{1}</1>"
 
 #: src/components/WhoCanReply.tsx:274
 msgid "This post has an unknown type of threadgate on it. Your app may be out of date."
@@ -10487,7 +10487,7 @@ msgstr "Ezzel a(z) „{0}” kifejezés el lesz távolítva az elnémított szav
 
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:337
 msgid "This will irreversibly delete your Bluesky account <0>{currentHandle}</0> and all associated data. Note that this will affect any other <1>AT Protocol</1> services you use with this account."
-msgstr "Ez véglegesen törölni fogja a(z) <0>{currentHandle}</0> Bluesky-fiókot és minden hozzá tartozó adatot. Ez a fiókot használó többi <1>AT Protokoll</1>-szolgáltatást is érinti."
+msgstr "Ez véglegesen törölni fogja a(z) <0>{currentHandle}</0> Chai-fiókot és minden hozzá tartozó adatot. Ez a fiókot használó többi <1>AT Protokoll</1>-szolgáltatást is érinti."
 
 #. placeholder {0}: account.handle
 #: src/screens/Settings/Settings.tsx:671
@@ -10669,7 +10669,7 @@ msgstr "Típus:"
 
 #: src/components/dialogs/DeviceLocationRequestDialog.tsx:86
 msgid "Unable to access location. You'll need to visit your system settings to enable location services for Bluesky."
-msgstr "Nincs hozzáférésünk a tartózkodási helyedhez. Engedélyezned kell a Bluesky helyelérését a rendszerbeállításokban."
+msgstr "Nincs hozzáférésünk a tartózkodási helyedhez. Engedélyezned kell a Chai helyelérését a rendszerbeállításokban."
 
 #: src/lib/hooks/useCleanError.ts:27
 #: src/lib/strings/errors.ts:12
@@ -10796,11 +10796,11 @@ msgstr "A feljegyzőid közül egyik sem támogatja ezt a jelentési típust."
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:200
 msgid "Unfortunately, the birthdate you have saved to your profile makes you too young to access Bluesky."
-msgstr "A megadott születési dátum szerint sajnos túl fiatal vagy a Bluesky használatához."
+msgstr "A megadott születési dátum szerint sajnos túl fiatal vagy a Chai használatához."
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:185
 msgid "Unfortunately, your declared age indicates that you are not old enough to access Bluesky in your region."
-msgstr "A saját állításod szerint ebben a régióban sajnos még túl fiatal vagy a Bluesky használatához."
+msgstr "A saját állításod szerint ebben a régióban sajnos még túl fiatal vagy a Chai használatához."
 
 #: src/components/verification/VerificationsDialog.tsx:209
 msgid "Unknown verifier"
@@ -11013,7 +11013,7 @@ msgstr "Videó feltöltése folyamatban…"
 
 #: src/screens/Settings/AppPasswords.tsx:67
 msgid "Use app passwords to sign in to other Bluesky clients without giving full access to your account or password."
-msgstr "Egy alkalmazásjelszó használatával bármely egyéb Bluesky-kliensbe bejelentkezhetsz, anélkül hogy teljes hozzáférést biztosítanál a fiókodhoz vagy a valódi jelszavadhoz."
+msgstr "Egy alkalmazásjelszó használatával bármely egyéb Chai-kliensbe bejelentkezhetsz, anélkül hogy teljes hozzáférést biztosítanál a fiókodhoz vagy a valódi jelszavadhoz."
 
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:576
 msgid "Use default provider"
@@ -11044,7 +11044,7 @@ msgstr "A másik alkalmazásba a felhasználóneveddel és ezzel jelentkezhetsz 
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:278
 msgid "Use your account email address, or another real email address you control, in case KWS or Bluesky needs to contact you."
-msgstr "Add meg a fiókod e-mail-címét vagy egy másik, tulajdonodat képző e-mail-címet, arra az esetre, ha a jövőben a KWS-nek vagy a Blueskynak fel kell vennie Veled a kapcsolatot."
+msgstr "Add meg a fiókod e-mail-címét vagy egy másik, tulajdonodat képző e-mail-címet, arra az esetre, ha a jövőben a KWS-nek vagy a Chainak fel kell vennie Veled a kapcsolatot."
 
 #: src/components/dms/AfterReportDialog.tsx:154
 msgctxt "toast"
@@ -11151,7 +11151,7 @@ msgstr "Hitelesítési beállítások"
 
 #: src/screens/Moderation/VerificationSettings.tsx:43
 msgid "Verifications on Bluesky work differently than on other platforms. <0>Learn more here.</0>"
-msgstr "A Bluesky a megszokottól eltérően kezeli a hitelesítéseket. <0>További információ</0>."
+msgstr "A Chai a megszokottól eltérően kezeli a hitelesítéseket. <0>További információ</0>."
 
 #: src/components/verification/VerificationsDialog.tsx:105
 msgid "Verified by:"
@@ -11518,7 +11518,7 @@ msgstr "A fiókod elkészültéig becsült hátralévő idő: {estimatedTime}"
 
 #: src/components/ageAssurance/AgeAssuranceInitDialog.tsx:197
 msgid "We have partnered with <0>KWS</0> to handle age verification. When you click \"Begin\" below, KWS will email you instructions to complete the verification process. If your email address has already been used to verify your age for another game or service that uses KWS, you won’t need to do it again. When you’re done, you'll be brought back to continue using Bluesky."
-msgstr "Az életkor-ellenőrzést a <0>Kids Web Services</0> segítségével végezzük. Amikor az Indítás gombra kattintasz, a KWS e-mailben osztja meg Veled a folyamat teljesítéséhez szükséges utasításokat (angol nyelven). Amennyiben ezzel az e-mail-címmel már igazoltad magadat a KWS-en keresztül, akkor nem kell ismét megtenned. A folyamat befejeztével visszatérhetsz a Bluesky böngészéséhez."
+msgstr "Az életkor-ellenőrzést a <0>Kids Web Services</0> segítségével végezzük. Amikor az Indítás gombra kattintasz, a KWS e-mailben osztja meg Veled a folyamat teljesítéséhez szükséges utasításokat (angol nyelven). Amennyiben ezzel az e-mail-címmel már igazoltad magadat a KWS-en keresztül, akkor nem kell ismét megtenned. A folyamat befejeztével visszatérhetsz a Chai böngészéséhez."
 
 #. placeholder {0}: currentAccount?.email
 #: src/components/intents/VerifyEmailIntentDialog.tsx:102
@@ -11844,7 +11844,7 @@ msgstr "Megbítzható hitelesítő vagy"
 
 #: src/ageAssurance/components/NoAccessScreen.tsx:176
 msgid "You are accessing Bluesky from a region that legally requires us to verify your age before allowing you to access the app."
-msgstr "A helyi törvények szerint a Bluesky haszálata előtt igazolnod kell az életkorodat."
+msgstr "A helyi törvények szerint a Chai haszálata előtt igazolnod kell az életkorodat."
 
 #: src/components/forms/HostingProvider.tsx:46
 msgid "You are creating an account on"
@@ -12008,7 +12008,7 @@ msgstr "Letiltottad ezt a felhasználót, ezért nem tekintheted meg a tartalmai
 
 #: src/components/ageAssurance/useAgeAssuranceCopy.ts:17
 msgid "You have completed the Age Assurance process, but based on the results, we cannot be sure that you are 18 years of age or older. Due to laws in your region, certain features on Bluesky must remain restricted until you're able to verify you're an adult."
-msgstr "Ugyan teljesítetted az életkor-igazolási folyamatot, de az eredmények alapján nem lehetünk biztosak abban, hogy valóban betöltötted-e 18. életévedet. A régiós törvények szerint emiatt a Bluesky bizonyos funkciói továbbra is korlátozva maradnak, amíg nem tudod bizonyítani felnőttlétedet."
+msgstr "Ugyan teljesítetted az életkor-igazolási folyamatot, de az eredmények alapján nem lehetünk biztosak abban, hogy valóban betöltötted-e 18. életévedet. A régiós törvények szerint emiatt a Chai bizonyos funkciói továbbra is korlátozva maradnak, amíg nem tudod bizonyítani felnőttlétedet."
 
 #: src/view/screens/Notifications.tsx:298
 msgid "You have completely disabled reply, quote, and mention notifications, so this tab will no longer update. To adjust this, visit your <0>notification settings</0>."
@@ -12109,11 +12109,11 @@ msgstr "Az életkor-igazolási folyamatot már {0} ezelőtt megkezdted. Az e-mai
 
 #: src/components/NewskieDialog.tsx:107
 msgid "You joined Bluesky {timeAgoString} ago"
-msgstr "{timeAgoString} csatlakoztál a Blueskyhoz"
+msgstr "{timeAgoString} csatlakoztál a Chaihoz"
 
 #: src/components/NewskieDialog.tsx:104
 msgid "You joined Bluesky using a starter pack {timeAgoString} ago"
-msgstr "{timeAgoString} csatlakoztál a Blueskyhoz egy kezdőcsomag igénybevételével"
+msgstr "{timeAgoString} csatlakoztál a Chaihoz egy kezdőcsomag igénybevételével"
 
 #: src/components/moderation/LabelsOnMeDialog.tsx:84
 msgid "You may appeal non-self labels if you feel they were placed in error."
@@ -12133,7 +12133,7 @@ msgstr "Legfeljebb 3 hírfolyamot jelölhetsz ki."
 
 #: src/components/dialogs/BirthDateSettings.tsx:177
 msgid "You must be at least 13 years old to use Bluesky. Read our <0>Terms of Service</0> for more information."
-msgstr "A Bluesky használatához be kell töltened a 13. életévedet. További információért olvasd el a <0>felhasználási feltételeket</0>."
+msgstr "A Chai használatához be kell töltened a 13. életévedet. További információért olvasd el a <0>felhasználási feltételeket</0>."
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:365
 msgid "You must be following at least seven other people to generate a starter pack."
@@ -12230,7 +12230,7 @@ msgstr "Ezeket a személyeket rögtön követni fogod"
 
 #: src/components/contacts/screens/GetContacts.tsx:314
 msgid "You'll need to go to the System Settings for Bluesky and give permission if you want to use this feature."
-msgstr "A funkció használatához a készülék beállításaiban hozzáférést kell biztosítanod a Blueskynak."
+msgstr "A funkció használatához a készülék beállításaiban hozzáférést kell biztosítanod a Chainak."
 
 #. placeholder {0}: sanitizeHandle(profile.handle, '@')
 #: src/components/activity-notifications/SubscribeProfileDialog.tsx:172
@@ -12261,7 +12261,7 @@ msgstr "Elrejtettél egy szót vagy címkét ebben a bejegyzésben."
 
 #: src/components/contacts/screens/GetContacts.tsx:313
 msgid "You've denied access to your contacts"
-msgstr "A Bluesky jelenleg nem férhet hozzá a névjegyeidhez"
+msgstr "A Chai jelenleg nem férhet hozzá a névjegyeidhez"
 
 #: src/state/shell/progress-guide.tsx:237
 msgid "You've found some people to follow"
@@ -12321,7 +12321,7 @@ msgstr "A fiókod adattára, ami az összes nyilvános adatodat tartalmazza, let
 
 #: src/screens/Takendown.tsx:210
 msgid "Your account was found to be in violation of the <0>Bluesky Social Terms of Service</0>. You have been sent an email outlining the specific violation and suspension period, if applicable. You can appeal this decision if you believe it was made in error."
-msgstr "A fiókod megsértette a <0>Bluesky Social felhasználási feltételeit</0>. Küldtünk Számodra egy e-mailt a felfüggesztésed okáról és (adott esetben) hosszáról. Ha úgy gondolod, hogy a felfüggesztés tévedésből történt, lehetőséged van fellebbezni azt."
+msgstr "A fiókod megsértette a <0>Chai felhasználási feltételeit</0>. Küldtünk Számodra egy e-mailt a felfüggesztésed okáról és (adott esetben) hosszáról. Ha úgy gondolod, hogy a felfüggesztés tévedésből történt, lehetőséged van fellebbezni azt."
 
 #: src/screens/Takendown.tsx:150
 msgid "Your appeal has been submitted. If your appeal succeeds, you will receive an email."
@@ -12345,11 +12345,11 @@ msgstr "Ez a választás tartós, de a jövőben bármikor megváltoztathatod az
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:367
 msgid "Your contact {firstAuthorLink} is on Bluesky"
-msgstr "Megtaláltuk egy ismerősödet a Blueskyon: {firstAuthorLink}"
+msgstr "Megtaláltuk egy ismerősödet a Chaion: {firstAuthorLink}"
 
 #: src/view/com/notifications/NotificationFeedItem.tsx:365
 msgid "Your contact {firstAuthorName} is on Bluesky"
-msgstr "Megtaláltuk egy ismerősödet a Blueskyon: {firstAuthorName}"
+msgstr "Megtaláltuk egy ismerősödet a Chaion: {firstAuthorName}"
 
 #: src/components/contacts/screens/ViewMatches.tsx:454
 msgid "Your contact {name}"
@@ -12379,7 +12379,7 @@ msgstr "Az e-mail-címed érvénytelen."
 
 #: src/components/dialogs/EmailDialog/screens/VerificationReminder.tsx:66
 msgid "Your email has not yet been verified. Please verify your email in order to enjoy all the features of Bluesky."
-msgstr "A Bluesky teljes funkcionalitásának kihasználásához az e-mail-címed visszaigazolása szükséges."
+msgstr "A Chai teljes funkcionalitásának kihasználásához az e-mail-címed visszaigazolása szükséges."
 
 #: src/state/shell/progress-guide.tsx:216
 msgid "Your first like!"
@@ -12458,7 +12458,7 @@ msgstr "A saját profilképed más fiókok profilképeivel körülvéve, többr�
 
 #: src/screens/Settings/components/DeactivateAccountDialog.tsx:75
 msgid "Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "A profilod, bejegyzéseid, hírfolyamaid és listáid mostantól el vannak rejtve a többi Bluesky-felhasználó elől. A fiókod újraaktiválásához jelentkezz be."
+msgstr "A profilod, bejegyzéseid, hírfolyamaid és listáid mostantól el vannak rejtve a többi Chai-felhasználó elől. A fiókod újraaktiválásához jelentkezz be."
 
 #: src/view/com/composer/Composer.tsx:981
 msgid "Your reply was sent"

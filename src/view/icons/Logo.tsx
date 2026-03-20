@@ -41,7 +41,7 @@ export const Logo = forwardRef(function LogoImpl(props: Props, ref) {
             ? require('../../../assets/kawaii.png')
             : require('../../../assets/kawaii_smol.png')
         }
-        accessibilityLabel="Bluesky"
+        accessibilityLabel="Chai"
         accessibilityHint=""
         accessibilityIgnoresInvertColors
         style={[{height: size, aspectRatio: 1.4}]}

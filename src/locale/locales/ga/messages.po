@@ -1735,11 +1735,11 @@ msgstr "Blag"
 #: src/components/dialogs/ServerInput.tsx:144
 #: src/components/dialogs/ServerInput.tsx:146
 msgid "Bluesky"
-msgstr "Bluesky"
+msgstr "Chai"
 
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:652
 msgid "Bluesky cannot confirm the authenticity of the claimed date."
-msgstr "Ní féidir le Bluesky an dáta maíte a dheimhniú."
+msgstr "Ní féidir le Chai an dáta maíte a dheimhniú."
 
 #: src/screens/Settings/AppIconSettings/useAppIconSets.ts:165
 msgctxt "Name of app icon variant"
@@ -1752,7 +1752,7 @@ msgstr ""
 
 #: src/components/dialogs/ServerInput.tsx:214
 msgid "Bluesky is an open network where you can choose your hosting provider. If you're a developer, you can host your own server."
-msgstr "Is líonra oscailte é Bluesky, lenar féidir do sholáthraí óstála féin a roghnú. Más forbróir thú, is féidir leat do fhreastalaí féin a óstáil."
+msgstr "Is líonra oscailte é Chai, lenar féidir do sholáthraí óstála féin a roghnú. Más forbróir thú, is féidir leat do fhreastalaí féin a óstáil."
 
 #: src/components/dialogs/ServerInput.tsx:162
 msgid "Bluesky is an open network where you can choose your own provider. If you're new here, we recommend sticking with the default Bluesky Social option."
@@ -1760,7 +1760,7 @@ msgstr ""
 
 #: src/components/ProgressGuide/List.tsx:117
 msgid "Bluesky is better with friends!"
-msgstr "Déanann mathshlua meidhréis ar Bluesky!"
+msgstr "Déanann mathshlua meidhréis ar Chai!"
 
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:43
 msgid "Bluesky is more fun with friends"
@@ -1776,7 +1776,7 @@ msgstr ""
 
 #: src/screens/Takendown.tsx:213
 msgid "Bluesky Social Terms of Service"
-msgstr "Téarmaí Seirbhíse Bluesky Social"
+msgstr "Téarmaí Seirbhíse Chai"
 
 #: src/screens/Settings/FindContactsSettings.tsx:549
 msgid "Bluesky stores your contacts as encoded data. Removing your contacts will immediately delete this data."
@@ -1784,11 +1784,11 @@ msgstr ""
 
 #: src/components/StarterPack/ProfileStarterPacks.tsx:340
 msgid "Bluesky will choose a set of recommended accounts from people in your network."
-msgstr "Roghnóidh Bluesky roinnt cuntas molta ó dhaoine i do líonra."
+msgstr "Roghnóidh Chai roinnt cuntas molta ó dhaoine i do líonra."
 
 #: src/screens/Settings/components/PwiOptOut.tsx:100
 msgid "Bluesky will not show your profile and posts to logged-out users. Other apps may not honor this request. This does not make your account private."
-msgstr "Ní thaispeánfaidh Bluesky do phróifíl ná do chuid postálacha d’úsáideoirí atá logáilte amach. Is féidir nach gcloífidh aipeanna eile leis an iarratas seo. I bhfocail eile, ní bheidh do chuntas anseo príobháideach."
+msgstr "Ní thaispeánfaidh Chai do phróifíl ná do chuid postálacha d’úsáideoirí atá logáilte amach. Is féidir nach gcloífidh aipeanna eile leis an iarratas seo. I bhfocail eile, ní bheidh do chuntas anseo príobháideach."
 
 #: src/components/dialogs/nuxs/InitialVerificationAnnouncement.tsx:134
 msgid "Bluesky will proactively verify notable and authentic accounts."
@@ -1796,11 +1796,11 @@ msgstr ""
 
 #: src/screens/Settings/AppIconSettings/index.tsx:97
 msgid "Bluesky+"
-msgstr "Bluesky+"
+msgstr "Chai+"
 
 #: src/screens/Settings/AppIconSettings/index.tsx:100
 msgid "Bluesky+ icons"
-msgstr "Deilbhíní Bluesky+"
+msgstr "Deilbhíní Chai+"
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:56
 msgid "Blur images"
@@ -3374,7 +3374,7 @@ msgstr ""
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:331
 msgid "Download Bluesky"
-msgstr "Íoslódáil Bluesky"
+msgstr "Íoslódáil Chai"
 
 #: src/screens/Settings/components/ExportCarDialog.tsx:115
 #: src/screens/Settings/components/ExportCarDialog.tsx:120
@@ -5459,7 +5459,7 @@ msgstr "Jabanna"
 #: src/screens/StarterPack/StarterPackScreen.tsx:478
 #: src/screens/StarterPack/StarterPackScreen.tsx:489
 msgid "Join Bluesky"
-msgstr "Cláraigh le Bluesky"
+msgstr "Cláraigh le Chai"
 
 #: src/components/StarterPack/QrCode.tsx:72
 #: src/view/shell/NavSignupCard.tsx:41
@@ -5563,7 +5563,7 @@ msgstr ""
 
 #: src/view/com/auth/SplashScreen.web.tsx:173
 msgid "Learn more about Bluesky"
-msgstr "Tuilleadh eolais maidir le Bluesky"
+msgstr "Tuilleadh eolais maidir le Chai"
 
 #: src/components/contacts/components/InviteInfo.tsx:33
 msgid "Learn more about how inviting friends works"
@@ -5611,7 +5611,7 @@ msgstr ""
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:128
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:131
 msgid "Learn more about what is public on Bluesky."
-msgstr "Le tuilleadh a fhoghlaim faoi céard atá poiblí ar Bluesky"
+msgstr "Le tuilleadh a fhoghlaim faoi céard atá poiblí ar Chai"
 
 #: src/screens/Profile/components/GermButton.tsx:211
 msgid "Learn more about your Germ DM link"
@@ -5646,7 +5646,7 @@ msgstr "Éirigh as an gcomhrá"
 #: src/components/dialogs/LinkWarning.tsx:83
 #: src/components/dialogs/LinkWarning.tsx:91
 msgid "Leaving Bluesky"
-msgstr "Ag fágáil slán ag Bluesky"
+msgstr "Ag fágáil slán ag Chai"
 
 #: src/screens/SignupQueued.tsx:158
 msgid "left to go."
@@ -6741,7 +6741,7 @@ msgstr "Nóta faoi roinnt"
 
 #: src/screens/Settings/PrivacyAndSecuritySettings.tsx:117
 msgid "Note: Bluesky is an open and public network. This setting only limits the visibility of your content on the Bluesky app and website, and other apps may not respect this setting. Your content may still be shown to logged-out users by other apps and websites."
-msgstr "Nod leat: is gréasán oscailte poiblí Bluesky. Ní chuireann an socrú seo srian ar fheiceálacht do chuid ábhair ach amháin ar aip agus suíomh Bluesky. Is féidir nach gcloífidh aipeanna eile leis an socrú seo. Is féidir go dtaispeánfar do chuid ábhair d’úsáideoirí atá logáilte amach ar aipeanna agus suíomhanna eile."
+msgstr "Nod leat: is gréasán oscailte poiblí Chai. Ní chuireann an socrú seo srian ar fheiceálacht do chuid ábhair ach amháin ar aip agus suíomh Chai. Is féidir nach gcloífidh aipeanna eile leis an socrú seo. Is féidir go dtaispeánfar do chuid ábhair d’úsáideoirí atá logáilte amach ar aipeanna agus suíomhanna eile."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.web.tsx:135
 msgid "Note: This post is only visible to logged-in users."
@@ -7064,7 +7064,7 @@ msgstr "Osclaíonn sé seo roghnóir na n-emoji"
 #: src/view/com/auth/SplashScreen.tsx:102
 #: src/view/com/auth/SplashScreen.web.tsx:116
 msgid "Opens flow to create a new Bluesky account"
-msgstr "Osclaíonn sé seo an próiseas le cuntas nua Bluesky a chruthú"
+msgstr "Osclaíonn sé seo an próiseas le cuntas nua Chai a chruthú"
 
 #: src/view/com/auth/SplashScreen.tsx:120
 #: src/view/com/auth/SplashScreen.web.tsx:130
@@ -7190,7 +7190,7 @@ msgstr ""
 
 #: src/screens/Messages/components/ChatDisabled.tsx:35
 msgid "Our moderators have reviewed reports and decided to disable your access to chats on Bluesky."
-msgstr "Tá ár modhnóirí tar éis athbhreithniú a dhéanamh ar thuairiscí. Chinn siad gan ligean duit comhráite a úsáid ar Bluesky."
+msgstr "Tá ár modhnóirí tar éis athbhreithniú a dhéanamh ar thuairiscí. Chinn siad gan ligean duit comhráite a úsáid ar Chai."
 
 #: src/components/dialogs/StarterPackDialog.tsx:384
 msgid "Owner"
@@ -7931,17 +7931,17 @@ msgstr ""
 
 #: src/view/com/auth/SplashScreen.web.tsx:178
 msgid "Read the Bluesky blog"
-msgstr "Léigh blag Bluesky"
+msgstr "Léigh blag Chai"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:53
 #: src/screens/Signup/StepInfo/Policies.tsx:79
 msgid "Read the Bluesky Privacy Policy"
-msgstr "Léigh Polasaí Príobháideachta Bluesky"
+msgstr "Léigh Polasaí Príobháideachta Chai"
 
 #: src/screens/Signup/StepInfo/Policies.tsx:46
 #: src/screens/Signup/StepInfo/Policies.tsx:66
 msgid "Read the Bluesky Terms of Service"
-msgstr "Léigh Téarmaí Seirbhíse Bluesky"
+msgstr "Léigh Téarmaí Seirbhíse Chai"
 
 #: src/components/WelcomeModal.tsx:149
 msgid "Real conversations."
@@ -8820,7 +8820,7 @@ msgstr ""
 
 #: src/view/com/auth/SplashScreen.web.tsx:183
 msgid "See jobs at Bluesky"
-msgstr "Féach ar phostanna le Bluesky"
+msgstr "Féach ar phostanna le Chai"
 
 #: src/components/FeedInterstitials.tsx:592
 #: src/components/FeedInterstitials.tsx:655
@@ -9226,7 +9226,7 @@ msgstr "Roinn an pacáiste fáilte seo"
 
 #: src/components/StarterPack/ShareDialog.tsx:86
 msgid "Share this starter pack and help people join your community on Bluesky."
-msgstr "Roinn an pacáiste fáilte seo agus cuidigh le daoine páirt a ghlacadh i do phobal ar Bluesky."
+msgstr "Roinn an pacáiste fáilte seo agus cuidigh le daoine páirt a ghlacadh i do phobal ar Chai."
 
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:121
 #: src/components/PostControls/ShareMenu/ShareMenuItems.tsx:124
@@ -9425,7 +9425,7 @@ msgstr ""
 
 #: src/components/dialogs/Signin.tsx:47
 msgid "Sign in to Bluesky or create a new account"
-msgstr "Logáil isteach chuig Bluesky nó cruthaigh cuntas nua"
+msgstr "Logáil isteach chuig Chai nó cruthaigh cuntas nua"
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:571
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:573
@@ -9992,7 +9992,7 @@ msgstr ""
 
 #: src/screens/Moderation/index.tsx:424
 msgid "The Bluesky web application"
-msgstr "Feidhmchlár gréasáin Bluesky"
+msgstr "Feidhmchlár gréasáin Chai"
 
 #: src/view/screens/CommunityGuidelines.tsx:42
 msgid "The Community Guidelines have been moved to <0/>"
@@ -10012,7 +10012,7 @@ msgstr "Tá an fotha Discover eolach ar a bhfuil ag taitneamh leat anois"
 
 #: src/screens/StarterPack/StarterPackLandingScreen.tsx:334
 msgid "The experience is better in the app. Download Bluesky now and we'll pick back up where you left off."
-msgstr "Tá an t-eispéireas níos fearr san aip. Íoslódáil Bluesky anois agus tosóidh muid arís san áit ar stop tú."
+msgstr "Tá an t-eispéireas níos fearr san aip. Íoslódáil Chai anois agus tosóidh muid arís san áit ar stop tú."
 
 #: src/view/com/posts/FeedShutdownMsg.tsx:70
 msgid "The feed has been replaced with Discover."
@@ -10191,7 +10191,7 @@ msgstr "D’éirigh fadhb gan choinne leis an aip. Abair linn, le do thoil, má 
 
 #: src/screens/SignupQueued.tsx:133
 msgid "There's been a rush of new users to Bluesky! We'll activate your account as soon as we can."
-msgstr "Tá ráchairt ar Bluesky le déanaí! Cuirfidh muid do chuntas ag obair chomh luath agus is féidir."
+msgstr "Tá ráchairt ar Chai le déanaí! Cuirfidh muid do chuntas ag obair chomh luath agus is féidir."
 
 #: src/components/dialogs/PostInteractionSettingsDialog.tsx:660
 msgid "These are your default settings"
@@ -10236,7 +10236,7 @@ msgstr "Cuirfear an t-achomharc seo chuig <0>{sourceName}</0>."
 #: src/features/liveNow/components/GoLiveDisabledDialog.tsx:114
 #: src/screens/Messages/components/ChatDisabled.tsx:119
 msgid "This appeal will be sent to Bluesky's moderation service."
-msgstr "Seolfar an t-achomharc seo go dtí seirbhís modhnóireachta Bluesky."
+msgstr "Seolfar an t-achomharc seo go dtí seirbhís modhnóireachta Chai."
 
 #: src/screens/PostThread/components/ThreadItemAnchorNoUnauthenticated.tsx:27
 #: src/screens/PostThread/components/ThreadItemPostNoUnauthenticated.tsx:47
@@ -10279,7 +10279,7 @@ msgstr "Níl an t-ábhar seo le feiceáil toisc gur bhlocáil duine de na húsá
 
 #: src/view/com/posts/PostFeedErrorMessage.tsx:122
 msgid "This content is not viewable without a Bluesky account."
-msgstr "Níl an t-ábhar seo le feiceáil gan chuntas Bluesky."
+msgstr "Níl an t-ábhar seo le feiceáil gan chuntas Chai."
 
 #: src/screens/Messages/components/ChatListItem.tsx:362
 msgid "This conversation is with a deleted or a deactivated account. Press for options"
@@ -10389,7 +10389,7 @@ msgstr "Níl an tseirbhís modhnóireachta ar fáil. Féach tuilleadh sonraí th
 #. placeholder {1}: niceDate(i18n, indexedAt)
 #: src/screens/PostThread/components/ThreadItemAnchor.tsx:639
 msgid "This post claims to have been created on <0>{0}</0>, but was first seen by Bluesky on <1>{1}</1>."
-msgstr "Deir an phostáil seo gur cruthaíodh í ar <0>{0}</0>, ach chonacthas í ar Bluesky den chéad uair ar <1>{1}</1>."
+msgstr "Deir an phostáil seo gur cruthaíodh í ar <0>{0}</0>, ach chonacthas í ar Chai den chéad uair ar <1>{1}</1>."
 
 #: src/components/WhoCanReply.tsx:274
 msgid "This post has an unknown type of threadgate on it. Your app may be out of date."
@@ -11011,7 +11011,7 @@ msgstr "Físeán á uaslódáil..."
 
 #: src/screens/Settings/AppPasswords.tsx:67
 msgid "Use app passwords to sign in to other Bluesky clients without giving full access to your account or password."
-msgstr "Bain úsáid as pasfhocail aipe chun logáil isteach i gcliaint Bluesky eile gan rochtain iomlán a thabhairt ar do chuntas nó ar do phasfhocal."
+msgstr "Bain úsáid as pasfhocail aipe chun logáil isteach i gcliaint Chai eile gan rochtain iomlán a thabhairt ar do chuntas nó ar do phasfhocal."
 
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:576
 msgid "Use default provider"
@@ -12456,7 +12456,7 @@ msgstr ""
 
 #: src/screens/Settings/components/DeactivateAccountDialog.tsx:75
 msgid "Your profile, posts, feeds, and lists will no longer be visible to other Bluesky users. You can reactivate your account at any time by logging in."
-msgstr "Ní bheidh do phróifíl, postálacha, fothaí ná liostaí infheicthe ag úsáideoirí eile Bluesky. Is féidir leat do chuntas a athghníomhú uair ar bith trí logáil isteach."
+msgstr "Ní bheidh do phróifíl, postálacha, fothaí ná liostaí infheicthe ag úsáideoirí eile Chai. Is féidir leat do chuntas a athghníomhú uair ar bith trí logáil isteach."
 
 #: src/view/com/composer/Composer.tsx:981
 msgid "Your reply was sent"
