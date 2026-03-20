@@ -55,6 +55,7 @@ export const init = new Promise<void>(async y => {
  * provided account, if any.
  */
 export async function refresh({strategy}: {strategy: FeatureFetchStrategy}) {
+  if (!env.GROWTHBOOK_CLIENT_KEY) return
   await features.refreshFeatures({
     timeout:
       strategy === 'prefer-low-latency'
