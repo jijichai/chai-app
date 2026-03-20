@@ -99,15 +99,10 @@ export function StepHandle() {
       phoneVerificationRequired:
         state.serviceDescription?.phoneVerificationRequired,
     })
-    // phoneVerificationRequired is actually whether a captcha is required
-    if (!state.serviceDescription?.phoneVerificationRequired) {
-      dispatch({
-        type: 'submit',
-        task: {verificationCode: undefined, mutableProcessed: false},
-      })
-      return
-    }
-    dispatch({type: 'next'})
+    dispatch({
+      type: 'submit',
+      task: {verificationCode: undefined, mutableProcessed: false},
+    })
   }
 
   const onBackPress = () => {
