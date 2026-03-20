@@ -294,20 +294,6 @@ export function useSubmitSignup() {
           field: 'handle',
         })
       }
-      if (
-        state.serviceDescription?.phoneVerificationRequired &&
-        !state.pendingSubmit?.verificationCode
-      ) {
-        dispatch({type: 'setStep', value: SignupStep.CAPTCHA})
-        ax.logger.error('Signup Flow Error', {
-          errorMessage: 'Verification captcha code was not set.',
-          registrationHandle: state.handle,
-        })
-        return dispatch({
-          type: 'setError',
-          value: _(msg`Please complete the verification captcha.`),
-        })
-      }
       dispatch({type: 'setError', value: ''})
       dispatch({type: 'setIsLoading', value: true})
 

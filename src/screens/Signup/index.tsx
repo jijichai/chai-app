@@ -1,7 +1,7 @@
 import {useEffect, useReducer, useState} from 'react'
 import {AppState, type AppStateStatus, View} from 'react-native'
 import ReactNativeDeviceAttest from 'react-native-device-attest'
-import Animated, {FadeIn, LayoutAnimationConfig} from 'react-native-reanimated'
+import Animated, {FadeIn} from 'react-native-reanimated'
 import {AppBskyGraphStarterpack} from '@atproto/api'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
@@ -13,22 +13,18 @@ import {useServiceQuery} from '#/state/queries/service'
 import {useStarterPackQuery} from '#/state/queries/starter-packs'
 import {useActiveStarterPack} from '#/state/shell/starter-pack'
 import {LoggedOutLayout} from '#/view/com/util/layouts/LoggedOutLayout'
+import {SignupForm} from '#/screens/Signup/SignupForm'
 import {
   initialState,
   reducer,
   SignupContext,
-  SignupStep,
   useSubmitSignup,
 } from '#/screens/Signup/state'
-import {StepCaptcha} from '#/screens/Signup/StepCaptcha'
-import {StepHandle} from '#/screens/Signup/StepHandle'
-import {StepInfo} from '#/screens/Signup/StepInfo'
 import {atoms as a, native, useBreakpoints, useTheme} from '#/alf'
 import {AppLanguageDropdown} from '#/components/AppLanguageDropdown'
 import {Divider} from '#/components/Divider'
 import {LinearGradientBackground} from '#/components/LinearGradientBackground'
 import {InlineLinkText} from '#/components/Link'
-import {ScreenTransition} from '#/components/ScreenTransition'
 import {Text} from '#/components/Typography'
 import {useAnalytics} from '#/analytics'
 import {GCP_PROJECT_ID, IS_ANDROID} from '#/env'
@@ -164,83 +160,49 @@ export function Signup({onPressBack}: {onPressBack: () => void}) {
                 </LinearGradientBackground>
               </Animated.View>
             ) : null}
-            <LayoutAnimationConfig skipEntering>
-              <ScreenTransition
-                key={state.activeStep}
-                direction={state.screenTransitionDirection}>
-                <View
+            <View
+              style={[
+                a.flex_1,
+                a.px_xl,
+                a.pt_2xl,
+                !gtMobile && {paddingBottom: 100},
+              ]}>
+              <SignupForm
+                onPressBack={onPressBack}
+                isLoadingStarterPack={
+                  isFetchingStarterPack && !isErrorStarterPack
+                }
+                isServerError={isError}
+                refetchServer={refetch}
+              />
+
+              <Divider />
+
+              <View
+                style={[
+                  a.w_full,
+                  a.py_lg,
+                  a.flex_row,
+                  a.gap_md,
+                  a.align_center,
+                ]}>
+                <AppLanguageDropdown />
+                <Text
                   style={[
                     a.flex_1,
-                    a.px_xl,
-                    a.pt_2xl,
-                    !gtMobile && {paddingBottom: 100},
+                    t.atoms.text_contrast_medium,
+                    !gtMobile && a.text_md,
                   ]}>
-                  <View style={[a.gap_sm, a.pb_3xl]}>
-                    <Text
-                      style={[a.font_semi_bold, t.atoms.text_contrast_medium]}>
-                      <Trans>
-                        Step {state.activeStep + 1} of{' '}
-                        {state.serviceDescription &&
-                        !state.serviceDescription.phoneVerificationRequired
-                          ? '2'
-                          : '3'}
-                      </Trans>
-                    </Text>
-                    <Text style={[a.text_3xl, a.font_semi_bold]}>
-                      {state.activeStep === SignupStep.INFO ? (
-                        <Trans>Your account</Trans>
-                      ) : state.activeStep === SignupStep.HANDLE ? (
-                        <Trans>Choose your username</Trans>
-                      ) : (
-                        <Trans>Complete the challenge</Trans>
-                      )}
-                    </Text>
-                  </View>
-
-                  {state.activeStep === SignupStep.INFO ? (
-                    <StepInfo
-                      onPressBack={onPressBack}
-                      isLoadingStarterPack={
-                        isFetchingStarterPack && !isErrorStarterPack
-                      }
-                      isServerError={isError}
-                      refetchServer={refetch}
-                    />
-                  ) : state.activeStep === SignupStep.HANDLE ? (
-                    <StepHandle />
-                  ) : (
-                    <StepCaptcha />
-                  )}
-
-                  <Divider />
-
-                  <View
-                    style={[
-                      a.w_full,
-                      a.py_lg,
-                      a.flex_row,
-                      a.gap_md,
-                      a.align_center,
-                    ]}>
-                    <AppLanguageDropdown />
-                    <Text
-                      style={[
-                        a.flex_1,
-                        t.atoms.text_contrast_medium,
-                        !gtMobile && a.text_md,
-                      ]}>
-                      <Trans>Having trouble?</Trans>{' '}
-                      <InlineLinkText
-                        label={_(msg`Contact support`)}
-                        to={FEEDBACK_FORM_URL({email: state.email})}
-                        style={[!gtMobile && a.text_md]}>
-                        <Trans>Contact support</Trans>
-                      </InlineLinkText>
-                    </Text>
-                  </View>
-                </View>
-              </ScreenTransition>
-            </LayoutAnimationConfig>
+                  <Trans>Having trouble?</Trans>{' '}
+                  <InlineLinkText
+                    label={_(msg`Contact support`)}
+                    to={FEEDBACK_FORM_URL({email: state.email})}
+                    style={[!gtMobile && a.text_md]}>
+                    <Trans>Contact support</Trans>
+                  </InlineLinkText>
+                </Text>
+              </View>
+            </View>
           </View>
         </LoggedOutLayout>
       </SignupContext.Provider>
