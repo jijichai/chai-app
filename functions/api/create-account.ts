@@ -12,9 +12,10 @@ interface Env {
   PDS_ADMIN_PASSWORD: string
 }
 
-const PDS_BASE = 'https://on.chai.sh'
+const PDS_BASE = 'https://chai.sh'
 
 const ALLOWED_ORIGINS = [
+  'https://app.chai.sh',
   'https://chai.sh',
   'https://www.chai.sh',
   'http://localhost:19006',
