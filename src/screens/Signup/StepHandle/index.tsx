@@ -48,6 +48,7 @@ export function StepHandle() {
   } = useHandleAvailabilityQuery({
     username: draftValue,
     serviceDid: state.serviceDescription?.did ?? 'UNKNOWN',
+    serviceUrl: state.serviceUrl,
     serviceDomain: state.userDomain,
     birthDate: state.dateOfBirth.toISOString(),
     email: state.email,
@@ -71,7 +72,7 @@ export function StepHandle() {
       const {available: handleAvailable} = await checkHandleAvailability(
         createFullHandle(handle, state.userDomain),
         state.serviceDescription?.did ?? 'UNKNOWN',
-        {},
+        {serviceUrl: state.serviceUrl},
       )
 
       if (!handleAvailable) {

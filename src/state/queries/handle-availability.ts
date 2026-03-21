@@ -23,6 +23,7 @@ export function useHandleAvailabilityQuery(
     username,
     serviceDomain,
     serviceDid,
+    serviceUrl,
     enabled,
     birthDate,
     email,
@@ -30,6 +31,7 @@ export function useHandleAvailabilityQuery(
     username: string
     serviceDomain: string
     serviceDid: string
+    serviceUrl: string
     enabled: boolean
     birthDate?: string
     email?: string
@@ -55,6 +57,7 @@ export function useHandleAvailabilityQuery(
         const res = await checkHandleAvailability(handle, serviceDid, {
           email,
           birthDate,
+          serviceUrl,
         })
         if (res.available) {
           ax.metric('signup:handleAvailable', {typeahead: true})
@@ -73,9 +76,11 @@ export async function checkHandleAvailability(
   {
     email,
     birthDate,
+    serviceUrl,
   }: {
     email?: string
     birthDate?: string
+    serviceUrl?: string
   },
 ) {
   if (serviceDid === BSKY_SERVICE_DID) {
@@ -110,8 +115,10 @@ export async function checkHandleAvailability(
       )
     }
   } else {
-    // 3rd party PDSes won't have this API so just try and resolve the handle
-    const agent = new Agent(null, {service: PUBLIC_BSKY_SERVICE})
+    // For non-bsky.social PDSes, resolve the handle against the PDS itself
+    // since public.api.bsky.app won't know about handles on other PDSes
+    const resolveService = serviceUrl || PUBLIC_BSKY_SERVICE
+    const agent = new Agent(null, {service: resolveService})
     try {
       const res = await agent.resolveHandle({
         handle,
