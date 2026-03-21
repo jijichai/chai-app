@@ -248,7 +248,7 @@ export function useProfileFollowMutationQueue(
   position?: number,
   contextProfileDid?: string,
 ) {
-  const agent = useAgent()
+  // const agent = useAgent() // Disabled: was only used for getSuggestedFollowsByActor
   const queryClient = useQueryClient()
   const {currentAccount} = useSession()
   const did = profile.did
@@ -328,19 +328,20 @@ export function useProfileFollowMutationQueue(
         )
       }
 
-      if (finalFollowingUri) {
-        void agent.app.bsky.graph
-          .getSuggestedFollowsByActor({
-            actor: did,
-          })
-          .then(res => {
-            const dids = res.data.suggestions
-              .filter(a => !a.viewer?.following)
-              .map(a => a.did)
-              .slice(0, 8)
-            userActionHistory.followSuggestion(dids)
-          })
-      }
+      // Disabled: Chai app uses hardcoded accounts/starter packs instead.
+      // if (finalFollowingUri) {
+      //   void agent.app.bsky.graph
+      //     .getSuggestedFollowsByActor({
+      //       actor: did,
+      //     })
+      //     .then(res => {
+      //       const dids = res.data.suggestions
+      //         .filter(a => !a.viewer?.following)
+      //         .map(a => a.did)
+      //         .slice(0, 8)
+      //       userActionHistory.followSuggestion(dids)
+      //     })
+      // }
     },
   })
 

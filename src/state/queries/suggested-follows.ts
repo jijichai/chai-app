@@ -12,7 +12,7 @@ import {
 } from '@tanstack/react-query'
 
 import {STALE} from '#/state/queries'
-import {useAgent} from '#/state/session'
+// import {useAgent} from '#/state/session'
 import type * as bsky from '#/types/bsky'
 
 const suggestedFollowsQueryKeyRoot = 'suggested-follows'
@@ -25,27 +25,33 @@ export const suggestedFollowsByActorQueryKey = (did: string) => [
 
 export function useSuggestedFollowsByActorQuery({
   did,
-  enabled,
+  enabled: _enabled,
   staleTime = STALE.MINUTES.FIVE,
 }: {
   did: string
   enabled?: boolean
   staleTime?: number
 }) {
-  const agent = useAgent()
+  // Disabled: Chai app uses hardcoded accounts/starter packs instead.
+  // The Chai PDS cannot proxy this appview endpoint (returns 502/CORS errors).
+  // const agent = useAgent()
   return useQuery({
     staleTime,
     queryKey: suggestedFollowsByActorQueryKey(did),
     queryFn: async () => {
-      const res = await agent.app.bsky.graph.getSuggestedFollowsByActor({
-        actor: did,
-      })
-      const suggestions = res.data.suggestions.filter(
-        profile => !profile.viewer?.following,
-      )
-      return {suggestions, recId: res.data.recIdStr}
+      // const res = await agent.app.bsky.graph.getSuggestedFollowsByActor({
+      //   actor: did,
+      // })
+      // const suggestions = res.data.suggestions.filter(
+      //   profile => !profile.viewer?.following,
+      // )
+      // return {suggestions, recId: res.data.recIdStr}
+      return {
+        suggestions: [] as AppBskyActorDefs.ProfileView[],
+        recId: undefined,
+      }
     },
-    enabled,
+    enabled: false,
   })
 }
 

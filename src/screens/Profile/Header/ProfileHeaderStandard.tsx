@@ -1,4 +1,4 @@
-import {memo, useMemo, useState} from 'react'
+import {memo, useMemo} from 'react'
 import {View} from 'react-native'
 import {
   type AppBskyActorDefs,
@@ -45,7 +45,8 @@ import {EditProfileDialog} from './EditProfileDialog'
 import {ProfileHeaderHandle} from './Handle'
 import {ProfileHeaderMetrics} from './Metrics'
 import {ProfileHeaderShell} from './Shell'
-import {ProfileHeaderSuggestedFollows} from './SuggestedFollows'
+// Disabled: Chai app uses hardcoded accounts/starter packs instead.
+// import {ProfileHeaderSuggestedFollows} from './SuggestedFollows'
 
 interface Props {
   profile: AppBskyActorDefs.ProfileViewDetailed
@@ -74,9 +75,10 @@ let ProfileHeaderStandard = ({
   )
   const [, queueUnblock] = useProfileBlockMutationQueue(profile)
   const unblockPromptControl = Prompt.usePromptControl()
-  const [showSuggestedFollows, setShowSuggestedFollows] = useState(false)
-  const [hasSeenAllSuggestedFollows, setHasSeenAllSuggestedFollows] =
-    useState(false)
+  // Disabled: Chai app uses hardcoded accounts/starter packs instead.
+  // const [showSuggestedFollows, setShowSuggestedFollows] = useState(false)
+  // const [hasSeenAllSuggestedFollows, setHasSeenAllSuggestedFollows] =
+  //   useState(false)
   const isBlockedUser =
     profile.viewer?.blocking ||
     profile.viewer?.blockedBy ||
@@ -95,10 +97,10 @@ let ProfileHeaderStandard = ({
     }
   }
 
-  const onRequestHide = () => {
-    setHasSeenAllSuggestedFollows(true)
-    setShowSuggestedFollows(false)
-  }
+  // const onRequestHide = () => {
+  //   setHasSeenAllSuggestedFollows(true)
+  //   setShowSuggestedFollows(false)
+  // }
 
   const isMe = currentAccount?.did === profile.did
 
@@ -129,8 +131,8 @@ let ProfileHeaderStandard = ({
               profile={profile}
               moderation={moderation}
               moderationOpts={moderationOpts}
-              onFollow={() => setShowSuggestedFollows(true)}
-              onUnfollow={() => setShowSuggestedFollows(false)}
+              // onFollow={() => setShowSuggestedFollows(true)}
+              // onUnfollow={() => setShowSuggestedFollows(false)}
             />
           </View>
           <View
@@ -210,11 +212,12 @@ let ProfileHeaderStandard = ({
         />
       </ProfileHeaderShell>
 
-      <ProfileHeaderSuggestedFollows
+      {/* Disabled: Chai app uses hardcoded accounts/starter packs instead. */}
+      {/* <ProfileHeaderSuggestedFollows
         isExpanded={!hasSeenAllSuggestedFollows && showSuggestedFollows}
         actorDid={profile.did}
         onRequestHide={onRequestHide}
-      />
+      /> */}
     </>
   )
 }
