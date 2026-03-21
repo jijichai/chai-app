@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {ActivityIndicator, Linking, View} from 'react-native'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
@@ -62,16 +62,18 @@ function NotVerifiedState() {
   })
 
   // When registration completes, save the verification data
-  if (status?.status === 'completed' && status.agentId) {
-    const agentId = status.agentId
-    setSessionToken(undefined)
-    setVerification({
-      agentId,
-      verified: true,
-      proofUrl: getAgentExplorerUrl(agentId),
-      registeredAt: new Date().toISOString(),
-    })
-  }
+  useEffect(() => {
+    if (status?.status === 'completed' && status.agentId) {
+      const agentId = status.agentId
+      setSessionToken(undefined)
+      setVerification({
+        agentId,
+        verified: true,
+        proofUrl: getAgentExplorerUrl(agentId),
+        registeredAt: new Date().toISOString(),
+      })
+    }
+  }, [status, setVerification])
 
   const onStartVerification = async () => {
     setIsStarting(true)
@@ -90,7 +92,7 @@ function NotVerifiedState() {
     }
   }
 
-  if (sessionToken && qrCodeUrl) {
+  if (sessionToken) {
     return (
       <View style={[a.p_xl, a.gap_xl]}>
         <View style={[a.align_center, a.pt_lg]}>
@@ -121,15 +123,17 @@ function NotVerifiedState() {
           </View>
         )}
 
-        <Button
-          label="Open Self app"
-          onPress={() => {
-            void Linking.openURL(qrCodeUrl)
-          }}
-          color="primary"
-          size="large">
-          <ButtonText>Open Self app</ButtonText>
-        </Button>
+        {qrCodeUrl ? (
+          <Button
+            label="Open Self app"
+            onPress={() => {
+              void Linking.openURL(qrCodeUrl)
+            }}
+            color="primary"
+            size="large">
+            <ButtonText>Open Self app</ButtonText>
+          </Button>
+        ) : null}
 
         <Button
           label="Cancel"

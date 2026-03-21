@@ -47,13 +47,12 @@ export async function startRegistration(): Promise<RegistrationSession> {
 
   const data = (await res.json()) as {
     sessionToken: string
-    qrCodeUrl?: string
-    qrUrl?: string
-    url?: string
+    deepLink?: string
+    scanUrl?: string
   }
   return {
     sessionToken: data.sessionToken,
-    qrCodeUrl: data.qrCodeUrl ?? data.qrUrl ?? data.url ?? '',
+    qrCodeUrl: data.deepLink ?? data.scanUrl ?? '',
   }
 }
 
@@ -73,25 +72,26 @@ export async function checkRegistrationStatus(
   }
 
   const data = (await res.json()) as {
-    status?: string
-    verified?: boolean
-    agentId?: string
-    publicKey?: string
-    id?: string
+    stage?: string
+    agentAddress?: string
     error?: string
   }
 
-  if (data.status === 'completed' || data.verified) {
+  if (data.stage === 'completed' || data.stage === 'registered') {
     return {
       status: 'completed',
-      agentId: data.agentId ?? data.publicKey ?? data.id ?? '',
+      agentId: data.agentAddress ?? '',
     }
   }
 
-  if (data.status === 'failed' || data.error) {
-    return {status: 'failed', error: data.error ?? 'Registration failed'}
+  if (data.stage === 'failed' || data.stage === 'expired' || data.error) {
+    return {
+      status: 'failed',
+      error: data.error ?? `Registration ${data.stage ?? 'failed'}`,
+    }
   }
 
+  // qr-ready, proof-pending, etc. are all "pending" from the UI's perspective
   return {status: 'pending'}
 }
 
