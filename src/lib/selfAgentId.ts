@@ -11,7 +11,9 @@ export interface SelfVerification {
 
 export interface RegistrationSession {
   sessionToken: string
-  qrCodeUrl: string // URL to display as QR code for Self app scanning
+  deepLink: string // opens Self app directly (mobile)
+  scanUrl: string // web page with QR code for scanning
+  qrImageBase64: string // base64-encoded PNG of the QR code
 }
 
 export type RegistrationStatus =
@@ -46,10 +48,13 @@ export async function startRegistration(): Promise<RegistrationSession> {
     sessionToken: string
     deepLink?: string
     scanUrl?: string
+    qrImageBase64?: string
   }
   return {
     sessionToken: data.sessionToken,
-    qrCodeUrl: data.deepLink ?? data.scanUrl ?? '',
+    deepLink: data.deepLink ?? '',
+    scanUrl: data.scanUrl ?? '',
+    qrImageBase64: data.qrImageBase64 ?? '',
   }
 }
 

@@ -1,9 +1,13 @@
 import {useEffect, useState} from 'react'
-import {ActivityIndicator, Linking, View} from 'react-native'
+import {ActivityIndicator, Image, Linking, View} from 'react-native'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
-import {getAgentExplorerUrl, startRegistration} from '#/lib/selfAgentId'
+import {
+  getAgentExplorerUrl,
+  type RegistrationSession,
+  startRegistration,
+} from '#/lib/selfAgentId'
 import {logger} from '#/logger'
 import {
   useSelfAgentVerification,
@@ -19,6 +23,7 @@ import {
 } from '#/components/icons/Shield'
 import * as Layout from '#/components/Layout'
 import {Text} from '#/components/Typography'
+import {IS_NATIVE} from '#/env'
 
 type Props = NativeStackScreenProps<
   CommonNavigatorParams,
@@ -51,21 +56,20 @@ export function SelfAgentIdSettingsScreen({}: Props) {
 function NotVerifiedState() {
   const t = useTheme()
   const setVerification = useSetSelfAgentVerification()
-  const [sessionToken, setSessionToken] = useState<string>()
-  const [qrCodeUrl, setQrCodeUrl] = useState<string>()
+  const [session, setSession] = useState<RegistrationSession>()
   const [isStarting, setIsStarting] = useState(false)
   const [error, setError] = useState<string>()
 
   const {data: status} = useSelfAgentRegistrationStatusQuery({
-    sessionToken,
-    enabled: !!sessionToken,
+    sessionToken: session?.sessionToken,
+    enabled: !!session,
   })
 
   // When registration completes, save the verification data
   useEffect(() => {
     if (status?.status === 'completed' && status.agentId) {
       const agentId = status.agentId
-      setSessionToken(undefined)
+      setSession(undefined)
       setVerification({
         agentId,
         verified: true,
@@ -79,9 +83,8 @@ function NotVerifiedState() {
     setIsStarting(true)
     setError(undefined)
     try {
-      const session = await startRegistration()
-      setSessionToken(session.sessionToken)
-      setQrCodeUrl(session.qrCodeUrl)
+      const result = await startRegistration()
+      setSession(result)
     } catch (e) {
       logger.error('Self Agent ID: failed to start registration', {
         safeMessage: e,
@@ -92,15 +95,15 @@ function NotVerifiedState() {
     }
   }
 
-  if (sessionToken) {
+  if (session) {
     return (
-      <View style={[a.p_xl, a.gap_xl]}>
-        <View style={[a.align_center, a.pt_lg]}>
-          <ShieldIcon width={48} fill={t.palette.primary_500} />
+      <View style={[a.p_xl, a.gap_lg]}>
+        <View style={[a.align_center, a.pt_sm]}>
+          <ShieldIcon width={40} fill={t.palette.primary_500} />
         </View>
-        <View style={[a.gap_sm]}>
+        <View style={[a.gap_xs]}>
           <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
-            Scan with Self app
+            Verify with Self app
           </Text>
           <Text
             style={[
@@ -109,25 +112,72 @@ function NotVerifiedState() {
               a.text_center,
               t.atoms.text_contrast_medium,
             ]}>
-            Open the Self app on your phone and scan the QR code to verify your
-            identity. Your personal data stays on your device.
+            {IS_NATIVE
+              ? 'Tap the button below to open the Self app, then follow the prompts to scan your passport.'
+              : 'Scan the QR code below with the Self app on your phone, then follow the prompts to scan your passport.'}
           </Text>
         </View>
 
+        <View style={[a.gap_sm, a.py_sm]}>
+          <StepItem number={1} text="Open the Self app on your phone" />
+          <StepItem
+            number={2}
+            text={
+              IS_NATIVE
+                ? 'Tap "Open Self app" below'
+                : 'Scan the QR code below with the Self app'
+            }
+          />
+          <StepItem
+            number={3}
+            text="Follow the prompts to scan your passport via NFC"
+          />
+          <StepItem
+            number={4}
+            text="Wait for the proof to be submitted on-chain"
+          />
+        </View>
+
+        {/* QR code — shown on web, also on native as fallback */}
+        {session.qrImageBase64 ? (
+          <View style={[a.align_center]}>
+            <View
+              style={[
+                a.rounded_md,
+                a.overflow_hidden,
+                {backgroundColor: 'white', padding: 12},
+              ]}>
+              <Image
+                source={{
+                  uri: session.qrImageBase64.startsWith('data:')
+                    ? session.qrImageBase64
+                    : `data:image/png;base64,${session.qrImageBase64}`,
+                }}
+                style={{width: 200, height: 200}}
+                accessibilityLabel="QR code for Self app verification"
+                accessibilityHint="Scan this QR code with the Self app on your phone"
+                accessibilityIgnoresInvertColors
+              />
+            </View>
+          </View>
+        ) : null}
+
         {status?.status === 'pending' && (
-          <View style={[a.align_center, a.py_xl]}>
-            <ActivityIndicator size="large" color={t.palette.primary_500} />
-            <Text style={[a.text_sm, a.pt_md, t.atoms.text_contrast_medium]}>
-              Waiting for verification...
+          <View
+            style={[a.flex_row, a.align_center, a.justify_center, a.gap_sm]}>
+            <ActivityIndicator size="small" color={t.palette.primary_500} />
+            <Text style={[a.text_sm, t.atoms.text_contrast_medium]}>
+              Waiting for passport scan...
             </Text>
           </View>
         )}
 
-        {qrCodeUrl ? (
+        {/* Deep link button — primarily for native, but useful on web too */}
+        {session.deepLink ? (
           <Button
             label="Open Self app"
             onPress={() => {
-              void Linking.openURL(qrCodeUrl)
+              void Linking.openURL(session.deepLink)
             }}
             color="primary"
             size="large">
@@ -135,12 +185,22 @@ function NotVerifiedState() {
           </Button>
         ) : null}
 
+        {/* Scan URL fallback — web page with QR code hosted by Self */}
+        {!session.deepLink && session.scanUrl ? (
+          <Button
+            label="Open verification page"
+            onPress={() => {
+              void Linking.openURL(session.scanUrl)
+            }}
+            color="primary"
+            size="large">
+            <ButtonText>Open verification page</ButtonText>
+          </Button>
+        ) : null}
+
         <Button
           label="Cancel"
-          onPress={() => {
-            setSessionToken(undefined)
-            setQrCodeUrl(undefined)
-          }}
+          onPress={() => setSession(undefined)}
           color="secondary"
           size="large">
           <ButtonText>Cancel</ButtonText>
@@ -173,15 +233,24 @@ function NotVerifiedState() {
             t.atoms.text_contrast_medium,
           ]}>
           Prove that this automated account is backed by a real human using Self
-          Protocol. Your personal data stays on your device — only a
-          zero-knowledge proof is shared.
+          Protocol. You will need the Self app and a passport with an NFC chip.
         </Text>
       </View>
 
-      <View style={[a.gap_md, a.py_sm]}>
-        <BulletPoint text="No personal data is stored or shared" />
-        <BulletPoint text="Creates a soulbound NFT on Celo as proof" />
-        <BulletPoint text={'Other users see a "Verified owner" badge'} />
+      <View style={[a.gap_sm, a.py_sm]}>
+        <Text style={[a.text_lg, a.font_bold]}>How it works</Text>
+        <StepItem
+          number={1}
+          text="You scan your passport with the Self app (NFC)"
+        />
+        <StepItem
+          number={2}
+          text="A zero-knowledge proof is generated on your device — no personal data leaves your phone"
+        />
+        <StepItem
+          number={3}
+          text="A soulbound NFT is minted on Celo as on-chain proof that a real human owns this account"
+        />
       </View>
 
       <Button
@@ -294,21 +363,24 @@ function VerifiedState({
   )
 }
 
-function BulletPoint({text}: {text: string}) {
+function StepItem({number, text}: {number: number; text: string}) {
   const t = useTheme()
   return (
     <View style={[a.flex_row, a.align_start, a.gap_sm]}>
       <View
         style={[
+          a.align_center,
+          a.justify_center,
+          a.rounded_full,
           {
-            width: 6,
-            height: 6,
-            borderRadius: 3,
-            marginTop: 7,
+            width: 24,
+            height: 24,
             backgroundColor: t.palette.primary_500,
+            marginTop: 1,
           },
-        ]}
-      />
+        ]}>
+        <Text style={[a.text_xs, a.font_bold, {color: 'white'}]}>{number}</Text>
+      </View>
       <Text style={[a.text_md, a.leading_snug, a.flex_1]}>{text}</Text>
     </View>
   )
