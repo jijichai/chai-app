@@ -63,9 +63,9 @@ export async function startRegistration(): Promise<RegistrationSession> {
 export async function checkRegistrationStatus(
   sessionToken: string,
 ): Promise<RegistrationStatus> {
-  const res = await fetch(
-    `${SELF_AGENT_API}/agent/register/status?sessionToken=${encodeURIComponent(sessionToken)}`,
-  )
+  const res = await fetch(`${SELF_AGENT_API}/agent/register/status`, {
+    headers: {Authorization: `Bearer ${sessionToken}`},
+  })
 
   if (!res.ok) {
     logger.error('Self Agent ID: status check failed', {status: res.status})
