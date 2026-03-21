@@ -1,5 +1,4 @@
 import {View} from 'react-native'
-import {useLingui} from '@lingui/react/macro'
 
 import {atoms as a} from '#/alf'
 import {Button} from '#/components/Button'
@@ -16,13 +15,12 @@ export function EnsBadgeButton({
   ensName: string
   width: number
 }) {
-  const {t: l} = useLingui()
   const control = useDialogControl()
 
   return (
     <>
       <Button
-        label={l`Verified ENS name: ${ensName}`}
+        label={`Verified ENS name: ${ensName}`}
         hitSlop={20}
         onPress={evt => {
           evt.preventDefault()

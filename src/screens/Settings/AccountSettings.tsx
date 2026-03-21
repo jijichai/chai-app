@@ -147,13 +147,11 @@ export function AccountSettingsScreen({}: Props) {
             <SettingsList.Chevron />
           </SettingsList.PressableItem>
           <SettingsList.PressableItem
-            label={_(msg`ENS Name`)}
-            accessibilityHint={_(msg`Opens ENS verification dialog`)}
+            label="ENS Name"
+            accessibilityHint="Opens ENS verification dialog"
             onPress={() => ensVerificationControl.open()}>
             <SettingsList.ItemIcon icon={EnsIcon} />
-            <SettingsList.ItemText>
-              <Trans>ENS Name</Trans>
-            </SettingsList.ItemText>
+            <SettingsList.ItemText>ENS Name</SettingsList.ItemText>
             {ensName ? (
               <SettingsList.BadgeText>{ensName}</SettingsList.BadgeText>
             ) : null}

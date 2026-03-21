@@ -1,9 +1,6 @@
 import {useState} from 'react'
 import {View} from 'react-native'
 import * as Clipboard from 'expo-clipboard'
-import {msg} from '@lingui/core/macro'
-import {useLingui} from '@lingui/react'
-import {Trans} from '@lingui/react/macro'
 
 import {useSession} from '#/state/session'
 import {atoms as a, useTheme} from '#/alf'
@@ -61,16 +58,13 @@ function VerifiedState({
   control: DialogContextProps
   ensName: string
 }) {
-  const {_} = useLingui()
   const t = useTheme()
   const {mutate: removeEns, isPending} = useRemoveEnsMutation()
 
   return (
-    <Dialog.ScrollableInner label={_(msg`ENS Name`)}>
+    <Dialog.ScrollableInner label="ENS Name">
       <Dialog.Header>
-        <Dialog.HeaderText>
-          <Trans>ENS Name</Trans>
-        </Dialog.HeaderText>
+        <Dialog.HeaderText>ENS Name</Dialog.HeaderText>
       </Dialog.Header>
 
       <View style={[a.align_center, a.py_lg]}>
@@ -85,13 +79,13 @@ function VerifiedState({
             t.atoms.text_contrast_medium,
             a.text_center,
           ]}>
-          <Trans>Your verified ENS name is displayed throughout the app.</Trans>
+          Your verified ENS name is displayed throughout the app.
         </Text>
       </View>
 
       <View style={[a.gap_sm]}>
         <Button
-          label={_(msg`Remove ENS name`)}
+          label="Remove ENS name"
           onPress={() => {
             removeEns(undefined, {
               onSuccess: () => {
@@ -102,19 +96,15 @@ function VerifiedState({
           color="negative"
           size="large"
           disabled={isPending}>
-          <ButtonText>
-            <Trans>Remove</Trans>
-          </ButtonText>
+          <ButtonText>Remove</ButtonText>
           {isPending && <ButtonIcon icon={Loader} />}
         </Button>
         <Button
-          label={_(msg`Close`)}
+          label="Close"
           onPress={() => control.close()}
           color="secondary"
           size="large">
-          <ButtonText>
-            <Trans>Close</Trans>
-          </ButtonText>
+          <ButtonText>Close</ButtonText>
         </Button>
       </View>
 
@@ -124,7 +114,6 @@ function VerifiedState({
 }
 
 function VerifyState({control}: {control: DialogContextProps}) {
-  const {_} = useLingui()
   const t = useTheme()
   const {currentAccount} = useSession()
   const did = currentAccount?.did ?? ''
@@ -138,14 +127,10 @@ function VerifyState({control}: {control: DialogContextProps}) {
 
   const errorMessage = error
     ? error instanceof EnsResolutionError
-      ? _(
-          msg`Could not resolve this ENS name. Make sure it exists and has an _atproto text record set.`,
-        )
+      ? 'Could not resolve this ENS name. Make sure it exists and has an _atproto text record set.'
       : error instanceof EnsDidMismatchError
-        ? _(
-            msg`This ENS name resolves to a different account. Make sure the _atproto text record contains your DID.`,
-          )
-        : _(msg`Something went wrong. Please try again.`)
+        ? 'This ENS name resolves to a different account. Make sure the _atproto text record contains your DID.'
+        : 'Something went wrong. Please try again.'
     : undefined
 
   const handleCopyDid = () => {
@@ -167,54 +152,50 @@ function VerifyState({control}: {control: DialogContextProps}) {
   }
 
   return (
-    <Dialog.ScrollableInner label={_(msg`Verify ENS Name`)}>
+    <Dialog.ScrollableInner label="Verify ENS Name">
       <Dialog.Header>
-        <Dialog.HeaderText>
-          <Trans>Verify ENS Name</Trans>
-        </Dialog.HeaderText>
+        <Dialog.HeaderText>Verify ENS Name</Dialog.HeaderText>
       </Dialog.Header>
 
       <View style={[a.gap_lg, a.pt_md]}>
         <Text style={[a.text_md, a.leading_snug, t.atoms.text]}>
-          <Trans>
-            Link your .eth ENS name to display it as your handle throughout the
-            app.
-          </Trans>
+          Link your .eth ENS name to display it as your handle throughout the
+          app.
         </Text>
 
         <View style={[a.gap_sm]}>
           <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
-            <Trans>Setup instructions</Trans>
+            Setup instructions
           </Text>
           <View
             style={[a.gap_xs, a.p_md, a.rounded_md, t.atoms.bg_contrast_25]}>
             <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
-              <Trans>1. Go to app.ens.domains and connect your wallet</Trans>
+              1. Go to app.ens.domains and connect your wallet
             </Text>
             <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
-              <Trans>2. Select your .eth name</Trans>
+              2. Select your .eth name
             </Text>
             <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
-              <Trans>3. Go to the Records tab</Trans>
+              3. Go to the Records tab
             </Text>
             <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
-              <Trans>4. Add a Text Record with key: _atproto</Trans>
+              4. Add a Text Record with key: _atproto
             </Text>
             <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
-              <Trans>5. Set the value to your DID (below)</Trans>
+              5. Set the value to your DID (below)
             </Text>
             <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
-              <Trans>6. Save and confirm the transaction</Trans>
+              6. Save and confirm the transaction
             </Text>
           </View>
         </View>
 
         <View style={[a.gap_xs]}>
           <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
-            <Trans>Your DID (copy this value)</Trans>
+            Your DID (copy this value)
           </Text>
           <Button
-            label={_(msg`Copy DID`)}
+            label="Copy DID"
             onPress={handleCopyDid}
             color="secondary"
             size="small"
@@ -229,13 +210,11 @@ function VerifyState({control}: {control: DialogContextProps}) {
         </View>
 
         <View style={[a.gap_xs]}>
-          <TextField.LabelText>
-            <Trans>ENS name</Trans>
-          </TextField.LabelText>
+          <TextField.LabelText>ENS name</TextField.LabelText>
           <TextField.Root>
             <TextField.Icon icon={EnsIcon} />
             <TextField.Input
-              label={_(msg`Enter your .eth name`)}
+              label="Enter your .eth name"
               placeholder="name.eth"
               defaultValue={inputValue}
               onChangeText={text => {
@@ -252,24 +231,20 @@ function VerifyState({control}: {control: DialogContextProps}) {
 
         <View style={[a.gap_sm]}>
           <Button
-            label={_(msg`Verify`)}
+            label="Verify"
             onPress={handleVerify}
             color="primary"
             size="large"
             disabled={!isValid || isPending}>
-            <ButtonText>
-              <Trans>Verify</Trans>
-            </ButtonText>
+            <ButtonText>Verify</ButtonText>
             {isPending && <ButtonIcon icon={Loader} />}
           </Button>
           <Button
-            label={_(msg`Cancel`)}
+            label="Cancel"
             onPress={() => control.close()}
             color="secondary"
             size="large">
-            <ButtonText>
-              <Trans>Cancel</Trans>
-            </ButtonText>
+            <ButtonText>Cancel</ButtonText>
           </Button>
         </View>
       </View>

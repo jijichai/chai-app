@@ -1,5 +1,4 @@
 import {View} from 'react-native'
-import {Trans, useLingui} from '@lingui/react/macro'
 
 import {atoms as a, useTheme, web} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
@@ -16,13 +15,12 @@ export function EnsInfoDialog({
   control: Dialog.DialogControlProps
   ensName: string
 }) {
-  const {t: l} = useLingui()
   const t = useTheme()
 
   return (
     <Dialog.Outer control={control} nativeOptions={{preventExpansion: true}}>
       <Dialog.ScrollableInner
-        label={l`Verified ENS name`}
+        label="Verified ENS name"
         style={[web({maxWidth: 320})]}>
         <View style={[a.align_center, a.pb_md]}>
           <EnsIcon width={48} fill={ENS_COLOR} />
@@ -47,21 +45,17 @@ export function EnsInfoDialog({
               t.atoms.text_contrast_high,
               {maxWidth: 300},
             ]}>
-            <Trans>
-              This user has verified ownership of this ENS name by setting an
-              on-chain record that links to their account.
-            </Trans>
+            This user has verified ownership of this ENS name by setting an
+            on-chain record that links to their account.
           </Text>
         </View>
         <View style={[a.w_full]}>
           <Button
-            label={l`Okay`}
+            label="Okay"
             onPress={() => control.close()}
             color="primary"
             size="large">
-            <ButtonText>
-              <Trans>Okay</Trans>
-            </ButtonText>
+            <ButtonText>Okay</ButtonText>
           </Button>
         </View>
       </Dialog.ScrollableInner>
