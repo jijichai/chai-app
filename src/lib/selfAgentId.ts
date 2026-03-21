@@ -31,7 +31,7 @@ export async function startRegistration(): Promise<RegistrationSession> {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       mode: 'wallet-free',
-      network: 'mainnet',
+      network: 'testnet',
     }),
   })
 
@@ -98,10 +98,10 @@ export async function checkRegistrationStatus(
 }
 
 /**
- * Get the agentscan explorer URL for an agent (ERC-8004 explorer).
+ * Get the block explorer URL for the agent's on-chain proof (Celo Sepolia testnet).
  */
 export function getAgentExplorerUrl(agentId: string): string {
-  return `https://agentscan.info/agents/${encodeURIComponent(agentId)}`
+  return `https://celo-sepolia.blockscout.com/address/${encodeURIComponent(agentId)}`
 }
 
 /**
