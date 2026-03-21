@@ -213,7 +213,7 @@ export function SignupForm({
               setHandleDraft(val.toLocaleLowerCase())
             }}
             label={_(msg`Choose your username`)}
-            placeholder={null}
+            placeholder={`yourname${state.userDomain}`}
             value={handleDraft}
             keyboardType="ascii-capable"
             autoCapitalize="none"
