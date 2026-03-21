@@ -14,7 +14,7 @@ import {TimesLarge_Stroke2_Corner0_Rounded as XIcon} from '#/components/icons/Ti
 import {Text} from '#/components/Typography'
 import {useAnalytics} from '#/analytics'
 
-const welcomeModalBg = require('../../assets/images/welcome-modal-bg.jpg')
+const welcomeModalBg = require('../../assets/images/welcomejpg.png')
 
 interface WelcomeModalProps {
   control: {
