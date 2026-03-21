@@ -31,7 +31,7 @@ export async function startRegistration(): Promise<RegistrationSession> {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      mode: 'walletfree',
+      mode: 'wallet-free',
       network: 'mainnet',
     }),
   })
