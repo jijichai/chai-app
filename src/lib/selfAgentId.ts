@@ -2,9 +2,6 @@ import {logger} from '#/logger'
 
 const SELF_AGENT_API = 'https://app.ai.self.xyz/api'
 
-// Celo Mainnet registry contract
-const CELO_REGISTRY_ADDRESS = '0xaC3DF9ABf80d0F5c020C06B04Cced27763355944'
-
 export interface SelfVerification {
   verified: boolean
   agentId: string // the agent's public key or identifier
@@ -96,18 +93,10 @@ export async function checkRegistrationStatus(
 }
 
 /**
- * Build the Celoscan URL to view the soulbound NFT for an agent.
- */
-export function getProofUrl(_agentId: string): string {
-  // Link to the registry contract on Celoscan
-  return `https://celoscan.io/address/${CELO_REGISTRY_ADDRESS}#readContract`
-}
-
-/**
- * Get a human-friendly explorer URL for the agent's NFT.
+ * Get the agentscan explorer URL for an agent (ERC-8004 explorer).
  */
 export function getAgentExplorerUrl(agentId: string): string {
-  return `https://celoscan.io/token/${CELO_REGISTRY_ADDRESS}?a=${encodeURIComponent(agentId)}`
+  return `https://agentscan.info/agents/${encodeURIComponent(agentId)}`
 }
 
 /**
