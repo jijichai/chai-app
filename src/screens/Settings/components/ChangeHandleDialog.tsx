@@ -412,7 +412,7 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
           label={_(msg`Choose domain verification method`)}
           type="tabs"
           value={method}
-          onChange={value => setMethod(value as VerificationMethod)}>
+          onChange={value => setMethod(value)}>
           <SegmentedControl.Item value="ens" label="ENS">
             <SegmentedControl.ItemText>ENS</SegmentedControl.ItemText>
           </SegmentedControl.Item>
@@ -617,6 +617,7 @@ function EnsPanel() {
 
   const [inputValue, setInputValue] = useState('')
   const [copied, setCopied] = useState(false)
+  const [copiedKey, setCopiedKey] = useState(false)
   const {mutate: verifyEns, isPending, error, reset} = useVerifyEnsMutation()
 
   const ensName = inputValue.trim().toLowerCase()
@@ -629,6 +630,12 @@ function EnsPanel() {
         ? 'This ENS name resolves to a different account. Make sure the _atproto text record contains your DID.'
         : 'Something went wrong. Please try again.'
     : undefined
+
+  const handleCopyKey = () => {
+    Clipboard.setStringAsync('_atproto')
+    setCopiedKey(true)
+    setTimeout(() => setCopiedKey(false), 2000)
+  }
 
   const handleCopyDid = () => {
     Clipboard.setStringAsync(`did=${did}`)
@@ -682,6 +689,25 @@ function EnsPanel() {
 
       <View style={[a.gap_xs]}>
         <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
+          Text Record key (copy this value)
+        </Text>
+        <Button
+          label="Copy text record key"
+          onPress={handleCopyKey}
+          color="secondary"
+          size="small"
+          style={[a.justify_between]}>
+          <ButtonText
+            style={[a.text_sm, {fontFamily: 'monospace'}, a.flex_1]}
+            numberOfLines={1}>
+            _atproto
+          </ButtonText>
+          <ButtonIcon icon={copiedKey ? CheckIcon : CopyIcon} />
+        </Button>
+      </View>
+
+      <View style={[a.gap_xs]}>
+        <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
           Your DID (copy this value)
         </Text>
         <Button
@@ -691,7 +717,7 @@ function EnsPanel() {
           size="small"
           style={[a.justify_between]}>
           <ButtonText
-            style={[a.text_xs, {fontFamily: 'monospace'}, a.flex_1]}
+            style={[a.text_sm, {fontFamily: 'monospace'}, a.flex_1]}
             numberOfLines={1}>
             did={did}
           </ButtonText>
