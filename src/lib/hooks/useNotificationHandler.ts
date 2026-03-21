@@ -407,7 +407,7 @@ export function notificationToURL(payload: NotificationPayload): string | null {
     case 'repost-via-repost': {
       const urip = new AtUri(payload.subject)
       if (urip.collection === 'app.bsky.feed.post') {
-        return `/profile/${urip.host}/post/${urip.rkey}`
+        return `/${urip.host}/post/${urip.rkey}`
       } else {
         return '/notifications'
       }
@@ -418,7 +418,7 @@ export function notificationToURL(payload: NotificationPayload): string | null {
     case 'subscribed-post': {
       const urip = new AtUri(payload.uri)
       if (urip.collection === 'app.bsky.feed.post') {
-        return `/profile/${urip.host}/post/${urip.rkey}`
+        return `/${urip.host}/post/${urip.rkey}`
       } else {
         return '/notifications'
       }
@@ -426,7 +426,7 @@ export function notificationToURL(payload: NotificationPayload): string | null {
     case 'follow':
     case 'starterpack-joined': {
       const urip = new AtUri(payload.uri)
-      return `/profile/${urip.host}`
+      return `/${urip.host}`
     }
     case 'chat-message':
       // should be handled separately

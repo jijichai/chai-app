@@ -13,23 +13,23 @@ export function makeProfileLink(
   if (info.handle && !isInvalidHandle(info.handle)) {
     handleSegment = info.handle
   }
-  return [`/profile`, handleSegment, ...segments].join('/')
+  return [``, handleSegment, ...segments].join('/')
 }
 
 export function makeCustomFeedLink(
   did: string,
   rkey: string,
-  segment?: string | undefined,
-  feedCacheKey?: 'discover' | 'explore' | undefined,
+  segment?: string,
+  feedCacheKey?: 'discover' | 'explore',
 ) {
   return (
-    [`/profile`, did, 'feed', rkey, ...(segment ? [segment] : [])].join('/') +
+    [``, did, 'feed', rkey, ...(segment ? [segment] : [])].join('/') +
     (feedCacheKey ? `?feedCacheKey=${encodeURIComponent(feedCacheKey)}` : '')
   )
 }
 
 export function makeListLink(did: string, rkey: string, ...segments: string[]) {
-  return [`/profile`, did, 'lists', rkey, ...segments].join('/')
+  return [``, did, 'lists', rkey, ...segments].join('/')
 }
 
 export function makeTagLink(did: string) {

@@ -208,7 +208,7 @@ export function convertBskyAppUrlIfNeeded(url: string): string {
 export function listUriToHref(url: string): string {
   try {
     const {hostname, rkey} = new AtUri(url)
-    return `/profile/${hostname}/lists/${rkey}`
+    return `/${hostname}/lists/${rkey}`
   } catch {
     return ''
   }
@@ -217,7 +217,7 @@ export function listUriToHref(url: string): string {
 export function feedUriToHref(url: string): string {
   try {
     const {hostname, rkey} = new AtUri(url)
-    return `/profile/${hostname}/feed/${rkey}`
+    return `/${hostname}/feed/${rkey}`
   } catch {
     return ''
   }
@@ -233,7 +233,7 @@ export function postUriToRelativePath(
       options?.handle && !isInvalidHandle(options.handle)
         ? options.handle
         : hostname
-    return `/profile/${handleOrDid}/post/${rkey}`
+    return `/${handleOrDid}/post/${rkey}`
   } catch {
     return undefined
   }

@@ -96,3 +96,25 @@ export const router = new Router<AllNavigatableRoutes>({
   Bookmarks: '/saved',
   FindContactsFlow: '/find-contacts',
 })
+
+// Vanity profile routes — added last so named routes always match first.
+// These enable clean URLs like chai.sh/chaish.eth instead of chai.sh/profile/chaish.eth.
+const vanityRoutes: [string, string][] = [
+  ['Profile', '/:name'],
+  ['Profile', '/:name/rss'],
+  ['ProfileFollowers', '/:name/followers'],
+  ['ProfileFollows', '/:name/follows'],
+  ['ProfileKnownFollowers', '/:name/known-followers'],
+  ['ProfileSearch', '/:name/search'],
+  ['ProfileList', '/:name/lists/:rkey'],
+  ['PostThread', '/:name/post/:rkey'],
+  ['PostLikedBy', '/:name/post/:rkey/liked-by'],
+  ['PostRepostedBy', '/:name/post/:rkey/reposted-by'],
+  ['PostQuotes', '/:name/post/:rkey/quotes'],
+  ['ProfileFeed', '/:name/feed/:rkey'],
+  ['ProfileFeedLikedBy', '/:name/feed/:rkey/liked-by'],
+  ['ProfileLabelerLikedBy', '/:name/labeler/liked-by'],
+]
+for (const [screen, pattern] of vanityRoutes) {
+  router.addRoute(screen, pattern, true)
+}

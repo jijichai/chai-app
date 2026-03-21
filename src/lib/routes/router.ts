@@ -2,6 +2,7 @@ import {type Route, type RouteParams} from './types'
 
 export class Router<T extends Record<string, any>> {
   routes: [string, Route][] = []
+  buildRoutes: Map<string, Route> = new Map()
   constructor(description: Record<keyof T, string | string[]>) {
     for (const [screen, pattern] of Object.entries(description)) {
       if (typeof pattern === 'string') {
@@ -14,12 +15,24 @@ export class Router<T extends Record<string, any>> {
     }
   }
 
+  addRoute(screen: string, pattern: string, preferForBuild?: boolean) {
+    const route = createRoute(pattern)
+    this.routes.push([screen, route])
+    if (preferForBuild) {
+      this.buildRoutes.set(screen, route)
+    }
+  }
+
   matchName(name: keyof T | (string & {})): Route | undefined {
     for (const [screenName, route] of this.routes) {
       if (screenName === name) {
         return route
       }
     }
+  }
+
+  matchNameForBuild(name: keyof T | (string & {})): Route | undefined {
+    return this.buildRoutes.get(name as string) ?? this.matchName(name)
   }
 
   matchPath(path: string): [string, RouteParams] {
