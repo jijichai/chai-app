@@ -10,6 +10,7 @@ import Animated, {
   SlideOutLeft,
   SlideOutRight,
 } from 'react-native-reanimated'
+import * as Clipboard from 'expo-clipboard'
 import {type ComAtprotoServerDescribeServer} from '@atproto/api'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
@@ -41,11 +42,17 @@ import {
 } from '#/components/icons/Arrow'
 import {At_Stroke2_Corner0_Rounded as AtIcon} from '#/components/icons/At'
 import {CheckThick_Stroke2_Corner0_Rounded as CheckIcon} from '#/components/icons/Check'
+import {Ens_Stroke2_Corner0_Rounded as EnsIcon} from '#/components/icons/Ens'
 import {SquareBehindSquare4_Stroke2_Corner0_Rounded as CopyIcon} from '#/components/icons/SquareBehindSquare4'
 import {InlineLinkText} from '#/components/Link'
 import {Loader} from '#/components/Loader'
 import {Text} from '#/components/Typography'
 import {useSimpleVerificationState} from '#/components/verification'
+import {
+  EnsDidMismatchError,
+  EnsResolutionError,
+  useVerifyEnsMutation,
+} from '#/features/ens/useVerifyEns'
 import {CopyButton} from './CopyButton'
 
 export function ChangeHandleDialog({
@@ -305,11 +312,13 @@ function ProvidedHandlePage({
   )
 }
 
+type VerificationMethod = 'ens' | 'dns' | 'file'
+
 function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
   const {_} = useLingui()
   const t = useTheme()
   const {currentAccount} = useSession()
-  const [dnsPanel, setDNSPanel] = useState(true)
+  const [method, setMethod] = useState<VerificationMethod>('ens')
   const [domain, setDomain] = useState('')
   const agent = useAgent()
   const control = Dialog.useDialogContext()
@@ -361,7 +370,7 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
           <ChangeHandleError error={error} />
         </Animated.View>
       )}
-      {verifyError && (
+      {verifyError && method !== 'ens' && (
         <Animated.View entering={FadeIn} exiting={FadeOut}>
           <Admonition type="error">
             {verifyError instanceof DidMismatchError ? (
@@ -377,31 +386,38 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
       <Animated.View
         layout={native(LinearTransition)}
         style={[a.flex_1, a.gap_md, a.overflow_hidden]}>
-        <View>
-          <TextField.LabelText>
-            <Trans>Enter the domain you want to use</Trans>
-          </TextField.LabelText>
-          <TextField.Root>
-            <TextField.Icon icon={AtIcon} />
-            <Dialog.Input
-              label={_(msg`New handle`)}
-              placeholder={_(msg`e.g. alice.com`)}
-              editable={!isPending}
-              defaultValue={domain}
-              onChangeText={text => {
-                setDomain(text)
-                resetVerification()
-              }}
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-          </TextField.Root>
-        </View>
+        {method !== 'ens' && (
+          <View>
+            <TextField.LabelText>
+              <Trans>Enter the domain you want to use</Trans>
+            </TextField.LabelText>
+            <TextField.Root>
+              <TextField.Icon icon={AtIcon} />
+              <Dialog.Input
+                label={_(msg`New handle`)}
+                placeholder={_(msg`e.g. alice.com`)}
+                editable={!isPending}
+                defaultValue={domain}
+                onChangeText={text => {
+                  setDomain(text)
+                  resetVerification()
+                }}
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+            </TextField.Root>
+          </View>
+        )}
         <SegmentedControl.Root
           label={_(msg`Choose domain verification method`)}
           type="tabs"
-          value={dnsPanel ? 'dns' : 'file'}
-          onChange={values => setDNSPanel(values === 'dns')}>
+          value={method}
+          onChange={value => setMethod(value as VerificationMethod)}>
+          <SegmentedControl.Item value="ens" label={_(msg`ENS`)}>
+            <SegmentedControl.ItemText>
+              <Trans>ENS</Trans>
+            </SegmentedControl.ItemText>
+          </SegmentedControl.Item>
           <SegmentedControl.Item value="dns" label={_(msg`DNS Panel`)}>
             <SegmentedControl.ItemText>
               <Trans>DNS Panel</Trans>
@@ -413,7 +429,9 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
             </SegmentedControl.ItemText>
           </SegmentedControl.Item>
         </SegmentedControl.Root>
-        {dnsPanel ? (
+        {method === 'ens' ? (
+          <EnsPanel />
+        ) : method === 'dns' ? (
           <>
             <Text>
               <Trans>Add the following DNS record to your domain:</Trans>
@@ -517,75 +535,213 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
           </>
         )}
       </Animated.View>
-      {isVerified && (
-        <Animated.View
-          entering={FadeIn}
-          exiting={FadeOut}
-          layout={native(LinearTransition)}>
-          <SuccessMessage text={_(msg`Domain verified!`)} />
-        </Animated.View>
-      )}
-      <Animated.View layout={native(LinearTransition)}>
-        {currentAccount?.handle?.endsWith('.bsky.social') && (
-          <Admonition type="info" style={[a.mb_md]}>
-            <Trans>
-              Your current handle{' '}
-              <Text style={[a.font_semi_bold]}>
-                {sanitizeHandle(currentAccount?.handle || '', '@')}
-              </Text>{' '}
-              will automatically remain reserved for you. You can switch back to
-              it at any time from this account.
-            </Trans>
-          </Admonition>
-        )}
-        <Button
-          label={
-            isVerified
-              ? _(msg`Update to ${domain}`)
-              : dnsPanel
-                ? _(msg`Verify DNS Record`)
-                : _(msg`Verify Text File`)
-          }
-          variant="solid"
-          size="large"
-          color="primary"
-          disabled={domain.trim().length === 0}
-          onPress={() => {
-            if (isVerified) {
-              changeHandle({handle: domain})
-            } else {
-              verify()
-            }
-          }}>
-          {isPending || isVerifyPending ? (
-            <ButtonIcon icon={Loader} />
-          ) : (
-            <ButtonText>
-              {isVerified ? (
-                <Trans>Update to {domain}</Trans>
-              ) : dnsPanel ? (
-                <Trans>Verify DNS Record</Trans>
-              ) : (
-                <Trans>Verify Text File</Trans>
-              )}
-            </ButtonText>
+      {method !== 'ens' && (
+        <>
+          {isVerified && (
+            <Animated.View
+              entering={FadeIn}
+              exiting={FadeOut}
+              layout={native(LinearTransition)}>
+              <SuccessMessage text={_(msg`Domain verified!`)} />
+            </Animated.View>
           )}
-        </Button>
+          <Animated.View layout={native(LinearTransition)}>
+            {currentAccount?.handle?.endsWith('.bsky.social') && (
+              <Admonition type="info" style={[a.mb_md]}>
+                <Trans>
+                  Your current handle{' '}
+                  <Text style={[a.font_semi_bold]}>
+                    {sanitizeHandle(currentAccount?.handle || '', '@')}
+                  </Text>{' '}
+                  will automatically remain reserved for you. You can switch
+                  back to it at any time from this account.
+                </Trans>
+              </Admonition>
+            )}
+            <Button
+              label={
+                isVerified
+                  ? _(msg`Update to ${domain}`)
+                  : method === 'dns'
+                    ? _(msg`Verify DNS Record`)
+                    : _(msg`Verify Text File`)
+              }
+              variant="solid"
+              size="large"
+              color="primary"
+              disabled={domain.trim().length === 0}
+              onPress={() => {
+                if (isVerified) {
+                  changeHandle({handle: domain})
+                } else {
+                  verify()
+                }
+              }}>
+              {isPending || isVerifyPending ? (
+                <ButtonIcon icon={Loader} />
+              ) : (
+                <ButtonText>
+                  {isVerified ? (
+                    <Trans>Update to {domain}</Trans>
+                  ) : method === 'dns' ? (
+                    <Trans>Verify DNS Record</Trans>
+                  ) : (
+                    <Trans>Verify Text File</Trans>
+                  )}
+                </ButtonText>
+              )}
+            </Button>
+          </Animated.View>
+        </>
+      )}
+      <Button
+        label={_(msg`Use default provider`)}
+        accessibilityHint={_(msg`Returns to previous page`)}
+        onPress={goToServiceHandle}
+        variant="outline"
+        color="secondary"
+        size="large"
+        style={[a.mt_sm]}>
+        <ButtonIcon icon={ArrowLeftIcon} position="left" />
+        <ButtonText>
+          <Trans>Nevermind, create a handle for me</Trans>
+        </ButtonText>
+      </Button>
+    </View>
+  )
+}
 
+function EnsPanel() {
+  const {_} = useLingui()
+  const t = useTheme()
+  const {currentAccount} = useSession()
+  const did = currentAccount?.did ?? ''
+  const control = Dialog.useDialogContext()
+
+  const [inputValue, setInputValue] = useState('')
+  const [copied, setCopied] = useState(false)
+  const {mutate: verifyEns, isPending, error, reset} = useVerifyEnsMutation()
+
+  const ensName = inputValue.trim().toLowerCase()
+  const isValid = ensName.endsWith('.eth') && ensName.length > 4
+
+  const errorMessage = error
+    ? error instanceof EnsResolutionError
+      ? _(
+          msg`Could not resolve this ENS name. Make sure it exists and has an _atproto text record set.`,
+        )
+      : error instanceof EnsDidMismatchError
+        ? _(
+            msg`This ENS name resolves to a different account. Make sure the _atproto text record contains your DID.`,
+          )
+        : _(msg`Something went wrong. Please try again.`)
+    : undefined
+
+  const handleCopyDid = () => {
+    Clipboard.setStringAsync(`did=${did}`)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  const handleVerify = () => {
+    reset()
+    verifyEns(
+      {ensName},
+      {
+        onSuccess: () => {
+          control.close()
+        },
+      },
+    )
+  }
+
+  return (
+    <View style={[a.gap_lg]}>
+      <Text style={[a.text_md, a.leading_snug, t.atoms.text]}>
+        <Trans>
+          Link your .eth ENS name to display it as your handle throughout the
+          app.
+        </Trans>
+      </Text>
+
+      <View style={[a.gap_sm]}>
+        <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
+          <Trans>Setup instructions</Trans>
+        </Text>
+        <View style={[a.gap_xs, a.p_md, a.rounded_md, t.atoms.bg_contrast_25]}>
+          <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
+            1. Go to app.ens.domains and connect your wallet
+          </Text>
+          <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
+            2. Select your .eth name
+          </Text>
+          <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
+            3. Go to the Records tab
+          </Text>
+          <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
+            4. Add a Text Record with key: _atproto
+          </Text>
+          <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
+            5. Set the value to your DID (below)
+          </Text>
+          <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
+            6. Save and confirm the transaction
+          </Text>
+        </View>
+      </View>
+
+      <View style={[a.gap_xs]}>
+        <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
+          <Trans>Your DID (copy this value)</Trans>
+        </Text>
         <Button
-          label={_(msg`Use default provider`)}
-          accessibilityHint={_(msg`Returns to previous page`)}
-          onPress={goToServiceHandle}
-          variant="outline"
+          label={_(msg`Copy DID`)}
+          onPress={handleCopyDid}
           color="secondary"
-          size="large"
-          style={[a.mt_sm]}>
-          <ButtonIcon icon={ArrowLeftIcon} position="left" />
-          <ButtonText>
-            <Trans>Nevermind, create a handle for me</Trans>
+          size="small"
+          style={[a.justify_between]}>
+          <ButtonText
+            style={[a.text_xs, {fontFamily: 'monospace'}, a.flex_1]}
+            numberOfLines={1}>
+            did={did}
           </ButtonText>
+          <ButtonIcon icon={copied ? CheckIcon : CopyIcon} />
         </Button>
-      </Animated.View>
+      </View>
+
+      <View style={[a.gap_xs]}>
+        <TextField.LabelText>
+          <Trans>ENS name</Trans>
+        </TextField.LabelText>
+        <TextField.Root>
+          <TextField.Icon icon={EnsIcon} />
+          <Dialog.Input
+            label={_(msg`Enter your .eth name`)}
+            placeholder="name.eth"
+            defaultValue={inputValue}
+            onChangeText={text => {
+              setInputValue(text)
+              if (error) reset()
+            }}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+        </TextField.Root>
+      </View>
+
+      {errorMessage && <Admonition type="error">{errorMessage}</Admonition>}
+
+      <Button
+        label={_(msg`Verify`)}
+        onPress={handleVerify}
+        color="primary"
+        size="large"
+        disabled={!isValid || isPending}>
+        <ButtonText>
+          <Trans>Verify</Trans>
+        </ButtonText>
+        {isPending && <ButtonIcon icon={Loader} />}
+      </Button>
     </View>
   )
 }

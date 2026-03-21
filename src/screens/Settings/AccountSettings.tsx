@@ -20,7 +20,6 @@ import {At_Stroke2_Corner2_Rounded as AtIcon} from '#/components/icons/At'
 import {BirthdayCake_Stroke2_Corner2_Rounded as BirthdayCakeIcon} from '#/components/icons/BirthdayCake'
 import {Bot_Stroke as RobotIcon} from '#/components/icons/Bot'
 import {Car_Stroke2_Corner2_Rounded as CarIcon} from '#/components/icons/Car'
-import {Ens_Stroke2_Corner0_Rounded as EnsIcon} from '#/components/icons/Ens'
 import {Envelope_Stroke2_Corner2_Rounded as EnvelopeIcon} from '#/components/icons/Envelope'
 import {Freeze_Stroke2_Corner2_Rounded as FreezeIcon} from '#/components/icons/Freeze'
 import {Lock_Stroke2_Corner2_Rounded as LockIcon} from '#/components/icons/Lock'
@@ -28,8 +27,6 @@ import {PencilLine_Stroke2_Corner2_Rounded as PencilIcon} from '#/components/ico
 import {ShieldCheck_Stroke2_Corner0_Rounded as ShieldIcon} from '#/components/icons/Shield'
 import {Trash_Stroke2_Corner2_Rounded} from '#/components/icons/Trash'
 import * as Layout from '#/components/Layout'
-import {EnsVerificationDialog} from '#/features/ens/components/EnsVerificationDialog'
-import {account, useStorage} from '#/storage'
 import {ChangeHandleDialog} from './components/ChangeHandleDialog'
 import {ChangePasswordDialog} from './components/ChangePasswordDialog'
 import {DeactivateAccountDialog} from './components/DeactivateAccountDialog'
@@ -45,8 +42,6 @@ export function AccountSettingsScreen({}: Props) {
   const emailDialogControl = useEmailDialogControl()
   const birthdayControl = useDialogControl()
   const changeHandleControl = useDialogControl()
-  const ensVerificationControl = useDialogControl()
-  const [ensName] = useStorage(account, [currentAccount?.did ?? '', 'ensName'])
   const changePasswordControl = useDialogControl()
   const exportCarControl = useDialogControl()
   const deactivateAccountControl = useDialogControl()
@@ -146,17 +141,6 @@ export function AccountSettingsScreen({}: Props) {
             </SettingsList.ItemText>
             <SettingsList.Chevron />
           </SettingsList.PressableItem>
-          <SettingsList.PressableItem
-            label="ENS Name"
-            accessibilityHint="Opens ENS verification dialog"
-            onPress={() => ensVerificationControl.open()}>
-            <SettingsList.ItemIcon icon={EnsIcon} />
-            <SettingsList.ItemText>ENS Name</SettingsList.ItemText>
-            {ensName ? (
-              <SettingsList.BadgeText>{ensName}</SettingsList.BadgeText>
-            ) : null}
-            <SettingsList.Chevron />
-          </SettingsList.PressableItem>
           <SettingsList.Item>
             <SettingsList.ItemIcon icon={BirthdayCakeIcon} />
             <SettingsList.ItemText>
@@ -216,7 +200,6 @@ export function AccountSettingsScreen({}: Props) {
 
       <BirthDateSettingsDialog control={birthdayControl} />
       <ChangeHandleDialog control={changeHandleControl} />
-      <EnsVerificationDialog control={ensVerificationControl} />
       <ChangePasswordDialog control={changePasswordControl} />
       <ExportCarDialog control={exportCarControl} />
       <DeactivateAccountDialog control={deactivateAccountControl} />
