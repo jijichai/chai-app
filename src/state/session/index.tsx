@@ -144,6 +144,9 @@ export function Provider({children}: React.PropsWithChildren<{}>) {
         newAgent: agent,
         newAccount: account,
       })
+      // Ensure trending is disabled by default for new accounts
+      persisted.write('trendingDisabled', true)
+      persisted.write('trendingVideoDisabled', true)
       ax.metric('account:create:success', metrics, {
         session: utils.accountToSessionMetadata(account),
       })
@@ -169,6 +172,9 @@ export function Provider({children}: React.PropsWithChildren<{}>) {
         newAgent: agent,
         newAccount: account,
       })
+      // Ensure trending is disabled by default for newly logged-in accounts
+      persisted.write('trendingDisabled', true)
+      persisted.write('trendingVideoDisabled', true)
       ax.metric(
         'account:loggedIn',
         {logContext, withPassword: true},
