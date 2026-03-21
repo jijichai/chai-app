@@ -111,13 +111,7 @@ export function StepInfo({
       return
     }
 
-    if (state.serviceDescription?.inviteCodeRequired && !inviteCode) {
-      return dispatch({
-        type: 'setError',
-        value: _(msg`Please enter your invite code.`),
-        field: 'invite-code',
-      })
-    }
+    // Invite code is minted server-side by the proxy; no user input needed.
     if (!email) {
       return dispatch({
         type: 'setError',
@@ -182,7 +176,7 @@ export function StepInfo({
           </View>
         ) : state.serviceDescription ? (
           <>
-            {state.serviceDescription.inviteCodeRequired && (
+            {false && state.serviceDescription?.inviteCodeRequired && (
               <View>
                 <TextField.LabelText>
                   <Trans>Invite code</Trans>

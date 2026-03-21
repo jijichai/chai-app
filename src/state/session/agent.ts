@@ -17,6 +17,7 @@ import {networkRetry} from '#/lib/async/retry'
 import {
   BLUESKY_PROXY_HEADER,
   BSKY_SERVICE,
+  CHAI_PDS_SERVICE,
   DISCOVER_SAVED_FEED,
   IS_PROD_SERVICE,
   PUBLIC_BSKY_SERVICE,
@@ -31,7 +32,7 @@ import {
   setBirthdateForDid,
   setCreatedAtForDid,
 } from '#/ageAssurance/data'
-import {features} from '#/analytics'
+import {IS_WEB} from '#/env'
 import {emitNetworkConfirmed, emitNetworkLost} from '../events'
 import {addSessionErrorLog} from './logging'
 import {
@@ -63,9 +64,6 @@ export async function createAgentAndResume(
   if (storedAccount.pdsUrl) {
     agent.sessionManager.pdsUrl = new URL(storedAccount.pdsUrl)
   }
-  const gates = features.refresh({
-    strategy: 'prefer-low-latency',
-  })
   const moderation = configureModerationForAccount(agent, storedAccount)
   const prevSession: AtpSessionData = sessionAccountToSession(storedAccount)
   if (isSessionExpired(storedAccount)) {
@@ -80,7 +78,7 @@ export async function createAgentAndResume(
   agent.configureProxy(BLUESKY_PROXY_HEADER.get())
 
   return agent.prepare({
-    resolvers: [gates, moderation, aa],
+    resolvers: [moderation, aa],
     onSessionChange,
   })
 }
@@ -112,14 +110,13 @@ export async function createAgentAndLogin(
   })
 
   const account = agentToSessionAccountOrThrow(agent)
-  const gates = features.refresh({strategy: 'prefer-fresh-gates'})
   const moderation = configureModerationForAccount(agent, account)
   const aa = prefetchAgeAssuranceData({agent})
 
   agent.configureProxy(BLUESKY_PROXY_HEADER.get())
 
   return agent.prepare({
-    resolvers: [gates, moderation, aa],
+    resolvers: [moderation, aa],
     onSessionChange,
   })
 }
@@ -160,7 +157,6 @@ export async function createAgentAndCreateAccount(
     verificationCode,
   })
   const account = agentToSessionAccountOrThrow(agent)
-  const gates = features.refresh({strategy: 'prefer-fresh-gates'})
   const moderation = configureModerationForAccount(agent, account)
 
   const createdAt = new Date().toISOString()
@@ -291,7 +287,7 @@ export async function createAgentAndCreateAccount(
   agent.configureProxy(BLUESKY_PROXY_HEADER.get())
 
   return agent.prepare({
-    resolvers: [gates, moderation, aa],
+    resolvers: [moderation, aa],
     onSessionChange,
   })
 }
@@ -372,6 +368,18 @@ class BskyAppAgent extends BskyAgent {
     super({
       service,
       async fetch(...args) {
+        // On web, route createAccount for the Chai PDS through our proxy so
+        // the server can mint a single-use invite code server-side.
+        if (IS_WEB) {
+          const url = args[0]
+          if (
+            url instanceof URL &&
+            url.origin === CHAI_PDS_SERVICE &&
+            url.pathname === '/xrpc/com.atproto.server.createAccount'
+          ) {
+            args[0] = new URL('/api/create-account', window.location.origin)
+          }
+        }
         let success = false
         try {
           const result = await realFetch(...args)

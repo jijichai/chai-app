@@ -21,7 +21,6 @@ import {useIsFindContactsFeatureEnabledBasedOnGeolocation} from '#/components/co
 import {useFindContactsFlowState} from '#/components/contacts/state'
 import {Portal} from '#/components/Portal'
 import {ScreenTransition} from '#/components/ScreenTransition'
-import {useAnalytics} from '#/analytics'
 import {ENV, IS_NATIVE} from '#/env'
 import {StepFindContacts} from './StepFindContacts'
 import {StepFindContactsIntro} from './StepFindContactsIntro'
@@ -30,8 +29,6 @@ import {StepSuggestedStarterpacks} from './StepSuggestedStarterpacks'
 
 export function Onboarding() {
   const t = useTheme()
-  const ax = useAnalytics()
-
   const {contentLanguages} = useLanguagePrefs()
   const probablySpeaksEnglish = useMemo(() => {
     if (contentLanguages.length === 0) return true
@@ -44,10 +41,7 @@ export function Onboarding() {
   const findContactsEnabled =
     useIsFindContactsFeatureEnabledBasedOnGeolocation()
   const showFindContacts =
-    ENV !== 'e2e' &&
-    IS_NATIVE &&
-    findContactsEnabled &&
-    !ax.features.enabled(ax.features.ImportContactsOnboardingDisable)
+    ENV !== 'e2e' && IS_NATIVE && findContactsEnabled && true
 
   const [state, dispatch] = useReducer(
     reducer,

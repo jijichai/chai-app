@@ -50,7 +50,7 @@ export function useLiveNowConfig(): LiveNowConfig {
   const {currentAccount} = useSession()
 
   return useMemo(() => {
-    const disabled = ax.features.enabled(ax.features.LiveNowBetaDisable)
+    const disabled = false
 
     const defaultAllowedHosts = new Set(
       DEFAULT_ALLOWED_DOMAINS.concat(liveNow.allow),

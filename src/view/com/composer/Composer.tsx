@@ -835,9 +835,7 @@ export const ComposePost = ({
             langs: currentLanguages,
           },
           {
-            highResolutionImages: ax.features.enabled(
-              ax.features.ImageUploadsHighResolution,
-            ),
+            highResolutionImages: false,
           },
         )
       ).uris[0]

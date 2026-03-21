@@ -498,9 +498,7 @@ let PostMenuItems = ({
   const onPressHideTranslation = () => clearTranslation()
 
   const isDiscoverDebugUser =
-    IS_INTERNAL ||
-    DISCOVER_DEBUG_DIDS[currentAccount?.did || ''] ||
-    ax.features.enabled(ax.features.DebugFeedContext)
+    IS_INTERNAL || DISCOVER_DEBUG_DIDS[currentAccount?.did || '']
 
   return (
     <>

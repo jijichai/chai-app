@@ -67,7 +67,6 @@ import {
 import {
   AnalyticsContext,
   AnalyticsFeaturesContext,
-  features,
   setupDeviceId,
 } from '#/analytics'
 import {
@@ -101,8 +100,6 @@ function InnerApp() {
       try {
         if (account) {
           await resumeSession(account)
-        } else {
-          await features.init
         }
       } catch (e) {
         logger.error(`session: resumeSession failed`, {message: e})

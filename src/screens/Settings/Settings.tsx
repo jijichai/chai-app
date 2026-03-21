@@ -64,7 +64,6 @@ import {ProfileBadges} from '#/components/ProfileBadges'
 import * as Prompt from '#/components/Prompt'
 import * as Toast from '#/components/Toast'
 import {Text} from '#/components/Typography'
-import {useAnalytics} from '#/analytics'
 import {IS_INTERNAL, IS_IOS, IS_NATIVE} from '#/env'
 import {useActorStatus} from '#/features/liveNow'
 import {device, useStorage} from '#/storage'
@@ -72,7 +71,6 @@ import {useActivitySubscriptionsNudged} from '#/storage/hooks/activity-subscript
 
 type Props = NativeStackScreenProps<CommonNavigatorParams, 'Settings'>
 export function SettingsScreen({}: Props) {
-  const ax = useAnalytics()
   const {_} = useLingui()
   const reducedMotion = useReducedMotion()
   const {logoutEveryAccount} = useSessionApi()
@@ -208,18 +206,16 @@ export function SettingsScreen({}: Props) {
               <Trans>Content and media</Trans>
             </SettingsList.ItemText>
           </SettingsList.LinkItem>
-          {IS_NATIVE &&
-            findContactsEnabled &&
-            !ax.features.enabled(ax.features.ImportContactsSettingsDisable) && (
-              <SettingsList.LinkItem
-                to="/settings/find-contacts"
-                label={_(msg`Find friends from contacts`)}>
-                <SettingsList.ItemIcon icon={ContactsIcon} />
-                <SettingsList.ItemText>
-                  <Trans>Find friends from contacts</Trans>
-                </SettingsList.ItemText>
-              </SettingsList.LinkItem>
-            )}
+          {IS_NATIVE && findContactsEnabled && (
+            <SettingsList.LinkItem
+              to="/settings/find-contacts"
+              label={_(msg`Find friends from contacts`)}>
+              <SettingsList.ItemIcon icon={ContactsIcon} />
+              <SettingsList.ItemText>
+                <Trans>Find friends from contacts</Trans>
+              </SettingsList.ItemText>
+            </SettingsList.LinkItem>
+          )}
           <SettingsList.LinkItem
             to="/settings/appearance"
             label={_(msg`Appearance`)}>

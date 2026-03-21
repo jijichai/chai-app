@@ -24,8 +24,7 @@ export const enabled = createIsEnabledCheck(props => {
     isExistingUserAsOf(
       '2026-01-16T00:00:00.000Z',
       props.currentProfile.createdAt,
-    ) &&
-    !props.features.enabled(props.features.LiveNowBetaDisable)
+    )
   )
 })
 
