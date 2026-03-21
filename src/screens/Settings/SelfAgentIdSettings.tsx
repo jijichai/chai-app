@@ -172,8 +172,8 @@ function NotVerifiedState() {
           </View>
         )}
 
-        {/* Deep link button — primarily for native, but useful on web too */}
-        {session.deepLink ? (
+        {/* Deep link button — only on native where it opens the Self app directly */}
+        {IS_NATIVE && session.deepLink ? (
           <Button
             label="Open Self app"
             onPress={() => {
@@ -182,19 +182,6 @@ function NotVerifiedState() {
             color="primary"
             size="large">
             <ButtonText>Open Self app</ButtonText>
-          </Button>
-        ) : null}
-
-        {/* Scan URL fallback — web page with QR code hosted by Self */}
-        {!session.deepLink && session.scanUrl ? (
-          <Button
-            label="Open verification page"
-            onPress={() => {
-              void Linking.openURL(session.scanUrl)
-            }}
-            color="primary"
-            size="large">
-            <ButtonText>Open verification page</ButtonText>
           </Button>
         ) : null}
 
