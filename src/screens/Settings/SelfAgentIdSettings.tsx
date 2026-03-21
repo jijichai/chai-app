@@ -1,7 +1,5 @@
 import {useState} from 'react'
 import {ActivityIndicator, Linking, View} from 'react-native'
-import {msg} from '@lingui/core/macro'
-import {Trans, useLingui} from '@lingui/react/macro'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
@@ -35,9 +33,7 @@ export function SelfAgentIdSettingsScreen({}: Props) {
       <Layout.Header.Outer>
         <Layout.Header.BackButton />
         <Layout.Header.Content>
-          <Layout.Header.TitleText>
-            <Trans>Self Agent ID</Trans>
-          </Layout.Header.TitleText>
+          <Layout.Header.TitleText>Self Agent ID</Layout.Header.TitleText>
         </Layout.Header.Content>
         <Layout.Header.Slot />
       </Layout.Header.Outer>
@@ -54,7 +50,6 @@ export function SelfAgentIdSettingsScreen({}: Props) {
 
 function NotVerifiedState() {
   const t = useTheme()
-  const {t: l} = useLingui()
   const setVerification = useSetSelfAgentVerification()
   const [sessionToken, setSessionToken] = useState<string>()
   const [qrCodeUrl, setQrCodeUrl] = useState<string>()
@@ -89,7 +84,7 @@ function NotVerifiedState() {
       logger.error('Self Agent ID: failed to start registration', {
         safeMessage: e,
       })
-      setError(l(msg`Failed to start verification. Please try again.`))
+      setError('Failed to start verification. Please try again.')
     } finally {
       setIsStarting(false)
     }
@@ -103,7 +98,7 @@ function NotVerifiedState() {
         </View>
         <View style={[a.gap_sm]}>
           <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
-            <Trans>Scan with Self app</Trans>
+            Scan with Self app
           </Text>
           <Text
             style={[
@@ -112,10 +107,8 @@ function NotVerifiedState() {
               a.text_center,
               t.atoms.text_contrast_medium,
             ]}>
-            <Trans>
-              Open the Self app on your phone and scan the QR code to verify
-              your identity. Your personal data stays on your device.
-            </Trans>
+            Open the Self app on your phone and scan the QR code to verify your
+            identity. Your personal data stays on your device.
           </Text>
         </View>
 
@@ -123,34 +116,30 @@ function NotVerifiedState() {
           <View style={[a.align_center, a.py_xl]}>
             <ActivityIndicator size="large" color={t.palette.primary_500} />
             <Text style={[a.text_sm, a.pt_md, t.atoms.text_contrast_medium]}>
-              <Trans>Waiting for verification...</Trans>
+              Waiting for verification...
             </Text>
           </View>
         )}
 
         <Button
-          label={l(msg`Open Self app`)}
+          label="Open Self app"
           onPress={() => {
             void Linking.openURL(qrCodeUrl)
           }}
           color="primary"
           size="large">
-          <ButtonText>
-            <Trans>Open Self app</Trans>
-          </ButtonText>
+          <ButtonText>Open Self app</ButtonText>
         </Button>
 
         <Button
-          label={l(msg`Cancel`)}
+          label="Cancel"
           onPress={() => {
             setSessionToken(undefined)
             setQrCodeUrl(undefined)
           }}
           color="secondary"
           size="large">
-          <ButtonText>
-            <Trans>Cancel</Trans>
-          </ButtonText>
+          <ButtonText>Cancel</ButtonText>
         </Button>
 
         {status?.status === 'failed' && (
@@ -170,7 +159,7 @@ function NotVerifiedState() {
       </View>
       <View style={[a.gap_sm]}>
         <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
-          <Trans>Verify your identity</Trans>
+          Verify your identity
         </Text>
         <Text
           style={[
@@ -179,32 +168,26 @@ function NotVerifiedState() {
             a.text_center,
             t.atoms.text_contrast_medium,
           ]}>
-          <Trans>
-            Prove that this automated account is backed by a real human using
-            Self Protocol. Your personal data stays on your device — only a
-            zero-knowledge proof is shared.
-          </Trans>
+          Prove that this automated account is backed by a real human using Self
+          Protocol. Your personal data stays on your device — only a
+          zero-knowledge proof is shared.
         </Text>
       </View>
 
       <View style={[a.gap_md, a.py_sm]}>
-        <BulletPoint text={l(msg`No personal data is stored or shared`)} />
-        <BulletPoint text={l(msg`Creates a soulbound NFT on Celo as proof`)} />
-        <BulletPoint text={l(msg`Other users see a "Verified owner" badge`)} />
+        <BulletPoint text="No personal data is stored or shared" />
+        <BulletPoint text="Creates a soulbound NFT on Celo as proof" />
+        <BulletPoint text={'Other users see a "Verified owner" badge'} />
       </View>
 
       <Button
-        label={l(msg`Verify with Self Protocol`)}
+        label="Verify with Self Protocol"
         onPress={() => void onStartVerification()}
         color="primary"
         size="large"
         disabled={isStarting}>
         <ButtonText>
-          {isStarting ? (
-            <Trans>Starting...</Trans>
-          ) : (
-            <Trans>Verify with Self Protocol</Trans>
-          )}
+          {isStarting ? 'Starting...' : 'Verify with Self Protocol'}
         </ButtonText>
       </Button>
 
@@ -224,7 +207,6 @@ function VerifiedState({
   verification: NonNullable<ReturnType<typeof useSelfAgentVerification>>
 }) {
   const t = useTheme()
-  const {t: l} = useLingui()
   const setVerification = useSetSelfAgentVerification()
   const removeControl = Dialog.useDialogControl()
 
@@ -242,56 +224,48 @@ function VerifiedState({
       </View>
       <View style={[a.gap_sm]}>
         <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
-          <Trans>Owner verified</Trans>
+          Owner verified
         </Text>
         <Text style={[a.text_md, a.text_center, t.atoms.text_contrast_medium]}>
-          <Trans>Verified on {formattedDate}</Trans>
+          Verified on {formattedDate}
         </Text>
       </View>
 
       <Button
-        label={l(msg`View on-chain proof`)}
+        label="View on-chain proof"
         onPress={() => {
           void Linking.openURL(verification.proofUrl)
         }}
         color="secondary"
         size="large">
-        <ButtonText>
-          <Trans>View on-chain proof</Trans>
-        </ButtonText>
+        <ButtonText>View on-chain proof</ButtonText>
       </Button>
 
       <Button
-        label={l(msg`Remove verification`)}
+        label="Remove verification"
         onPress={() => removeControl.open()}
         color="negative"
         size="large"
         variant="outline">
-        <ButtonText>
-          <Trans>Remove verification</Trans>
-        </ButtonText>
+        <ButtonText>Remove verification</ButtonText>
       </Button>
 
       <Dialog.Outer
         control={removeControl}
         nativeOptions={{preventExpansion: true}}>
         <Dialog.ScrollableInner
-          label={l(msg`Remove verification`)}
+          label="Remove verification"
           style={[web({maxWidth: 400})]}>
           <Dialog.Header>
-            <Dialog.HeaderText>
-              <Trans>Remove verification?</Trans>
-            </Dialog.HeaderText>
+            <Dialog.HeaderText>Remove verification?</Dialog.HeaderText>
           </Dialog.Header>
           <Text style={[a.text_md, a.leading_snug, a.pb_lg]}>
-            <Trans>
-              This will remove the Self Agent ID verification from your account.
-              You can re-verify at any time.
-            </Trans>
+            This will remove the Self Agent ID verification from your account.
+            You can re-verify at any time.
           </Text>
           <View style={[a.gap_sm]}>
             <Button
-              label={l(msg`Remove`)}
+              label="Remove"
               onPress={() => {
                 removeControl.close(() => {
                   setVerification(undefined)
@@ -299,18 +273,14 @@ function VerifiedState({
               }}
               color="negative"
               size="large">
-              <ButtonText>
-                <Trans>Remove</Trans>
-              </ButtonText>
+              <ButtonText>Remove</ButtonText>
             </Button>
             <Button
-              label={l(msg`Cancel`)}
+              label="Cancel"
               onPress={() => removeControl.close()}
               color="secondary"
               size="large">
-              <ButtonText>
-                <Trans>Cancel</Trans>
-              </ButtonText>
+              <ButtonText>Cancel</ButtonText>
             </Button>
           </View>
           <Dialog.Close />

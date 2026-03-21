@@ -211,7 +211,6 @@ export function AutomationLabelSettingsScreen({}: Props) {
 
 function SelfAgentIdSection() {
   const t = useTheme()
-  const {t: l} = useLingui()
   const selfVerification = useSelfAgentVerification()
   const isVerified = selfVerification?.verified ?? false
 
@@ -221,21 +220,16 @@ function SelfAgentIdSection() {
         style={[a.w_full, a.border_t, t.atoms.border_contrast_low, a.pt_xl]}
       />
       <View style={[a.gap_xs]}>
-        <Text style={[a.text_lg, a.font_bold]}>
-          <Trans>Self Agent ID</Trans>
-        </Text>
+        <Text style={[a.text_lg, a.font_bold]}>Self Agent ID</Text>
         <Text style={[a.text_md, a.leading_snug, t.atoms.text_contrast_medium]}>
-          <Trans>
-            Verify that this account's owner is a real person. Verified accounts
-            show a badge that links to on-chain proof.
-          </Trans>
+          {
+            "Verify that this account's owner is a real person. Verified accounts show a badge that links to on-chain proof."
+          }
         </Text>
       </View>
       <Button
         label={
-          isVerified
-            ? l`Self Agent ID: Verified`
-            : l`Self Agent ID: Not verified`
+          isVerified ? 'Self Agent ID: Verified' : 'Self Agent ID: Not verified'
         }
         onPress={() => void navigate('SelfAgentIdSettings')}
         color="secondary"
@@ -247,11 +241,9 @@ function SelfAgentIdSection() {
             <ShieldIcon width={20} fill={t.atoms.text_contrast_medium.color} />
           )}
           <ButtonText style={[a.flex_1]}>
-            {isVerified ? (
-              <Trans>Self Agent ID: Verified</Trans>
-            ) : (
-              <Trans>Self Agent ID: Not verified</Trans>
-            )}
+            {isVerified
+              ? 'Self Agent ID: Verified'
+              : 'Self Agent ID: Not verified'}
           </ButtonText>
         </View>
       </Button>

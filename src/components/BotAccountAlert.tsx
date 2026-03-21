@@ -67,14 +67,14 @@ export function BotAccountAlert({
             <ShieldCheckIcon width={20} fill={t.palette.positive_600} />
             <View style={[a.flex_1, a.gap_2xs]}>
               <Text style={[a.text_sm, a.font_semi_bold]}>
-                <Trans>Owner identity verified via Self Protocol</Trans>
+                Owner identity verified via Self Protocol
               </Text>
               <Text
                 style={[a.text_sm, {color: t.palette.primary_500}]}
                 onPress={() => {
                   void Linking.openURL(selfVerification.proofUrl)
                 }}>
-                <Trans>View proof</Trans>
+                View proof
               </Text>
             </View>
           </View>
