@@ -46,8 +46,8 @@ module.exports = async function (env, argv) {
       })
     }
   } else {
-    // Support static CDN for chunks
-    config.output.publicPath = 'auto'
+    // Ensure chunks are loaded from the root, not relative to the current URL path
+    config.output.publicPath = '/'
   }
 
   if (GENERATE_STATS || OPEN_ANALYZER) {
