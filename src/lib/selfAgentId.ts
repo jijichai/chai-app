@@ -101,7 +101,7 @@ export async function checkRegistrationStatus(
  * Get the block explorer URL for the agent's on-chain proof (Celo Sepolia testnet).
  */
 export function getAgentExplorerUrl(agentId: string): string {
-  return `https://celo-sepolia.blockscout.com/address/${encodeURIComponent(agentId)}`
+  return `https://sepolia.celoscan.io/address/${encodeURIComponent(agentId)}`
 }
 
 /**
