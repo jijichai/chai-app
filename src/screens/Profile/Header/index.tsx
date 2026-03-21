@@ -26,6 +26,7 @@ import {atoms as a, useTheme} from '#/alf'
 import {Header} from '#/components/Layout'
 import * as ProfileCard from '#/components/ProfileCard'
 import {IS_NATIVE} from '#/env'
+import {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 import {
   HeaderLabelerButtons,
   ProfileHeaderLabeler,
@@ -113,6 +114,7 @@ const MinimalHeader = memo(function MinimalHeader({
   const insets = useSafeAreaInsets()
   const ctx = usePagerHeaderContext()
   const profile = useProfileShadow(profileUnshadowed)
+  const displayHandle = useDisplayHandle(profile)
   const moderationOpts = useModerationOpts()
   const moderation = useMemo(
     () => (moderationOpts ? moderateProfile(profile, moderationOpts) : null),
@@ -193,7 +195,7 @@ const MinimalHeader = memo(function MinimalHeader({
             <ProfileCard.NamePlaceholder />
           )}
           <Header.SubtitleText>
-            {sanitizeHandle(profile.handle, '@')}
+            {sanitizeHandle(displayHandle, '@')}
           </Header.SubtitleText>
         </Header.Content>
         {!profile.associated?.labeler

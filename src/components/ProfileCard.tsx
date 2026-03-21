@@ -45,6 +45,7 @@ import {RichText} from '#/components/RichText'
 import * as Toast from '#/components/Toast'
 import {Text} from '#/components/Typography'
 import {type Metrics} from '#/analytics'
+import {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 import {useActorStatus} from '#/features/liveNow'
 import type * as bsky from '#/types/bsky'
 
@@ -242,12 +243,13 @@ function InlineNameAndHandle({
   moderationOpts: ModerationOpts
 }) {
   const t = useTheme()
+  const displayHandle = useDisplayHandle(profile)
   const moderation = moderateProfile(profile, moderationOpts)
   const name = sanitizeDisplayName(
     profile.displayName || sanitizeHandle(profile.handle),
     moderation.ui('displayName'),
   )
-  const handle = sanitizeHandle(profile.handle, '@')
+  const handle = sanitizeHandle(displayHandle, '@')
   return (
     <View style={[a.flex_row, a.align_end, a.flex_shrink]}>
       <Text
@@ -328,7 +330,8 @@ export function Handle({
   textStyle?: StyleProp<TextStyle>
 }) {
   const t = useTheme()
-  const handle = sanitizeHandle(profile.handle, '@')
+  const displayHandle = useDisplayHandle(profile)
+  const handle = sanitizeHandle(displayHandle, '@')
 
   return (
     <Text

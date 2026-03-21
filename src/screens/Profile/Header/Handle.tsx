@@ -10,6 +10,7 @@ import {atoms as a, useTheme, web} from '#/alf'
 import {NewskieDialog} from '#/components/NewskieDialog'
 import {Text} from '#/components/Typography'
 import {IS_IOS, IS_NATIVE} from '#/env'
+import {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 
 export function ProfileHeaderHandle({
   profile,
@@ -20,6 +21,7 @@ export function ProfileHeaderHandle({
 }) {
   const t = useTheme()
   const {_} = useLingui()
+  const displayHandle = useDisplayHandle(profile)
   const invalidHandle = isInvalidHandle(profile.handle)
   const blockHide = profile.viewer?.blocking || profile.viewer?.blockedBy
   return (
@@ -57,7 +59,7 @@ export function ProfileHeaderHandle({
         {invalidHandle
           ? _(msg`⚠Invalid Handle`)
           : sanitizeHandle(
-              profile.handle,
+              displayHandle,
               '@',
               // forceLTR handled by CSS above on web
               IS_NATIVE,

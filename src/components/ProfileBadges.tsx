@@ -6,6 +6,9 @@ import {BotBadge, BotBadgeButton, isBotAccount} from '#/components/BotBadge'
 import {useSimpleVerificationState} from '#/components/verification'
 import {VerificationCheck} from '#/components/verification/VerificationCheck'
 import {VerificationCheckButton} from '#/components/verification/VerificationCheckButton'
+import {EnsBadge} from '#/features/ens/components/EnsBadge'
+import {EnsBadgeButton} from '#/features/ens/components/EnsBadgeButton'
+import {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 import type * as bsky from '#/types/bsky'
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -26,6 +29,14 @@ const botIconSizes: Record<Size, number> = {
   xl: 23,
 } as const
 
+const ensIconSizes: Record<Size, number> = {
+  xs: 10,
+  sm: 12,
+  md: 14,
+  lg: 18,
+  xl: 22,
+} as const
+
 export function ProfileBadges({
   profile,
   interactive = false,
@@ -38,9 +49,11 @@ export function ProfileBadges({
 }) {
   const shadowed = useProfileShadow(profile)
   const verification = useSimpleVerificationState({profile})
+  const displayHandle = useDisplayHandle(shadowed)
+  const hasEns = displayHandle.endsWith('.eth')
 
   // if nothing to show, don't render the container at all
-  if (!verification.showBadge && !isBotAccount(shadowed)) return null
+  if (!verification.showBadge && !isBotAccount(shadowed) && !hasEns) return null
 
   const isOnTheSmallSide = size === 'xs' || size === 'sm'
 
@@ -59,6 +72,12 @@ export function ProfileBadges({
             width={verificationIconSizes[size]}
           />
           <BotBadgeButton profile={shadowed} width={botIconSizes[size]} />
+          {hasEns && (
+            <EnsBadgeButton
+              ensName={displayHandle}
+              width={ensIconSizes[size]}
+            />
+          )}
         </>
       ) : (
         <>
@@ -69,6 +88,7 @@ export function ProfileBadges({
             />
           )}
           <BotBadge profile={shadowed} width={botIconSizes[size]} />
+          {hasEns && <EnsBadge width={ensIconSizes[size]} />}
         </>
       )}
     </View>

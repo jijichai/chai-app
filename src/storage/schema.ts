@@ -79,4 +79,14 @@ export type Account = {
   birthdateLastUpdatedAt?: string
 
   lastSelectedHomeFeed?: string
+
+  /**
+   * The verified .eth ENS name for this account (e.g. "alice.eth").
+   * Display-only override — the AT Protocol handle remains unchanged.
+   */
+  ensName?: string
+  /**
+   * ISO date string of when ENS verification was performed.
+   */
+  ensVerifiedAt?: string
 }
