@@ -413,10 +413,8 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
           type="tabs"
           value={method}
           onChange={value => setMethod(value as VerificationMethod)}>
-          <SegmentedControl.Item value="ens" label={_(msg`ENS`)}>
-            <SegmentedControl.ItemText>
-              <Trans>ENS</Trans>
-            </SegmentedControl.ItemText>
+          <SegmentedControl.Item value="ens" label="ENS">
+            <SegmentedControl.ItemText>ENS</SegmentedControl.ItemText>
           </SegmentedControl.Item>
           <SegmentedControl.Item value="dns" label={_(msg`DNS Panel`)}>
             <SegmentedControl.ItemText>
@@ -612,7 +610,6 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
 }
 
 function EnsPanel() {
-  const {_} = useLingui()
   const t = useTheme()
   const {currentAccount} = useSession()
   const did = currentAccount?.did ?? ''
@@ -627,14 +624,10 @@ function EnsPanel() {
 
   const errorMessage = error
     ? error instanceof EnsResolutionError
-      ? _(
-          msg`Could not resolve this ENS name. Make sure it exists and has an _atproto text record set.`,
-        )
+      ? 'Could not resolve this ENS name. Make sure it exists and has an _atproto text record set.'
       : error instanceof EnsDidMismatchError
-        ? _(
-            msg`This ENS name resolves to a different account. Make sure the _atproto text record contains your DID.`,
-          )
-        : _(msg`Something went wrong. Please try again.`)
+        ? 'This ENS name resolves to a different account. Make sure the _atproto text record contains your DID.'
+        : 'Something went wrong. Please try again.'
     : undefined
 
   const handleCopyDid = () => {
@@ -658,15 +651,12 @@ function EnsPanel() {
   return (
     <View style={[a.gap_lg]}>
       <Text style={[a.text_md, a.leading_snug, t.atoms.text]}>
-        <Trans>
-          Link your .eth ENS name to display it as your handle throughout the
-          app.
-        </Trans>
+        Link your .eth ENS name to display it as your handle throughout the app.
       </Text>
 
       <View style={[a.gap_sm]}>
         <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
-          <Trans>Setup instructions</Trans>
+          Setup instructions
         </Text>
         <View style={[a.gap_xs, a.p_md, a.rounded_md, t.atoms.bg_contrast_25]}>
           <Text style={[a.text_sm, a.leading_snug, t.atoms.text]}>
@@ -692,10 +682,10 @@ function EnsPanel() {
 
       <View style={[a.gap_xs]}>
         <Text style={[a.text_sm, a.font_bold, t.atoms.text_contrast_high]}>
-          <Trans>Your DID (copy this value)</Trans>
+          Your DID (copy this value)
         </Text>
         <Button
-          label={_(msg`Copy DID`)}
+          label="Copy DID"
           onPress={handleCopyDid}
           color="secondary"
           size="small"
@@ -710,13 +700,11 @@ function EnsPanel() {
       </View>
 
       <View style={[a.gap_xs]}>
-        <TextField.LabelText>
-          <Trans>ENS name</Trans>
-        </TextField.LabelText>
+        <TextField.LabelText>ENS name</TextField.LabelText>
         <TextField.Root>
           <TextField.Icon icon={EnsIcon} />
           <Dialog.Input
-            label={_(msg`Enter your .eth name`)}
+            label="Enter your .eth name"
             placeholder="name.eth"
             defaultValue={inputValue}
             onChangeText={text => {
@@ -732,14 +720,12 @@ function EnsPanel() {
       {errorMessage && <Admonition type="error">{errorMessage}</Admonition>}
 
       <Button
-        label={_(msg`Verify`)}
+        label="Verify"
         onPress={handleVerify}
         color="primary"
         size="large"
         disabled={!isValid || isPending}>
-        <ButtonText>
-          <Trans>Verify</Trans>
-        </ButtonText>
+        <ButtonText>Verify</ButtonText>
         {isPending && <ButtonIcon icon={Loader} />}
       </Button>
     </View>
