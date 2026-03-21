@@ -417,7 +417,7 @@ function commonScreens(Stack: typeof Flat, unreadCountLabel?: string) {
         name="SelfAgentIdSettings"
         getComponent={() => SelfAgentIdSettingsScreen}
         options={{
-          title: title(msg`Self Agent ID`),
+          title: bskyTitle('Self Agent ID'),
           requireAuth: true,
         }}
       />
