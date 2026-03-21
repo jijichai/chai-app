@@ -4,7 +4,7 @@ import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
 
-import {BSKY_SERVICE} from '#/lib/constants'
+import {CHAI_PDS_SERVICE} from '#/lib/constants'
 import * as persisted from '#/state/persisted'
 import {useSession} from '#/state/session'
 import {atoms as a, platform, useBreakpoints, useTheme, web} from '#/alf'
@@ -18,7 +18,7 @@ import {InlineLinkText} from '#/components/Link'
 import {Text} from '#/components/Typography'
 import {useAnalytics} from '#/analytics'
 
-type SegmentedControlOptions = typeof BSKY_SERVICE | 'custom'
+type SegmentedControlOptions = typeof CHAI_PDS_SERVICE | 'custom'
 
 export function ServerInputDialog({
   control,
@@ -32,19 +32,19 @@ export function ServerInputDialog({
 
   // persist these options between dialog open/close
   const [fixedOption, setFixedOption] =
-    useState<SegmentedControlOptions>(BSKY_SERVICE)
+    useState<SegmentedControlOptions>(CHAI_PDS_SERVICE)
   const [previousCustomAddress, setPreviousCustomAddress] = useState('')
 
   const onClose = useCallback(() => {
     const result = formRef.current?.getFormState()
     if (result) {
       onSelect(result)
-      if (result !== BSKY_SERVICE) {
+      if (result !== CHAI_PDS_SERVICE) {
         setPreviousCustomAddress(result)
       }
     }
     ax.metric('signin:hostingProviderPressed', {
-      hostingProviderDidChange: fixedOption !== BSKY_SERVICE,
+      hostingProviderDidChange: fixedOption !== CHAI_PDS_SERVICE,
     })
   }, [ax, onSelect, fixedOption])
 
@@ -140,7 +140,7 @@ function DialogInner({
           onChange={setFixedOption}>
           <SegmentedControl.Item
             testID="bskyServiceSelectBtn"
-            value={BSKY_SERVICE}
+            value={CHAI_PDS_SERVICE}
             label={_(msg`Chai`)}>
             <SegmentedControl.ItemText>
               {_(msg`Chai`)}
@@ -156,7 +156,7 @@ function DialogInner({
           </SegmentedControl.Item>
         </SegmentedControl.Root>
 
-        {fixedOption === BSKY_SERVICE && isFirstTimeUser && (
+        {fixedOption === CHAI_PDS_SERVICE && isFirstTimeUser && (
           <View role="tabpanel">
             <Admonition type="tip">
               <Trans>
