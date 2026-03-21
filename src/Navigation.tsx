@@ -123,6 +123,7 @@ import {ReplyNotificationSettingsScreen} from '#/screens/Settings/NotificationSe
 import {RepostNotificationSettingsScreen} from '#/screens/Settings/NotificationSettings/RepostNotificationSettings'
 import {RepostsOnRepostsNotificationSettingsScreen} from '#/screens/Settings/NotificationSettings/RepostsOnRepostsNotificationSettings'
 import {PrivacyAndSecuritySettingsScreen} from '#/screens/Settings/PrivacyAndSecuritySettings'
+import {SelfAgentIdSettingsScreen} from '#/screens/Settings/SelfAgentIdSettings'
 import {SettingsScreen} from '#/screens/Settings/Settings'
 import {ThreadPreferencesScreen} from '#/screens/Settings/ThreadPreferences'
 import {
@@ -409,6 +410,14 @@ function commonScreens(Stack: typeof Flat, unreadCountLabel?: string) {
         getComponent={() => AutomationLabelSettingsScreen}
         options={{
           title: title(msg`Automation Label`),
+          requireAuth: true,
+        }}
+      />
+      <Stack.Screen
+        name="SelfAgentIdSettings"
+        getComponent={() => SelfAgentIdSettingsScreen}
+        options={{
+          title: title(msg`Self Agent ID`),
           requireAuth: true,
         }}
       />

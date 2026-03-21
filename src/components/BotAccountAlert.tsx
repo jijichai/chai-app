@@ -1,11 +1,13 @@
-import {View} from 'react-native'
+import {Linking, View} from 'react-native'
 import {Trans, useLingui} from '@lingui/react/macro'
 
+import {useSelfAgentVerification} from '#/state/preferences'
 import {useSession} from '#/state/session'
 import {atoms as a, useTheme, web} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
 import * as Dialog from '#/components/Dialog'
 import {Bot_Filled as RobotIcon} from '#/components/icons/Bot'
+import {ShieldCheck_Stroke2_Corner0_Rounded as ShieldCheckIcon} from '#/components/icons/Shield'
 import {Text} from '#/components/Typography'
 import {navigate} from '#/Navigation'
 import type * as bsky from '#/types/bsky'
@@ -20,11 +22,15 @@ export function BotAccountAlert({
   const {t: l} = useLingui()
   const t = useTheme()
   const {currentAccount} = useSession()
+  const selfVerification = useSelfAgentVerification()
 
   const isSelf = profile.did === currentAccount?.did
   const description = isSelf
     ? l`You have marked this account as automated. You can remove it at any time from your account settings.`
     : l`This account has been marked as automated by its owner.`
+
+  // Show verification badge if viewing own profile and verified
+  const showVerification = isSelf && selfVerification?.verified
 
   return (
     <Dialog.Outer control={control} nativeOptions={{preventExpansion: true}}>
@@ -39,7 +45,7 @@ export function BotAccountAlert({
             style={[
               a.leading_snug,
               a.text_center,
-              a.pb_xl,
+              a.pb_md,
               a.text_md,
               t.atoms.text_contrast_high,
               {maxWidth: 300},
@@ -47,6 +53,32 @@ export function BotAccountAlert({
             {description}
           </Text>
         </View>
+        {showVerification && selfVerification?.proofUrl && (
+          <View
+            style={[
+              a.flex_row,
+              a.align_center,
+              a.gap_sm,
+              a.p_md,
+              a.mb_md,
+              a.rounded_md,
+              t.atoms.bg_contrast_50,
+            ]}>
+            <ShieldCheckIcon width={20} fill={t.palette.positive_600} />
+            <View style={[a.flex_1, a.gap_2xs]}>
+              <Text style={[a.text_sm, a.font_semi_bold]}>
+                <Trans>Owner identity verified via Self Protocol</Trans>
+              </Text>
+              <Text
+                style={[a.text_sm, {color: t.palette.primary_500}]}
+                onPress={() => {
+                  void Linking.openURL(selfVerification.proofUrl)
+                }}>
+                <Trans>View proof</Trans>
+              </Text>
+            </View>
+          </View>
+        )}
         <View style={[a.w_full, a.gap_sm]}>
           <Button
             label={l`Okay`}

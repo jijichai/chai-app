@@ -51,6 +51,7 @@ export type CommonNavigatorParams = {
   AppearanceSettings: undefined
   AccountSettings: undefined
   AutomationLabelSettings: undefined
+  SelfAgentIdSettings: undefined
   PrivacyAndSecuritySettings: undefined
   ActivityPrivacySettings: undefined
   ContentAndMediaSettings: undefined

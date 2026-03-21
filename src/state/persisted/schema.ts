@@ -129,6 +129,14 @@ const schema = z.object({
   mutedThreads: z.array(z.string()),
   trendingDisabled: z.boolean().optional(),
   trendingVideoDisabled: z.boolean().optional(),
+  selfAgentVerification: z
+    .object({
+      agentId: z.string(),
+      verified: z.boolean(),
+      proofUrl: z.string(),
+      registeredAt: z.string(),
+    })
+    .optional(),
 })
 export type Schema = z.infer<typeof schema>
 

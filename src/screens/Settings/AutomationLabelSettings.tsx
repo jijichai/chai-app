@@ -5,6 +5,7 @@ import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 import {useQueryClient} from '@tanstack/react-query'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
+import {useSelfAgentVerification} from '#/state/preferences'
 import {RQKEY_ROOT as POST_FEED_RQKEY_ROOT} from '#/state/queries/post-feed'
 import {
   useProfileQuery,
@@ -15,13 +16,19 @@ import {useSession} from '#/state/session'
 import {UserAvatar} from '#/view/com/util/UserAvatar'
 import {atoms as a, platform, useTheme} from '#/alf'
 import {BotBadge} from '#/components/BotBadge'
+import {Button, ButtonText} from '#/components/Button'
 import * as Toggle from '#/components/forms/Toggle'
 import {Bot_Filled as RobotIcon} from '#/components/icons/Bot'
+import {
+  Shield_Stroke2_Corner0_Rounded as ShieldIcon,
+  ShieldCheck_Stroke2_Corner0_Rounded as ShieldCheckIcon,
+} from '#/components/icons/Shield'
 import * as Layout from '#/components/Layout'
 import {Text} from '#/components/Typography'
 import {useSimpleVerificationState} from '#/components/verification'
 import {VerificationCheck} from '#/components/verification/VerificationCheck'
 import {useAnalytics} from '#/analytics'
+import {navigate} from '#/Navigation'
 import * as bsky from '#/types/bsky'
 
 type Props = NativeStackScreenProps<
@@ -195,8 +202,59 @@ export function AutomationLabelSettingsScreen({}: Props) {
             </Toggle.LabelText>
             <Toggle.Platform />
           </Toggle.Item>
+          {isBotLabeled && <SelfAgentIdSection />}
         </View>
       </Layout.Content>
     </Layout.Screen>
+  )
+}
+
+function SelfAgentIdSection() {
+  const t = useTheme()
+  const {t: l} = useLingui()
+  const selfVerification = useSelfAgentVerification()
+  const isVerified = selfVerification?.verified ?? false
+
+  return (
+    <View style={[a.gap_sm]}>
+      <View
+        style={[a.w_full, a.border_t, t.atoms.border_contrast_low, a.pt_xl]}
+      />
+      <View style={[a.gap_xs]}>
+        <Text style={[a.text_lg, a.font_bold]}>
+          <Trans>Self Agent ID</Trans>
+        </Text>
+        <Text style={[a.text_md, a.leading_snug, t.atoms.text_contrast_medium]}>
+          <Trans>
+            Verify that this account's owner is a real person. Verified accounts
+            show a badge that links to on-chain proof.
+          </Trans>
+        </Text>
+      </View>
+      <Button
+        label={
+          isVerified
+            ? l`Self Agent ID: Verified`
+            : l`Self Agent ID: Not verified`
+        }
+        onPress={() => void navigate('SelfAgentIdSettings')}
+        color="secondary"
+        size="large">
+        <View style={[a.flex_row, a.align_center, a.gap_sm, a.flex_1]}>
+          {isVerified ? (
+            <ShieldCheckIcon width={20} fill={t.palette.positive_600} />
+          ) : (
+            <ShieldIcon width={20} fill={t.atoms.text_contrast_medium.color} />
+          )}
+          <ButtonText style={[a.flex_1]}>
+            {isVerified ? (
+              <Trans>Self Agent ID: Verified</Trans>
+            ) : (
+              <Trans>Self Agent ID: Not verified</Trans>
+            )}
+          </ButtonText>
+        </View>
+      </Button>
+    </View>
   )
 }
