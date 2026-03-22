@@ -1,6 +1,5 @@
 import '#/logger/sentry/setup'
 import '#/view/icons'
-import '#/lib/appKit' // Initialize AppKit
 
 import {Fragment, useEffect, useState} from 'react'
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
@@ -14,10 +13,8 @@ import * as SplashScreen from 'expo-splash-screen'
 import * as SystemUI from 'expo-system-ui'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
-import {AppKit, AppKitProvider} from '@reown/appkit-react-native'
 import * as Sentry from '@sentry/react-native'
 
-import {appKit} from '#/lib/appKit'
 import {Provider as HideBottomBarBorderProvider} from '#/lib/hooks/useHideBottomBarBorder'
 import {QueryProvider} from '#/lib/react-query'
 import {s} from '#/lib/styles'
@@ -180,15 +177,9 @@ function InnerApp() {
                                                           <GlobalGestureEventsProvider>
                                                             <IntentDialogProvider>
                                                               <TranslateOnDeviceProvider>
-                                                                <AppKitProvider
-                                                                  instance={
-                                                                    appKit
-                                                                  }>
-                                                                  <TestCtrls />
-                                                                  <Shell />
-                                                                  <AppKit />
-                                                                  <ToastOutlet />
-                                                                </AppKitProvider>
+                                                                <TestCtrls />
+                                                                <Shell />
+                                                                <ToastOutlet />
                                                               </TranslateOnDeviceProvider>
                                                             </IntentDialogProvider>
                                                           </GlobalGestureEventsProvider>

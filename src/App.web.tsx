@@ -1,16 +1,15 @@
 import '#/logger/sentry/setup' // must be near top
 import '#/view/icons'
 import './style.css'
+import '#/lib/appKit' // Initialize AppKit (auto-renders modal on web)
 
 import {Fragment, useEffect, useState} from 'react'
 import {KeyboardProvider as KeyboardControllerProvider} from 'react-native-keyboard-controller'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
-import {AppKit, AppKitProvider} from '@reown/appkit-react-native'
 import * as Sentry from '@sentry/react-native'
 
-import {appKit} from '#/lib/appKit'
 import {QueryProvider} from '#/lib/react-query'
 import {ThemeProvider} from '#/lib/ThemeContext'
 import {Provider as TranslateOnDeviceProvider} from '#/lib/translation'
@@ -155,14 +154,8 @@ function InnerApp() {
                                                           <HideBottomBarBorderProvider>
                                                             <IntentDialogProvider>
                                                               <TranslateOnDeviceProvider>
-                                                                <AppKitProvider
-                                                                  instance={
-                                                                    appKit
-                                                                  }>
-                                                                  <Shell />
-                                                                  <AppKit />
-                                                                  <ToastOutlet />
-                                                                </AppKitProvider>
+                                                                <Shell />
+                                                                <ToastOutlet />
                                                               </TranslateOnDeviceProvider>
                                                             </IntentDialogProvider>
                                                           </HideBottomBarBorderProvider>

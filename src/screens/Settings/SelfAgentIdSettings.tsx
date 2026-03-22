@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react'
 import {ActivityIndicator, Image, Linking, View} from 'react-native'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
-import {useAccount, useAppKit} from '@reown/appkit-react-native'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
 import {
@@ -9,6 +8,7 @@ import {
   type RegistrationSession,
   startRegistration,
 } from '#/lib/selfAgentId'
+import {useWalletConnect} from '#/lib/useWalletConnect'
 import {logger} from '#/logger'
 import {
   type SelfAgentRecord,
@@ -63,8 +63,7 @@ export function SelfAgentIdSettingsScreen({}: Props) {
 function NotVerifiedState() {
   const t = useTheme()
   const {currentAccount} = useSession()
-  const {open: openWalletModal} = useAppKit()
-  const {address: walletAddress, isConnected: isWalletConnected} = useAccount()
+  const {openWalletModal, walletAddress, isWalletConnected} = useWalletConnect()
   const putRecord = usePutSelfAgentRecordMutation()
   const [session, setSession] = useState<RegistrationSession>()
   const [isStarting, setIsStarting] = useState(false)
