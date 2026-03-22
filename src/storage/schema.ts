@@ -83,10 +83,12 @@ export type Account = {
   /**
    * The verified .eth ENS name for this account (e.g. "alice.eth").
    * Display-only override — the AT Protocol handle remains unchanged.
+   * @deprecated Moved to PDS record sh.chai.n.ens. Kept for migration.
    */
   ensName?: string
   /**
    * ISO date string of when ENS verification was performed.
+   * @deprecated Moved to PDS record sh.chai.n.ens. Kept for migration.
    */
   ensVerifiedAt?: string
 }

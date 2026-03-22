@@ -1,7 +1,11 @@
 import {useState} from 'react'
 import {View} from 'react-native'
 import * as Clipboard from 'expo-clipboard'
+import {msg} from '@lingui/core/macro'
+import {useLingui} from '@lingui/react'
+import {Trans} from '@lingui/react/macro'
 
+import {type EnsRecord, useEnsRecordsQuery} from '#/state/queries/ensRecords'
 import {useSession} from '#/state/session'
 import {atoms as a, useTheme} from '#/alf'
 import {Admonition} from '#/components/Admonition'
@@ -14,13 +18,13 @@ import {Ens_Stroke2_Corner0_Rounded as EnsIcon} from '#/components/icons/Ens'
 import {SquareBehindSquare4_Stroke2_Corner0_Rounded as CopyIcon} from '#/components/icons/SquareBehindSquare4'
 import {Loader} from '#/components/Loader'
 import {Text} from '#/components/Typography'
+import {useEnsMMKVMigration} from '#/features/ens/useEnsMMKVMigration'
 import {
   EnsDidMismatchError,
   EnsResolutionError,
   useRemoveEnsMutation,
   useVerifyEnsMutation,
 } from '#/features/ens/useVerifyEns'
-import {account, useStorage} from '#/storage'
 
 const ENS_COLOR = '#627EEA'
 
@@ -41,70 +45,124 @@ function EnsVerificationDialogInner() {
   const control = Dialog.useDialogContext()
   const {currentAccount} = useSession()
   const did = currentAccount?.did ?? ''
+  const {data: ensRecords} = useEnsRecordsQuery({did})
+  const [showVerify, setShowVerify] = useState(false)
 
-  const [ensName] = useStorage(account, [did, 'ensName'])
+  // Migrate any existing MMKV ENS data to PDS on dialog open
+  useEnsMMKVMigration()
 
-  if (ensName) {
-    return <VerifiedState control={control} ensName={ensName} />
+  if (ensRecords && ensRecords.length > 0 && !showVerify) {
+    return (
+      <VerifiedState
+        control={control}
+        ensRecords={ensRecords}
+        onAddAnother={() => setShowVerify(true)}
+      />
+    )
   }
 
-  return <VerifyState control={control} />
+  return (
+    <VerifyState
+      control={control}
+      onBack={
+        ensRecords && ensRecords.length > 0
+          ? () => setShowVerify(false)
+          : undefined
+      }
+    />
+  )
 }
 
 function VerifiedState({
   control,
-  ensName,
+  ensRecords,
+  onAddAnother,
 }: {
   control: DialogContextProps
-  ensName: string
+  ensRecords: EnsRecord[]
+  onAddAnother: () => void
 }) {
   const t = useTheme()
-  const {mutate: removeEns, isPending} = useRemoveEnsMutation()
+  const {_} = useLingui()
+  const {
+    mutate: removeEns,
+    isPending,
+    variables: pendingName,
+  } = useRemoveEnsMutation()
 
   return (
-    <Dialog.ScrollableInner label="ENS Name">
+    <Dialog.ScrollableInner label={_(msg`ENS Names`)}>
       <Dialog.Header>
-        <Dialog.HeaderText>ENS Name</Dialog.HeaderText>
+        <Dialog.HeaderText>
+          <Trans>ENS Names</Trans>
+        </Dialog.HeaderText>
       </Dialog.Header>
 
       <View style={[a.align_center, a.py_lg]}>
         <EnsIcon width={48} fill={ENS_COLOR} />
-        <Text style={[a.text_lg, a.font_bold, a.pt_md, t.atoms.text]}>
-          {ensName}
-        </Text>
         <Text
           style={[
             a.text_sm,
-            a.pt_xs,
+            a.pt_md,
             t.atoms.text_contrast_medium,
             a.text_center,
           ]}>
-          Your verified ENS name is displayed throughout the app.
+          <Trans>
+            Your verified ENS names are displayed throughout the app.
+          </Trans>
         </Text>
       </View>
 
       <View style={[a.gap_sm]}>
+        {ensRecords.map(record => (
+          <View
+            key={record.ensName}
+            style={[
+              a.flex_row,
+              a.align_center,
+              a.justify_between,
+              a.p_md,
+              a.rounded_md,
+              t.atoms.bg_contrast_25,
+            ]}>
+            <Text style={[a.text_md, a.font_bold, t.atoms.text, a.flex_1]}>
+              {record.ensName}
+            </Text>
+            <Button
+              label={_(msg`Remove ${record.ensName}`)}
+              onPress={() => removeEns(record.ensName)}
+              color="negative"
+              size="small"
+              disabled={isPending}>
+              <ButtonText>
+                <Trans>Remove</Trans>
+              </ButtonText>
+              {isPending && pendingName === record.ensName && (
+                <ButtonIcon icon={Loader} />
+              )}
+            </Button>
+          </View>
+        ))}
+      </View>
+
+      <View style={[a.gap_sm, a.pt_md]}>
         <Button
-          label="Remove ENS name"
-          onPress={() => {
-            removeEns(undefined, {
-              onSuccess: () => {
-                control.close()
-              },
-            })
-          }}
-          color="negative"
-          size="large"
-          disabled={isPending}>
-          <ButtonText>Remove</ButtonText>
-          {isPending && <ButtonIcon icon={Loader} />}
+          label={_(msg`Verify another ENS name`)}
+          onPress={onAddAnother}
+          color="primary"
+          size="large">
+          <ButtonText>
+            <Trans>Verify another</Trans>
+          </ButtonText>
         </Button>
         <Button
-          label="Close"
+          label={_(msg`Close`)}
           onPress={() => control.close()}
           color="secondary"
           size="large">
-          <ButtonText>Close</ButtonText>
+          <ButtonText>
+            <Trans>Close</Trans>
+          </ButtonText>
         </Button>
       </View>
 
@@ -113,8 +171,15 @@ function VerifiedState({
   )
 }
 
-function VerifyState({control}: {control: DialogContextProps}) {
+function VerifyState({
+  control,
+  onBack,
+}: {
+  control: DialogContextProps
+  onBack?: () => void
+}) {
   const t = useTheme()
+  const {_} = useLingui()
   const {currentAccount} = useSession()
   const did = currentAccount?.did ?? ''
 
@@ -240,11 +305,13 @@ function VerifyState({control}: {control: DialogContextProps}) {
             {isPending && <ButtonIcon icon={Loader} />}
           </Button>
           <Button
-            label="Cancel"
-            onPress={() => control.close()}
+            label={onBack ? _(msg`Back`) : _(msg`Cancel`)}
+            onPress={() => (onBack ? onBack() : control.close())}
             color="secondary"
             size="large">
-            <ButtonText>Cancel</ButtonText>
+            <ButtonText>
+              {onBack ? <Trans>Back</Trans> : <Trans>Cancel</Trans>}
+            </ButtonText>
           </Button>
         </View>
       </View>

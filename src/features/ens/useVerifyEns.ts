@@ -1,8 +1,9 @@
-import {useMutation} from '@tanstack/react-query'
+import {useMutation, useQueryClient} from '@tanstack/react-query'
 
 import {CHAI_PDS_SERVICE} from '#/lib/constants'
 import {logger} from '#/logger'
-import {useSession} from '#/state/session'
+import {ENS_RECORDS_RQKEY} from '#/state/queries/ensRecords'
+import {useAgent, useSession} from '#/state/session'
 import {account} from '#/storage'
 
 export class EnsResolutionError extends Error {
@@ -30,6 +31,8 @@ export class EnsDidMismatchError extends Error {
  */
 export function useVerifyEnsMutation() {
   const {currentAccount} = useSession()
+  const agent = useAgent()
+  const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: async ({ensName}: {ensName: string}) => {
@@ -59,12 +62,34 @@ export function useVerifyEnsMutation() {
         throw new EnsDidMismatchError(data.did)
       }
 
-      // Store in MMKV
+      const now = new Date().toISOString()
+
+      // Write to PDS as sh.chai.n.ens record
+      await agent.com.atproto.repo.putRecord({
+        repo: currentAccount.did,
+        collection: 'sh.chai.n.ens',
+        rkey: ensName.toLowerCase(),
+        record: {
+          $type: 'sh.chai.n.ens',
+          ensName,
+          verifiedAt: now,
+          createdAt: now,
+        },
+      })
+
+      // Also store in MMKV as fallback during migration period
       const did = currentAccount.did
       account.set([did, 'ensName'], ensName)
-      account.set([did, 'ensVerifiedAt'], new Date().toISOString())
+      account.set([did, 'ensVerifiedAt'], now)
 
       return ensName
+    },
+    onSuccess: () => {
+      if (currentAccount) {
+        void queryClient.invalidateQueries({
+          queryKey: ENS_RECORDS_RQKEY(currentAccount.did),
+        })
+      }
     },
     onError(error) {
       if (
@@ -80,18 +105,40 @@ export function useVerifyEnsMutation() {
 }
 
 /**
- * Removes the verified ENS name for the current account.
+ * Removes a verified ENS name for the current account.
+ * Deletes the PDS record and clears MMKV for backward compat.
  */
 export function useRemoveEnsMutation() {
   const {currentAccount} = useSession()
+  const agent = useAgent()
+  const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: async () => {
+    mutationFn: async (ensName: string) => {
       if (!currentAccount?.did) {
         throw new Error('Not logged in')
       }
+
+      // Delete from PDS
+      await agent.com.atproto.repo.deleteRecord({
+        repo: currentAccount.did,
+        collection: 'sh.chai.n.ens',
+        rkey: ensName.toLowerCase(),
+      })
+
+      // Also clear MMKV for backward compat
       account.remove([currentAccount.did, 'ensName'])
       account.remove([currentAccount.did, 'ensVerifiedAt'])
+    },
+    onSuccess: () => {
+      if (currentAccount) {
+        void queryClient.invalidateQueries({
+          queryKey: ENS_RECORDS_RQKEY(currentAccount.did),
+        })
+      }
+    },
+    onError: error => {
+      logger.error('Failed to remove ENS record', {safeMessage: error})
     },
   })
 }
