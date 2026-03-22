@@ -4,5 +4,6 @@ export function useWalletConnect() {
     openWalletModal: () => {},
     walletAddress: undefined as string | undefined,
     isWalletConnected: false,
+    walletProvider: null as unknown,
   }
 }

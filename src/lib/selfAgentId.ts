@@ -1,3 +1,5 @@
+import {BrowserProvider, Contract, type Eip1193Provider} from 'ethers'
+
 import {logger} from '#/logger'
 
 const SELF_AGENT_API = 'https://app.ai.self.xyz/api'
@@ -9,17 +11,32 @@ export const CELO_NETWORKS: Record<
   {
     apiNetworkParam: 'mainnet' | 'testnet'
     explorerBaseUrl: string
+    chainId: number
   }
 > = {
   celo: {
     apiNetworkParam: 'mainnet',
     explorerBaseUrl: 'https://celoscan.io',
+    chainId: 42220,
   },
   celoSepolia: {
     apiNetworkParam: 'testnet',
     explorerBaseUrl: 'https://sepolia.celoscan.io',
+    chainId: 11142220,
   },
 }
+
+// ERC-8004 Identity Registry contracts
+export const ERC8004_REGISTRIES: Record<CeloNetwork, string> = {
+  celo: '0x8004A169FB4a3325136EB29fA0ceB6D2e539a432',
+  celoSepolia: '0x8004A818BFB912233c491871b3d84c89A494BD9e',
+}
+
+const ERC8004_ABI = ['function register(string agentURI) returns (uint256)']
+
+// ERC-721 Transfer event topic: Transfer(address,address,uint256)
+const TRANSFER_EVENT_TOPIC =
+  '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
 
 export interface SelfVerification {
   verified: boolean
@@ -132,6 +149,56 @@ export function getAgentExplorerUrl(
 ): string {
   const baseUrl = CELO_NETWORKS[network].explorerBaseUrl
   return `${baseUrl}/address/${encodeURIComponent(agentId)}#nfttransfers`
+}
+
+/**
+ * Build a data URI containing agent metadata for the ERC-8004 registry.
+ */
+export function buildAgentMetadataURI(opts: {
+  did: string
+  handle: string
+  agentAddress: string
+  chainId: number
+}): string {
+  const metadata = {
+    type: 'Agent',
+    name: opts.handle,
+    description: 'AT Protocol agent verified via Chai',
+    endpoints: [
+      {type: 'did', url: opts.did},
+      {type: 'wallet', address: opts.agentAddress, chainId: opts.chainId},
+    ],
+  }
+  return `data:application/json;base64,${btoa(JSON.stringify(metadata))}`
+}
+
+/**
+ * Register an agent in the ERC-8004 Identity Registry.
+ * Returns the minted token ID.
+ */
+export async function registerIn8004Registry(
+  walletProvider: Eip1193Provider | unknown,
+  agentURI: string,
+  network: CeloNetwork,
+): Promise<string> {
+  const provider = new BrowserProvider(walletProvider as Eip1193Provider)
+  const signer = await provider.getSigner()
+  const registry = new Contract(
+    ERC8004_REGISTRIES[network],
+    ERC8004_ABI,
+    signer,
+  )
+  const tx = await registry.register(agentURI)
+  const receipt = await tx.wait()
+
+  // Extract tokenId from the ERC-721 Transfer event
+  const transferLog = receipt?.logs.find(
+    (log: {topics: string[]}) => log.topics[0] === TRANSFER_EVENT_TOPIC,
+  )
+  if (transferLog && transferLog.topics.length >= 4) {
+    return BigInt(transferLog.topics[3]).toString()
+  }
+  return ''
 }
 
 /**

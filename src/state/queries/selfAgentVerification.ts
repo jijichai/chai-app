@@ -19,6 +19,7 @@ export interface SelfAgentRecord {
   verified: boolean
   proofUrl: string
   walletAddress?: string
+  erc8004TokenId?: string
   registeredAt: string
   createdAt: string
 }

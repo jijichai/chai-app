@@ -1,11 +1,16 @@
 import {useEffect, useState} from 'react'
 import {ActivityIndicator, Image, Linking, Pressable, View} from 'react-native'
+import {msg} from '@lingui/core/macro'
+import {useLingui} from '@lingui/react'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
 import {
+  buildAgentMetadataURI,
+  CELO_NETWORKS,
   type CeloNetwork,
   getAgentExplorerUrl,
+  registerIn8004Registry,
   type RegistrationSession,
   startRegistration,
 } from '#/lib/selfAgentId'
@@ -92,8 +97,14 @@ function AgentList({agents}: {agents: SelfAgentRecord[]}) {
 
 function AgentCard({record}: {record: SelfAgentRecord}) {
   const t = useTheme()
+  const {_} = useLingui()
+  const {currentAccount} = useSession()
+  const {walletProvider, isWalletConnected} = useWalletConnect()
   const deleteRecord = useDeleteSelfAgentRecordMutation()
+  const putRecord = usePutSelfAgentRecordMutation()
   const removeControl = Dialog.useDialogControl()
+  const [isRegistering8004, setIsRegistering8004] = useState(false)
+  const [error8004, setError8004] = useState<string>()
 
   const registeredDate = new Date(record.registeredAt)
   const formattedDate = registeredDate.toLocaleDateString(undefined, {
@@ -103,6 +114,41 @@ function AgentCard({record}: {record: SelfAgentRecord}) {
   })
 
   const shortAgentId = `${record.agentId.slice(0, 6)}...${record.agentId.slice(-4)}`
+
+  const onRegister8004 = async () => {
+    if (!walletProvider || !currentAccount) return
+    setIsRegistering8004(true)
+    setError8004(undefined)
+    try {
+      const network = record.chain
+      const agentURI = buildAgentMetadataURI({
+        did: currentAccount.did,
+        handle: currentAccount.handle,
+        agentAddress: record.agentId,
+        chainId: CELO_NETWORKS[network].chainId,
+      })
+      const tokenId = await registerIn8004Registry(
+        walletProvider,
+        agentURI,
+        network,
+      )
+      putRecord.mutate({
+        agentId: record.agentId,
+        chain: record.chain,
+        verified: record.verified,
+        proofUrl: record.proofUrl,
+        walletAddress: record.walletAddress,
+        erc8004TokenId: tokenId,
+        registeredAt: record.registeredAt,
+        createdAt: record.createdAt,
+      })
+    } catch (e) {
+      logger.error('ERC-8004: registration failed', {safeMessage: e})
+      setError8004(_(msg`Failed to register in 8004 registry.`))
+    } finally {
+      setIsRegistering8004(false)
+    }
+  }
 
   return (
     <View
@@ -129,6 +175,11 @@ function AgentCard({record}: {record: SelfAgentRecord}) {
               ]}>
               Wallet: {record.walletAddress.slice(0, 6)}...
               {record.walletAddress.slice(-4)}
+            </Text>
+          )}
+          {record.erc8004TokenId && (
+            <Text style={[a.text_xs, {color: t.palette.positive_600}]}>
+              ERC-8004 #{record.erc8004TokenId}
             </Text>
           )}
         </View>
@@ -161,6 +212,33 @@ function AgentCard({record}: {record: SelfAgentRecord}) {
           </Text>
         </Pressable>
       </View>
+
+      {!record.erc8004TokenId && isWalletConnected && (
+        <View style={[a.gap_xs]}>
+          <Button
+            label={_(msg`Register in ERC-8004`)}
+            onPress={() => void onRegister8004()}
+            color="primary_subtle"
+            size="small"
+            disabled={isRegistering8004}>
+            <ButtonText>
+              {isRegistering8004
+                ? _(msg`Registering...`)
+                : _(msg`Register DID in 8004 Registry`)}
+            </ButtonText>
+          </Button>
+          {error8004 && (
+            <Text
+              style={[
+                a.text_xs,
+                a.text_center,
+                {color: t.palette.negative_500},
+              ]}>
+              {error8004}
+            </Text>
+          )}
+        </View>
+      )}
 
       <Dialog.Outer
         control={removeControl}
