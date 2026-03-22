@@ -5,12 +5,12 @@ import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 import {useQueryClient} from '@tanstack/react-query'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
-import {useSelfAgentVerification} from '#/state/preferences'
 import {RQKEY_ROOT as POST_FEED_RQKEY_ROOT} from '#/state/queries/post-feed'
 import {
   useProfileQuery,
   useProfileUpdateMutation,
 } from '#/state/queries/profile'
+import {useSelfAgentRecordQuery} from '#/state/queries/selfAgentVerification'
 import {postThreadQueryKeyRoot} from '#/state/queries/usePostThread/types'
 import {useSession} from '#/state/session'
 import {UserAvatar} from '#/view/com/util/UserAvatar'
@@ -211,8 +211,11 @@ export function AutomationLabelSettingsScreen({}: Props) {
 
 function SelfAgentIdSection() {
   const t = useTheme()
-  const selfVerification = useSelfAgentVerification()
-  const isVerified = selfVerification?.verified ?? false
+  const {currentAccount} = useSession()
+  const {data: agentRecord} = useSelfAgentRecordQuery({
+    did: currentAccount?.did,
+  })
+  const isVerified = agentRecord?.verified ?? false
 
   return (
     <View style={[a.gap_sm]}>

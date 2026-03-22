@@ -10,10 +10,12 @@ import {
 } from '#/lib/selfAgentId'
 import {logger} from '#/logger'
 import {
-  useSelfAgentVerification,
-  useSetSelfAgentVerification,
-} from '#/state/preferences'
-import {useSelfAgentRegistrationStatusQuery} from '#/state/queries/selfAgentVerification'
+  type SelfAgentRecord,
+  useDeleteSelfAgentRecordMutation,
+  usePutSelfAgentRecordMutation,
+  useSelfAgentRecordQuery,
+  useSelfAgentRegistrationStatusQuery,
+} from '#/state/queries/selfAgentVerification'
 import {useSession} from '#/state/session'
 import {atoms as a, useTheme, web} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
@@ -32,7 +34,10 @@ type Props = NativeStackScreenProps<
 >
 
 export function SelfAgentIdSettingsScreen({}: Props) {
-  const verification = useSelfAgentVerification()
+  const {currentAccount} = useSession()
+  const {data: record, isLoading} = useSelfAgentRecordQuery({
+    did: currentAccount?.did,
+  })
 
   return (
     <Layout.Screen>
@@ -44,8 +49,8 @@ export function SelfAgentIdSettingsScreen({}: Props) {
         <Layout.Header.Slot />
       </Layout.Header.Outer>
       <Layout.Content>
-        {verification?.verified ? (
-          <VerifiedState verification={verification} />
+        {isLoading ? null : record?.verified ? (
+          <VerifiedState record={record} />
         ) : (
           <NotVerifiedState />
         )}
@@ -57,7 +62,7 @@ export function SelfAgentIdSettingsScreen({}: Props) {
 function NotVerifiedState() {
   const t = useTheme()
   const {currentAccount} = useSession()
-  const setVerification = useSetSelfAgentVerification()
+  const putRecord = usePutSelfAgentRecordMutation()
   const [session, setSession] = useState<RegistrationSession>()
   const [isStarting, setIsStarting] = useState(false)
   const [error, setError] = useState<string>()
@@ -67,19 +72,21 @@ function NotVerifiedState() {
     enabled: !!session,
   })
 
-  // When registration completes, save the verification data
+  // When registration completes, write the record to PDS
   useEffect(() => {
     if (status?.status === 'completed' && status.agentId) {
       const agentId = status.agentId
       setSession(undefined)
-      setVerification({
+      putRecord.mutate({
         agentId,
+        chain: 'celoSepolia',
         verified: true,
         proofUrl: getAgentExplorerUrl(agentId),
         registeredAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
       })
     }
-  }, [status, setVerification])
+  }, [status, putRecord])
 
   const onStartVerification = async () => {
     setIsStarting(true)
@@ -263,16 +270,12 @@ function NotVerifiedState() {
   )
 }
 
-function VerifiedState({
-  verification,
-}: {
-  verification: NonNullable<ReturnType<typeof useSelfAgentVerification>>
-}) {
+function VerifiedState({record}: {record: SelfAgentRecord}) {
   const t = useTheme()
-  const setVerification = useSetSelfAgentVerification()
+  const deleteRecord = useDeleteSelfAgentRecordMutation()
   const removeControl = Dialog.useDialogControl()
 
-  const registeredDate = new Date(verification.registeredAt)
+  const registeredDate = new Date(record.registeredAt)
   const formattedDate = registeredDate.toLocaleDateString(undefined, {
     year: 'numeric',
     month: 'long',
@@ -296,7 +299,7 @@ function VerifiedState({
       <Button
         label="View on-chain proof"
         onPress={() => {
-          void Linking.openURL(verification.proofUrl)
+          void Linking.openURL(record.proofUrl)
         }}
         color="secondary"
         size="large">
@@ -330,7 +333,7 @@ function VerifiedState({
               label="Remove"
               onPress={() => {
                 removeControl.close(() => {
-                  setVerification(undefined)
+                  deleteRecord.mutate()
                 })
               }}
               color="negative"

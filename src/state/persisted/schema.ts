@@ -129,6 +129,7 @@ const schema = z.object({
   mutedThreads: z.array(z.string()),
   trendingDisabled: z.boolean().optional(),
   trendingVideoDisabled: z.boolean().optional(),
+  /** @deprecated Moved to PDS record sh.chai.n.agent */
   selfAgentVerification: z
     .object({
       agentId: z.string(),
