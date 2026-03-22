@@ -13,10 +13,10 @@ Chai spans multiple repos that work together:
 | Repo | What it does |
 |------|-------------|
 | [**chai-app**](https://github.com/jijichai/chai-app) (this repo) | React Native client for iOS, Android, and Web — ENS handle verification, Self Agent ID, wallet connect via Reown AppKit |
-| [**pds**](https://github.com/jijichai/pds) | Chai PDS — fork of bluesky-social/pds with ENS (.eth) handle resolution |
-| [**atproto**](https://github.com/jijichai/atproto) | Fork of bluesky-social/atproto with ENS handle support in the identity layer |
+| [**pds**](https://github.com/jijichai/pds) | Chai PDS — fork of [bluesky-social/pds](https://github.com/bluesky-social/pds) with ENS (.eth) handle resolution |
+| [**atproto**](https://github.com/jijichai/atproto) | Fork of [bluesky-social/atproto](https://github.com/bluesky-social/atproto) with ENS handle support in the identity layer |
 | [**atproto-identity**](https://github.com/jijichai/atproto-identity) | Custom `@atproto/identity` package with an ENS resolver for mapping .eth names to DIDs |
-| [**pdsls**](https://github.com/jijichai/pdsls) | Chai Explorer — AT Protocol data explorer with ENS handle verification |
+| [**pdsls**](https://github.com/jijichai/pdsls) | Chai Explorer — fork of [notjuliet/pdsls](https://github.com/notjuliet/pdsls) with ENS handle verification |
 
 ## How It Works
 
