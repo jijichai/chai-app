@@ -63,4 +63,4 @@ Forked from [Bluesky Social](https://github.com/bluesky-social/social-app).
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT and/or Apache 2.0 — see [LICENSE](./LICENSE).
