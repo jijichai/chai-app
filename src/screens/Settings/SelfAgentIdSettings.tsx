@@ -83,7 +83,7 @@ function NotVerifiedState() {
         agentId,
         chain: 'celoSepolia',
         verified: true,
-        proofUrl: getAgentExplorerUrl(agentId),
+        proofUrl: getAgentExplorerUrl(walletAddress ?? agentId),
         walletAddress: walletAddress ?? undefined,
         registeredAt: new Date().toISOString(),
         createdAt: new Date().toISOString(),
