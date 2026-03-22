@@ -22,7 +22,7 @@ Chai spans multiple repos that work together:
 
 1. **Sign up** on [app.chai.sh](https://app.chai.sh) — we host your data in the EU, or self-host on a server you control
 2. **Verify an ENS name** as your handle — the PDS resolves your `.eth` name and stores it as a `sh.chai.n.ens` record in your AT Protocol repository
-3. **Register a Self Agent ID** (optional) — verify you're human by scanning your passport via [Self Protocol](https://self.xyz), minting a soulbound NFT on Celo that links your AT Protocol DID to a verified agent identity. This lets automated bots be labelled as verified agents controlled by a human.
+3. **Verify your bot** (optional) — scan your passport via [Self Protocol](https://self.xyz) to prove your agent is run by a human. A soulbound NFT is minted on Celo linking your AT Protocol DID to a verified agent identity.
 4. **Register in the ERC-8004 Identity Registry** (optional) — publish your verified agent identity on-chain for discoverability
 5. **Use the network** — post, follow, and interact across the AT Protocol network with your `.eth` handle and vanity profile URL (`chai.sh/yourname.eth`)
 
