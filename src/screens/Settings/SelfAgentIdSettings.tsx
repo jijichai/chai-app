@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {ActivityIndicator, Image, Linking, View} from 'react-native'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
+import {useAccount, useAppKit} from '@reown/appkit-react-native'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
 import {
@@ -62,6 +63,8 @@ export function SelfAgentIdSettingsScreen({}: Props) {
 function NotVerifiedState() {
   const t = useTheme()
   const {currentAccount} = useSession()
+  const {open: openWalletModal} = useAppKit()
+  const {address: walletAddress, isConnected: isWalletConnected} = useAccount()
   const putRecord = usePutSelfAgentRecordMutation()
   const [session, setSession] = useState<RegistrationSession>()
   const [isStarting, setIsStarting] = useState(false)
@@ -82,17 +85,21 @@ function NotVerifiedState() {
         chain: 'celoSepolia',
         verified: true,
         proofUrl: getAgentExplorerUrl(agentId),
+        walletAddress: walletAddress ?? undefined,
         registeredAt: new Date().toISOString(),
         createdAt: new Date().toISOString(),
       })
     }
-  }, [status, putRecord])
+  }, [status, putRecord, walletAddress])
 
   const onStartVerification = async () => {
     setIsStarting(true)
     setError(undefined)
     try {
-      const result = await startRegistration(currentAccount?.did ?? '')
+      const result = await startRegistration(
+        currentAccount?.did ?? '',
+        walletAddress ?? undefined,
+      )
       setSession(result)
     } catch (e) {
       logger.error('Self Agent ID: failed to start registration', {
@@ -104,6 +111,7 @@ function NotVerifiedState() {
     }
   }
 
+  // Step 3: Self verification in progress
   if (session) {
     return (
       <View style={[a.p_xl, a.gap_lg]}>
@@ -147,7 +155,6 @@ function NotVerifiedState() {
           />
         </View>
 
-        {/* QR code — shown on web, also on native as fallback */}
         {session.qrImageBase64 ? (
           <View style={[a.align_center]}>
             <View
@@ -181,7 +188,6 @@ function NotVerifiedState() {
           </View>
         )}
 
-        {/* Deep link button — only on native where it opens the Self app directly */}
         {IS_NATIVE && session.deepLink ? (
           <Button
             label="Open Self app"
@@ -212,6 +218,74 @@ function NotVerifiedState() {
     )
   }
 
+  // Step 2: Wallet connected — ready to verify
+  if (isWalletConnected && walletAddress) {
+    return (
+      <View style={[a.p_xl, a.gap_xl]}>
+        <View style={[a.align_center, a.pt_lg]}>
+          <ShieldIcon width={48} fill={t.palette.primary_500} />
+        </View>
+        <View style={[a.gap_sm]}>
+          <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
+            Wallet connected
+          </Text>
+          <Text
+            style={[
+              a.text_sm,
+              a.text_center,
+              t.atoms.text_contrast_medium,
+              {fontFamily: 'monospace'},
+            ]}>
+            {walletAddress}
+          </Text>
+        </View>
+
+        <View style={[a.gap_sm, a.py_sm]}>
+          <Text style={[a.text_lg, a.font_bold]}>Next steps</Text>
+          <StepItem
+            number={1}
+            text="Your wallet will be linked to the on-chain agent identity"
+          />
+          <StepItem
+            number={2}
+            text="Scan your passport with the Self app to verify you are human"
+          />
+          <StepItem
+            number={3}
+            text="A soulbound NFT is minted linking your wallet, DID, and proof-of-human"
+          />
+        </View>
+
+        <Button
+          label="Verify with Self Protocol"
+          onPress={() => void onStartVerification()}
+          color="primary"
+          size="large"
+          disabled={isStarting}>
+          <ButtonText>
+            {isStarting ? 'Starting...' : 'Verify with Self Protocol'}
+          </ButtonText>
+        </Button>
+
+        <Button
+          label="Disconnect wallet"
+          onPress={() => openWalletModal()}
+          color="secondary"
+          size="large">
+          <ButtonText>Change wallet</ButtonText>
+        </Button>
+
+        {error && (
+          <Text
+            style={[a.text_sm, a.text_center, {color: t.palette.negative_500}]}>
+            {error}
+          </Text>
+        )}
+      </View>
+    )
+  }
+
+  // Step 1: Connect wallet first
   return (
     <View style={[a.p_xl, a.gap_xl]}>
       <View style={[a.align_center, a.pt_lg]}>
@@ -228,8 +302,8 @@ function NotVerifiedState() {
             a.text_center,
             t.atoms.text_contrast_medium,
           ]}>
-          Prove that this automated account is backed by a real human using Self
-          Protocol. You will need the Self app and a passport with an NFC chip.
+          Connect your wallet to link your on-chain identity, then verify with
+          Self Protocol using your passport.
         </Text>
       </View>
 
@@ -237,35 +311,29 @@ function NotVerifiedState() {
         <Text style={[a.text_lg, a.font_bold]}>How it works</Text>
         <StepItem
           number={1}
-          text="You scan your passport with the Self app (NFC)"
+          text="Connect your wallet (MetaMask, Rainbow, etc.)"
         />
         <StepItem
           number={2}
-          text="A zero-knowledge proof is generated on your device — no personal data leaves your phone"
+          text="Scan your passport with the Self app (NFC)"
         />
         <StepItem
           number={3}
-          text="A soulbound NFT is minted on Celo as on-chain proof that a real human owns this account"
+          text="A soulbound NFT is minted on Celo linking your wallet to a proof-of-human"
+        />
+        <StepItem
+          number={4}
+          text="Your DID and wallet address are stored on your PDS for bidirectional verification"
         />
       </View>
 
       <Button
-        label="Verify with Self Protocol"
-        onPress={() => void onStartVerification()}
+        label="Connect Wallet"
+        onPress={() => openWalletModal()}
         color="primary"
-        size="large"
-        disabled={isStarting}>
-        <ButtonText>
-          {isStarting ? 'Starting...' : 'Verify with Self Protocol'}
-        </ButtonText>
+        size="large">
+        <ButtonText>Connect Wallet</ButtonText>
       </Button>
-
-      {error && (
-        <Text
-          style={[a.text_sm, a.text_center, {color: t.palette.negative_500}]}>
-          {error}
-        </Text>
-      )}
     </View>
   )
 }
@@ -294,6 +362,17 @@ function VerifiedState({record}: {record: SelfAgentRecord}) {
         <Text style={[a.text_md, a.text_center, t.atoms.text_contrast_medium]}>
           Verified on {formattedDate}
         </Text>
+        {record.walletAddress && (
+          <Text
+            style={[
+              a.text_xs,
+              a.text_center,
+              t.atoms.text_contrast_medium,
+              {fontFamily: 'monospace'},
+            ]}>
+            Wallet: {record.walletAddress}
+          </Text>
+        )}
       </View>
 
       <Button

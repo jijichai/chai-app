@@ -19,6 +19,7 @@ export interface SelfAgentRecord {
   chain: 'celo' | 'celoSepolia'
   verified: boolean
   proofUrl: string
+  walletAddress?: string // the user's connected wallet (linked mode)
   registeredAt: string
   createdAt: string
 }

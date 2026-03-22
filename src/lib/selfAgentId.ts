@@ -22,20 +22,22 @@ export type RegistrationStatus =
   | {status: 'failed'; error: string}
 
 /**
- * Start a wallet-free agent registration flow.
- * Returns a session token and QR code URL for the user to scan with the Self app.
+ * Start an agent registration flow.
+ * If walletAddress is provided, uses "linked" mode to tie the NFT to the user's wallet.
+ * Otherwise falls back to "wallet-free" mode.
  */
 export async function startRegistration(
   did: string,
+  walletAddress?: string,
 ): Promise<RegistrationSession> {
+  const body = walletAddress
+    ? {mode: 'linked', network: 'testnet', humanAddress: walletAddress}
+    : {mode: 'wallet-free', network: 'testnet', userDefinedData: did}
+
   const res = await fetch(`${SELF_AGENT_API}/agent/register`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      mode: 'wallet-free',
-      network: 'testnet',
-      userDefinedData: did,
-    }),
+    body: JSON.stringify(body),
   })
 
   if (!res.ok) {

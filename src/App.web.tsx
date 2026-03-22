@@ -7,8 +7,10 @@ import {KeyboardProvider as KeyboardControllerProvider} from 'react-native-keybo
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
+import {AppKit, AppKitProvider} from '@reown/appkit-react-native'
 import * as Sentry from '@sentry/react-native'
 
+import {appKit} from '#/lib/appKit'
 import {QueryProvider} from '#/lib/react-query'
 import {ThemeProvider} from '#/lib/ThemeContext'
 import {Provider as TranslateOnDeviceProvider} from '#/lib/translation'
@@ -153,8 +155,14 @@ function InnerApp() {
                                                           <HideBottomBarBorderProvider>
                                                             <IntentDialogProvider>
                                                               <TranslateOnDeviceProvider>
-                                                                <Shell />
-                                                                <ToastOutlet />
+                                                                <AppKitProvider
+                                                                  instance={
+                                                                    appKit
+                                                                  }>
+                                                                  <Shell />
+                                                                  <AppKit />
+                                                                  <ToastOutlet />
+                                                                </AppKitProvider>
                                                               </TranslateOnDeviceProvider>
                                                             </IntentDialogProvider>
                                                           </HideBottomBarBorderProvider>
