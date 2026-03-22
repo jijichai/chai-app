@@ -5,15 +5,15 @@ import {EthersAdapter} from '@reown/appkit-ethers-react-native'
 import {type AppKitNetwork, type Storage} from '@reown/appkit-react-native'
 import {createAppKit} from '@reown/appkit-react-native'
 
-// Celo Sepolia testnet (for development)
+// Celo Sepolia testnet — Self Agent ID NFTs are minted here
 const celoSepolia: AppKitNetwork = {
-  id: 44787,
-  name: 'Celo Alfajores',
+  id: 11142220,
+  name: 'Celo Sepolia',
   chainNamespace: 'eip155',
-  caipNetworkId: 'eip155:44787',
+  caipNetworkId: 'eip155:11142220',
   nativeCurrency: {name: 'CELO', symbol: 'CELO', decimals: 18},
   rpcUrls: {
-    default: {http: ['https://alfajores-forno.celo-testnet.org']},
+    default: {http: ['https://forno.celo-sepolia.celo-testnet.org']},
   },
   blockExplorers: {
     default: {name: 'Celoscan', url: 'https://sepolia.celoscan.io'},
@@ -49,7 +49,7 @@ const appKitStorage: Storage = {
 const ethersAdapter = new EthersAdapter()
 
 // Project ID from https://cloud.reown.com/
-const projectId = process.env.EXPO_PUBLIC_REOWN_PROJECT_ID ?? ''
+const projectId = '2dfc8c9a72342a4ca8aecb374f9595bd'
 
 export const appKit = createAppKit({
   projectId,
