@@ -1,7 +1,7 @@
 import {Linking, View} from 'react-native'
 import {Trans, useLingui} from '@lingui/react/macro'
 
-import {useSelfAgentRecordQuery} from '#/state/queries/selfAgentVerification'
+import {useSelfAgentRecordsQuery} from '#/state/queries/selfAgentVerification'
 import {useSession} from '#/state/session'
 import {atoms as a, useTheme, web} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
@@ -22,14 +22,15 @@ export function BotAccountAlert({
   const {t: l} = useLingui()
   const t = useTheme()
   const {currentAccount} = useSession()
-  const {data: agentRecord} = useSelfAgentRecordQuery({did: profile.did})
+  const {data: agentRecords} = useSelfAgentRecordsQuery({did: profile.did})
+  const firstAgent = agentRecords?.[0]
 
   const isSelf = profile.did === currentAccount?.did
   const description = isSelf
     ? l`You have marked this account as automated. You can remove it at any time from your account settings.`
     : l`This account has been marked as automated by its owner.`
 
-  const showVerification = agentRecord?.verified
+  const showVerification = firstAgent?.verified
 
   return (
     <Dialog.Outer control={control} nativeOptions={{preventExpansion: true}}>
@@ -52,7 +53,7 @@ export function BotAccountAlert({
             {description}
           </Text>
         </View>
-        {showVerification && agentRecord?.proofUrl && (
+        {showVerification && firstAgent?.proofUrl && (
           <View
             style={[
               a.flex_row,
@@ -71,7 +72,7 @@ export function BotAccountAlert({
               <Text
                 style={[a.text_sm, {color: t.palette.primary_500}]}
                 onPress={() => {
-                  void Linking.openURL(agentRecord.proofUrl)
+                  void Linking.openURL(firstAgent.proofUrl)
                 }}>
                 View proof
               </Text>

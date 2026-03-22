@@ -10,7 +10,7 @@ import {
   useProfileQuery,
   useProfileUpdateMutation,
 } from '#/state/queries/profile'
-import {useSelfAgentRecordQuery} from '#/state/queries/selfAgentVerification'
+import {useSelfAgentRecordsQuery} from '#/state/queries/selfAgentVerification'
 import {postThreadQueryKeyRoot} from '#/state/queries/usePostThread/types'
 import {useSession} from '#/state/session'
 import {UserAvatar} from '#/view/com/util/UserAvatar'
@@ -212,10 +212,10 @@ export function AutomationLabelSettingsScreen({}: Props) {
 function SelfAgentIdSection() {
   const t = useTheme()
   const {currentAccount} = useSession()
-  const {data: agentRecord} = useSelfAgentRecordQuery({
+  const {data: agentRecords} = useSelfAgentRecordsQuery({
     did: currentAccount?.did,
   })
-  const isVerified = agentRecord?.verified ?? false
+  const isVerified = (agentRecords?.length ?? 0) > 0
 
   return (
     <View style={[a.gap_sm]}>

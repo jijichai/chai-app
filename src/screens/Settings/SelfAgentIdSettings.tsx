@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {ActivityIndicator, Image, Linking, View} from 'react-native'
+import {ActivityIndicator, Image, Linking, Pressable, View} from 'react-native'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
@@ -14,7 +14,7 @@ import {
   type SelfAgentRecord,
   useDeleteSelfAgentRecordMutation,
   usePutSelfAgentRecordMutation,
-  useSelfAgentRecordQuery,
+  useSelfAgentRecordsQuery,
   useSelfAgentRegistrationStatusQuery,
 } from '#/state/queries/selfAgentVerification'
 import {useSession} from '#/state/session'
@@ -36,9 +36,11 @@ type Props = NativeStackScreenProps<
 
 export function SelfAgentIdSettingsScreen({}: Props) {
   const {currentAccount} = useSession()
-  const {data: record, isLoading} = useSelfAgentRecordQuery({
+  const {data: agents, isLoading} = useSelfAgentRecordsQuery({
     did: currentAccount?.did,
   })
+
+  const hasAgents = agents && agents.length > 0
 
   return (
     <Layout.Screen>
@@ -50,17 +52,151 @@ export function SelfAgentIdSettingsScreen({}: Props) {
         <Layout.Header.Slot />
       </Layout.Header.Outer>
       <Layout.Content>
-        {isLoading ? null : record?.verified ? (
-          <VerifiedState record={record} />
-        ) : (
-          <NotVerifiedState />
+        {isLoading ? null : (
+          <View style={[a.gap_xl]}>
+            {hasAgents && <AgentList agents={agents} />}
+            <AddAgentSection />
+          </View>
         )}
       </Layout.Content>
     </Layout.Screen>
   )
 }
 
-function NotVerifiedState() {
+function AgentList({agents}: {agents: SelfAgentRecord[]}) {
+  const t = useTheme()
+
+  return (
+    <View style={[a.p_xl, a.pb_0, a.gap_lg]}>
+      <View style={[a.align_center, a.pt_sm]}>
+        <ShieldCheckIcon width={40} fill={t.palette.positive_600} />
+      </View>
+      <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
+        {agents.length === 1
+          ? 'Agent verified'
+          : `${agents.length} agents verified`}
+      </Text>
+
+      {agents.map(agent => (
+        <AgentCard key={agent.agentId} record={agent} />
+      ))}
+    </View>
+  )
+}
+
+function AgentCard({record}: {record: SelfAgentRecord}) {
+  const t = useTheme()
+  const deleteRecord = useDeleteSelfAgentRecordMutation()
+  const removeControl = Dialog.useDialogControl()
+
+  const registeredDate = new Date(record.registeredAt)
+  const formattedDate = registeredDate.toLocaleDateString(undefined, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+
+  const shortAgentId = `${record.agentId.slice(0, 6)}...${record.agentId.slice(-4)}`
+
+  return (
+    <View
+      style={[
+        a.p_md,
+        a.rounded_md,
+        a.border,
+        t.atoms.border_contrast_low,
+        t.atoms.bg_contrast_50,
+        a.gap_sm,
+      ]}>
+      <View style={[a.flex_row, a.align_center, a.justify_between]}>
+        <View style={[a.gap_2xs]}>
+          <Text style={[a.text_sm, a.font_bold]}>Agent {shortAgentId}</Text>
+          <Text style={[a.text_xs, t.atoms.text_contrast_medium]}>
+            Verified on {formattedDate}
+          </Text>
+          {record.walletAddress && (
+            <Text
+              style={[
+                a.text_xs,
+                t.atoms.text_contrast_medium,
+                {fontFamily: 'monospace'},
+              ]}>
+              Wallet: {record.walletAddress.slice(0, 6)}...
+              {record.walletAddress.slice(-4)}
+            </Text>
+          )}
+        </View>
+        <ShieldCheckIcon width={20} fill={t.palette.positive_600} />
+      </View>
+
+      <View style={[a.flex_row, a.gap_sm]}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="View on-chain proof"
+          accessibilityHint="Opens the block explorer showing the soulbound NFT"
+          onPress={() => {
+            void Linking.openURL(record.proofUrl)
+          }}
+          style={[a.flex_1]}>
+          <Text
+            style={[a.text_sm, a.text_center, {color: t.palette.primary_500}]}>
+            View proof
+          </Text>
+        </Pressable>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Remove this agent"
+          accessibilityHint="Removes this agent verification from your account"
+          onPress={() => removeControl.open()}
+          style={[a.flex_1]}>
+          <Text
+            style={[a.text_sm, a.text_center, {color: t.palette.negative_500}]}>
+            Remove
+          </Text>
+        </Pressable>
+      </View>
+
+      <Dialog.Outer
+        control={removeControl}
+        nativeOptions={{preventExpansion: true}}>
+        <Dialog.ScrollableInner
+          label="Remove agent"
+          style={[web({maxWidth: 400})]}>
+          <Dialog.Header>
+            <Dialog.HeaderText>Remove agent {shortAgentId}?</Dialog.HeaderText>
+          </Dialog.Header>
+          <Text style={[a.text_md, a.leading_snug, a.pb_lg]}>
+            This will remove this agent from your account. The on-chain NFT will
+            remain. You can re-verify at any time.
+          </Text>
+          <View style={[a.gap_sm]}>
+            <Button
+              label="Remove"
+              onPress={() => {
+                removeControl.close(() => {
+                  deleteRecord.mutate(record.agentId)
+                })
+              }}
+              color="negative"
+              size="large">
+              <ButtonText>Remove</ButtonText>
+            </Button>
+            <Button
+              label="Cancel"
+              onPress={() => removeControl.close()}
+              color="secondary"
+              size="large">
+              <ButtonText>Cancel</ButtonText>
+            </Button>
+          </View>
+          <Dialog.Close />
+        </Dialog.ScrollableInner>
+      </Dialog.Outer>
+    </View>
+  )
+}
+
+function AddAgentSection() {
   const t = useTheme()
   const {currentAccount} = useSession()
   const {openWalletModal, walletAddress, isWalletConnected} = useWalletConnect()
@@ -110,7 +246,7 @@ function NotVerifiedState() {
     }
   }
 
-  // Step 3: Self verification in progress
+  // Verification in progress
   if (session) {
     return (
       <View style={[a.p_xl, a.gap_lg]}>
@@ -217,21 +353,21 @@ function NotVerifiedState() {
     )
   }
 
-  // Step 2: Wallet connected — ready to verify
+  // Wallet connected — ready to add agent
   if (isWalletConnected && walletAddress) {
     return (
-      <View style={[a.p_xl, a.gap_xl]}>
-        <View style={[a.align_center, a.pt_lg]}>
-          <ShieldIcon width={48} fill={t.palette.primary_500} />
-        </View>
-        <View style={[a.gap_sm]}>
-          <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
-            Wallet connected
+      <View style={[a.p_xl, a.gap_lg]}>
+        <View
+          style={[a.w_full, a.border_t, t.atoms.border_contrast_low, a.pt_lg]}
+        />
+        <Text style={[a.text_lg, a.font_bold]}>Add another agent</Text>
+        <View style={[a.gap_xs]}>
+          <Text style={[a.text_sm, t.atoms.text_contrast_medium]}>
+            Wallet connected:
           </Text>
           <Text
             style={[
-              a.text_sm,
-              a.text_center,
+              a.text_xs,
               t.atoms.text_contrast_medium,
               {fontFamily: 'monospace'},
             ]}>
@@ -239,35 +375,19 @@ function NotVerifiedState() {
           </Text>
         </View>
 
-        <View style={[a.gap_sm, a.py_sm]}>
-          <Text style={[a.text_lg, a.font_bold]}>Next steps</Text>
-          <StepItem
-            number={1}
-            text="Your wallet will be linked to the on-chain agent identity"
-          />
-          <StepItem
-            number={2}
-            text="Scan your passport with the Self app to verify you are human"
-          />
-          <StepItem
-            number={3}
-            text="A soulbound NFT is minted linking your wallet, DID, and proof-of-human"
-          />
-        </View>
-
         <Button
-          label="Verify with Self Protocol"
+          label="Add new agent"
           onPress={() => void onStartVerification()}
           color="primary"
           size="large"
           disabled={isStarting}>
           <ButtonText>
-            {isStarting ? 'Starting...' : 'Verify with Self Protocol'}
+            {isStarting ? 'Starting...' : 'Add new agent'}
           </ButtonText>
         </Button>
 
         <Button
-          label="Disconnect wallet"
+          label="Change wallet"
           onPress={() => openWalletModal()}
           color="secondary"
           size="large">
@@ -284,7 +404,7 @@ function NotVerifiedState() {
     )
   }
 
-  // Step 1: Connect wallet first
+  // Connect wallet first
   return (
     <View style={[a.p_xl, a.gap_xl]}>
       <View style={[a.align_center, a.pt_lg]}>
@@ -333,102 +453,6 @@ function NotVerifiedState() {
         size="large">
         <ButtonText>Connect Wallet</ButtonText>
       </Button>
-    </View>
-  )
-}
-
-function VerifiedState({record}: {record: SelfAgentRecord}) {
-  const t = useTheme()
-  const deleteRecord = useDeleteSelfAgentRecordMutation()
-  const removeControl = Dialog.useDialogControl()
-
-  const registeredDate = new Date(record.registeredAt)
-  const formattedDate = registeredDate.toLocaleDateString(undefined, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
-
-  return (
-    <View style={[a.p_xl, a.gap_xl]}>
-      <View style={[a.align_center, a.pt_lg]}>
-        <ShieldCheckIcon width={48} fill={t.palette.positive_600} />
-      </View>
-      <View style={[a.gap_sm]}>
-        <Text style={[a.text_2xl, a.font_bold, a.text_center]}>
-          Owner verified
-        </Text>
-        <Text style={[a.text_md, a.text_center, t.atoms.text_contrast_medium]}>
-          Verified on {formattedDate}
-        </Text>
-        {record.walletAddress && (
-          <Text
-            style={[
-              a.text_xs,
-              a.text_center,
-              t.atoms.text_contrast_medium,
-              {fontFamily: 'monospace'},
-            ]}>
-            Wallet: {record.walletAddress}
-          </Text>
-        )}
-      </View>
-
-      <Button
-        label="View on-chain proof"
-        onPress={() => {
-          void Linking.openURL(record.proofUrl)
-        }}
-        color="secondary"
-        size="large">
-        <ButtonText>View on-chain proof</ButtonText>
-      </Button>
-
-      <Button
-        label="Remove verification"
-        onPress={() => removeControl.open()}
-        color="negative"
-        size="large"
-        variant="outline">
-        <ButtonText>Remove verification</ButtonText>
-      </Button>
-
-      <Dialog.Outer
-        control={removeControl}
-        nativeOptions={{preventExpansion: true}}>
-        <Dialog.ScrollableInner
-          label="Remove verification"
-          style={[web({maxWidth: 400})]}>
-          <Dialog.Header>
-            <Dialog.HeaderText>Remove verification?</Dialog.HeaderText>
-          </Dialog.Header>
-          <Text style={[a.text_md, a.leading_snug, a.pb_lg]}>
-            This will remove the Self Agent ID verification from your account.
-            You can re-verify at any time.
-          </Text>
-          <View style={[a.gap_sm]}>
-            <Button
-              label="Remove"
-              onPress={() => {
-                removeControl.close(() => {
-                  deleteRecord.mutate()
-                })
-              }}
-              color="negative"
-              size="large">
-              <ButtonText>Remove</ButtonText>
-            </Button>
-            <Button
-              label="Cancel"
-              onPress={() => removeControl.close()}
-              color="secondary"
-              size="large">
-              <ButtonText>Cancel</ButtonText>
-            </Button>
-          </View>
-          <Dialog.Close />
-        </Dialog.ScrollableInner>
-      </Dialog.Outer>
     </View>
   )
 }
