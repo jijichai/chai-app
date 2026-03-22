@@ -6,7 +6,7 @@ import {useLingui} from '@lingui/react'
 import {Plural, Trans} from '@lingui/react/macro'
 import {StackActions, useNavigation} from '@react-navigation/native'
 
-import {FEEDBACK_FORM_URL, HELP_DESK_URL} from '#/lib/constants'
+import {HELP_DESK_URL} from '#/lib/constants'
 import {type PressableScale} from '#/lib/custom-animations/PressableScale'
 import {useNavigationTabState} from '#/lib/hooks/useNavigationTabState'
 import {getTabState, TabState} from '#/lib/routes/helpers'
@@ -15,6 +15,8 @@ import {sanitizeHandle} from '#/lib/strings/handles'
 import {colors} from '#/lib/styles'
 import {emitSoftReset} from '#/state/events'
 import {useKawaiiMode} from '#/state/preferences/kawaii'
+import {useFetchDid} from '#/state/queries/handle'
+import {useGetConvoForMembers} from '#/state/queries/messages/get-convo-for-members'
 import {useUnreadNotifications} from '#/state/queries/notifications/unread'
 import {useProfileQuery} from '#/state/queries/profile'
 import {type SessionAccount, useSession} from '#/state/session'
@@ -31,6 +33,7 @@ import {
 } from '#/components/icons/Bell'
 import {Bookmark, BookmarkFilled} from '#/components/icons/Bookmark'
 import {BulletList_Stroke2_Corner0_Rounded as List} from '#/components/icons/BulletList'
+import {Globe_Stroke2_Corner0_Rounded as Globe} from '#/components/icons/Globe'
 import {
   Hashtag_Filled_Corner0_Rounded as HashtagFilled,
   Hashtag_Stroke2_Corner0_Rounded as Hashtag,
@@ -54,6 +57,7 @@ import {
 } from '#/components/icons/UserCircle'
 import {InlineLinkText} from '#/components/Link'
 import {ProfileBadges} from '#/components/ProfileBadges'
+import * as Toast from '#/components/Toast'
 import {Text} from '#/components/Typography'
 import {IS_WEB} from '#/env'
 import {useActorStatus} from '#/features/liveNow'
@@ -134,6 +138,7 @@ DrawerProfileCard = memo(DrawerProfileCard)
 export {DrawerProfileCard}
 
 let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
+  const {_} = useLingui()
   const t = useTheme()
   const insets = useSafeAreaInsets()
   const setDrawerOpen = useSetDrawerOpen()
@@ -148,6 +153,16 @@ let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
     isAtMessages,
   } = useNavigationTabState()
   const {hasSession, currentAccount} = useSession()
+  const fetchDid = useFetchDid()
+  const {mutate: initiateConvo} = useGetConvoForMembers({
+    onSuccess: ({convo}) => {
+      setDrawerOpen(false)
+      navigation.navigate('MessagesConversation', {conversation: convo.id})
+    },
+    onError: () => {
+      Toast.show(_(msg`Failed to start conversation`))
+    },
+  })
 
   // events
   // =
@@ -232,16 +247,22 @@ let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
   }, [navigation, setDrawerOpen])
 
   const onPressFeedback = useCallback(() => {
-    Linking.openURL(
-      FEEDBACK_FORM_URL({
-        email: currentAccount?.email,
-        handle: currentAccount?.handle,
-      }),
-    )
-  }, [currentAccount])
+    void (async () => {
+      try {
+        const did = await fetchDid('jiji.chai.sh')
+        initiateConvo([did])
+      } catch {
+        Toast.show(_(msg`Failed to start conversation`))
+      }
+    })()
+  }, [_, fetchDid, initiateConvo])
+
+  const onPressExplorer = useCallback(() => {
+    void Linking.openURL('https://pds.chai.sh/')
+  }, [])
 
   const onPressHelp = useCallback(() => {
-    Linking.openURL(HELP_DESK_URL)
+    void Linking.openURL(HELP_DESK_URL)
   }, [])
 
   // rendering
@@ -312,6 +333,7 @@ let DrawerContent = ({}: React.PropsWithoutRef<{}>): React.ReactNode => {
       </ScrollView>
 
       <DrawerFooter
+        onPressExplorer={onPressExplorer}
         onPressFeedback={onPressFeedback}
         onPressHelp={onPressHelp}
       />
@@ -322,9 +344,11 @@ DrawerContent = memo(DrawerContent)
 export {DrawerContent}
 
 let DrawerFooter = ({
+  onPressExplorer,
   onPressFeedback,
   onPressHelp,
 }: {
+  onPressExplorer: () => void
   onPressFeedback: () => void
   onPressHelp: () => void
 }): React.ReactNode => {
@@ -345,6 +369,17 @@ let DrawerFooter = ({
           ),
         },
       ]}>
+      <Button
+        label={_(msg`Open explorer`)}
+        size="small"
+        variant="solid"
+        color="secondary"
+        onPress={onPressExplorer}>
+        <ButtonIcon icon={Globe} position="left" />
+        <ButtonText>
+          <Trans>Explorer</Trans>
+        </ButtonText>
+      </Button>
       <Button
         label={_(msg`Send feedback`)}
         size="small"
