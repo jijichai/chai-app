@@ -4,6 +4,7 @@ import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
 import {
+  type CeloNetwork,
   getAgentExplorerUrl,
   type RegistrationSession,
   startRegistration,
@@ -21,6 +22,7 @@ import {useSession} from '#/state/session'
 import {atoms as a, useTheme, web} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
 import * as Dialog from '#/components/Dialog'
+import * as SegmentedControl from '#/components/forms/SegmentedControl'
 import {
   Shield_Stroke2_Corner0_Rounded as ShieldIcon,
   ShieldCheck_Stroke2_Corner0_Rounded as ShieldCheckIcon,
@@ -39,6 +41,7 @@ export function SelfAgentIdSettingsScreen({}: Props) {
   const {data: agents, isLoading} = useSelfAgentRecordsQuery({
     did: currentAccount?.did,
   })
+  const [network, setNetwork] = useState<CeloNetwork>('celoSepolia')
 
   const hasAgents = agents && agents.length > 0
 
@@ -52,10 +55,13 @@ export function SelfAgentIdSettingsScreen({}: Props) {
         <Layout.Header.Slot />
       </Layout.Header.Outer>
       <Layout.Content>
+        <View style={[a.px_xl, a.pt_lg]}>
+          <NetworkToggle network={network} onChange={setNetwork} />
+        </View>
         {isLoading ? null : (
           <View style={[a.gap_xl]}>
             {hasAgents && <AgentList agents={agents} />}
-            <AddAgentSection />
+            <AddAgentSection network={network} />
           </View>
         )}
       </Layout.Content>
@@ -196,7 +202,51 @@ function AgentCard({record}: {record: SelfAgentRecord}) {
   )
 }
 
-function AddAgentSection() {
+function NetworkToggle({
+  network,
+  onChange,
+}: {
+  network: CeloNetwork
+  onChange: (value: CeloNetwork) => void
+}) {
+  return (
+    <SegmentedControl.Root
+      label="Network"
+      type="radio"
+      size="small"
+      value={network}
+      onChange={onChange}>
+      <SegmentedControl.Item value="celo" label="Celo mainnet">
+        <View style={[a.flex_row, a.align_center, a.gap_xs, a.justify_center]}>
+          <View
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: 4,
+              backgroundColor: '#35D07F',
+            }}
+          />
+          <SegmentedControl.ItemText>Celo</SegmentedControl.ItemText>
+        </View>
+      </SegmentedControl.Item>
+      <SegmentedControl.Item value="celoSepolia" label="Celo Sepolia testnet">
+        <View style={[a.flex_row, a.align_center, a.gap_xs, a.justify_center]}>
+          <View
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: 4,
+              backgroundColor: '#F5A623',
+            }}
+          />
+          <SegmentedControl.ItemText>Sepolia</SegmentedControl.ItemText>
+        </View>
+      </SegmentedControl.Item>
+    </SegmentedControl.Root>
+  )
+}
+
+function AddAgentSection({network}: {network: CeloNetwork}) {
   const t = useTheme()
   const {currentAccount} = useSession()
   const {openWalletModal, walletAddress, isWalletConnected} = useWalletConnect()
@@ -217,15 +267,15 @@ function AddAgentSection() {
       setSession(undefined)
       putRecord.mutate({
         agentId,
-        chain: 'celoSepolia',
+        chain: network,
         verified: true,
-        proofUrl: getAgentExplorerUrl(walletAddress ?? agentId),
+        proofUrl: getAgentExplorerUrl(walletAddress ?? agentId, network),
         walletAddress: walletAddress ?? undefined,
         registeredAt: new Date().toISOString(),
         createdAt: new Date().toISOString(),
       })
     }
-  }, [status, putRecord, walletAddress])
+  }, [status, putRecord, walletAddress, network])
 
   const onStartVerification = async () => {
     setIsStarting(true)
@@ -234,6 +284,7 @@ function AddAgentSection() {
       const result = await startRegistration(
         currentAccount?.did ?? '',
         walletAddress ?? undefined,
+        network,
       )
       setSession(result)
     } catch (e) {

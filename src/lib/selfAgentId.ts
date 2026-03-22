@@ -2,6 +2,25 @@ import {logger} from '#/logger'
 
 const SELF_AGENT_API = 'https://app.ai.self.xyz/api'
 
+export type CeloNetwork = 'celo' | 'celoSepolia'
+
+export const CELO_NETWORKS: Record<
+  CeloNetwork,
+  {
+    apiNetworkParam: 'mainnet' | 'testnet'
+    explorerBaseUrl: string
+  }
+> = {
+  celo: {
+    apiNetworkParam: 'mainnet',
+    explorerBaseUrl: 'https://celoscan.io',
+  },
+  celoSepolia: {
+    apiNetworkParam: 'testnet',
+    explorerBaseUrl: 'https://sepolia.celoscan.io',
+  },
+}
+
 export interface SelfVerification {
   verified: boolean
   agentId: string // the agent's public key or identifier
@@ -29,10 +48,12 @@ export type RegistrationStatus =
 export async function startRegistration(
   did: string,
   walletAddress?: string,
+  network: CeloNetwork = 'celoSepolia',
 ): Promise<RegistrationSession> {
+  const networkParam = CELO_NETWORKS[network].apiNetworkParam
   const body = walletAddress
-    ? {mode: 'linked', network: 'testnet', humanAddress: walletAddress}
-    : {mode: 'wallet-free', network: 'testnet', userDefinedData: did}
+    ? {mode: 'linked', network: networkParam, humanAddress: walletAddress}
+    : {mode: 'wallet-free', network: networkParam, userDefinedData: did}
 
   const res = await fetch(`${SELF_AGENT_API}/agent/register`, {
     method: 'POST',
@@ -105,8 +126,12 @@ export async function checkRegistrationStatus(
 /**
  * Get the block explorer URL for the agent's on-chain proof (Celo Sepolia testnet).
  */
-export function getAgentExplorerUrl(agentId: string): string {
-  return `https://sepolia.celoscan.io/address/${encodeURIComponent(agentId)}#nfttransfers`
+export function getAgentExplorerUrl(
+  agentId: string,
+  network: CeloNetwork = 'celoSepolia',
+): string {
+  const baseUrl = CELO_NETWORKS[network].explorerBaseUrl
+  return `${baseUrl}/address/${encodeURIComponent(agentId)}#nfttransfers`
 }
 
 /**
