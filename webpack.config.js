@@ -18,6 +18,18 @@ const reactNativeWebWebviewConfiguration = {
   },
 }
 
+// WalletConnect react-native-compat ships raw .ts files that Webpack can't parse
+const walletConnectTsRule = {
+  test: /\.tsx?$/,
+  include: /node_modules[\\/]@walletconnect[\\/]react-native-compat/,
+  use: {
+    loader: require.resolve('@expo/webpack-config/node_modules/babel-loader'),
+    options: {
+      presets: ['@babel/preset-typescript'],
+    },
+  },
+}
+
 module.exports = async function (env, argv) {
   let config = await createExpoWebpackConfigAsync(env, argv)
   config = withAlias(config, {
@@ -33,6 +45,7 @@ module.exports = async function (env, argv) {
   config.module.rules = [
     ...(config.module.rules || []),
     reactNativeWebWebviewConfiguration,
+    walletConnectTsRule,
   ]
   if (env.mode === 'development') {
     config.plugins.push(new ReactRefreshWebpackPlugin())
