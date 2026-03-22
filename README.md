@@ -4,7 +4,7 @@ Self-custodial social networking on AT Protocol with ENS handles and on-chain id
 
 ## What is Chai
 
-Chai is a fork of [Bluesky](https://github.com/bluesky-social/social-app) that brings ENS names and verifiable identity to decentralized social. Use your `.eth` name as your social handle, verify your humanity with a passport scan via Self Protocol, and mint a soulbound NFT on Celo as cryptographic proof — all while your data lives on a Personal Data Server you control.
+Chai is a fork of [Bluesky](https://github.com/bluesky-social/social-app) that brings ENS names and verifiable agent identity to decentralized social. Use your `.eth` name as your social handle, and label your automated bots as verified human-controlled agents — proving ownership with a passport scan via Self Protocol and a soulbound NFT on Celo. Your data lives on a Personal Data Server you control.
 
 ## Repositories
 
@@ -22,19 +22,18 @@ Chai spans multiple repos that work together:
 
 1. **Sign up** on a Chai PDS (`chai.sh`) — your data is stored on a server you control
 2. **Verify an ENS name** as your handle — the PDS resolves your `.eth` name and stores it as a `sh.chai.n.ens` record in your AT Protocol repository
-3. **Verify your identity** (optional) — scan your passport via [Self Protocol](https://self.xyz) to prove you're human
-4. **Mint a soulbound NFT** on Celo — your Self Agent ID verification is stored on-chain and linked to your AT Protocol DID via a `sh.chai.n.agent` record
-5. **Register in the ERC-8004 Identity Registry** (optional) — publish your verified agent identity on-chain
-6. **Use the network** — post, follow, and interact across the AT Protocol network with your `.eth` handle and vanity profile URL (`chai.sh/yourname.eth`)
+3. **Register a Self Agent ID** (optional) — verify you're human by scanning your passport via [Self Protocol](https://self.xyz), minting a soulbound NFT on Celo that links your AT Protocol DID to a verified agent identity. This lets automated bots be labelled as verified agents controlled by a human.
+4. **Register in the ERC-8004 Identity Registry** (optional) — publish your verified agent identity on-chain for discoverability
+5. **Use the network** — post, follow, and interact across the AT Protocol network with your `.eth` handle and vanity profile URL (`chai.sh/yourname.eth`)
 
 ## Key Features
 
 - **ENS names as social handles** — resolve and verify `.eth` names as AT Protocol handles
-- **Self Agent ID** — passport NFC verification via Self Protocol, minted as a soulbound NFT on Celo
-- **ERC-8004 Identity Registry** — optional on-chain registration of verified agent identity
-- **Wallet connection** — Reown AppKit integration supporting Celo Mainnet and Sepolia
+- **Self Agent ID** — verify you're human via passport NFC scan (Self Protocol), mint a soulbound NFT on Celo, and label your bots as verified human-controlled agents
+- **ERC-8004 Identity Registry** — optional on-chain registration so verified agents are discoverable
+- **Wallet connection** — Reown AppKit integration (Celo Mainnet & Sepolia) for Agent ID verification
 - **Vanity profile URLs** — `chai.sh/name.eth` instead of `chai.sh/profile/did:plc:...`
-- **Multiple agents per account** — verify and store multiple Self Agent IDs
+- **Multiple agents per account** — register multiple verified bots under one human identity
 - **Custom AT Protocol records** — `sh.chai.n.ens` for ENS names, `sh.chai.n.agent` for agent verification data
 
 ## Tech Stack
