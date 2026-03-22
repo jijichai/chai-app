@@ -25,13 +25,16 @@ export type RegistrationStatus =
  * Start a wallet-free agent registration flow.
  * Returns a session token and QR code URL for the user to scan with the Self app.
  */
-export async function startRegistration(): Promise<RegistrationSession> {
+export async function startRegistration(
+  did: string,
+): Promise<RegistrationSession> {
   const res = await fetch(`${SELF_AGENT_API}/agent/register`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
       mode: 'wallet-free',
       network: 'testnet',
+      userDefinedData: did,
     }),
   })
 

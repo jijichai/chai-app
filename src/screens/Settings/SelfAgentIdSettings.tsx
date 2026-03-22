@@ -14,6 +14,7 @@ import {
   useSetSelfAgentVerification,
 } from '#/state/preferences'
 import {useSelfAgentRegistrationStatusQuery} from '#/state/queries/selfAgentVerification'
+import {useSession} from '#/state/session'
 import {atoms as a, useTheme, web} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
 import * as Dialog from '#/components/Dialog'
@@ -55,6 +56,7 @@ export function SelfAgentIdSettingsScreen({}: Props) {
 
 function NotVerifiedState() {
   const t = useTheme()
+  const {currentAccount} = useSession()
   const setVerification = useSetSelfAgentVerification()
   const [session, setSession] = useState<RegistrationSession>()
   const [isStarting, setIsStarting] = useState(false)
@@ -83,7 +85,7 @@ function NotVerifiedState() {
     setIsStarting(true)
     setError(undefined)
     try {
-      const result = await startRegistration()
+      const result = await startRegistration(currentAccount?.did ?? '')
       setSession(result)
     } catch (e) {
       logger.error('Self Agent ID: failed to start registration', {
