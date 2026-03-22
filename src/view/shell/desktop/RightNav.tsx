@@ -1,12 +1,15 @@
-import {useEffect, useState} from 'react'
-import {View} from 'react-native'
+import {useCallback, useEffect, useState} from 'react'
+import {Pressable, View} from 'react-native'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
 import {useNavigation} from '@react-navigation/core'
 
-import {FEEDBACK_FORM_URL, HELP_DESK_URL} from '#/lib/constants'
+import {HELP_DESK_URL} from '#/lib/constants'
+import {type NavigationProp} from '#/lib/routes/types'
 import {useKawaiiMode} from '#/state/preferences/kawaii'
+import {useFetchDid} from '#/state/queries/handle'
+import {useGetConvoForMembers} from '#/state/queries/messages/get-convo-for-members'
 import {useSession} from '#/state/session'
 import {DesktopFeeds} from '#/view/shell/desktop/Feeds'
 import {DesktopSearch} from '#/view/shell/desktop/Search'
@@ -22,6 +25,7 @@ import {AppLanguageDropdown} from '#/components/AppLanguageDropdown'
 import {CENTER_COLUMN_OFFSET} from '#/components/Layout'
 import {InlineLinkText} from '#/components/Link'
 import {ProgressGuideList} from '#/components/ProgressGuide/List'
+import * as Toast from '#/components/Toast'
 import {Text} from '#/components/Typography'
 import {SidebarLiveEventFeedsBanner} from '#/features/liveEvents/components/SidebarLiveEventFeedsBanner'
 
@@ -45,8 +49,29 @@ function useWebQueryParams() {
 export function DesktopRightNav({routeName}: {routeName: string}) {
   const t = useTheme()
   const {_} = useLingui()
-  const {hasSession, currentAccount} = useSession()
+  const navigation = useNavigation<NavigationProp>()
+  const {hasSession} = useSession()
   const kawaii = useKawaiiMode()
+  const fetchDid = useFetchDid()
+  const {mutate: initiateConvo} = useGetConvoForMembers({
+    onSuccess: ({convo}) => {
+      navigation.navigate('MessagesConversation', {conversation: convo.id})
+    },
+    onError: () => {
+      Toast.show(_(msg`Failed to start conversation`))
+    },
+  })
+
+  const onPressFeedback = useCallback(() => {
+    void (async () => {
+      try {
+        const did = await fetchDid('jiji.chai.sh')
+        initiateConvo([did])
+      } catch {
+        Toast.show(_(msg`Failed to start conversation`))
+      }
+    })()
+  }, [_, fetchDid, initiateConvo])
   const gutters = useGutters(['base', 0, 'base', 'wide'])
   const isSearchScreen = routeName === 'Search'
   const webqueryParams = useWebQueryParams()
@@ -97,20 +122,27 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
       {showExploreScreenDuplicatedContent && <SidebarTrendingTopics />}
 
       <Text style={[a.leading_snug, t.atoms.text_contrast_low]}>
+        <InlineLinkText
+          to="https://pds.chai.sh/"
+          style={[t.atoms.text_contrast_medium]}
+          label={_(msg`Explorer`)}>
+          {_(msg`Explorer`)}
+        </InlineLinkText>
         {hasSession && (
           <>
-            <InlineLinkText
-              to={FEEDBACK_FORM_URL({
-                email: currentAccount?.email,
-                handle: currentAccount?.handle,
-              })}
-              style={[t.atoms.text_contrast_medium]}
-              label={_(msg`Feedback`)}>
-              {_(msg`Feedback`)}
-            </InlineLinkText>
             <Text style={[t.atoms.text_contrast_low]}>{' ∙ '}</Text>
+            <Pressable
+              accessibilityRole="link"
+              accessibilityLabel={_(msg`Feedback`)}
+              accessibilityHint={_(msg`Opens a DM conversation`)}
+              onPress={onPressFeedback}>
+              <Text style={[t.atoms.text_contrast_medium]}>
+                {_(msg`Feedback`)}
+              </Text>
+            </Pressable>
           </>
         )}
+        <Text style={[t.atoms.text_contrast_low]}>{' ∙ '}</Text>
         <InlineLinkText
           to="https://bsky.social/about/support/privacy-policy"
           style={[t.atoms.text_contrast_medium]}
