@@ -53,6 +53,7 @@ import {VideoClip_Stroke1_Corner0_Rounded as VideoIcon} from '#/components/icons
 import * as Layout from '#/components/Layout'
 import {ScreenHider} from '#/components/moderation/ScreenHider'
 import {ProfileStarterPacks} from '#/components/StarterPack/ProfileStarterPacks'
+import {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 import {navigate} from '#/Navigation'
 import {ExpoScrollForwarderView} from '../../../modules/expo-scroll-forwarder'
 
@@ -92,6 +93,11 @@ function ProfileScreenInner({route}: Props) {
   } = useProfileQuery({
     did: resolvedDid,
   })
+  const displayHandle = useDisplayHandle(
+    profile
+      ? {did: profile.did, handle: profile.handle}
+      : {did: '', handle: ''},
+  )
 
   const onPressTryAgain = useCallback(() => {
     if (resolveError) {
@@ -118,18 +124,19 @@ function ProfileScreenInner({route}: Props) {
     }
   }, [queryClient, profile?.viewer?.blockedBy, resolvedDid])
 
-  // Update route params (and web URL) when the profile's current handle
-  // differs from what's in the URL, e.g. after a handle change.
+  // Update route params (and web URL) to match the display handle (ENS-aware).
+  // e.g. visiting /jiji.chai.sh updates to /chaish.eth if that's the active ENS.
   useEffect(() => {
     if (
-      profile?.handle &&
-      !isInvalidHandle(profile.handle) &&
+      profile &&
+      displayHandle &&
+      !isInvalidHandle(displayHandle) &&
       route.params.name !== 'me' &&
-      route.params.name !== profile.handle
+      route.params.name !== displayHandle
     ) {
-      navigation.setParams({name: profile.handle})
+      navigation.setParams({name: displayHandle})
     }
-  }, [profile?.handle, route.params.name, navigation])
+  }, [profile, displayHandle, route.params.name, navigation])
 
   // Most pushes will happen here, since we will have only placeholder data
   if (isDidPending || isProfilePending) {

@@ -12,7 +12,11 @@ type ProfileLike = {did: string; handle: string}
  */
 export function useDisplayHandle(profile: ProfileLike): string {
   const {data: ensRecords} = useEnsRecordsQuery({did: profile.did})
-  const primaryEns = ensRecords?.[0]?.ensName
+
+  // Pick the most recently verified ENS name
+  const primaryEns = ensRecords
+    ?.slice()
+    .sort((a, b) => b.verifiedAt.localeCompare(a.verifiedAt))[0]?.ensName
 
   if (primaryEns) {
     return primaryEns

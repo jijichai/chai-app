@@ -100,8 +100,8 @@ export const router = new Router<AllNavigatableRoutes>({
 // Vanity profile routes — added last so named routes always match first.
 // These enable clean URLs like chai.sh/chaish.eth instead of chai.sh/profile/chaish.eth.
 const vanityRoutes: [string, string][] = [
-  ['Profile', '/:name'],
   ['Profile', '/:name/rss'],
+  ['Profile', '/:name'],
   ['ProfileFollowers', '/:name/followers'],
   ['ProfileFollows', '/:name/follows'],
   ['ProfileKnownFollowers', '/:name/known-followers'],
