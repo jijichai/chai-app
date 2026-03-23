@@ -41,6 +41,7 @@ export const appKit = createAppKit({
   networks: [celoSepolia, celoMainnet],
   defaultNetwork: celoSepolia,
   adapters: [new EthersAdapter()],
+  allowUnsupportedChain: true,
   metadata: {
     name: 'Chai',
     description: 'Chai Social',
