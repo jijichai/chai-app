@@ -22,7 +22,7 @@ msgstr ""
 msgid "(contains embedded content)"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:76
+#: src/screens/Settings/AccountSettings.tsx:83
 msgid "(no email)"
 msgstr ""
 
@@ -724,7 +724,7 @@ msgstr ""
 
 #: src/Navigation.tsx:404
 #: src/screens/Login/LoginForm.tsx:192
-#: src/screens/Settings/AccountSettings.tsx:56
+#: src/screens/Settings/AccountSettings.tsx:63
 #: src/screens/Settings/Settings.tsx:173
 #: src/screens/Settings/Settings.tsx:176
 msgid "Account"
@@ -777,8 +777,8 @@ msgstr ""
 msgid "Account removed from quick access"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:90
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:313
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:91
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:316
 #: src/view/com/profile/ProfileMenu.tsx:176
 msgctxt "toast"
 msgid "Account unblocked"
@@ -1526,8 +1526,8 @@ msgstr ""
 msgid "Automated account"
 msgstr "Automated account"
 
-#: src/screens/Settings/AccountSettings.tsx:157
-#: src/screens/Settings/AccountSettings.tsx:160
+#: src/screens/Settings/AccountSettings.tsx:164
+#: src/screens/Settings/AccountSettings.tsx:167
 msgid "Automation label"
 msgstr "Automation label"
 
@@ -1634,12 +1634,12 @@ msgstr ""
 msgid "Birthdate"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:147
+#: src/screens/Settings/AccountSettings.tsx:154
 msgid "Birthday"
 msgstr ""
 
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:851
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:209
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:212
 #: src/view/com/profile/ProfileMenu.tsx:563
 msgid "Block"
 msgstr ""
@@ -1876,6 +1876,8 @@ msgstr ""
 #: src/screens/Profile/Header/EditProfileDialog.tsx:215
 #: src/screens/Profile/Header/EditProfileDialog.tsx:223
 #: src/screens/Search/Shell.tsx:396
+#: src/screens/Settings/AccountSettings.tsx:318
+#: src/screens/Settings/AccountSettings.tsx:326
 #: src/screens/Settings/AppIconSettings/index.tsx:42
 #: src/screens/Settings/AppIconSettings/index.tsx:228
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:91
@@ -2970,8 +2972,8 @@ msgstr ""
 msgid "Date of birth"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:179
-#: src/screens/Settings/AccountSettings.tsx:184
+#: src/screens/Settings/AccountSettings.tsx:188
+#: src/screens/Settings/AccountSettings.tsx:193
 #: src/screens/Settings/components/DeactivateAccountDialog.tsx:73
 msgid "Deactivate account"
 msgstr ""
@@ -3007,8 +3009,8 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:189
-#: src/screens/Settings/AccountSettings.tsx:194
+#: src/screens/Settings/AccountSettings.tsx:198
+#: src/screens/Settings/AccountSettings.tsx:203
 msgid "Delete account"
 msgstr ""
 
@@ -3235,7 +3237,7 @@ msgstr ""
 msgid "Discourage apps from showing my account to logged-out users"
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:113
+#: src/screens/Search/Explore.tsx:108
 msgid "Discover Chai"
 msgstr "Discover Chai"
 
@@ -3453,7 +3455,7 @@ msgstr ""
 msgid "Eating disorders"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:150
+#: src/screens/Settings/AccountSettings.tsx:157
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:255
 #: src/screens/StarterPack/StarterPackScreen.tsx:606
 #: src/screens/StarterPack/Wizard/index.tsx:342
@@ -3528,12 +3530,12 @@ msgstr ""
 #: src/screens/Profile/Header/EditProfileDialog.tsx:265
 #: src/screens/Profile/Header/EditProfileDialog.tsx:271
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:296
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:348
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:351
 msgid "Edit profile"
 msgstr ""
 
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:299
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:350
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:353
 msgid "Edit Profile"
 msgstr ""
 
@@ -3561,7 +3563,7 @@ msgstr ""
 msgid "Either the creator of this list has blocked you or you have blocked the creator."
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:71
+#: src/screens/Settings/AccountSettings.tsx:78
 #: src/screens/Signup/SignupForm.tsx:295
 #: src/screens/Signup/StepInfo/index.tsx:212
 msgid "Email"
@@ -3752,6 +3754,10 @@ msgstr ""
 msgid "Enter your password"
 msgstr ""
 
+#: src/screens/Settings/AccountSettings.tsx:300
+msgid "Enter your Signal username"
+msgstr "Enter your Signal username"
+
 #: src/screens/Login/index.tsx:141
 msgid "Enter your username and password"
 msgstr ""
@@ -3907,8 +3913,8 @@ msgstr ""
 msgid "Explorer"
 msgstr "Explorer"
 
-#: src/screens/Settings/AccountSettings.tsx:170
-#: src/screens/Settings/AccountSettings.tsx:174
+#: src/screens/Settings/AccountSettings.tsx:179
+#: src/screens/Settings/AccountSettings.tsx:183
 msgid "Export my data"
 msgstr ""
 
@@ -4041,7 +4047,7 @@ msgstr ""
 msgid "Failed to load preference."
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:128
+#: src/screens/Search/Explore.tsx:123
 msgid "Failed to load suggested accounts"
 msgstr "Failed to load suggested accounts"
 
@@ -4386,7 +4392,7 @@ msgstr ""
 #: src/components/ProfileHoverCard/index.web.tsx:495
 #: src/components/ProfileHoverCard/index.web.tsx:506
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:157
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:405
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:408
 #: src/screens/VideoFeed/index.tsx:870
 #: src/view/com/notifications/NotificationFeedItem.tsx:838
 #: src/view/com/notifications/NotificationFeedItem.tsx:845
@@ -4395,7 +4401,7 @@ msgstr ""
 
 #. placeholder {0}: profile.handle
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:144
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:393
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:396
 msgid "Follow {0}"
 msgstr ""
 
@@ -4439,7 +4445,7 @@ msgstr ""
 #. User is not following this account, click to follow back
 #: src/components/ProfileCard.tsx:545
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:155
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:403
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:406
 #: src/view/com/notifications/NotificationFeedItem.tsx:838
 #: src/view/com/notifications/NotificationFeedItem.tsx:845
 msgid "Follow back"
@@ -4493,7 +4499,7 @@ msgstr ""
 #: src/components/ProfileHoverCard/index.web.tsx:494
 #: src/components/ProfileHoverCard/index.web.tsx:505
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:401
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:404
 #: src/screens/VideoFeed/index.tsx:868
 #: src/view/com/notifications/NotificationFeedItem.tsx:816
 #: src/view/com/notifications/NotificationFeedItem.tsx:833
@@ -4510,7 +4516,7 @@ msgstr ""
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #: src/components/ProfileCard.tsx:501
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:265
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:268
 #: src/view/com/notifications/NotificationFeedItem.tsx:765
 msgid "Following {0}"
 msgstr ""
@@ -4825,6 +4831,8 @@ msgstr ""
 
 #: src/screens/Profile/components/GermButton.tsx:252
 #: src/screens/Profile/components/GermButton.tsx:257
+#: src/screens/Profile/components/SignalButton.tsx:105
+#: src/screens/Profile/components/SignalButton.tsx:110
 msgid "Got it"
 msgstr ""
 
@@ -4852,8 +4860,8 @@ msgstr ""
 msgid "Half way there!"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:135
-#: src/screens/Settings/AccountSettings.tsx:140
+#: src/screens/Settings/AccountSettings.tsx:142
+#: src/screens/Settings/AccountSettings.tsx:147
 msgid "Handle"
 msgstr ""
 
@@ -6091,6 +6099,10 @@ msgstr ""
 msgid "Message is too long"
 msgstr ""
 
+#: src/screens/Profile/components/SignalButton.tsx:128
+msgid "Message on Signal"
+msgstr "Message on Signal"
+
 #: src/components/dms/MessageContextMenu.tsx:129
 msgid "Message options"
 msgstr ""
@@ -6098,6 +6110,14 @@ msgstr ""
 #: src/Navigation.tsx:837
 msgid "Messages"
 msgstr ""
+
+#: src/screens/Settings/AccountSettings.tsx:255
+#: src/screens/Settings/AccountSettings.tsx:259
+#: src/screens/Settings/AccountSettings.tsx:272
+#: src/screens/Settings/AccountSettings.tsx:276
+#: src/screens/Settings/AccountSettings.tsx:291
+msgid "Messenger"
+msgstr "Messenger"
 
 #: src/screens/Settings/AppIconSettings/useAppIconSets.ts:101
 msgctxt "Name of app icon variant"
@@ -6571,7 +6591,7 @@ msgstr ""
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #: src/components/ProfileCard.tsx:524
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:291
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:294
 #: src/view/com/notifications/NotificationFeedItem.tsx:787
 msgid "No longer following {0}"
 msgstr ""
@@ -6657,7 +6677,7 @@ msgstr ""
 msgid "No results found for “<0>{query}</0>”."
 msgstr "No results found for “<0>{query}</0>”."
 
-#: src/screens/Search/Explore.tsx:204
+#: src/screens/Search/Explore.tsx:206
 msgid "No results."
 msgstr ""
 
@@ -6809,7 +6829,8 @@ msgid "Number should be a mobile number"
 msgstr ""
 
 #: src/lib/moderation/useLabelBehaviorDescription.ts:14
-#: src/screens/Settings/AccountSettings.tsx:164
+#: src/screens/Settings/AccountSettings.tsx:171
+#: src/screens/Settings/AccountSettings.tsx:262
 #: src/screens/Settings/NotificationSettings/index.tsx:292
 msgid "Off"
 msgstr ""
@@ -6843,7 +6864,7 @@ msgstr ""
 msgid "Oldest replies first"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:164
+#: src/screens/Settings/AccountSettings.tsx:171
 msgid "On"
 msgstr "On"
 
@@ -6958,6 +6979,11 @@ msgstr ""
 msgid "Open Germ DM"
 msgstr ""
 
+#: src/screens/Profile/components/SignalButton.tsx:92
+#: src/screens/Profile/components/SignalButton.tsx:101
+msgid "Open in Signal"
+msgstr "Open in Signal"
+
 #: src/components/Post/Embed/ExternalEmbed/index.tsx:79
 msgid "Open link to {niceUrl}"
 msgstr ""
@@ -7042,7 +7068,7 @@ msgstr ""
 msgid "Opens captions and alt text dialog"
 msgstr ""
 
-#: src/screens/Settings/AccountSettings.tsx:136
+#: src/screens/Settings/AccountSettings.tsx:143
 msgid "Opens change handle dialog"
 msgstr ""
 
@@ -7209,8 +7235,8 @@ msgid "Page Not Found"
 msgstr ""
 
 #: src/screens/Login/LoginForm.tsx:228
-#: src/screens/Settings/AccountSettings.tsx:126
-#: src/screens/Settings/AccountSettings.tsx:130
+#: src/screens/Settings/AccountSettings.tsx:133
+#: src/screens/Settings/AccountSettings.tsx:137
 #: src/screens/Settings/components/DeleteAccountDialog.tsx:291
 #: src/screens/Signup/SignupForm.tsx:327
 #: src/screens/Signup/StepInfo/index.tsx:247
@@ -8018,6 +8044,8 @@ msgstr ""
 #: src/features/ens/components/EnsVerificationDialog.tsx:138
 #: src/screens/Bookmarks/index.tsx:268
 #: src/screens/Moderation/index.tsx:486
+#: src/screens/Settings/AccountSettings.tsx:331
+#: src/screens/Settings/AccountSettings.tsx:336
 #: src/screens/Settings/Settings.tsx:673
 #: src/view/com/modals/UserAddRemoveLists.tsx:236
 #: src/view/com/posts/PostFeedErrorMessage.tsx:221
@@ -8589,6 +8617,8 @@ msgstr ""
 #: src/screens/Profile/Header/EditProfileDialog.tsx:247
 #: src/screens/SavedFeeds.tsx:132
 #: src/screens/SavedFeeds.tsx:330
+#: src/screens/Settings/AccountSettings.tsx:309
+#: src/screens/Settings/AccountSettings.tsx:314
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:284
 #: src/view/com/composer/GifAltText.tsx:199
 #: src/view/com/composer/GifAltText.tsx:208
@@ -8756,7 +8786,7 @@ msgstr ""
 msgid "Search for feeds that you want to suggest to others."
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:116
+#: src/screens/Search/Explore.tsx:111
 msgid "Search for more accounts"
 msgstr ""
 
@@ -9476,6 +9506,30 @@ msgstr ""
 msgid "Sign-in Required"
 msgstr ""
 
+#: src/screens/Profile/components/SignalButton.tsx:66
+#: src/screens/Profile/components/SignalButton.tsx:142
+msgid "Signal"
+msgstr "Signal"
+
+#: src/screens/Profile/components/SignalButton.tsx:74
+#: src/screens/Profile/components/SignalButton.tsx:78
+msgid "Signal Messenger"
+msgstr "Signal Messenger"
+
+#: src/screens/Settings/AccountSettings.tsx:295
+#: src/screens/Settings/AccountSettings.tsx:299
+msgid "Signal username"
+msgstr "Signal username"
+
+#: src/screens/Settings/AccountSettings.tsx:240
+#: src/screens/Settings/AccountSettings.tsx:249
+msgid "Signal username removed"
+msgstr "Signal username removed"
+
+#: src/screens/Settings/AccountSettings.tsx:237
+msgid "Signal username saved"
+msgstr "Signal username saved"
+
 #. placeholder {0}: account.handle
 #: src/lib/hooks/useAccountSwitcher.ts:42
 #: src/screens/Login/ChooseAccountForm.tsx:56
@@ -9981,8 +10035,8 @@ msgstr ""
 msgid "That's everything!"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:203
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:418
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:206
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:421
 #: src/view/com/profile/ProfileMenu.tsx:551
 msgid "The account will be able to interact with you after unblocking."
 msgstr ""
@@ -10167,10 +10221,10 @@ msgstr ""
 #: src/components/PostControls/PostMenu/PostMenuItems.tsx:474
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:117
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:130
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:95
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:275
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:302
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:318
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:96
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:278
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:305
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:321
 #: src/view/com/profile/ProfileMenu.tsx:152
 #: src/view/com/profile/ProfileMenu.tsx:164
 #: src/view/com/profile/ProfileMenu.tsx:180
@@ -10252,6 +10306,10 @@ msgstr ""
 #: src/screens/PostThread/components/ThreadItemPostNoUnauthenticated.tsx:47
 msgid "This author has chosen to make their posts visible only to people who are signed in."
 msgstr ""
+
+#: src/screens/Profile/components/SignalButton.tsx:83
+msgid "This button lets others know they can message you on Signal. Your Signal username is set to \"{signalUsername}\". You can change or remove it from Settings > Account > Messenger."
+msgstr "This button lets others know they can message you on Signal. Your Signal username is set to \"{signalUsername}\". You can change or remove it from Settings > Account > Messenger."
 
 #: src/screens/Profile/components/GermButton.tsx:243
 msgid "This button lets others open the Germ DM app to send you a message. You can manage its visibility from the Germ DM app, or you can disconnect your Chai account from Germ DM altogether by clicking the button below."
@@ -10725,16 +10783,16 @@ msgstr ""
 #: src/components/dms/MessagesListBlockedFooter.tsx:105
 #: src/components/dms/MessagesListBlockedFooter.tsx:113
 #: src/components/dms/MessagesListBlockedFooter.tsx:120
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:209
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:361
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:423
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:212
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:364
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:426
 #: src/screens/ProfileList/components/Header.tsx:166
 #: src/screens/ProfileList/components/Header.tsx:173
 #: src/view/com/profile/ProfileMenu.tsx:563
 msgid "Unblock"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:365
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:368
 msgctxt "action"
 msgid "Unblock"
 msgstr ""
@@ -10746,8 +10804,8 @@ msgstr ""
 msgid "Unblock account"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:201
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:416
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:204
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:419
 #: src/view/com/profile/ProfileMenu.tsx:545
 msgid "Unblock Account?"
 msgstr ""
@@ -10785,7 +10843,7 @@ msgid "Undo repost ({0, plural, one {# repost} other {# reposts}})"
 msgstr ""
 
 #. placeholder {0}: profile.handle
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:392
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:395
 msgid "Unfollow {0}"
 msgstr ""
 
@@ -10951,8 +11009,8 @@ msgstr ""
 
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:301
 #: src/components/dialogs/EmailDialog/screens/Update.tsx:313
-#: src/screens/Settings/AccountSettings.tsx:112
-#: src/screens/Settings/AccountSettings.tsx:120
+#: src/screens/Settings/AccountSettings.tsx:119
+#: src/screens/Settings/AccountSettings.tsx:127
 msgid "Update email"
 msgstr ""
 
@@ -11236,8 +11294,8 @@ msgid "Verify your age"
 msgstr ""
 
 #: src/components/dialogs/EmailDialog/screens/Verify.tsx:212
-#: src/screens/Settings/AccountSettings.tsx:86
-#: src/screens/Settings/AccountSettings.tsx:106
+#: src/screens/Settings/AccountSettings.tsx:93
+#: src/screens/Settings/AccountSettings.tsx:113
 msgid "Verify your email"
 msgstr ""
 
@@ -12490,6 +12548,10 @@ msgstr ""
 #: src/screens/Settings/InterestsSettings.tsx:61
 msgid "Your selected interests help us serve you content you care about."
 msgstr ""
+
+#: src/screens/Profile/components/SignalButton.tsx:54
+msgid "Your Signal messenger link"
+msgstr "Your Signal messenger link"
 
 #: src/components/verification/VerificationsDialog.tsx:67
 msgid "Your verifications"
