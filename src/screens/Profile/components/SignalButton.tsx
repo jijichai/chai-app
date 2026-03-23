@@ -146,16 +146,21 @@ export function SignalOtherButton({signalUsername}: {signalUsername: string}) {
   )
 }
 
+const signalLogoUltramarine = require('../../../../assets/icons/Signal-Logo-Ultramarine.svg')
+const signalLogoWhite = require('../../../../assets/icons/Signal-Logo-White.svg')
+
 function SignalLogo({size}: {size: 'small' | 'large'}) {
+  const t = useTheme()
+  const isDark = t.scheme === 'dark'
+
   return (
     <Image
-      source={require('../../../../assets/icons/Signal-Logo-Ultramarine.svg')}
+      source={isDark ? signalLogoWhite : signalLogoUltramarine}
       accessibilityIgnoresInvertColors={false}
-      contentFit="cover"
-      style={[
-        a.rounded_full,
-        size === 'large' ? {width: 32, height: 32} : {width: 16, height: 16},
-      ]}
+      contentFit="contain"
+      style={
+        size === 'large' ? {width: 32, height: 32} : {width: 16, height: 16}
+      }
     />
   )
 }
