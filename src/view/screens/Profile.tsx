@@ -73,6 +73,7 @@ function ProfileScreenInner({route}: Props) {
   const {_} = useLingui()
   const {currentAccount} = useSession()
   const queryClient = useQueryClient()
+  const navigation = useNavigation<NavigationProp>()
   const name =
     route.params.name === 'me' ? currentAccount?.did : route.params.name
   const moderationOpts = useModerationOpts()
@@ -116,6 +117,19 @@ function ProfileScreenInner({route}: Props) {
       resetProfilePostsQueries(queryClient, resolvedDid)
     }
   }, [queryClient, profile?.viewer?.blockedBy, resolvedDid])
+
+  // Update route params (and web URL) when the profile's current handle
+  // differs from what's in the URL, e.g. after a handle change.
+  useEffect(() => {
+    if (
+      profile?.handle &&
+      !isInvalidHandle(profile.handle) &&
+      route.params.name !== 'me' &&
+      route.params.name !== profile.handle
+    ) {
+      navigation.setParams({name: profile.handle})
+    }
+  }, [profile?.handle, route.params.name, navigation])
 
   // Most pushes will happen here, since we will have only placeholder data
   if (isDidPending || isProfilePending) {

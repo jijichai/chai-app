@@ -26,6 +26,10 @@ import {
 } from '#/lib/strings/handles'
 import {useFetchDid, useUpdateHandleMutation} from '#/state/queries/handle'
 import {RQKEY as RQKEY_PROFILE} from '#/state/queries/profile'
+import {
+  precacheResolvedUri,
+  RQKEY as RQKEY_RESOLVE_DID,
+} from '#/state/queries/resolve-uri'
 import {useServiceQuery} from '#/state/queries/service'
 import {useCurrentAccountProfile} from '#/state/queries/useCurrentAccountProfile'
 import {useAgent, useSession} from '#/state/session'
@@ -174,11 +178,15 @@ function ProvidedHandlePage({
     error,
     isSuccess,
   } = useUpdateHandleMutation({
-    onSuccess: () => {
+    onSuccess: (newHandle: string) => {
       if (currentAccount) {
         queryClient.invalidateQueries({
           queryKey: RQKEY_PROFILE(currentAccount.did),
         })
+        queryClient.invalidateQueries({
+          queryKey: RQKEY_RESOLVE_DID(currentAccount.handle),
+        })
+        precacheResolvedUri(queryClient, newHandle, currentAccount.did)
       }
       agent.resumeSession(agent.session!).then(() => control.close())
     },
@@ -331,11 +339,15 @@ function OwnHandlePage({goToServiceHandle}: {goToServiceHandle: () => void}) {
     error,
     isSuccess,
   } = useUpdateHandleMutation({
-    onSuccess: () => {
+    onSuccess: (newHandle: string) => {
       if (currentAccount) {
         queryClient.invalidateQueries({
           queryKey: RQKEY_PROFILE(currentAccount.did),
         })
+        queryClient.invalidateQueries({
+          queryKey: RQKEY_RESOLVE_DID(currentAccount.handle),
+        })
+        precacheResolvedUri(queryClient, newHandle, currentAccount.did)
       }
       agent.resumeSession(agent.session!).then(() => control.close())
     },
