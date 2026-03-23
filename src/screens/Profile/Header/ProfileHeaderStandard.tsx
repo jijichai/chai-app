@@ -41,6 +41,7 @@ import {Text} from '#/components/Typography'
 import {IS_IOS} from '#/env'
 import {useActorStatus} from '#/features/liveNow'
 import {GermButton} from '../components/GermButton'
+import {SignalButton} from '../components/SignalButton'
 import {EditProfileDialog} from './EditProfileDialog'
 import {ProfileHeaderHandle} from './Handle'
 import {ProfileHeaderMetrics} from './Metrics'
@@ -179,6 +180,8 @@ let ProfileHeaderStandard = ({
               {profile.associated?.germ && (
                 <GermButton germ={profile.associated.germ} profile={profile} />
               )}
+
+              <SignalButton profile={profile} />
 
               {!isMe &&
                 !isBlockedUser &&

@@ -1,21 +1,26 @@
+import {useState} from 'react'
+import {View} from 'react-native'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
 import {type NativeStackScreenProps} from '@react-navigation/native-stack'
 
 import {type CommonNavigatorParams} from '#/lib/routes/types'
+import {useSetSignalUsername, useSignalUsername} from '#/state/preferences'
 import {useProfileQuery} from '#/state/queries/profile'
 import {useSession} from '#/state/session'
 import * as SettingsList from '#/screens/Settings/components/SettingsList'
 import {atoms as a, useTheme} from '#/alf'
 import {AgeAssuranceAccountCard} from '#/components/ageAssurance/AgeAssuranceAccountCard'
 import {isBotAccount} from '#/components/BotBadge'
+import {Button, ButtonText} from '#/components/Button'
 import {useDialogControl} from '#/components/Dialog'
 import {BirthDateSettingsDialog} from '#/components/dialogs/BirthDateSettings'
 import {
   EmailDialogScreenID,
   useEmailDialogControl,
 } from '#/components/dialogs/EmailDialog'
+import * as TextField from '#/components/forms/TextField'
 import {At_Stroke2_Corner2_Rounded as AtIcon} from '#/components/icons/At'
 import {BirthdayCake_Stroke2_Corner2_Rounded as BirthdayCakeIcon} from '#/components/icons/BirthdayCake'
 import {Bot_Stroke as RobotIcon} from '#/components/icons/Bot'
@@ -23,10 +28,12 @@ import {Car_Stroke2_Corner2_Rounded as CarIcon} from '#/components/icons/Car'
 import {Envelope_Stroke2_Corner2_Rounded as EnvelopeIcon} from '#/components/icons/Envelope'
 import {Freeze_Stroke2_Corner2_Rounded as FreezeIcon} from '#/components/icons/Freeze'
 import {Lock_Stroke2_Corner2_Rounded as LockIcon} from '#/components/icons/Lock'
+import {Message_Stroke1_Corner0_Rounded_Filled as MessageIcon} from '#/components/icons/Message'
 import {PencilLine_Stroke2_Corner2_Rounded as PencilIcon} from '#/components/icons/Pencil'
 import {ShieldCheck_Stroke2_Corner0_Rounded as ShieldIcon} from '#/components/icons/Shield'
 import {Trash_Stroke2_Corner2_Rounded} from '#/components/icons/Trash'
 import * as Layout from '#/components/Layout'
+import * as Toast from '#/components/Toast'
 import {ChangeHandleDialog} from './components/ChangeHandleDialog'
 import {ChangePasswordDialog} from './components/ChangePasswordDialog'
 import {DeactivateAccountDialog} from './components/DeactivateAccountDialog'
@@ -166,6 +173,8 @@ export function AccountSettingsScreen({}: Props) {
             )}
           </SettingsList.LinkItem>
           <SettingsList.Divider />
+          <MessengerSection />
+          <SettingsList.Divider />
           <SettingsList.PressableItem
             label={_(msg`Export my data`)}
             onPress={() => exportCarControl.open()}>
@@ -208,5 +217,127 @@ export function AccountSettingsScreen({}: Props) {
         deactivateDialogControl={deactivateAccountControl}
       />
     </Layout.Screen>
+  )
+}
+
+function MessengerSection() {
+  const {_} = useLingui()
+  const t = useTheme()
+  const signalUsername = useSignalUsername()
+  const setSignalUsername = useSetSignalUsername()
+  const [draft, setDraft] = useState(signalUsername ?? '')
+  const [isEditing, setIsEditing] = useState(false)
+
+  const hasUsername = !!signalUsername
+
+  const onSave = () => {
+    const trimmed = draft.trim()
+    if (trimmed.length > 0) {
+      setSignalUsername(trimmed)
+      Toast.show(_(msg`Signal username saved`))
+    } else {
+      setSignalUsername(undefined)
+      Toast.show(_(msg`Signal username removed`))
+    }
+    setIsEditing(false)
+  }
+
+  const onRemove = () => {
+    setSignalUsername(undefined)
+    setDraft('')
+    setIsEditing(false)
+    Toast.show(_(msg`Signal username removed`))
+  }
+
+  if (!isEditing && !hasUsername) {
+    return (
+      <SettingsList.PressableItem
+        label={_(msg`Messenger`)}
+        onPress={() => setIsEditing(true)}>
+        <SettingsList.ItemIcon icon={MessageIcon} />
+        <SettingsList.ItemText>
+          <Trans>Messenger</Trans>
+        </SettingsList.ItemText>
+        <SettingsList.BadgeText>
+          <Trans>Off</Trans>
+        </SettingsList.BadgeText>
+        <SettingsList.Chevron />
+      </SettingsList.PressableItem>
+    )
+  }
+
+  if (!isEditing && hasUsername) {
+    return (
+      <SettingsList.PressableItem
+        label={_(msg`Messenger`)}
+        onPress={() => setIsEditing(true)}>
+        <SettingsList.ItemIcon icon={MessageIcon} />
+        <SettingsList.ItemText style={[a.flex_0]}>
+          <Trans>Messenger</Trans>
+        </SettingsList.ItemText>
+        <SettingsList.BadgeText style={[a.flex_1]}>
+          {signalUsername}
+        </SettingsList.BadgeText>
+        <SettingsList.Chevron />
+      </SettingsList.PressableItem>
+    )
+  }
+
+  return (
+    <View style={[a.px_xl, a.py_md, a.gap_sm]}>
+      <View style={[a.flex_row, a.align_center, a.gap_xs]}>
+        <MessageIcon fill={t.atoms.text.color} size="lg" />
+        <SettingsList.ItemText>
+          <Trans>Messenger</Trans>
+        </SettingsList.ItemText>
+      </View>
+      <TextField.LabelText>
+        <Trans>Signal username</Trans>
+      </TextField.LabelText>
+      <TextField.Root>
+        <TextField.Input
+          label={_(msg`Signal username`)}
+          placeholder={_(msg`Enter your Signal username`)}
+          defaultValue={draft}
+          onChangeText={setDraft}
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
+      </TextField.Root>
+      <View style={[a.flex_row, a.gap_sm, a.mt_xs]}>
+        <Button
+          label={_(msg`Save`)}
+          size="small"
+          color="primary"
+          onPress={onSave}>
+          <ButtonText>
+            <Trans>Save</Trans>
+          </ButtonText>
+        </Button>
+        <Button
+          label={_(msg`Cancel`)}
+          size="small"
+          color="secondary"
+          onPress={() => {
+            setDraft(signalUsername ?? '')
+            setIsEditing(false)
+          }}>
+          <ButtonText>
+            <Trans>Cancel</Trans>
+          </ButtonText>
+        </Button>
+        {hasUsername && (
+          <Button
+            label={_(msg`Remove`)}
+            size="small"
+            color="negative"
+            onPress={onRemove}>
+            <ButtonText>
+              <Trans>Remove</Trans>
+            </ButtonText>
+          </Button>
+        )}
+      </View>
+    </View>
   )
 }

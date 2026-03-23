@@ -138,6 +138,7 @@ const schema = z.object({
       registeredAt: z.string(),
     })
     .optional(),
+  signalUsername: z.string().optional(),
 })
 export type Schema = z.infer<typeof schema>
 
