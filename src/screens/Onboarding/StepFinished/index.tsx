@@ -16,9 +16,10 @@ import {useQueryClient} from '@tanstack/react-query'
 import {uploadBlob} from '#/lib/api'
 import {
   BSKY_APP_ACCOUNT_DID,
-  DISCOVER_SAVED_FEED,
+  CHAI_DLT_COMPANIES_SAVED_FEED,
+  CHAI_DLT_NEWS_SAVED_FEED,
+  CHAI_DLT_PEOPLE_SAVED_FEED,
   TIMELINE_SAVED_FEED,
-  VIDEO_SAVED_FEED,
 } from '#/lib/constants'
 import {useRequestNotificationsPermission} from '#/lib/notifications/notifications'
 import {logger} from '#/logger'
@@ -111,15 +112,19 @@ export function StepFinished() {
           // Default feeds that every user should have pinned when landing in the app
           const feedsToSave: AppBskyActorDefs.SavedFeed[] = [
             {
-              ...DISCOVER_SAVED_FEED,
-              id: TID.nextStr(),
-            },
-            {
               ...TIMELINE_SAVED_FEED,
               id: TID.nextStr(),
             },
             {
-              ...VIDEO_SAVED_FEED,
+              ...CHAI_DLT_PEOPLE_SAVED_FEED,
+              id: TID.nextStr(),
+            },
+            {
+              ...CHAI_DLT_NEWS_SAVED_FEED,
+              id: TID.nextStr(),
+            },
+            {
+              ...CHAI_DLT_COMPANIES_SAVED_FEED,
               id: TID.nextStr(),
             },
           ]

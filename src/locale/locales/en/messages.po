@@ -95,7 +95,7 @@ msgstr ""
 #. placeholder {0}: numUnreadNotifications ?? 0
 #: src/view/shell/bottom-bar/BottomBar.tsx:228
 #: src/view/shell/bottom-bar/BottomBar.tsx:260
-#: src/view/shell/Drawer.tsx:519
+#: src/view/shell/Drawer.tsx:521
 msgid "{0, plural, one {# unread item} other {# unread items}}"
 msgstr ""
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "Add Reaction"
 msgstr ""
 
-#: src/screens/Home/NoFeedsPinned.tsx:100
+#: src/screens/Home/NoFeedsPinned.tsx:109
 msgid "Add recommended feeds"
 msgstr ""
 
@@ -944,7 +944,7 @@ msgstr ""
 msgid "Add the default feed of only people you follow"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:435
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:447
 msgid "Add the following DNS record to your domain:"
 msgstr ""
 
@@ -1434,7 +1434,7 @@ msgid "Appearance"
 msgstr ""
 
 #: src/screens/Feeds/NoSavedFeedsOfAnyType.tsx:52
-#: src/screens/Home/NoFeedsPinned.tsx:94
+#: src/screens/Home/NoFeedsPinned.tsx:103
 msgid "Apply default recommended feeds"
 msgstr ""
 
@@ -1548,6 +1548,8 @@ msgstr ""
 
 #: src/components/moderation/LabelsOnMeDialog.tsx:334
 #: src/components/moderation/LabelsOnMeDialog.tsx:335
+#: src/features/ens/components/EnsVerificationDialog.tsx:308
+#: src/features/ens/components/EnsVerificationDialog.tsx:313
 #: src/screens/Login/ChooseAccountForm.tsx:98
 #: src/screens/Login/ChooseAccountForm.tsx:102
 #: src/screens/Login/ForgotPasswordForm.tsx:127
@@ -1593,7 +1595,7 @@ msgstr ""
 #: src/components/dialogs/StarterPackDialog.tsx:72
 #: src/components/StarterPack/ProfileStarterPacks.tsx:264
 #: src/components/StarterPack/ProfileStarterPacks.tsx:274
-#: src/view/screens/Profile.tsx:352
+#: src/view/screens/Profile.tsx:373
 msgid "Before creating a starter pack, you must first verify your email."
 msgstr ""
 
@@ -1768,8 +1770,8 @@ msgstr ""
 msgid "Browse more suggestions on the Explore page"
 msgstr ""
 
-#: src/screens/Home/NoFeedsPinned.tsx:104
-#: src/screens/Home/NoFeedsPinned.tsx:110
+#: src/screens/Home/NoFeedsPinned.tsx:113
+#: src/screens/Home/NoFeedsPinned.tsx:119
 msgid "Browse other feeds"
 msgstr ""
 
@@ -1803,12 +1805,11 @@ msgid "Button to go back to the home timeline"
 msgstr ""
 
 #. placeholder {0}: sanitizeHandle(handle, '@')
-#. placeholder {0}: sanitizeHandle(item.feed.creator.handle, '@')
 #. placeholder {0}: sanitizeHandle(labeler.creator.handle, '@')
+#. placeholder {0}: sanitizeHandle(view.creator.handle, '@')
 #: src/components/LabelingServiceCard/index.tsx:62
 #: src/components/moderation/ReportDialog/index.tsx:843
 #: src/screens/Search/components/StarterPackCard.tsx:107
-#: src/screens/Search/Explore.tsx:969
 msgid "By {0}"
 msgstr ""
 
@@ -1864,6 +1865,8 @@ msgstr ""
 #: src/components/PostControls/RepostButton.tsx:210
 #: src/components/Prompt.tsx:136
 #: src/components/Prompt.tsx:138
+#: src/features/ens/components/EnsVerificationDialog.tsx:308
+#: src/features/ens/components/EnsVerificationDialog.tsx:313
 #: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:152
 #: src/features/liveEvents/components/LiveEventFeedOptionsMenu.tsx:157
 #: src/features/liveNow/components/GoLiveDialog.tsx:248
@@ -1875,8 +1878,8 @@ msgstr ""
 #: src/screens/Search/Shell.tsx:396
 #: src/screens/Settings/AppIconSettings/index.tsx:42
 #: src/screens/Settings/AppIconSettings/index.tsx:228
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:87
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:94
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:91
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:98
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:248
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:254
 #: src/screens/Settings/Settings.tsx:298
@@ -2012,8 +2015,8 @@ msgstr ""
 msgid "Change app language"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:103
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:107
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:111
 msgid "Change Handle"
 msgstr ""
 
@@ -2067,7 +2070,7 @@ msgstr ""
 #: src/Navigation.tsx:578
 #: src/view/shell/bottom-bar/BottomBar.tsx:224
 #: src/view/shell/desktop/LeftNav.tsx:611
-#: src/view/shell/Drawer.tsx:487
+#: src/view/shell/Drawer.tsx:489
 msgid "Chat"
 msgstr ""
 
@@ -2145,7 +2148,7 @@ msgstr ""
 msgid "Child Sexual Abuse Material (CSAM)"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:412
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:424
 msgid "Choose domain verification method"
 msgstr ""
 
@@ -2294,6 +2297,8 @@ msgstr ""
 #: src/components/verification/VerifierDialog.tsx:145
 #: src/components/WhoCanReply.tsx:236
 #: src/components/WhoCanReply.tsx:243
+#: src/features/ens/components/EnsVerificationDialog.tsx:159
+#: src/features/ens/components/EnsVerificationDialog.tsx:164
 #: src/features/liveNow/components/EditLiveDialog.tsx:217
 #: src/features/liveNow/components/EditLiveDialog.tsx:223
 #: src/screens/Settings/components/ChangePasswordDialog.tsx:288
@@ -2411,7 +2416,7 @@ msgstr ""
 msgid "Community Guidelines"
 msgstr ""
 
-#: src/screens/Onboarding/StepFinished/index.tsx:329
+#: src/screens/Onboarding/StepFinished/index.tsx:334
 msgid "Complete onboarding and start using your account"
 msgstr ""
 
@@ -2658,13 +2663,13 @@ msgstr ""
 msgid "Copy code"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:520
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:532
 #: src/view/com/profile/ProfileMenu.tsx:515
 #: src/view/com/profile/ProfileMenu.tsx:518
 msgid "Copy DID"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:452
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:464
 msgid "Copy host"
 msgstr ""
 
@@ -2717,7 +2722,7 @@ msgstr ""
 msgid "Copy QR code"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:473
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:485
 msgid "Copy TXT record value"
 msgstr ""
 
@@ -2823,8 +2828,8 @@ msgstr ""
 msgid "Create a starter pack"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:564
-#: src/view/screens/Profile.tsx:565
+#: src/view/screens/Profile.tsx:585
+#: src/view/screens/Profile.tsx:586
 msgid "Create a Starter Pack"
 msgstr ""
 
@@ -3230,13 +3235,13 @@ msgstr ""
 msgid "Discourage apps from showing my account to logged-out users"
 msgstr ""
 
+#: src/screens/Search/Explore.tsx:113
+msgid "Discover Chai"
+msgstr "Discover Chai"
+
 #: src/view/com/posts/FollowingEmptyState.tsx:70
 #: src/view/com/posts/FollowingEndOfFeed.tsx:71
 msgid "Discover new custom feeds"
-msgstr ""
-
-#: src/screens/Search/Explore.tsx:451
-msgid "Discover new feeds"
 msgstr ""
 
 #: src/view/screens/Feeds.tsx:731
@@ -3290,8 +3295,8 @@ msgstr ""
 msgid "Ditch the trolls and clickbait. Find real people and conversations that matter to you."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:419
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:421
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:431
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:433
 msgid "DNS Panel"
 msgstr ""
 
@@ -3303,7 +3308,7 @@ msgstr ""
 msgid "Does not include nudity."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:543
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:555
 msgid "Domain verified!"
 msgstr ""
 
@@ -3412,7 +3417,7 @@ msgstr ""
 msgid "Duration:"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:244
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:252
 msgid "e.g. alice"
 msgstr ""
 
@@ -3420,7 +3425,7 @@ msgstr ""
 msgid "e.g. Alice Lastname"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:398
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:410
 msgid "e.g. alice.com"
 msgstr ""
 
@@ -3684,6 +3689,11 @@ msgstr ""
 msgid "End of feed"
 msgstr ""
 
+#: src/features/ens/components/EnsVerificationDialog.tsx:94
+#: src/features/ens/components/EnsVerificationDialog.tsx:97
+msgid "ENS Names"
+msgstr "ENS Names"
+
 #: src/view/com/composer/videos/SubtitleDialog.tsx:182
 msgid "Ensure you have selected a language for each caption file."
 msgstr "Ensure you have selected a language for each caption file."
@@ -3715,7 +3725,7 @@ msgstr ""
 msgid "Enter the 6-digit code sent to {prettyNumber}"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:392
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:404
 msgid "Enter the domain you want to use"
 msgstr ""
 
@@ -3882,7 +3892,7 @@ msgstr ""
 #: src/Navigation.tsx:827
 #: src/screens/Search/Shell.tsx:354
 #: src/view/shell/desktop/LeftNav.tsx:691
-#: src/view/shell/Drawer.tsx:435
+#: src/view/shell/Drawer.tsx:437
 msgid "Explore"
 msgstr ""
 
@@ -3891,7 +3901,9 @@ msgstr ""
 msgid "Explore the app"
 msgstr ""
 
-#: src/view/shell/Drawer.tsx:378
+#: src/view/shell/desktop/RightNav.tsx:128
+#: src/view/shell/desktop/RightNav.tsx:129
+#: src/view/shell/Drawer.tsx:380
 msgid "Explorer"
 msgstr "Explorer"
 
@@ -3942,7 +3954,7 @@ msgstr ""
 msgid "Failed to add to starter pack"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:773
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:785
 msgid "Failed to change handle. Please try again."
 msgstr ""
 
@@ -4003,19 +4015,6 @@ msgstr ""
 msgid "Failed to load conversations"
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:528
-#: src/screens/Search/Explore.tsx:573
-#: src/screens/Search/Explore.tsx:619
-msgid "Failed to load feeds"
-msgstr ""
-
-#: src/screens/Search/Explore.tsx:487
-#: src/screens/Search/Explore.tsx:542
-#: src/screens/Search/Explore.tsx:587
-#: src/screens/Search/Explore.tsx:633
-msgid "Failed to load feeds preferences"
-msgstr ""
-
 #: src/components/dialogs/GifSelect.tsx:215
 msgid "Failed to load GIFs"
 msgstr ""
@@ -4042,16 +4041,9 @@ msgstr ""
 msgid "Failed to load preference."
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:480
-#: src/screens/Search/Explore.tsx:535
-#: src/screens/Search/Explore.tsx:580
-#: src/screens/Search/Explore.tsx:626
-msgid "Failed to load suggested feeds"
-msgstr ""
-
-#: src/screens/Search/Explore.tsx:390
-msgid "Failed to load suggested follows"
-msgstr ""
+#: src/screens/Search/Explore.tsx:128
+msgid "Failed to load suggested accounts"
+msgstr "Failed to load suggested accounts"
 
 #: src/screens/Messages/Inbox.tsx:321
 #: src/screens/Messages/Inbox.tsx:348
@@ -4066,6 +4058,10 @@ msgstr ""
 #: src/screens/Profile/components/GermButton.tsx:163
 msgid "Failed to reconnect Germ DM. Error: {0}"
 msgstr ""
+
+#: src/screens/Settings/SelfAgentIdSettings.tsx:147
+msgid "Failed to register in 8004 registry."
+msgstr "Failed to register in 8004 registry."
 
 #: src/screens/Settings/FindContactsSettings.tsx:488
 msgid "Failed to remove data due to a network error, please check your internet connection."
@@ -4125,8 +4121,10 @@ msgstr ""
 msgid "Failed to send email, please try again."
 msgstr ""
 
+#: src/view/shell/desktop/RightNav.tsx:61
+#: src/view/shell/desktop/RightNav.tsx:71
 #: src/view/shell/Drawer.tsx:163
-#: src/view/shell/Drawer.tsx:254
+#: src/view/shell/Drawer.tsx:255
 msgid "Failed to start conversation"
 msgstr "Failed to start conversation"
 
@@ -4176,7 +4174,7 @@ msgstr ""
 msgid "Failed to verify email, please try again."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:381
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:393
 msgid "Failed to verify handle. Please try again."
 msgstr ""
 
@@ -4221,9 +4219,9 @@ msgstr ""
 msgid "Feed unavailable"
 msgstr ""
 
-#: src/view/shell/desktop/RightNav.tsx:108
-#: src/view/shell/desktop/RightNav.tsx:109
-#: src/view/shell/Drawer.tsx:389
+#: src/view/shell/desktop/RightNav.tsx:136
+#: src/view/shell/desktop/RightNav.tsx:140
+#: src/view/shell/Drawer.tsx:391
 msgid "Feedback"
 msgstr ""
 
@@ -4239,9 +4237,9 @@ msgstr ""
 #: src/screens/Search/SearchResults.tsx:80
 #: src/screens/StarterPack/StarterPackScreen.tsx:196
 #: src/view/screens/Feeds.tsx:512
-#: src/view/screens/Profile.tsx:240
+#: src/view/screens/Profile.tsx:261
 #: src/view/shell/desktop/LeftNav.tsx:729
-#: src/view/shell/Drawer.tsx:551
+#: src/view/shell/Drawer.tsx:553
 msgid "Feeds"
 msgstr ""
 
@@ -4290,7 +4288,7 @@ msgstr ""
 msgid "Filter who you receive notifications from"
 msgstr ""
 
-#: src/screens/Onboarding/StepFinished/index.tsx:335
+#: src/screens/Onboarding/StepFinished/index.tsx:340
 msgid "Finalizing"
 msgstr ""
 
@@ -4634,7 +4632,7 @@ msgstr ""
 msgid "Germ DM reconnected"
 msgstr ""
 
-#: src/view/shell/Drawer.tsx:393
+#: src/view/shell/Drawer.tsx:395
 msgid "Get help"
 msgstr ""
 
@@ -4859,16 +4857,16 @@ msgstr ""
 msgid "Handle"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:777
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:789
 msgid "Handle already taken. Please try a different one."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:204
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:365
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:212
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:377
 msgid "Handle changed!"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:781
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:793
 msgid "Handle too long. Please try a shorter one."
 msgstr ""
 
@@ -4924,9 +4922,9 @@ msgstr ""
 
 #: src/screens/Settings/Settings.tsx:245
 #: src/screens/Settings/Settings.tsx:249
-#: src/view/shell/desktop/RightNav.tsx:129
-#: src/view/shell/desktop/RightNav.tsx:132
-#: src/view/shell/Drawer.tsx:402
+#: src/view/shell/desktop/RightNav.tsx:161
+#: src/view/shell/desktop/RightNav.tsx:164
+#: src/view/shell/Drawer.tsx:404
 msgid "Help"
 msgstr ""
 
@@ -5103,11 +5101,11 @@ msgstr ""
 #: src/Navigation.tsx:842
 #: src/view/shell/bottom-bar/BottomBar.tsx:179
 #: src/view/shell/desktop/LeftNav.tsx:673
-#: src/view/shell/Drawer.tsx:461
+#: src/view/shell/Drawer.tsx:463
 msgid "Home"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:446
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:458
 msgid "Host:"
 msgstr ""
 
@@ -5146,8 +5144,8 @@ msgstr ""
 msgid "I have a code"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:299
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:305
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:307
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:313
 msgid "I have my own domain"
 msgstr ""
 
@@ -5193,7 +5191,7 @@ msgstr ""
 msgid "If you delete this list, you won't be able to recover it."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:281
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:289
 msgid "If you have your own domain, you can use that as your handle. This lets you self-verify your identity. <0>Learn more here.</0>"
 msgstr ""
 
@@ -5373,7 +5371,7 @@ msgstr ""
 msgid "Invalid 2FA confirmation code."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:783
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:795
 msgid "Invalid handle. Please try a different one."
 msgstr ""
 
@@ -5503,7 +5501,7 @@ msgid "Labeled by the author."
 msgstr ""
 
 #: src/view/com/composer/labels/LabelsBtn.tsx:70
-#: src/view/screens/Profile.tsx:233
+#: src/view/screens/Profile.tsx:254
 msgid "Labels"
 msgstr ""
 
@@ -5557,8 +5555,8 @@ msgstr ""
 #: src/components/verification/VerifierDialog.tsx:134
 #: src/screens/Moderation/VerificationSettings.tsx:49
 #: src/screens/Profile/Header/EditProfileDialog.tsx:346
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:222
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:286
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:230
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:294
 msgctxt "english-only-resource"
 msgid "Learn more"
 msgstr ""
@@ -5671,7 +5669,7 @@ msgstr ""
 msgid "Let's get your password reset!"
 msgstr ""
 
-#: src/screens/Onboarding/StepFinished/index.tsx:337
+#: src/screens/Onboarding/StepFinished/index.tsx:342
 msgid "Let's go!"
 msgstr ""
 
@@ -5745,7 +5743,7 @@ msgstr ""
 #: src/lib/hooks/useNotificationHandler.ts:129
 #: src/screens/Settings/NotificationSettings/index.tsx:127
 #: src/screens/Settings/NotificationSettings/LikeNotificationSettings.tsx:41
-#: src/view/screens/Profile.tsx:239
+#: src/view/screens/Profile.tsx:260
 msgid "Likes"
 msgstr ""
 
@@ -5856,10 +5854,10 @@ msgstr ""
 
 #: src/Navigation.tsx:177
 #: src/view/screens/Lists.tsx:68
-#: src/view/screens/Profile.tsx:234
-#: src/view/screens/Profile.tsx:242
+#: src/view/screens/Profile.tsx:255
+#: src/view/screens/Profile.tsx:263
 #: src/view/shell/desktop/LeftNav.tsx:747
-#: src/view/shell/Drawer.tsx:566
+#: src/view/shell/Drawer.tsx:568
 msgid "Lists"
 msgstr ""
 
@@ -5911,15 +5909,6 @@ msgstr ""
 msgid "Live link"
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:88
-msgid "Load more"
-msgstr ""
-
-#: src/screens/Search/Explore.tsx:517
-#: src/screens/Search/Explore.tsx:608
-msgid "Load more suggested feeds"
-msgstr ""
-
 #: src/view/screens/Notifications.tsx:278
 msgid "Load new notifications"
 msgstr ""
@@ -5955,12 +5944,12 @@ msgstr ""
 msgid "Logged-out visibility"
 msgstr ""
 
-#: src/view/shell/desktop/RightNav.tsx:141
+#: src/view/shell/desktop/RightNav.tsx:173
 msgid "Logo by @sawaratsuki.bsky.social"
 msgstr ""
 
-#: src/view/shell/desktop/RightNav.tsx:138
-#: src/view/shell/Drawer.tsx:730
+#: src/view/shell/desktop/RightNav.tsx:170
+#: src/view/shell/Drawer.tsx:732
 msgid "Logo by <0>@sawaratsuki.bsky.social</0>"
 msgstr ""
 
@@ -5977,7 +5966,7 @@ msgstr ""
 msgid "Looks like you haven't saved any feeds! Use our recommendations or browse more below."
 msgstr ""
 
-#: src/screens/Home/NoFeedsPinned.tsx:84
+#: src/screens/Home/NoFeedsPinned.tsx:93
 msgid "Looks like you unpinned all your feeds. But don't worry, you can add some below 😄"
 msgstr ""
 
@@ -6031,7 +6020,7 @@ msgstr ""
 msgid "Maybe later"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:237
+#: src/view/screens/Profile.tsx:258
 msgid "Media"
 msgstr ""
 
@@ -6379,7 +6368,7 @@ msgstr ""
 msgid "Need to report a copyright violation, legal request, or regulatory compliance issue?"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:605
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:617
 msgid "Nevermind, create a handle for me"
 msgstr ""
 
@@ -6429,9 +6418,9 @@ msgstr ""
 msgid "New followers"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:235
 #: src/screens/Settings/components/ChangeHandleDialog.tsx:243
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:397
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:251
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:409
 msgid "New handle"
 msgstr ""
 
@@ -6455,7 +6444,7 @@ msgstr ""
 #: src/screens/ProfileList/index.tsx:300
 #: src/view/screens/Feeds.tsx:553
 #: src/view/screens/Notifications.tsx:167
-#: src/view/screens/Profile.tsx:595
+#: src/view/screens/Profile.tsx:616
 msgid "New post"
 msgstr ""
 
@@ -6503,8 +6492,8 @@ msgstr ""
 #: src/screens/Login/ForgotPasswordForm.tsx:156
 #: src/screens/Login/SetNewPasswordForm.tsx:186
 #: src/screens/Login/SetNewPasswordForm.tsx:192
-#: src/screens/Onboarding/StepFinished/index.tsx:330
-#: src/screens/Onboarding/StepFinished/index.tsx:339
+#: src/screens/Onboarding/StepFinished/index.tsx:335
+#: src/screens/Onboarding/StepFinished/index.tsx:344
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:157
 #: src/screens/Settings/components/AddAppPasswordDialog.tsx:165
 #: src/screens/Signup/BackNextButtons.tsx:68
@@ -6539,8 +6528,8 @@ msgstr ""
 msgid "No custom feeds yet"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:424
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:426
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:436
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:438
 msgid "No DNS Panel"
 msgstr ""
 
@@ -6570,7 +6559,7 @@ msgstr ""
 
 #: src/components/LikedByList.tsx:84
 #: src/view/com/post-thread/PostLikedBy.tsx:84
-#: src/view/screens/Profile.tsx:527
+#: src/view/screens/Profile.tsx:548
 msgid "No likes yet"
 msgstr ""
 
@@ -6587,7 +6576,7 @@ msgstr ""
 msgid "No longer following {0}"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:473
+#: src/view/screens/Profile.tsx:494
 msgid "No media yet"
 msgstr ""
 
@@ -6629,7 +6618,7 @@ msgid "No posts here"
 msgstr ""
 
 #: src/screens/Profile/Sections/Feed.tsx:81
-#: src/view/screens/Profile.tsx:432
+#: src/view/screens/Profile.tsx:453
 msgid "No posts yet"
 msgstr ""
 
@@ -6637,7 +6626,7 @@ msgstr ""
 msgid "No quotes yet"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:458
+#: src/view/screens/Profile.tsx:479
 msgid "No replies yet"
 msgstr ""
 
@@ -6655,11 +6644,6 @@ msgstr ""
 msgid "No results"
 msgstr ""
 
-#. placeholder {0}: interestsDisplayNames[selectedInterest]
-#: src/screens/Search/Explore.tsx:826
-msgid "No results for \"{0}\"."
-msgstr ""
-
 #: src/components/Lists.tsx:204
 #: src/components/Lists.tsx:219
 msgid "No results found"
@@ -6673,7 +6657,7 @@ msgstr ""
 msgid "No results found for “<0>{query}</0>”."
 msgstr "No results found for “<0>{query}</0>”."
 
-#: src/screens/Search/Explore.tsx:830
+#: src/screens/Search/Explore.tsx:204
 msgid "No results."
 msgstr ""
 
@@ -6681,7 +6665,7 @@ msgstr ""
 msgid "No search results found for \"{search}\"."
 msgstr ""
 
-#: src/view/screens/Profile.tsx:559
+#: src/view/screens/Profile.tsx:580
 msgid "No Starter Packs yet"
 msgstr ""
 
@@ -6690,7 +6674,7 @@ msgstr ""
 msgid "No thanks"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:500
+#: src/view/screens/Profile.tsx:521
 msgid "No video posts yet"
 msgstr ""
 
@@ -6737,7 +6721,7 @@ msgid "Not followed by anyone you're following"
 msgstr ""
 
 #: src/Navigation.tsx:172
-#: src/view/screens/Profile.tsx:133
+#: src/view/screens/Profile.tsx:154
 msgid "Not Found"
 msgstr ""
 
@@ -6799,7 +6783,7 @@ msgstr ""
 #: src/view/screens/Notifications.tsx:130
 #: src/view/shell/bottom-bar/BottomBar.tsx:255
 #: src/view/shell/desktop/LeftNav.tsx:710
-#: src/view/shell/Drawer.tsx:514
+#: src/view/shell/Drawer.tsx:516
 msgid "Notifications"
 msgstr ""
 
@@ -6922,8 +6906,8 @@ msgstr ""
 #: src/components/StarterPack/ProfileStarterPacks.tsx:363
 #: src/components/StarterPack/ProfileStarterPacks.tsx:372
 #: src/screens/Settings/AppPasswords.tsx:59
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:115
-#: src/view/screens/Profile.tsx:133
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:119
+#: src/view/screens/Profile.tsx:154
 msgid "Oops!"
 msgstr ""
 
@@ -6953,7 +6937,7 @@ msgstr ""
 msgid "Open emoji picker"
 msgstr ""
 
-#: src/view/shell/Drawer.tsx:371
+#: src/view/shell/Drawer.tsx:373
 msgid "Open explorer"
 msgstr "Open explorer"
 
@@ -7037,6 +7021,10 @@ msgstr ""
 #: src/view/com/composer/threadgate/ThreadgateBtn.tsx:154
 msgid "Opens a dialog to choose who can interact with this post"
 msgstr ""
+
+#: src/view/shell/desktop/RightNav.tsx:137
+msgid "Opens a DM conversation"
+msgstr "Opens a DM conversation"
 
 #: src/screens/Log.tsx:82
 msgid "Opens additional details for a debug entry"
@@ -7571,13 +7559,13 @@ msgctxt "description"
 msgid "Post"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:477
-#: src/view/screens/Profile.tsx:478
+#: src/view/screens/Profile.tsx:498
+#: src/view/screens/Profile.tsx:499
 msgid "Post a photo"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:504
-#: src/view/screens/Profile.tsx:505
+#: src/view/screens/Profile.tsx:525
+#: src/view/screens/Profile.tsx:526
 msgid "Post a video"
 msgstr ""
 
@@ -7662,7 +7650,7 @@ msgstr ""
 #: src/screens/ProfileList/index.tsx:169
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:219
 #: src/screens/StarterPack/StarterPackScreen.tsx:197
-#: src/view/screens/Profile.tsx:235
+#: src/view/screens/Profile.tsx:256
 msgid "Posts"
 msgstr ""
 
@@ -7719,8 +7707,8 @@ msgstr ""
 msgid "Primary language"
 msgstr ""
 
-#: src/view/shell/desktop/RightNav.tsx:117
-#: src/view/shell/desktop/RightNav.tsx:118
+#: src/view/shell/desktop/RightNav.tsx:149
+#: src/view/shell/desktop/RightNav.tsx:150
 msgid "Privacy"
 msgstr ""
 
@@ -7747,8 +7735,8 @@ msgstr ""
 #: src/screens/Settings/AboutSettings.tsx:91
 #: src/screens/Settings/AboutSettings.tsx:94
 #: src/view/screens/PrivacyPolicy.tsx:35
-#: src/view/shell/Drawer.tsx:725
-#: src/view/shell/Drawer.tsx:726
+#: src/view/shell/Drawer.tsx:727
+#: src/view/shell/Drawer.tsx:728
 msgid "Privacy Policy"
 msgstr ""
 
@@ -7769,14 +7757,14 @@ msgid "Processing..."
 msgstr ""
 
 #: src/view/screens/DebugMod.tsx:938
-#: src/view/screens/Profile.tsx:385
+#: src/view/screens/Profile.tsx:406
 msgid "profile"
 msgstr ""
 
 #: src/view/shell/bottom-bar/BottomBar.tsx:298
 #: src/view/shell/desktop/LeftNav.tsx:788
 #: src/view/shell/Drawer.tsx:82
-#: src/view/shell/Drawer.tsx:617
+#: src/view/shell/Drawer.tsx:619
 msgid "Profile"
 msgstr ""
 
@@ -7891,7 +7879,7 @@ msgstr ""
 msgid "Quotes of this post"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:786
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:798
 msgid "Rate limit exceeded – you've tried to change your handle too many times in a short period. Please wait a minute before trying again."
 msgstr ""
 
@@ -7994,6 +7982,18 @@ msgstr ""
 msgid "Reconnect"
 msgstr ""
 
+#: src/screens/Settings/SelfAgentIdSettings.tsx:227
+msgid "Register DID in 8004 Registry"
+msgstr "Register DID in 8004 Registry"
+
+#: src/screens/Settings/SelfAgentIdSettings.tsx:219
+msgid "Register in ERC-8004"
+msgstr "Register in ERC-8004"
+
+#: src/screens/Settings/SelfAgentIdSettings.tsx:226
+msgid "Registering..."
+msgstr "Registering..."
+
 #. Reject a chat request, this opens a menu with options
 #: src/screens/Messages/components/RequestButtons.tsx:136
 msgid "Reject"
@@ -8015,6 +8015,7 @@ msgstr ""
 #: src/components/FeedCard.tsx:376
 #: src/components/StarterPack/Wizard/WizardListCard.tsx:106
 #: src/components/StarterPack/Wizard/WizardListCard.tsx:113
+#: src/features/ens/components/EnsVerificationDialog.tsx:138
 #: src/screens/Bookmarks/index.tsx:268
 #: src/screens/Moderation/index.tsx:486
 #: src/screens/Settings/Settings.tsx:673
@@ -8022,6 +8023,11 @@ msgstr ""
 #: src/view/com/posts/PostFeedErrorMessage.tsx:221
 msgid "Remove"
 msgstr ""
+
+#. placeholder {0}: record.ensName
+#: src/features/ens/components/EnsVerificationDialog.tsx:132
+msgid "Remove {0}"
+msgstr "Remove {0}"
 
 #: src/components/StarterPack/Wizard/WizardListCard.tsx:62
 msgid "Remove {displayName} from starter pack"
@@ -8232,7 +8238,7 @@ msgstr ""
 #: src/screens/Settings/NotificationSettings/ActivityNotificationSettings.tsx:221
 #: src/screens/Settings/NotificationSettings/index.tsx:149
 #: src/screens/Settings/NotificationSettings/ReplyNotificationSettings.tsx:41
-#: src/view/screens/Profile.tsx:236
+#: src/view/screens/Profile.tsx:257
 msgid "Replies"
 msgstr ""
 
@@ -8561,7 +8567,7 @@ msgid "Returns to home page"
 msgstr ""
 
 #: src/screens/ProfileList/components/ErrorScreen.tsx:36
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:597
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:609
 #: src/screens/VideoFeed/index.tsx:1173
 #: src/view/screens/NotFound.tsx:61
 msgid "Returns to previous page"
@@ -8583,7 +8589,7 @@ msgstr ""
 #: src/screens/Profile/Header/EditProfileDialog.tsx:247
 #: src/screens/SavedFeeds.tsx:132
 #: src/screens/SavedFeeds.tsx:330
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:276
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:284
 #: src/view/com/composer/GifAltText.tsx:199
 #: src/view/com/composer/GifAltText.tsx:208
 #: src/view/com/composer/photos/EditImageDialog.web.tsx:63
@@ -8633,7 +8639,7 @@ msgstr ""
 msgid "Save image"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:262
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:270
 msgid "Save new handle"
 msgstr ""
 
@@ -8652,7 +8658,7 @@ msgid "Save to my feeds"
 msgstr ""
 
 #: src/view/shell/desktop/LeftNav.tsx:766
-#: src/view/shell/Drawer.tsx:592
+#: src/view/shell/Drawer.tsx:594
 msgctxt "link to bookmarks screen"
 msgid "Saved"
 msgstr ""
@@ -8750,12 +8756,8 @@ msgstr ""
 msgid "Search for feeds that you want to suggest to others."
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:377
+#: src/screens/Search/Explore.tsx:116
 msgid "Search for more accounts"
-msgstr ""
-
-#: src/screens/Search/Explore.tsx:454
-msgid "Search for more feeds"
 msgstr ""
 
 #: src/screens/Search/Shell.tsx:380
@@ -9043,7 +9045,7 @@ msgstr ""
 msgid "Send email"
 msgstr ""
 
-#: src/view/shell/Drawer.tsx:382
+#: src/view/shell/Drawer.tsx:384
 msgid "Send feedback"
 msgstr ""
 
@@ -9121,7 +9123,7 @@ msgstr ""
 #: src/Navigation.tsx:218
 #: src/screens/Settings/Settings.tsx:98
 #: src/view/shell/desktop/LeftNav.tsx:806
-#: src/view/shell/Drawer.tsx:630
+#: src/view/shell/Drawer.tsx:632
 msgid "Settings"
 msgstr ""
 
@@ -9484,8 +9486,8 @@ msgstr ""
 #: src/components/contacts/screens/VerifyNumber.tsx:205
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:86
 #: src/screens/Onboarding/StepFindContactsIntro/index.tsx:90
-#: src/screens/Onboarding/StepFinished/index.tsx:295
-#: src/screens/Onboarding/StepFinished/index.tsx:317
+#: src/screens/Onboarding/StepFinished/index.tsx:300
+#: src/screens/Onboarding/StepFinished/index.tsx:322
 #: src/screens/Onboarding/StepSuggestedAccounts/index.tsx:278
 #: src/screens/Onboarding/StepSuggestedStarterpacks/index.tsx:105
 #: src/screens/StarterPack/Wizard/index.tsx:217
@@ -9497,8 +9499,8 @@ msgstr ""
 msgid "Skip contact sharing and continue to the app"
 msgstr ""
 
-#: src/screens/Onboarding/StepFinished/index.tsx:288
-#: src/screens/Onboarding/StepFinished/index.tsx:314
+#: src/screens/Onboarding/StepFinished/index.tsx:293
+#: src/screens/Onboarding/StepFinished/index.tsx:319
 msgid "Skip introduction and start using your account"
 msgstr ""
 
@@ -9676,8 +9678,7 @@ msgstr ""
 msgid "Starter pack is invalid"
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:663
-#: src/view/screens/Profile.tsx:241
+#: src/view/screens/Profile.tsx:262
 msgid "Starter Packs"
 msgstr ""
 
@@ -9689,7 +9690,7 @@ msgstr ""
 msgid "Starter packs let you share your favorite feeds and people with your friends."
 msgstr ""
 
-#: src/view/screens/Profile.tsx:557
+#: src/view/screens/Profile.tsx:578
 msgid "Starter Packs let you share your favorite feeds and people with your friends."
 msgstr ""
 
@@ -9783,10 +9784,6 @@ msgstr ""
 
 #: src/components/verification/VerificationCreatePrompt.tsx:37
 msgid "Successfully verified"
-msgstr ""
-
-#: src/screens/Search/Explore.tsx:374
-msgid "Suggested accounts"
 msgstr ""
 
 #. Accounts suggested to the user for them to follow
@@ -9918,8 +9915,8 @@ msgstr ""
 msgid "Tell us a little more"
 msgstr ""
 
-#: src/view/shell/desktop/RightNav.tsx:124
-#: src/view/shell/desktop/RightNav.tsx:125
+#: src/view/shell/desktop/RightNav.tsx:156
+#: src/view/shell/desktop/RightNav.tsx:157
 msgid "Terms"
 msgstr ""
 
@@ -9930,8 +9927,8 @@ msgstr ""
 #: src/screens/Settings/AboutSettings.tsx:83
 #: src/screens/Settings/AboutSettings.tsx:86
 #: src/view/screens/TermsOfService.tsx:35
-#: src/view/shell/Drawer.tsx:718
 #: src/view/shell/Drawer.tsx:720
+#: src/view/shell/Drawer.tsx:722
 msgid "Terms of Service"
 msgstr ""
 
@@ -9958,7 +9955,7 @@ msgstr ""
 msgid "Thanks! You're all set."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:516
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:528
 msgid "That contains the following:"
 msgstr ""
 
@@ -10133,7 +10130,6 @@ msgstr ""
 msgid "There was an issue fetching notifications. Tap here to try again."
 msgstr ""
 
-#: src/screens/Search/Explore.tsx:1025
 #: src/view/com/posts/PostFeed.tsx:763
 msgid "There was an issue fetching posts. Tap here to try again."
 msgstr ""
@@ -10151,7 +10147,7 @@ msgstr ""
 msgid "There was an issue fetching your lists. Tap here to try again."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:116
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:120
 msgid "There was an issue fetching your service info"
 msgstr ""
 
@@ -10341,7 +10337,7 @@ msgstr ""
 msgid "This feed is no longer online. We are showing <0>Discover</0> instead."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:779
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:791
 msgid "This handle is reserved. Please try a different one."
 msgstr ""
 
@@ -10441,7 +10437,7 @@ msgstr ""
 msgid "This service is not supported while the Live feature is in beta. Allowed services: {formatted}."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:485
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:497
 msgid "This should create a domain record at:"
 msgstr ""
 
@@ -10675,7 +10671,7 @@ msgstr ""
 msgid "Type your message here"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:461
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:473
 msgid "Type:"
 msgstr ""
 
@@ -10960,8 +10956,8 @@ msgstr ""
 msgid "Update email"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:562
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:583
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:574
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:595
 msgid "Update to {domain}"
 msgstr ""
 
@@ -10983,7 +10979,7 @@ msgstr ""
 msgid "Upload a photo instead"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:501
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:513
 msgid "Upload a text file to:"
 msgstr ""
 
@@ -11027,7 +11023,7 @@ msgstr ""
 msgid "Use app passwords to sign in to other Chai clients without giving full access to your account or password."
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:596
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:608
 msgid "Use default provider"
 msgstr ""
 
@@ -11147,7 +11143,7 @@ msgstr ""
 msgid "Users I follow"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:467
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:479
 msgid "Value:"
 msgstr ""
 
@@ -11184,6 +11180,14 @@ msgstr ""
 msgid "Verify again"
 msgstr ""
 
+#: src/features/ens/components/EnsVerificationDialog.tsx:155
+msgid "Verify another"
+msgstr "Verify another"
+
+#: src/features/ens/components/EnsVerificationDialog.tsx:150
+msgid "Verify another ENS name"
+msgstr "Verify another ENS name"
+
 #. Button text and accessibility label for action to verify the user's email address using the code entered
 #. Button text and accessibility label for action to verify the user's email address using the code entered
 #: src/components/dialogs/EmailDialog/screens/Verify.tsx:352
@@ -11192,8 +11196,8 @@ msgctxt "action"
 msgid "Verify code"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:564
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:585
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:576
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:597
 msgid "Verify DNS Record"
 msgstr ""
 
@@ -11218,8 +11222,8 @@ msgstr ""
 msgid "Verify phone number"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:565
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:587
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:577
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:599
 msgid "Verify Text File"
 msgstr ""
 
@@ -11310,7 +11314,7 @@ msgstr ""
 msgid "Video: {0}"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:238
+#: src/view/screens/Profile.tsx:259
 msgid "Videos"
 msgstr ""
 
@@ -11728,7 +11732,7 @@ msgstr ""
 msgid "Who can verify?"
 msgstr ""
 
-#: src/screens/Home/NoFeedsPinned.tsx:80
+#: src/screens/Home/NoFeedsPinned.tsx:89
 #: src/screens/Messages/ChatList.tsx:275
 #: src/screens/Messages/Inbox.tsx:199
 msgid "Whoops!"
@@ -11792,8 +11796,8 @@ msgstr ""
 msgid "Write a message"
 msgstr ""
 
-#: src/view/screens/Profile.tsx:436
-#: src/view/screens/Profile.tsx:437
+#: src/view/screens/Profile.tsx:457
+#: src/view/screens/Profile.tsx:458
 msgid "Write a post"
 msgstr ""
 
@@ -11811,7 +11815,7 @@ msgid "Writers"
 msgstr ""
 
 #. placeholder {0}: verifyError.did
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:377
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:389
 msgid "Wrong DID returned from server. Received: {0}"
 msgstr ""
 
@@ -11907,7 +11911,7 @@ msgstr ""
 msgid "You are verified. You will lose your verification status if you change your display name. <0>Learn more.</0>"
 msgstr ""
 
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:217
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:225
 msgid "You are verified. You will lose your verification status if you change your handle. <0>Learn more.</0>"
 msgstr ""
 
@@ -12368,7 +12372,7 @@ msgid "Your contact {name}"
 msgstr ""
 
 #. placeholder {0}: sanitizeHandle(currentAccount?.handle || '', '@')
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:549
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:561
 msgid "Your current handle <0>{0}</0> will automatically remain reserved for you. You can switch back to it at any time from this account."
 msgstr ""
 
@@ -12407,7 +12411,7 @@ msgid "Your following feed is empty! Follow more users to see what's happening."
 msgstr ""
 
 #. placeholder {0}: createFullHandle(subdomain, host)
-#: src/screens/Settings/components/ChangeHandleDialog.tsx:254
+#: src/screens/Settings/components/ChangeHandleDialog.tsx:262
 msgid "Your full handle will be <0>@{0}</0>"
 msgstr ""
 
@@ -12490,3 +12494,7 @@ msgstr ""
 #: src/components/verification/VerificationsDialog.tsx:67
 msgid "Your verifications"
 msgstr ""
+
+#: src/features/ens/components/EnsVerificationDialog.tsx:110
+msgid "Your verified ENS names are displayed throughout the app."
+msgstr "Your verified ENS names are displayed throughout the app."

@@ -9,6 +9,8 @@ export const LOCAL_DEV_SERVICE =
 export const STAGING_SERVICE = 'https://staging.bsky.dev'
 export const BSKY_SERVICE = 'https://bsky.social'
 export const CHAI_PDS_SERVICE = 'https://chai.sh'
+export const CHAI_DISCOVER_LIST_URI =
+  'at://did:plc:35naluygacbfe5vasdzusdj3/app.bsky.graph.list/3mhq5qg6fz22h'
 export const BSKY_SERVICE_DID = 'did:web:bsky.social'
 export const PUBLIC_BSKY_SERVICE = 'https://public.api.bsky.app'
 export const DEFAULT_SERVICE = CHAI_PDS_SERVICE
@@ -147,6 +149,15 @@ export const VIDEO_FEED_URI =
 export const STAGING_VIDEO_FEED_URI =
   'at://did:plc:yofh3kx63drvfljkibw5zuxo/app.bsky.feed.generator/thevids'
 export const VIDEO_FEED_URIS = [VIDEO_FEED_URI, STAGING_VIDEO_FEED_URI]
+
+// Chai curated list URIs
+export const CHAI_DLT_PEOPLE_LIST_URI =
+  'at://did:plc:35naluygacbfe5vasdzusdj3/app.bsky.graph.list/3mhq5qg6fz22h'
+export const CHAI_DLT_NEWS_LIST_URI =
+  'at://did:plc:35naluygacbfe5vasdzusdj3/app.bsky.graph.list/3mhq7gukr522h'
+export const CHAI_DLT_COMPANIES_LIST_URI =
+  'at://did:plc:35naluygacbfe5vasdzusdj3/app.bsky.graph.list/3mhq7kblbx22h'
+
 export const DISCOVER_SAVED_FEED = {
   type: 'feed',
   value: DISCOVER_FEED_URI,
@@ -160,6 +171,21 @@ export const TIMELINE_SAVED_FEED = {
 export const VIDEO_SAVED_FEED = {
   type: 'feed',
   value: VIDEO_FEED_URI,
+  pinned: true,
+}
+export const CHAI_DLT_PEOPLE_SAVED_FEED = {
+  type: 'list',
+  value: CHAI_DLT_PEOPLE_LIST_URI,
+  pinned: true,
+}
+export const CHAI_DLT_NEWS_SAVED_FEED = {
+  type: 'list',
+  value: CHAI_DLT_NEWS_LIST_URI,
+  pinned: true,
+}
+export const CHAI_DLT_COMPANIES_SAVED_FEED = {
+  type: 'list',
+  value: CHAI_DLT_COMPANIES_LIST_URI,
   pinned: true,
 }
 

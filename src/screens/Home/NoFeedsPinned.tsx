@@ -5,7 +5,12 @@ import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
 
-import {DISCOVER_SAVED_FEED, TIMELINE_SAVED_FEED} from '#/lib/constants'
+import {
+  CHAI_DLT_COMPANIES_SAVED_FEED,
+  CHAI_DLT_NEWS_SAVED_FEED,
+  CHAI_DLT_PEOPLE_SAVED_FEED,
+  TIMELINE_SAVED_FEED,
+} from '#/lib/constants'
 import {useOverwriteSavedFeedsMutation} from '#/state/queries/preferences'
 import {type UsePreferencesQueryResponse} from '#/state/queries/preferences'
 import {CenteredView} from '#/view/com/util/Views'
@@ -29,18 +34,12 @@ export function NoFeedsPinned({
 
   const addRecommendedFeeds = useCallback(async () => {
     let skippedTimeline = false
-    let skippedDiscover = false
     let remainingSavedFeeds = []
 
-    // remove first instance of both timeline and discover, since we're going to overwrite them
+    // remove first instance of timeline, since we're going to overwrite it
     for (const savedFeed of preferences.savedFeeds) {
       if (savedFeed.type === 'timeline' && !skippedTimeline) {
         skippedTimeline = true
-      } else if (
-        savedFeed.value === DISCOVER_SAVED_FEED.value &&
-        !skippedDiscover
-      ) {
-        skippedDiscover = true
       } else {
         remainingSavedFeeds.push(savedFeed)
       }
@@ -48,12 +47,22 @@ export function NoFeedsPinned({
 
     const toSave = [
       {
-        ...DISCOVER_SAVED_FEED,
+        ...TIMELINE_SAVED_FEED,
         pinned: true,
         id: TID.nextStr(),
       },
       {
-        ...TIMELINE_SAVED_FEED,
+        ...CHAI_DLT_PEOPLE_SAVED_FEED,
+        pinned: true,
+        id: TID.nextStr(),
+      },
+      {
+        ...CHAI_DLT_NEWS_SAVED_FEED,
+        pinned: true,
+        id: TID.nextStr(),
+      },
+      {
+        ...CHAI_DLT_COMPANIES_SAVED_FEED,
         pinned: true,
         id: TID.nextStr(),
       },

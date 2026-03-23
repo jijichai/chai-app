@@ -17,8 +17,10 @@ import {networkRetry} from '#/lib/async/retry'
 import {
   BLUESKY_PROXY_HEADER,
   BSKY_SERVICE,
+  CHAI_DLT_COMPANIES_SAVED_FEED,
+  CHAI_DLT_NEWS_SAVED_FEED,
+  CHAI_DLT_PEOPLE_SAVED_FEED,
   CHAI_PDS_SERVICE,
-  DISCOVER_SAVED_FEED,
   IS_PROD_SERVICE,
   PUBLIC_BSKY_SERVICE,
   TIMELINE_SAVED_FEED,
@@ -203,11 +205,19 @@ export async function createAgentAndCreateAccount(
         networkRetry(1, () => {
           return agent.overwriteSavedFeeds([
             {
-              ...DISCOVER_SAVED_FEED,
+              ...TIMELINE_SAVED_FEED,
               id: TID.nextStr(),
             },
             {
-              ...TIMELINE_SAVED_FEED,
+              ...CHAI_DLT_PEOPLE_SAVED_FEED,
+              id: TID.nextStr(),
+            },
+            {
+              ...CHAI_DLT_NEWS_SAVED_FEED,
+              id: TID.nextStr(),
+            },
+            {
+              ...CHAI_DLT_COMPANIES_SAVED_FEED,
               id: TID.nextStr(),
             },
           ])
