@@ -235,7 +235,7 @@ export function FeedsScreen(_props: Props) {
       key: `chaiList:people`,
       type: 'chaiList',
       listUri: CHAI_DLT_PEOPLE_LIST_URI,
-      listName: 'Discover Chai',
+      listName: 'DLT People',
     })
     slices.push({
       key: `chaiList:news`,
@@ -809,10 +809,10 @@ function ChaiListsHeader() {
       <IconCircle icon={ListSparkle_Stroke2_Corner0_Rounded} size="lg" />
       <View style={[a.flex_1, a.gap_sm]}>
         <Text style={[a.flex_1, a.text_2xl, a.font_bold, t.atoms.text]}>
-          <Trans>Chai Feeds</Trans>
+          <Trans>Discover Chai</Trans>
         </Text>
         <Text style={[t.atoms.text_contrast_high]}>
-          <Trans>Curated feeds from the Chai community.</Trans>
+          <Trans>Discover Chai uses these lists to build your feed.</Trans>
         </Text>
       </View>
     </View>

@@ -1941,10 +1941,6 @@ msgctxt "Name of app icon variant"
 msgid "Chai Classic™"
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:812
-msgid "Chai Feeds"
-msgstr "Chai Feeds"
-
 #: src/components/contacts/screens/GetContacts.tsx:235
 msgid "Chai helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
 msgstr ""
@@ -2934,10 +2930,6 @@ msgstr ""
 msgid "Culture"
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:815
-msgid "Curated feeds from the Chai community."
-msgstr "Curated feeds from the Chai community."
-
 #: src/components/dialogs/ServerInput.tsx:152
 #: src/components/dialogs/ServerInput.tsx:154
 msgid "Custom"
@@ -3246,8 +3238,13 @@ msgid "Discourage apps from showing my account to logged-out users"
 msgstr ""
 
 #: src/screens/Search/Explore.tsx:108
+#: src/view/screens/Feeds.tsx:812
 msgid "Discover Chai"
 msgstr "Discover Chai"
+
+#: src/view/screens/Feeds.tsx:815
+msgid "Discover Chai uses these lists to build your feed."
+msgstr "Discover Chai uses these lists to build your feed."
 
 #: src/view/com/posts/FollowingEmptyState.tsx:70
 #: src/view/com/posts/FollowingEndOfFeed.tsx:71
@@ -4262,7 +4259,7 @@ msgstr ""
 msgid "Feeds are custom algorithms that users build with a little coding expertise. <0>See this guide</0> for more information."
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:861
+#: src/view/screens/Feeds.tsx:863
 msgid "Feeds from AT Network"
 msgstr "Feeds from AT Network"
 
