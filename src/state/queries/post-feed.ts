@@ -18,6 +18,7 @@ import {
 } from '@tanstack/react-query'
 
 import {AuthorFeedAPI} from '#/lib/api/feed/author'
+import {CombinedListFeedAPI} from '#/lib/api/feed/combinedList'
 import {CustomFeedAPI} from '#/lib/api/feed/custom'
 import {DemoFeedAPI} from '#/lib/api/feed/demo'
 import {FollowingFeedAPI} from '#/lib/api/feed/following'
@@ -29,7 +30,12 @@ import {PostListFeedAPI} from '#/lib/api/feed/posts'
 import {type FeedAPI, type ReasonFeedSource} from '#/lib/api/feed/types'
 import {aggregateUserInterests} from '#/lib/api/feed/utils'
 import {FeedTuner, type FeedTunerFn} from '#/lib/api/feed-manip'
-import {DISCOVER_FEED_URI} from '#/lib/constants'
+import {
+  CHAI_DLT_COMPANIES_LIST_URI,
+  CHAI_DLT_NEWS_LIST_URI,
+  CHAI_DLT_PEOPLE_LIST_URI,
+  DISCOVER_FEED_URI,
+} from '#/lib/constants'
 import {logger} from '#/logger'
 import {STALE} from '#/state/queries'
 import {DEFAULT_LOGGED_OUT_PREFERENCES} from '#/state/queries/preferences/const'
@@ -58,6 +64,7 @@ type PostsUriList = string
 
 export type FeedDescriptor =
   | 'following'
+  | 'chai-discover'
   | `author|${ActorDid}|${AuthorFilter}`
   | `feedgen|${FeedUri}`
   | `likes|${ActorDid}`
@@ -453,7 +460,16 @@ function createApi({
   agent: BskyAgent
   enableFollowingToDiscoverFallback: boolean
 }) {
-  if (feedDesc === 'following') {
+  if (feedDesc === 'chai-discover') {
+    return new CombinedListFeedAPI({
+      agent,
+      listUris: [
+        CHAI_DLT_PEOPLE_LIST_URI,
+        CHAI_DLT_NEWS_LIST_URI,
+        CHAI_DLT_COMPANIES_LIST_URI,
+      ],
+    })
+  } else if (feedDesc === 'following') {
     if (feedParams.mergeFeedEnabled) {
       return new MergeFeedAPI({
         agent,

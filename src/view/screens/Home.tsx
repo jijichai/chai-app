@@ -318,22 +318,17 @@ function HomeScreenReady({
   ) : (
     <Pager
       testID="homeScreen"
-      initialPage={selectedIndex}
       onPageSelected={onPageSelected}
       onPageScrollStateChanged={onPageScrollStateChanged}
       renderTabBar={renderTabBar}>
-      {pinnedFeedInfos.map((feedInfo, index) => (
-        <FeedPage
-          key={feedInfo.feedDescriptor}
-          testID="customFeedPage"
-          isPageFocused={maybeSelectedFeed === feedInfo.feedDescriptor}
-          isPageAdjacent={Math.abs(selectedIndex - index) === 1}
-          feed={feedInfo.feedDescriptor}
-          renderEmptyState={renderCustomFeedEmptyState}
-          savedFeedConfig={feedInfo.savedFeed}
-          feedInfo={feedInfo}
-        />
-      ))}
+      <FeedPage
+        testID="customFeedPage"
+        isPageFocused
+        isPageAdjacent={false}
+        feed="chai-discover"
+        renderEmptyState={renderCustomFeedEmptyState}
+        feedInfo={pinnedFeedInfos[0]}
+      />
     </Pager>
   )
 }

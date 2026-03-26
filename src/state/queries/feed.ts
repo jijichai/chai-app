@@ -20,10 +20,6 @@ import {
 } from '@tanstack/react-query'
 
 import {
-  CHAI_DLT_COMPANIES_LIST_URI,
-  CHAI_DLT_COMPANIES_SAVED_FEED,
-  CHAI_DLT_NEWS_LIST_URI,
-  CHAI_DLT_NEWS_SAVED_FEED,
   CHAI_DLT_PEOPLE_LIST_URI,
   CHAI_DLT_PEOPLE_SAVED_FEED,
 } from '#/lib/constants'
@@ -398,11 +394,11 @@ export type SavedFeedSourceInfo = FeedSourceInfo & {
   savedFeed: AppBskyActorDefs.SavedFeed
 }
 
-const PWI_CHAI_PEOPLE_STUB: SavedFeedSourceInfo = {
-  type: 'list',
+const PWI_CHAI_DISCOVER_STUB: SavedFeedSourceInfo = {
+  type: 'feed',
   displayName: 'Discover Chai',
   uri: CHAI_DLT_PEOPLE_LIST_URI,
-  feedDescriptor: `list|${CHAI_DLT_PEOPLE_LIST_URI}`,
+  feedDescriptor: 'chai-discover',
   route: {
     href: '/',
     name: 'Home',
@@ -413,54 +409,12 @@ const PWI_CHAI_PEOPLE_STUB: SavedFeedSourceInfo = {
   description: new RichText({text: ''}),
   creatorDid: '',
   creatorHandle: '',
+  likeCount: 0,
+  likeUri: '',
   contentMode: undefined,
   savedFeed: {
-    id: 'pwi-chai-people',
+    id: 'pwi-chai-discover',
     ...CHAI_DLT_PEOPLE_SAVED_FEED,
-  },
-}
-
-const PWI_CHAI_NEWS_STUB: SavedFeedSourceInfo = {
-  type: 'list',
-  displayName: 'DLT News',
-  uri: CHAI_DLT_NEWS_LIST_URI,
-  feedDescriptor: `list|${CHAI_DLT_NEWS_LIST_URI}`,
-  route: {
-    href: '/',
-    name: 'Home',
-    params: {},
-  },
-  cid: '',
-  avatar: '',
-  description: new RichText({text: ''}),
-  creatorDid: '',
-  creatorHandle: '',
-  contentMode: undefined,
-  savedFeed: {
-    id: 'pwi-chai-news',
-    ...CHAI_DLT_NEWS_SAVED_FEED,
-  },
-}
-
-const PWI_CHAI_COMPANIES_STUB: SavedFeedSourceInfo = {
-  type: 'list',
-  displayName: 'DLT Companies',
-  uri: CHAI_DLT_COMPANIES_LIST_URI,
-  feedDescriptor: `list|${CHAI_DLT_COMPANIES_LIST_URI}`,
-  route: {
-    href: '/',
-    name: 'Home',
-    params: {},
-  },
-  cid: '',
-  avatar: '',
-  description: new RichText({text: ''}),
-  creatorDid: '',
-  creatorHandle: '',
-  contentMode: undefined,
-  savedFeed: {
-    id: 'pwi-chai-companies',
-    ...CHAI_DLT_COMPANIES_SAVED_FEED,
   },
 }
 
@@ -485,11 +439,7 @@ export function usePinnedFeedsInfos() {
     enabled: !isLoadingPrefs,
     queryFn: async () => {
       if (!hasSession) {
-        return [
-          PWI_CHAI_PEOPLE_STUB,
-          PWI_CHAI_NEWS_STUB,
-          PWI_CHAI_COMPANIES_STUB,
-        ]
+        return [PWI_CHAI_DISCOVER_STUB]
       }
 
       let resolved = new Map<string, FeedSourceInfo>()
