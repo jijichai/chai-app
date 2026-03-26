@@ -318,17 +318,22 @@ function HomeScreenReady({
   ) : (
     <Pager
       testID="homeScreen"
+      initialPage={selectedIndex}
       onPageSelected={onPageSelected}
       onPageScrollStateChanged={onPageScrollStateChanged}
       renderTabBar={renderTabBar}>
-      <FeedPage
-        testID="customFeedPage"
-        isPageFocused
-        isPageAdjacent={false}
-        feed={`feedgen|${PROD_DEFAULT_FEED('whats-hot')}`}
-        renderEmptyState={renderCustomFeedEmptyState}
-        feedInfo={pinnedFeedInfos[0]}
-      />
+      {pinnedFeedInfos.map((feedInfo, index) => (
+        <FeedPage
+          key={feedInfo.feedDescriptor}
+          testID="customFeedPage"
+          isPageFocused={maybeSelectedFeed === feedInfo.feedDescriptor}
+          isPageAdjacent={Math.abs(selectedIndex - index) === 1}
+          feed={feedInfo.feedDescriptor}
+          renderEmptyState={renderCustomFeedEmptyState}
+          savedFeedConfig={feedInfo.savedFeed}
+          feedInfo={feedInfo}
+        />
+      ))}
     </Pager>
   )
 }

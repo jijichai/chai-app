@@ -1,12 +1,17 @@
 import {useCallback, useMemo, useRef, useState} from 'react'
 import {ActivityIndicator, StyleSheet, View} from 'react-native'
-import {type AppBskyFeedDefs} from '@atproto/api'
+import {type AppBskyFeedDefs, AtUri} from '@atproto/api'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
 import {useFocusEffect} from '@react-navigation/native'
 import debounce from 'lodash.debounce'
 
+import {
+  CHAI_DLT_COMPANIES_LIST_URI,
+  CHAI_DLT_NEWS_LIST_URI,
+  CHAI_DLT_PEOPLE_LIST_URI,
+} from '#/lib/constants'
 import {useOpenComposer} from '#/lib/hooks/useOpenComposer'
 import {usePalette} from '#/lib/hooks/usePalette'
 import {useWebMediaQueries} from '#/lib/hooks/useWebMediaQueries'
@@ -101,6 +106,20 @@ type FlatlistSlice =
     }
   | {
       type: 'noFollowingFeed'
+      key: string
+    }
+  | {
+      type: 'chaiListsHeader'
+      key: string
+    }
+  | {
+      type: 'chaiList'
+      key: string
+      listUri: string
+      listName: string
+    }
+  | {
+      type: 'atNetworkFeedsHeader'
       key: string
     }
 
@@ -206,6 +225,36 @@ export function FeedsScreen(_props: Props) {
       (isSavedFeedsPlaceholder && (savedFeeds?.count || 0) > 0)
     const canShowDiscoverSection =
       !hasSession || (hasSession && hasActualSavedCount)
+
+    // Chai curated lists at the top
+    slices.push({
+      key: 'chaiListsHeader',
+      type: 'chaiListsHeader',
+    })
+    slices.push({
+      key: `chaiList:people`,
+      type: 'chaiList',
+      listUri: CHAI_DLT_PEOPLE_LIST_URI,
+      listName: 'Discover Chai',
+    })
+    slices.push({
+      key: `chaiList:news`,
+      type: 'chaiList',
+      listUri: CHAI_DLT_NEWS_LIST_URI,
+      listName: 'DLT News',
+    })
+    slices.push({
+      key: `chaiList:companies`,
+      type: 'chaiList',
+      listUri: CHAI_DLT_COMPANIES_LIST_URI,
+      listName: 'DLT Companies',
+    })
+
+    // AT Network feeds header
+    slices.push({
+      key: 'atNetworkFeedsHeader',
+      type: 'atNetworkFeedsHeader',
+    })
 
     if (hasSession) {
       slices.push({
@@ -410,7 +459,13 @@ export function FeedsScreen(_props: Props) {
 
   const renderItem = useCallback(
     ({item}: {item: FlatlistSlice}) => {
-      if (item.type === 'error') {
+      if (item.type === 'chaiListsHeader') {
+        return <ChaiListsHeader />
+      } else if (item.type === 'chaiList') {
+        return <ChaiListItem listUri={item.listUri} listName={item.listName} />
+      } else if (item.type === 'atNetworkFeedsHeader') {
+        return <ATNetworkFeedsHeader />
+      } else if (item.type === 'error') {
         return <ErrorMessage message={item.error} />
       } else if (item.type === 'popularFeedsLoadingMore') {
         return (
@@ -737,6 +792,74 @@ function FeedsAboutHeader() {
           </Trans>
         </Text>
       </View>
+    </View>
+  )
+}
+
+function ChaiListsHeader() {
+  const t = useTheme()
+
+  return (
+    <View
+      style={
+        IS_WEB
+          ? [a.flex_row, a.px_md, a.pt_lg, a.pb_lg, a.gap_md]
+          : [{flexDirection: 'row-reverse'}, a.p_lg, a.gap_md]
+      }>
+      <IconCircle icon={ListSparkle_Stroke2_Corner0_Rounded} size="lg" />
+      <View style={[a.flex_1, a.gap_sm]}>
+        <Text style={[a.flex_1, a.text_2xl, a.font_bold, t.atoms.text]}>
+          <Trans>Chai Feeds</Trans>
+        </Text>
+        <Text style={[t.atoms.text_contrast_high]}>
+          <Trans>Curated feeds from the Chai community.</Trans>
+        </Text>
+      </View>
+    </View>
+  )
+}
+
+function ChaiListItem({
+  listUri,
+  listName,
+}: {
+  listUri: string
+  listName: string
+}) {
+  const t = useTheme()
+  const urip = new AtUri(listUri)
+  const href = `/profile/${urip.hostname}/lists/${urip.rkey}`
+
+  return (
+    <Link
+      testID={`chaiList-${listName}`}
+      to={href}
+      label={listName}
+      style={[
+        a.flex_row,
+        a.align_center,
+        a.px_lg,
+        a.py_md,
+        a.gap_md,
+        a.border_b,
+        t.atoms.border_contrast_low,
+      ]}>
+      <View style={[a.flex_1]}>
+        <Text style={[a.text_md, a.font_bold, t.atoms.text]}>{listName}</Text>
+      </View>
+      <ChevronRight size="sm" fill={t.atoms.text_contrast_low.color} />
+    </Link>
+  )
+}
+
+function ATNetworkFeedsHeader() {
+  const t = useTheme()
+
+  return (
+    <View style={[a.px_lg, a.pt_xl, a.pb_sm]}>
+      <Text style={[a.text_lg, a.font_bold, t.atoms.text]}>
+        <Trans>Feeds from AT Network</Trans>
+      </Text>
     </View>
   )
 }

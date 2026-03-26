@@ -19,7 +19,14 @@ import {
   useQueryClient,
 } from '@tanstack/react-query'
 
-import {DISCOVER_FEED_URI, DISCOVER_SAVED_FEED} from '#/lib/constants'
+import {
+  CHAI_DLT_COMPANIES_LIST_URI,
+  CHAI_DLT_COMPANIES_SAVED_FEED,
+  CHAI_DLT_NEWS_LIST_URI,
+  CHAI_DLT_NEWS_SAVED_FEED,
+  CHAI_DLT_PEOPLE_LIST_URI,
+  CHAI_DLT_PEOPLE_SAVED_FEED,
+} from '#/lib/constants'
 import {sanitizeDisplayName} from '#/lib/strings/display-names'
 import {sanitizeHandle} from '#/lib/strings/handles'
 import {
@@ -391,11 +398,11 @@ export type SavedFeedSourceInfo = FeedSourceInfo & {
   savedFeed: AppBskyActorDefs.SavedFeed
 }
 
-const PWI_DISCOVER_FEED_STUB: SavedFeedSourceInfo = {
-  type: 'feed',
-  displayName: 'Discover',
-  uri: DISCOVER_FEED_URI,
-  feedDescriptor: `feedgen|${DISCOVER_FEED_URI}`,
+const PWI_CHAI_PEOPLE_STUB: SavedFeedSourceInfo = {
+  type: 'list',
+  displayName: 'Discover Chai',
+  uri: CHAI_DLT_PEOPLE_LIST_URI,
+  feedDescriptor: `list|${CHAI_DLT_PEOPLE_LIST_URI}`,
   route: {
     href: '/',
     name: 'Home',
@@ -406,14 +413,55 @@ const PWI_DISCOVER_FEED_STUB: SavedFeedSourceInfo = {
   description: new RichText({text: ''}),
   creatorDid: '',
   creatorHandle: '',
-  likeCount: 0,
-  likeUri: '',
-  // ---
-  savedFeed: {
-    id: 'pwi-discover',
-    ...DISCOVER_SAVED_FEED,
-  },
   contentMode: undefined,
+  savedFeed: {
+    id: 'pwi-chai-people',
+    ...CHAI_DLT_PEOPLE_SAVED_FEED,
+  },
+}
+
+const PWI_CHAI_NEWS_STUB: SavedFeedSourceInfo = {
+  type: 'list',
+  displayName: 'DLT News',
+  uri: CHAI_DLT_NEWS_LIST_URI,
+  feedDescriptor: `list|${CHAI_DLT_NEWS_LIST_URI}`,
+  route: {
+    href: '/',
+    name: 'Home',
+    params: {},
+  },
+  cid: '',
+  avatar: '',
+  description: new RichText({text: ''}),
+  creatorDid: '',
+  creatorHandle: '',
+  contentMode: undefined,
+  savedFeed: {
+    id: 'pwi-chai-news',
+    ...CHAI_DLT_NEWS_SAVED_FEED,
+  },
+}
+
+const PWI_CHAI_COMPANIES_STUB: SavedFeedSourceInfo = {
+  type: 'list',
+  displayName: 'DLT Companies',
+  uri: CHAI_DLT_COMPANIES_LIST_URI,
+  feedDescriptor: `list|${CHAI_DLT_COMPANIES_LIST_URI}`,
+  route: {
+    href: '/',
+    name: 'Home',
+    params: {},
+  },
+  cid: '',
+  avatar: '',
+  description: new RichText({text: ''}),
+  creatorDid: '',
+  creatorHandle: '',
+  contentMode: undefined,
+  savedFeed: {
+    id: 'pwi-chai-companies',
+    ...CHAI_DLT_COMPANIES_SAVED_FEED,
+  },
 }
 
 const createPinnedFeedInfosQueryKeyRoot = (
@@ -437,7 +485,11 @@ export function usePinnedFeedsInfos() {
     enabled: !isLoadingPrefs,
     queryFn: async () => {
       if (!hasSession) {
-        return [PWI_DISCOVER_FEED_STUB]
+        return [
+          PWI_CHAI_PEOPLE_STUB,
+          PWI_CHAI_NEWS_STUB,
+          PWI_CHAI_COMPANIES_STUB,
+        ]
       }
 
       let resolved = new Map<string, FeedSourceInfo>()
