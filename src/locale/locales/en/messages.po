@@ -1081,7 +1081,7 @@ msgstr ""
 msgid "All languages will be shown in your feeds."
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:708
+#: src/view/screens/Feeds.tsx:763
 msgid "All the feeds you've saved, right in one place."
 msgstr ""
 
@@ -1941,6 +1941,10 @@ msgctxt "Name of app icon variant"
 msgid "Chai Classic™"
 msgstr ""
 
+#: src/view/screens/Feeds.tsx:812
+msgid "Chai Feeds"
+msgstr "Chai Feeds"
+
 #: src/components/contacts/screens/GetContacts.tsx:235
 msgid "Chai helps friends find each other by creating an encoded digital fingerprint, called a \"hash\", and then looking for matching hashes."
 msgstr ""
@@ -2187,7 +2191,7 @@ msgstr ""
 msgid "Choose your account provider"
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:734
+#: src/view/screens/Feeds.tsx:789
 msgid "Choose your own timeline! Feeds built by the community help you find content you love."
 msgstr ""
 
@@ -2930,6 +2934,10 @@ msgstr ""
 msgid "Culture"
 msgstr ""
 
+#: src/view/screens/Feeds.tsx:815
+msgid "Curated feeds from the Chai community."
+msgstr "Curated feeds from the Chai community."
+
 #: src/components/dialogs/ServerInput.tsx:152
 #: src/components/dialogs/ServerInput.tsx:154
 msgid "Custom"
@@ -3246,7 +3254,7 @@ msgstr "Discover Chai"
 msgid "Discover new custom feeds"
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:731
+#: src/view/screens/Feeds.tsx:786
 msgid "Discover New Feeds"
 msgstr ""
 
@@ -3509,7 +3517,7 @@ msgid "Edit moderation list"
 msgstr ""
 
 #: src/Navigation.tsx:361
-#: src/view/screens/Feeds.tsx:519
+#: src/view/screens/Feeds.tsx:574
 msgid "Edit My Feeds"
 msgstr ""
 
@@ -4200,7 +4208,7 @@ msgstr ""
 #. placeholder {0}: sanitizeHandle(feed.creatorHandle, '@')
 #. placeholder {0}: sanitizeHandle(view.creator.handle, '@')
 #: src/components/FeedCard.tsx:170
-#: src/state/queries/feed.ts:121
+#: src/state/queries/feed.ts:124
 #: src/view/com/feeds/FeedSourceCard.tsx:151
 msgid "Feed by {0}"
 msgstr ""
@@ -4242,7 +4250,7 @@ msgstr ""
 #: src/screens/SavedFeeds.tsx:318
 #: src/screens/Search/SearchResults.tsx:80
 #: src/screens/StarterPack/StarterPackScreen.tsx:196
-#: src/view/screens/Feeds.tsx:512
+#: src/view/screens/Feeds.tsx:567
 #: src/view/screens/Profile.tsx:261
 #: src/view/shell/desktop/LeftNav.tsx:729
 #: src/view/shell/Drawer.tsx:553
@@ -4253,6 +4261,10 @@ msgstr ""
 #: src/screens/SavedFeeds.tsx:413
 msgid "Feeds are custom algorithms that users build with a little coding expertise. <0>See this guide</0> for more information."
 msgstr ""
+
+#: src/view/screens/Feeds.tsx:861
+msgid "Feeds from AT Network"
+msgstr "Feeds from AT Network"
 
 #: src/components/FeedCard.tsx:313
 #: src/screens/SavedFeeds.tsx:100
@@ -4507,7 +4519,7 @@ msgid "Following"
 msgstr ""
 
 #: src/screens/SavedFeeds.tsx:633
-#: src/view/screens/Feeds.tsx:604
+#: src/view/screens/Feeds.tsx:659
 msgctxt "feed-name"
 msgid "Following"
 msgstr ""
@@ -6346,7 +6358,7 @@ msgstr ""
 msgid "My favorite feeds and people - join me!"
 msgstr "My favorite feeds and people - join me!"
 
-#: src/view/screens/Feeds.tsx:705
+#: src/view/screens/Feeds.tsx:760
 msgid "My Feeds"
 msgstr ""
 
@@ -6462,7 +6474,7 @@ msgstr ""
 #: src/screens/Profile/ProfileFeed/index.tsx:220
 #: src/screens/ProfileList/index.tsx:251
 #: src/screens/ProfileList/index.tsx:300
-#: src/view/screens/Feeds.tsx:553
+#: src/view/screens/Feeds.tsx:608
 #: src/view/screens/Notifications.tsx:167
 #: src/view/screens/Profile.tsx:616
 msgid "New post"
@@ -6669,7 +6681,7 @@ msgstr ""
 msgid "No results found"
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:474
+#: src/view/screens/Feeds.tsx:529
 msgid "No results found for \"{query}\""
 msgstr ""
 
@@ -8760,7 +8772,7 @@ msgstr ""
 msgid "Search contacts"
 msgstr ""
 
-#: src/view/screens/Feeds.tsx:445
+#: src/view/screens/Feeds.tsx:500
 msgid "Search feeds"
 msgstr ""
 
@@ -11149,7 +11161,7 @@ msgid "User list by {0}"
 msgstr ""
 
 #. placeholder {0}: sanitizeHandle(view.creator.handle, '@')
-#: src/state/queries/feed.ts:162
+#: src/state/queries/feed.ts:165
 msgid "User List by {0}"
 msgstr ""
 
