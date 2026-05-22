@@ -1,4 +1,5 @@
 import {type ID as PolicyUpdate202508} from '#/components/PolicyUpdateOverlay/updates/202508/config'
+import {type Gif} from '#/features/gifPicker/types'
 import {type Geolocation} from '#/geolocation/types'
 
 /**
@@ -91,4 +92,8 @@ export type Account = {
    * @deprecated Moved to PDS record sh.chai.n.ens. Kept for migration.
    */
   ensVerifiedAt?: string
+  /**
+   * Recently selected GIFs in the GIF picker. Most recent first, capped at 20.
+   */
+  recentGifs?: Gif[]
 }

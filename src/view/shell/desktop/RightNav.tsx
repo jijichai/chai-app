@@ -3,7 +3,7 @@ import {Pressable, View} from 'react-native'
 import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
-import {useNavigation} from '@react-navigation/core'
+import {useNavigation} from '@react-navigation/native'
 
 import {HELP_DESK_URL} from '#/lib/constants'
 import {type NavigationProp} from '#/lib/routes/types'
@@ -74,6 +74,7 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
   }, [_, fetchDid, initiateConvo])
   const gutters = useGutters(['base', 0, 'base', 'wide'])
   const isSearchScreen = routeName === 'Search'
+  const isMessagesRelatedScreen = routeName.startsWith('Messages')
   const webqueryParams = useWebQueryParams()
   const searchQuery = webqueryParams?.q
   const showExploreScreenDuplicatedContent =
@@ -81,7 +82,7 @@ export function DesktopRightNav({routeName}: {routeName: string}) {
   const {rightNavVisible, centerColumnOffset, leftNavMinimal} =
     useLayoutBreakpoints()
 
-  if (!rightNavVisible) {
+  if (!rightNavVisible || isMessagesRelatedScreen) {
     return null
   }
 

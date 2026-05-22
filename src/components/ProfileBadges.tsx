@@ -1,7 +1,7 @@
-import {View} from 'react-native'
+import {useWindowDimensions, View} from 'react-native'
 
 import {useProfileShadow} from '#/state/cache/profile-shadow'
-import {atoms as a, type ViewStyleProp} from '#/alf'
+import {atoms as a, useAlf, type ViewStyleProp} from '#/alf'
 import {BotBadge, BotBadgeButton, isBotAccount} from '#/components/BotBadge'
 import {useSimpleVerificationState} from '#/components/verification'
 import {VerificationCheck} from '#/components/verification/VerificationCheck'
@@ -51,11 +51,20 @@ export function ProfileBadges({
   const verification = useSimpleVerificationState({profile})
   const displayHandle = useDisplayHandle(shadowed)
   const hasEns = displayHandle.endsWith('.eth')
+  const {fontScale: nativeScaleMultiplier} = useWindowDimensions()
+  const {
+    fonts: {scaleMultiplier: alfScaleMultiplier},
+  } = useAlf()
 
   // if nothing to show, don't render the container at all
   if (!verification.showBadge && !isBotAccount(shadowed) && !hasEns) return null
 
   const isOnTheSmallSide = size === 'xs' || size === 'sm'
+
+  const verificationIconWidth =
+    verificationIconSizes[size] * nativeScaleMultiplier * alfScaleMultiplier
+  const botIconWidth =
+    botIconSizes[size] * nativeScaleMultiplier * alfScaleMultiplier
 
   return (
     <View
@@ -69,9 +78,9 @@ export function ProfileBadges({
         <>
           <VerificationCheckButton
             profile={shadowed}
-            width={verificationIconSizes[size]}
+            width={verificationIconWidth}
           />
-          <BotBadgeButton profile={shadowed} width={botIconSizes[size]} />
+          <BotBadgeButton profile={shadowed} width={botIconWidth} />
           {hasEns && (
             <EnsBadgeButton
               ensName={displayHandle}
@@ -84,10 +93,10 @@ export function ProfileBadges({
           {verification.showBadge && (
             <VerificationCheck
               verifier={verification.role === 'verifier'}
-              width={verificationIconSizes[size]}
+              width={verificationIconWidth}
             />
           )}
-          <BotBadge profile={shadowed} width={botIconSizes[size]} />
+          <BotBadge profile={shadowed} width={botIconWidth} />
           {hasEns && <EnsBadge width={ensIconSizes[size]} />}
         </>
       )}

@@ -8,10 +8,7 @@ import {
   type Did,
   type Un$Typed,
 } from '@atproto/api'
-import {type FetchHandler} from '@atproto/api/dist/agent'
-import {type SessionManager} from '@atproto/api/dist/session-manager'
 import {TID} from '@atproto/common-web'
-import {type FetchHandlerOptions} from '@atproto/xrpc'
 
 import {networkRetry} from '#/lib/async/retry'
 import {
@@ -25,15 +22,18 @@ import {
   PUBLIC_BSKY_SERVICE,
   TIMELINE_SAVED_FEED,
 } from '#/lib/constants'
-import {getAge} from '#/lib/strings/time'
 import {logger} from '#/logger'
 import {snoozeBirthdateUpdateAllowedForDid} from '#/state/birthdate'
+import {restrictChatSettings} from '#/state/queries/messages/restrictChatSettings'
 import {snoozeEmailConfirmationPrompt} from '#/state/shell/reminders'
 import {
   prefetchAgeAssuranceData,
   setBirthdateForDid,
   setCreatedAtForDid,
 } from '#/ageAssurance/data'
+import {getAndComputeAgeAssuranceState} from '#/ageAssurance/state'
+import {AgeAssuranceAccess} from '#/ageAssurance/types'
+import {features} from '#/analytics'
 import {IS_WEB} from '#/env'
 import {emitNetworkConfirmed, emitNetworkLost} from '../events'
 import {addSessionErrorLog} from './logging'
@@ -66,6 +66,9 @@ export async function createAgentAndResume(
   if (storedAccount.pdsUrl) {
     agent.sessionManager.pdsUrl = new URL(storedAccount.pdsUrl)
   }
+  const gates = features.refresh({
+    strategy: 'prefer-low-latency',
+  })
   const moderation = configureModerationForAccount(agent, storedAccount)
   const prevSession: AtpSessionData = sessionAccountToSession(storedAccount)
   if (isSessionExpired(storedAccount)) {
@@ -80,7 +83,7 @@ export async function createAgentAndResume(
   agent.configureProxy(BLUESKY_PROXY_HEADER.get())
 
   return agent.prepare({
-    resolvers: [moderation, aa],
+    resolvers: [gates, moderation, aa],
     onSessionChange,
   })
 }
@@ -112,13 +115,14 @@ export async function createAgentAndLogin(
   })
 
   const account = agentToSessionAccountOrThrow(agent)
+  const gates = features.refresh({strategy: 'prefer-fresh-gates'})
   const moderation = configureModerationForAccount(agent, account)
   const aa = prefetchAgeAssuranceData({agent})
 
   agent.configureProxy(BLUESKY_PROXY_HEADER.get())
 
   return agent.prepare({
-    resolvers: [moderation, aa],
+    resolvers: [gates, moderation, aa],
     onSessionChange,
   })
 }
@@ -159,6 +163,7 @@ export async function createAgentAndCreateAccount(
     verificationCode,
   })
   const account = agentToSessionAccountOrThrow(agent)
+  const gates = features.refresh({strategy: 'prefer-fresh-gates'})
   const moderation = configureModerationForAccount(agent, account)
 
   const createdAt = new Date().toISOString()
@@ -179,73 +184,59 @@ export async function createAgentAndCreateAccount(
   // Not awaited so that we can still get into onboarding.
   // This is OK because we won't let you toggle adult stuff until you set the date.
   if (IS_PROD_SERVICE(service)) {
-    Promise.allSettled(
-      [
-        networkRetry(3, () => {
-          return agent.setPersonalDetails({
-            birthDate: birthdate,
-          })
-        }).catch(e => {
-          logger.info(`createAgentAndCreateAccount: failed to set birthDate`)
-          throw e
-        }),
-        networkRetry(3, () => {
-          return agent.upsertProfile(prev => {
-            const next: Un$Typed<AppBskyActorProfile.Record> = prev || {}
-            next.displayName = handle
-            next.createdAt = createdAt
-            return next
-          })
-        }).catch(e => {
-          logger.info(
-            `createAgentAndCreateAccount: failed to set initial profile`,
-          )
-          throw e
-        }),
-        networkRetry(1, () => {
-          return agent.overwriteSavedFeeds([
-            {
-              ...TIMELINE_SAVED_FEED,
-              id: TID.nextStr(),
-            },
-            {
-              ...CHAI_DLT_PEOPLE_SAVED_FEED,
-              id: TID.nextStr(),
-            },
-            {
-              ...CHAI_DLT_NEWS_SAVED_FEED,
-              id: TID.nextStr(),
-            },
-            {
-              ...CHAI_DLT_COMPANIES_SAVED_FEED,
-              id: TID.nextStr(),
-            },
-          ])
-        }).catch(e => {
-          logger.info(
-            `createAgentAndCreateAccount: failed to set initial feeds`,
-          )
-          throw e
-        }),
-        getAge(birthDate) < 18 &&
-          networkRetry(3, () => {
-            return agent.com.atproto.repo.putRecord({
-              repo: account.did,
-              collection: 'chat.bsky.actor.declaration',
-              rkey: 'self',
-              record: {
-                $type: 'chat.bsky.actor.declaration',
-                allowIncoming: 'none',
-              },
-            })
-          }).catch(e => {
-            logger.info(
-              `createAgentAndCreateAccount: failed to set chat declaration`,
-            )
-            throw e
-          }),
-      ].filter(Boolean),
-    ).then(promises => {
+    void Promise.allSettled([
+      networkRetry(3, () => {
+        return agent.setPersonalDetails({
+          birthDate: birthdate,
+        })
+      }).catch(e => {
+        logger.info(`createAgentAndCreateAccount: failed to set birthDate`)
+        throw e
+      }),
+      networkRetry(3, () => {
+        return agent.upsertProfile(prev => {
+          const next: Un$Typed<AppBskyActorProfile.Record> = prev || {}
+          next.displayName = handle
+          next.createdAt = createdAt
+          return next
+        })
+      }).catch(e => {
+        logger.info(
+          `createAgentAndCreateAccount: failed to set initial profile`,
+        )
+        throw e
+      }),
+      networkRetry(1, () => {
+        return agent.overwriteSavedFeeds([
+          {
+            ...TIMELINE_SAVED_FEED,
+            id: TID.nextStr(),
+          },
+          {
+            ...CHAI_DLT_PEOPLE_SAVED_FEED,
+            id: TID.nextStr(),
+          },
+          {
+            ...CHAI_DLT_NEWS_SAVED_FEED,
+            id: TID.nextStr(),
+          },
+          {
+            ...CHAI_DLT_COMPANIES_SAVED_FEED,
+            id: TID.nextStr(),
+          },
+        ])
+      }).catch(e => {
+        logger.info(`createAgentAndCreateAccount: failed to set initial feeds`)
+        throw e
+      }),
+      // wait for AA data to load first, then check state
+      aa.then(async () => {
+        const state = getAndComputeAgeAssuranceState({did: account.did})
+        if (state.access !== AgeAssuranceAccess.Full) {
+          restrictChatSettings({agent, did: account.did})
+        }
+      }),
+    ]).then(promises => {
       const rejected = promises.filter(p => p.status === 'rejected')
       if (rejected.length > 0) {
         logger.error(
@@ -254,30 +245,28 @@ export async function createAgentAndCreateAccount(
       }
     })
   } else {
-    Promise.allSettled(
-      [
-        networkRetry(3, () => {
-          return agent.setPersonalDetails({
-            birthDate: birthDate.toISOString(),
-          })
-        }).catch(e => {
-          logger.info(`createAgentAndCreateAccount: failed to set birthDate`)
-          throw e
-        }),
-        networkRetry(3, () => {
-          return agent.upsertProfile(prev => {
-            const next: Un$Typed<AppBskyActorProfile.Record> = prev || {}
-            next.createdAt = prev?.createdAt || new Date().toISOString()
-            return next
-          })
-        }).catch(e => {
-          logger.info(
-            `createAgentAndCreateAccount: failed to set initial profile`,
-          )
-          throw e
-        }),
-      ].filter(Boolean),
-    ).then(promises => {
+    void Promise.allSettled([
+      networkRetry(3, () => {
+        return agent.setPersonalDetails({
+          birthDate: birthDate.toISOString(),
+        })
+      }).catch(e => {
+        logger.info(`createAgentAndCreateAccount: failed to set birthDate`)
+        throw e
+      }),
+      networkRetry(3, () => {
+        return agent.upsertProfile(prev => {
+          const next: Un$Typed<AppBskyActorProfile.Record> = prev || {}
+          next.createdAt = prev?.createdAt || new Date().toISOString()
+          return next
+        })
+      }).catch(e => {
+        logger.info(
+          `createAgentAndCreateAccount: failed to set initial profile`,
+        )
+        throw e
+      }),
+    ]).then(promises => {
       const rejected = promises.filter(p => p.status === 'rejected')
       if (rejected.length > 0) {
         logger.error(
@@ -297,7 +286,7 @@ export async function createAgentAndCreateAccount(
   agent.configureProxy(BLUESKY_PROXY_HEADER.get())
 
   return agent.prepare({
-    resolvers: [moderation, aa],
+    resolvers: [gates, moderation, aa],
     onSessionChange,
   })
 }
@@ -356,9 +345,9 @@ export function sessionAccountToSession(
 export class Agent extends BaseAgent {
   constructor(
     proxyHeader: ProxyHeaderValue | null,
-    options: SessionManager | FetchHandler | FetchHandlerOptions,
+    ...options: ConstructorParameters<typeof BaseAgent>
   ) {
-    super(options)
+    super(...options)
     if (proxyHeader) {
       this.configureProxy(proxyHeader)
     }
