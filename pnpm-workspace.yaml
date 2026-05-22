@@ -11,6 +11,9 @@ overrides:
   'psl': '1.9.0'
   '@types/psl': '1.1.1'
   'react-native-screens': '4.24.0'
+  # Force a single prosemirror-transform so type identity is consistent
+  # between @tiptap/pm/state and @tiptap/pm/view (web composer decorators).
+  'prosemirror-transform': '1.12.0'
 allowBuilds:
   '@sentry/cli': true
   'core-js-pure': true
