@@ -9,6 +9,8 @@ export const LOCAL_DEV_SERVICE =
 export const STAGING_SERVICE = 'https://staging.bsky.dev'
 export const BSKY_SERVICE = 'https://bsky.social'
 export const CHAI_PDS_SERVICE = 'https://chai.sh'
+export const CHAI_GNOSIS_RPC = 'https://rpc.gnosischain.com'
+export const CIRCLES_ORANGE = '#DF6552'
 export const CHAI_DISCOVER_LIST_URI =
   'at://did:plc:35naluygacbfe5vasdzusdj3/app.bsky.graph.list/3mhq5qg6fz22h'
 export const BSKY_SERVICE_DID = 'did:web:bsky.social'
