@@ -3,7 +3,6 @@ import {useQuery} from '@tanstack/react-query'
 import {CHAI_GNOSIS_RPC} from '#/lib/constants'
 import {logger} from '#/logger'
 import {STALE} from '#/state/queries'
-import {useAgent} from '#/state/session'
 import {
   type CirclesBindRecord,
   type CirclesBindResult,
@@ -22,18 +21,58 @@ export const CIRCLES_BIND_RQKEY = (did: string) => [
 
 const isValidSignature = makeEip1271Verifier(CHAI_GNOSIS_RPC)
 
+const PLC_DIRECTORY = 'https://plc.directory'
+const PDS_SERVICE_TYPE = 'AtprotoPersonalDataServer'
+
+type DidDoc = {
+  service?: Array<{
+    id: string
+    type: string
+    serviceEndpoint: string
+  }>
+}
+
+async function resolvePdsEndpoint(did: string): Promise<string | null> {
+  let url: string
+  if (did.startsWith('did:plc:')) {
+    url = `${PLC_DIRECTORY}/${did}`
+  } else if (did.startsWith('did:web:')) {
+    const host = did.slice('did:web:'.length).replace(/:/g, '/')
+    url = `https://${host}/.well-known/did.json`
+  } else {
+    return null
+  }
+  const res = await fetch(url)
+  if (!res.ok) return null
+  const doc = (await res.json()) as DidDoc
+  const svc = doc.service?.find(s => s.type === PDS_SERVICE_TYPE)
+  return svc?.serviceEndpoint?.replace(/\/$/, '') ?? null
+}
+
+async function fetchCirclesBindRecord(
+  did: string,
+): Promise<CirclesBindRecord | null> {
+  const pds = await resolvePdsEndpoint(did)
+  if (!pds) return null
+  const url = new URL('/xrpc/com.atproto.repo.getRecord', pds)
+  url.searchParams.set('repo', did)
+  url.searchParams.set('collection', COLLECTION)
+  url.searchParams.set('rkey', RKEY)
+  const res = await fetch(url.toString())
+  if (!res.ok) return null
+  const body = (await res.json()) as {value?: CirclesBindRecord}
+  return body.value ?? null
+}
+
 export function useCirclesBindQuery({did}: {did: string | undefined}) {
-  const agent = useAgent()
   return useQuery<CirclesBindResult | null>({
     queryKey: CIRCLES_BIND_RQKEY(did ?? ''),
     queryFn: async () => {
       if (!did) return null
-      const res = await agent.com.atproto.repo
-        .getRecord({repo: did, collection: COLLECTION, rkey: RKEY})
-        .catch(() => null)
-      if (!res?.data?.value) return null
+      const record = await fetchCirclesBindRecord(did).catch(() => null)
+      if (!record) return null
       try {
-        return await verifyCirclesBind(res.data.value as CirclesBindRecord, {
+        return await verifyCirclesBind(record, {
           expectedDid: did,
           isValidSignature,
         })
