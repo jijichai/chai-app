@@ -26,13 +26,28 @@ export type CirclesBindResult = {
 
 const EIP1271_MAGIC = '0x1626ba7e'
 
+function bytesToHex(bytes: Uint8Array): string {
+  let out = ''
+  for (let i = 0; i < bytes.length; i++) {
+    out += bytes[i].toString(16).padStart(2, '0')
+  }
+  return '0x' + out
+}
+
+function base64ToBytes(b64: string): Uint8Array {
+  const padded = b64 + '='.repeat(((-b64.length % 4) + 4) % 4)
+  const bin = atob(padded)
+  const out = new Uint8Array(bin.length)
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i)
+  return out
+}
+
 function asHex(bytes: Uint8Array | {$bytes: string}): string {
   if (bytes instanceof Uint8Array) {
-    return '0x' + Buffer.from(bytes).toString('hex')
+    return bytesToHex(bytes)
   }
   if (bytes && typeof bytes === 'object' && '$bytes' in bytes) {
-    const padded = bytes.$bytes + '='.repeat((-bytes.$bytes.length % 4 + 4) % 4)
-    return '0x' + Buffer.from(padded, 'base64').toString('hex')
+    return bytesToHex(base64ToBytes(bytes.$bytes))
   }
   throw new Error('unsupported bytes encoding')
 }
