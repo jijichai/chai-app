@@ -11,6 +11,7 @@ import {msg} from '@lingui/core/macro'
 import {useLingui} from '@lingui/react'
 import {Trans} from '@lingui/react/macro'
 
+import {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 import {useHaptics} from '#/lib/haptics'
 import {sanitizeDisplayName} from '#/lib/strings/display-names'
 import {sanitizeHandle} from '#/lib/strings/handles'
@@ -68,6 +69,7 @@ let ProfileHeaderStandard = ({
   const {gtMobile} = useBreakpoints()
   const profile =
     useProfileShadow<AppBskyActorDefs.ProfileViewDetailed>(profileUnshadowed)
+  const displayHandle = useDisplayHandle(profile)
   const {currentAccount} = useSession()
   const {_} = useLingui()
   const moderation = useMemo(
@@ -150,7 +152,7 @@ let ProfileHeaderStandard = ({
                   a.leading_tight,
                 ]}>
                 {sanitizeDisplayName(
-                  profile.displayName || sanitizeHandle(profile.handle),
+                  profile.displayName || sanitizeHandle(displayHandle),
                   moderation.ui('displayName'),
                 )}
                 <View style={[a.pl_xs, {marginTop: platform({ios: 2})}]}>

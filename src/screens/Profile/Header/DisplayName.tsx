@@ -6,6 +6,7 @@ import {sanitizeHandle} from '#/lib/strings/handles'
 import {type Shadow} from '#/state/cache/types'
 import {atoms as a, useBreakpoints, useTheme} from '#/alf'
 import {Text} from '#/components/Typography'
+import {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 
 export function ProfileHeaderDisplayName({
   profile,
@@ -16,6 +17,7 @@ export function ProfileHeaderDisplayName({
 }) {
   const t = useTheme()
   const {gtMobile} = useBreakpoints()
+  const displayHandle = useDisplayHandle(profile)
 
   return (
     <View pointerEvents="none">
@@ -29,7 +31,7 @@ export function ProfileHeaderDisplayName({
           a.font_bold,
         ]}>
         {sanitizeDisplayName(
-          profile.displayName || sanitizeHandle(profile.handle),
+          profile.displayName || sanitizeHandle(displayHandle),
           moderation.ui('displayName'),
         )}
       </Text>

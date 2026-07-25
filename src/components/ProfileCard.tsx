@@ -246,7 +246,7 @@ function InlineNameAndHandle({
   const displayHandle = useDisplayHandle(profile)
   const moderation = moderateProfile(profile, moderationOpts)
   const name = sanitizeDisplayName(
-    profile.displayName || sanitizeHandle(profile.handle),
+    profile.displayName || sanitizeHandle(displayHandle),
     moderation.ui('displayName'),
   )
   const handle = sanitizeHandle(displayHandle, '@')
@@ -297,9 +297,10 @@ export function Name({
   style?: StyleProp<ViewStyle>
   textStyle?: StyleProp<TextStyle>
 }) {
+  const displayHandle = useDisplayHandle(profile)
   const moderation = moderateProfile(profile, moderationOpts)
   const name = sanitizeDisplayName(
-    profile.displayName || sanitizeHandle(profile.handle),
+    profile.displayName || sanitizeHandle(displayHandle),
     moderation.ui('displayName'),
   )
   return (
