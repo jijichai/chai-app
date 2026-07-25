@@ -2,17 +2,70 @@
  * Cloudflare Pages Function: POST /api/create-account
  *
  * Silently mints a single-use invite code via the PDS admin API, then
- * creates the account with that code injected. This prevents direct
- * unauthenticated account creation on the PDS.
+ * creates the account with that code injected. On successful signup,
+ * mints an ENSv2 subname `<label>.chaish.eth` on Sepolia — owner is a
+ * deterministic stub derived from the DID (MVP; swap for Privy later).
  *
- * Required secret: PDS_ADMIN_PASSWORD (set in Cloudflare Pages settings)
+ * Required secrets (Cloudflare Pages settings):
+ *   PDS_ADMIN_PASSWORD    - PDS admin password for invite minting
+ *   REGISTRAR_MNEMONIC    - seed phrase for the ENS registrar wallet
+ *   REGISTRAR_DERIVATION_INDEX (optional, default "0")
+ *   SEPOLIA_RPC_URL       (optional, default public drpc)
  */
+
+import {ethers} from 'ethers'
 
 interface Env {
   PDS_ADMIN_PASSWORD: string
+  REGISTRAR_MNEMONIC?: string
+  REGISTRAR_DERIVATION_INDEX?: string
+  SEPOLIA_RPC_URL?: string
 }
 
 const PDS_BASE = 'https://chai.sh'
+
+const ENS_REGISTRY = '0x89A853b224bAE596381269F61de9a637deE7Fe66'
+const ENS_RESOLVER = '0x4D5aE401CA8aeecC44699bab1e0848ee45B6F2D3'
+const ENS_ROLE_BITMAP =
+  '0x1111111111111111111111111111111111111111111111111111111111111111'
+// chaish.eth expiry — subname expiry pinned to parent's.
+const ENS_EXPIRY = 1816508677n
+const DEFAULT_SEPOLIA_RPC_URL = 'https://sepolia.drpc.org'
+const REGISTER_ABI = [
+  'function register(string label, address owner, address registry, address resolver, uint256 roleBitmap, uint64 expires) returns (uint256 tokenId)',
+]
+
+function stubOwnerAddress(did: string): string {
+  return ethers.getAddress(
+    '0x' + ethers.keccak256(ethers.toUtf8Bytes(did)).slice(-40),
+  )
+}
+
+async function mintSubname(
+  env: Env,
+  label: string,
+  owner: string,
+): Promise<{txHash: string; blockNumber: number}> {
+  const rpcUrl = env.SEPOLIA_RPC_URL ?? DEFAULT_SEPOLIA_RPC_URL
+  const path = `m/44'/60'/0'/0/${env.REGISTRAR_DERIVATION_INDEX ?? '0'}`
+  const provider = new ethers.JsonRpcProvider(rpcUrl)
+  const wallet = ethers.HDNodeWallet.fromPhrase(
+    env.REGISTRAR_MNEMONIC!,
+    undefined,
+    path,
+  ).connect(provider)
+  const registry = new ethers.Contract(ENS_REGISTRY, REGISTER_ABI, wallet)
+  const tx = await registry.register(
+    label,
+    owner,
+    ethers.ZeroAddress,
+    ENS_RESOLVER,
+    ENS_ROLE_BITMAP,
+    ENS_EXPIRY,
+  )
+  const receipt = await tx.wait()
+  return {txHash: tx.hash, blockNumber: receipt.blockNumber}
+}
 
 const ALLOWED_ORIGINS = [
   'https://app.chai.sh',
@@ -157,7 +210,29 @@ export const onRequestPost: PagesFunction<Env> = async context => {
     return jsonResponse({error: message, pdsError}, pdsResponse.status, origin)
   }
 
-  return jsonResponse(pdsBody, 200, origin)
+  const {did, handle: returnedHandle} = pdsBody as {
+    did?: string
+    handle?: string
+  }
+  const label = returnedHandle?.split('.')[0] ?? ''
+  let subname: unknown = null
+  if (!env.REGISTRAR_MNEMONIC) {
+    subname = {error: 'registrar not configured'}
+  } else if (!did || !/^[a-z0-9-]{3,20}$/.test(label)) {
+    subname = {error: 'label or did unusable', label, did}
+  } else {
+    const owner = stubOwnerAddress(did)
+    try {
+      const result = await mintSubname(env, label, owner)
+      subname = {name: `${label}.chaish.eth`, owner, ...result}
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err)
+      console.error('mint failed', {label, did, owner, message})
+      subname = {error: message}
+    }
+  }
+
+  return jsonResponse({...pdsBody, subname}, 200, origin)
 }
 
 export const onRequestOptions: PagesFunction<Env> = async context => {
