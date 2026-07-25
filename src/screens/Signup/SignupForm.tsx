@@ -203,6 +203,9 @@ export function SignupForm({
 
       {/* Handle */}
       <View>
+        <TextField.LabelText>
+          <Trans>Handle</Trans>
+        </TextField.LabelText>
         <TextField.Root isInvalid={textFieldInvalid}>
           <TextField.Icon icon={AtIcon} />
           <TextField.Input
@@ -214,7 +217,7 @@ export function SignupForm({
               setHandleDraft(val.toLocaleLowerCase())
             }}
             label={_(msg`Choose your username`)}
-            placeholder={`yourname${state.userDomain}`}
+            placeholder="yourname.chaish.eth"
             value={handleDraft}
             keyboardType="ascii-capable"
             autoCapitalize="none"
@@ -222,7 +225,7 @@ export function SignupForm({
             autoComplete="off"
           />
           {handleDraft.length > 0 && (
-            <TextField.GhostText value={state.userDomain}>
+            <TextField.GhostText value=".chaish.eth">
               {handleDraft}
             </TextField.GhostText>
           )}

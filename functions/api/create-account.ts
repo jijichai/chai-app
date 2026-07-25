@@ -210,12 +210,17 @@ export const onRequestPost: PagesFunction<Env> = async context => {
     return jsonResponse({error: message, pdsError}, pdsResponse.status, origin)
   }
 
-  const {did, handle: returnedHandle} = pdsBody as {
+  const {
+    did,
+    handle: returnedHandle,
+    accessJwt,
+  } = pdsBody as {
     did?: string
     handle?: string
+    accessJwt?: string
   }
   const label = returnedHandle?.split('.')[0] ?? ''
-  let subname: unknown = null
+  let subname: {name?: string; error?: string; [k: string]: unknown} = {}
   if (!env.REGISTRAR_MNEMONIC) {
     subname = {error: 'registrar not configured'}
   } else if (!did || !/^[a-z0-9-]{3,20}$/.test(label)) {
@@ -229,6 +234,47 @@ export const onRequestPost: PagesFunction<Env> = async context => {
       const message = err instanceof Error ? err.message : String(err)
       console.error('mint failed', {label, did, owner, message})
       subname = {error: message}
+    }
+  }
+
+  // Publish sh.chai.n.ens record so useDisplayHandle picks up the minted name.
+  // Non-fatal: a failure here still leaves the user with a working account.
+  if (subname.name && did && accessJwt) {
+    try {
+      const now = new Date().toISOString()
+      const putResponse = await fetch(
+        `${PDS_BASE}/xrpc/com.atproto.repo.putRecord`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessJwt}`,
+          },
+          body: JSON.stringify({
+            repo: did,
+            collection: 'sh.chai.n.ens',
+            rkey: subname.name.toLowerCase(),
+            record: {
+              $type: 'sh.chai.n.ens',
+              ensName: subname.name,
+              verifiedAt: now,
+              createdAt: now,
+            },
+          }),
+        },
+      )
+      if (!putResponse.ok) {
+        const body = await putResponse.text()
+        console.error('ens record write failed', {
+          did,
+          ensName: subname.name,
+          status: putResponse.status,
+          body,
+        })
+      }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err)
+      console.error('ens record write threw', {message})
     }
   }
 
