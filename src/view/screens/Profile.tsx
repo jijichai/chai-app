@@ -125,11 +125,15 @@ function ProfileScreenInner({route}: Props) {
 
   // Update route params (and web URL) to match the display handle (ENS-aware).
   // e.g. visiting /jiji.chai.sh updates to /chaish.eth if that's the active ENS.
+  // Skips .eth handles for now: atproto has no ENS resolver, so rewriting to
+  // one produces URLs that fail to load on refresh/share. Remove the guard
+  // once ENS handle resolution ships (plan §3.1).
   useEffect(() => {
     if (
       profile &&
       displayHandle &&
       !isInvalidHandle(displayHandle) &&
+      !displayHandle.endsWith('.eth') &&
       route.params.name !== 'me' &&
       route.params.name !== displayHandle
     ) {
