@@ -1,6 +1,7 @@
 import {useCallback} from 'react'
 import {useMutation, useQueryClient} from '@tanstack/react-query'
 
+import {toResolvableHandle} from '#/features/ens/toResolvableHandle'
 import {STALE} from '#/state/queries'
 import {useAgent} from '#/state/session'
 
@@ -63,7 +64,9 @@ export function useFetchDid() {
         queryFn: async () => {
           let identifier = handleOrDid
           if (!identifier.startsWith('did:')) {
-            const res = await agent.resolveHandle({handle: identifier})
+            const res = await agent.resolveHandle({
+              handle: toResolvableHandle(identifier),
+            })
             identifier = res.data.did
           }
           return identifier

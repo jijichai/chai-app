@@ -1,7 +1,7 @@
 import {AtUri, type BskyAgent} from '@atproto/api'
 import {type QueryClient, queryOptions, useQuery} from '@tanstack/react-query'
 
-import {CHAI_PDS_SERVICE} from '#/lib/constants'
+import {toResolvableHandle} from '#/features/ens/toResolvableHandle'
 import {STALE} from '#/state/queries'
 import {useAgent} from '#/state/session'
 import {useUnstableProfileViewCache} from './profile'
@@ -22,26 +22,9 @@ const resolvedDidQueryOptions = (
       // Just return the did if it's already one
       if (didOrHandle.startsWith('did:')) return didOrHandle
 
-      // .eth handles need to be resolved against the Chai PDS directly,
-      // since the public Bluesky API doesn't support ENS resolution.
-      if (didOrHandle.endsWith('.eth')) {
-        const url = new URL(
-          '/xrpc/com.atproto.identity.resolveHandle',
-          CHAI_PDS_SERVICE,
-        )
-        url.searchParams.set('handle', didOrHandle)
-        const resp = await fetch(url.toString())
-        if (!resp.ok) {
-          throw new Error(`Failed to resolve ENS handle: ${didOrHandle}`)
-        }
-        const data = (await resp.json()) as {did: string}
-        if (!data.did) {
-          throw new Error(`Failed to resolve ENS handle: ${didOrHandle}`)
-        }
-        return data.did
-      }
-
-      const res = await agent.resolveHandle({handle: didOrHandle})
+      const res = await agent.resolveHandle({
+        handle: toResolvableHandle(didOrHandle),
+      })
       return res.data.did
     },
     initialData: () => {

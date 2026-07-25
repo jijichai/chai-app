@@ -1,3 +1,4 @@
+export {toResolvableHandle} from '#/features/ens/toResolvableHandle'
 export {useDisplayHandle} from '#/features/ens/useDisplayHandle'
 export {useEnsMMKVMigration} from '#/features/ens/useEnsMMKVMigration'
 export {
