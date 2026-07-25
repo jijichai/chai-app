@@ -1,4 +1,7 @@
 import {View} from 'react-native'
+import {msg} from '@lingui/core/macro'
+import {useLingui} from '@lingui/react'
+import {Trans} from '@lingui/react/macro'
 
 import {atoms as a, useTheme, web} from '#/alf'
 import {Button, ButtonText} from '#/components/Button'
@@ -16,11 +19,12 @@ export function EnsInfoDialog({
   ensName: string
 }) {
   const t = useTheme()
+  const {_} = useLingui()
 
   return (
     <Dialog.Outer control={control} nativeOptions={{preventExpansion: true}}>
       <Dialog.ScrollableInner
-        label="Verified ENS name"
+        label={_(msg`ENS subname`)}
         style={[web({maxWidth: 320})]}>
         <View style={[a.align_center, a.pb_md]}>
           <EnsIcon width={48} fill={ENS_COLOR} />
@@ -45,17 +49,21 @@ export function EnsInfoDialog({
               t.atoms.text_contrast_high,
               {maxWidth: 300},
             ]}>
-            This user has verified ownership of this ENS name by setting an
-            on-chain record that links to their account.
+            <Trans>
+              This account was issued an ENSv2 subname of chaish.eth at signup,
+              minted on-chain on Ethereum Sepolia.
+            </Trans>
           </Text>
         </View>
         <View style={[a.w_full]}>
           <Button
-            label="Okay"
+            label={_(msg`Close`)}
             onPress={() => control.close()}
             color="primary"
             size="large">
-            <ButtonText>Okay</ButtonText>
+            <ButtonText>
+              <Trans>Okay</Trans>
+            </ButtonText>
           </Button>
         </View>
       </Dialog.ScrollableInner>
