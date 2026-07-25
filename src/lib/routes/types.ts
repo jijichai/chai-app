@@ -74,6 +74,7 @@ export type CommonNavigatorParams = {
   Hashtag: {tag: string; author?: string}
   Topic: {topic: string}
   MessagesConversation: {conversation: string; embed?: string; accept?: true}
+  MessagesConversationSettings: {conversation: string}
   MessagesSettings: undefined
   MessagesInbox: undefined
   NotificationsActivityList: {posts: string}
@@ -139,7 +140,7 @@ export type AllNavigatorParams = CommonNavigatorParams & {
   Notifications: undefined
   MyProfileTab: undefined
   MessagesTab: undefined
-  Messages: {animation?: 'push' | 'pop'}
+  Messages: {pushToConversation?: string; animation?: 'push' | 'pop'}
 }
 
 // NOTE

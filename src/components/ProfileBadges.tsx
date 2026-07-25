@@ -1,7 +1,7 @@
-import {View} from 'react-native'
+import {useWindowDimensions, View} from 'react-native'
 
 import {useProfileShadow} from '#/state/cache/profile-shadow'
-import {atoms as a, type ViewStyleProp} from '#/alf'
+import {atoms as a, useAlf, type ViewStyleProp} from '#/alf'
 import {BotBadge, BotBadgeButton, isBotAccount} from '#/components/BotBadge'
 import {useSimpleVerificationState} from '#/components/verification'
 import {VerificationCheck} from '#/components/verification/VerificationCheck'
@@ -64,6 +64,10 @@ export function ProfileBadges({
   const hasEns = displayHandle.endsWith('.eth')
   const {data: circlesBind} = useCirclesBindQuery({did: shadowed.did})
   const hasCircles = circlesBind?.valid === true
+  const {fontScale: nativeScaleMultiplier} = useWindowDimensions()
+  const {
+    fonts: {scaleMultiplier: alfScaleMultiplier},
+  } = useAlf()
 
   // if nothing to show, don't render the container at all
   if (
@@ -75,6 +79,11 @@ export function ProfileBadges({
     return null
 
   const isOnTheSmallSide = size === 'xs' || size === 'sm'
+
+  const verificationIconWidth =
+    verificationIconSizes[size] * nativeScaleMultiplier * alfScaleMultiplier
+  const botIconWidth =
+    botIconSizes[size] * nativeScaleMultiplier * alfScaleMultiplier
 
   return (
     <View
@@ -88,7 +97,7 @@ export function ProfileBadges({
         <>
           <VerificationCheckButton
             profile={shadowed}
-            width={verificationIconSizes[size]}
+            width={verificationIconWidth}
           />
           {hasCircles && (
             <CirclesBadgeButton
@@ -96,7 +105,7 @@ export function ProfileBadges({
               width={circlesIconSizes[size]}
             />
           )}
-          <BotBadgeButton profile={shadowed} width={botIconSizes[size]} />
+          <BotBadgeButton profile={shadowed} width={botIconWidth} />
           {hasEns && (
             <EnsBadgeButton
               ensName={displayHandle}
@@ -109,11 +118,11 @@ export function ProfileBadges({
           {verification.showBadge && (
             <VerificationCheck
               verifier={verification.role === 'verifier'}
-              width={verificationIconSizes[size]}
+              width={verificationIconWidth}
             />
           )}
           {hasCircles && <CirclesBadge width={circlesIconSizes[size]} />}
-          <BotBadge profile={shadowed} width={botIconSizes[size]} />
+          <BotBadge profile={shadowed} width={botIconWidth} />
           {hasEns && <EnsBadge width={ensIconSizes[size]} />}
         </>
       )}

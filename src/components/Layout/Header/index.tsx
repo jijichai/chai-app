@@ -7,6 +7,7 @@ import {useNavigation} from '@react-navigation/native'
 import {HITSLOP_30} from '#/lib/constants'
 import {type NavigationProp} from '#/lib/routes/types'
 import {useSetDrawerOpen} from '#/state/shell'
+import {useIsWithinSplitView} from '#/screens/Messages/components/splitView/context'
 import {
   atoms as a,
   platform,
@@ -23,6 +24,7 @@ import {Menu_Stroke2_Corner0_Rounded as Menu} from '#/components/icons/Menu'
 import {
   BUTTON_VISUAL_ALIGNMENT_OFFSET,
   CENTER_COLUMN_OFFSET,
+  CENTER_COLUMN_WIDTH,
   HEADER_SLOT_SIZE,
   SCROLLBAR_OFFSET,
 } from '#/components/Layout/const'
@@ -46,6 +48,7 @@ export function Outer({
   const {gtMobile} = useBreakpoints()
   const {isWithinOffsetView} = useContext(ScrollbarOffsetContext)
   const {centerColumnOffset} = useLayoutBreakpoints()
+  const {isWithinSplitView} = useIsWithinSplitView()
 
   return (
     <View
@@ -63,13 +66,14 @@ export function Outer({
           web: [a.py_xs, {minHeight: 52}],
         }),
         t.atoms.border_contrast_low,
-        gtMobile && [a.mx_auto, {maxWidth: 600}],
-        !isWithinOffsetView && {
-          transform: [
-            {translateX: centerColumnOffset ? CENTER_COLUMN_OFFSET : 0},
-            {translateX: web(SCROLLBAR_OFFSET) ?? 0},
-          ],
-        },
+        gtMobile && [a.mx_auto, {maxWidth: CENTER_COLUMN_WIDTH}],
+        !isWithinOffsetView &&
+          !isWithinSplitView && {
+            transform: [
+              {translateX: centerColumnOffset ? CENTER_COLUMN_OFFSET : 0},
+              {translateX: web(SCROLLBAR_OFFSET) ?? 0},
+            ],
+          },
       ]}>
       {children}
     </View>
@@ -108,6 +112,7 @@ export function Slot({children}: {children?: React.ReactNode}) {
 export function BackButton({onPress, style, ...props}: Partial<ButtonProps>) {
   const {_} = useLingui()
   const navigation = useNavigation<NavigationProp>()
+  const {isWithinRightPanel} = useIsWithinSplitView()
 
   const onPressBack = useCallback(
     (evt: GestureResponderEvent) => {
@@ -121,6 +126,10 @@ export function BackButton({onPress, style, ...props}: Partial<ButtonProps>) {
     },
     [onPress, navigation],
   )
+
+  if (isWithinRightPanel) {
+    return null
+  }
 
   return (
     <Slot>

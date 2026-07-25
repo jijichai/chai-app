@@ -5,8 +5,7 @@ import {
   type AppBskyEmbedRecord,
   type AppBskyEmbedRecordWithMedia,
   type AppBskyEmbedVideo,
-  type AppBskyFeedPost,
-  AtUri,
+  AppBskyFeedPost,
   BlobRef,
   type BskyAgent,
   type ComAtprotoLabelDefs,
@@ -39,6 +38,7 @@ import {
   type PostDraft,
   type ThreadDraft,
 } from '#/view/com/composer/state/composer'
+import * as bsky from '#/types/bsky'
 import {createGIFDescription} from '../gif-alt-text'
 import {uploadBlob} from './upload-blob'
 
@@ -53,6 +53,7 @@ interface PostOpts {
 
 type FeatureFlags = {
   highResolutionImages?: boolean
+  increasedBlobSizeLimit?: boolean
 }
 
 export async function post(
@@ -213,21 +214,41 @@ async function resolveRT(agent: BskyAgent, richtext: RichText) {
   return rt
 }
 
+export class ReplyDeletedError extends Error {
+  constructor() {
+    super('Could not resolve reply')
+  }
+}
+
 async function resolveReply(agent: BskyAgent, replyTo: string) {
-  const replyToUrip = new AtUri(replyTo)
-  const parentPost = await agent.getPost({
-    repo: replyToUrip.host,
-    rkey: replyToUrip.rkey,
+  const {data} = await agent.app.bsky.feed.getPosts({
+    uris: [replyTo],
   })
-  if (parentPost) {
-    const parentRef = {
-      uri: parentPost.uri,
-      cid: parentPost.cid,
+  const parentPost = data.posts[0]
+  if (!parentPost) {
+    throw new ReplyDeletedError()
+  }
+
+  const parentRef = {
+    uri: parentPost.uri,
+    cid: parentPost.cid,
+  }
+  let rootRef = parentRef
+
+  if (
+    bsky.dangerousIsType<AppBskyFeedPost.Record>(
+      parentPost.record,
+      AppBskyFeedPost.isRecord,
+    )
+  ) {
+    if (parentPost.record.reply) {
+      rootRef = parentPost.record.reply.root
     }
-    return {
-      root: parentPost.value.reply?.root || parentRef,
-      parent: parentRef,
-    }
+  }
+
+  return {
+    root: rootRef,
+    parent: parentRef,
   }
 }
 
@@ -320,6 +341,7 @@ async function resolveMedia(
         logger.debug(`Compressing image #${i}`)
         const {path, width, height, mime} = await compressImage(image, {
           highResolution: featureFlags?.highResolutionImages,
+          increasedBlobSizeLimit: featureFlags?.increasedBlobSizeLimit,
         })
         logger.debug(`Uploading image #${i}`)
         const res = await uploadBlob(agent, path, mime)

@@ -43,6 +43,7 @@ type ExploreScreenItems =
       type: 'profile'
       key: string
       profile: AppBskyActorDefs.ProfileView
+      recId?: string
     }
   | {
       type: 'profileEmpty'
