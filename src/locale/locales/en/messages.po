@@ -911,8 +911,8 @@ msgid "Account removed from quick access"
 msgstr ""
 
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:104
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:91
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:316
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:93
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:318
 #: src/view/com/profile/ProfileMenu.tsx:176
 msgctxt "toast"
 msgid "Account unblocked"
@@ -1467,8 +1467,8 @@ msgstr ""
 
 #: src/components/hooks/useFollowMethods.ts:35
 #: src/components/hooks/useFollowMethods.ts:52
-#: src/components/ProfileCard.tsx:511
-#: src/components/ProfileCard.tsx:533
+#: src/components/ProfileCard.tsx:512
+#: src/components/ProfileCard.tsx:534
 #: src/view/com/notifications/NotificationFeedItem.tsx:770
 #: src/view/com/notifications/NotificationFeedItem.tsx:792
 msgid "An issue occurred, please try again."
@@ -1864,7 +1864,7 @@ msgstr ""
 #: src/screens/Messages/components/ChatStatusInfo.tsx:67
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:222
 #: src/screens/Messages/ConversationSettings/prompts.tsx:115
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:212
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:214
 #: src/view/com/profile/ProfileMenu.tsx:563
 msgid "Block"
 msgstr ""
@@ -3883,12 +3883,12 @@ msgstr ""
 #: src/screens/Profile/Header/EditProfileDialog.tsx:265
 #: src/screens/Profile/Header/EditProfileDialog.tsx:271
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:296
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:351
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:353
 msgid "Edit profile"
 msgstr ""
 
 #: src/screens/Profile/Header/ProfileHeaderLabeler.tsx:299
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:353
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:355
 msgid "Edit Profile"
 msgstr ""
 
@@ -4828,12 +4828,12 @@ msgid "Focus the search field"
 msgstr "Focus the search field"
 
 #. User is not following this account, click to follow
-#: src/components/ProfileCard.tsx:549
+#: src/components/ProfileCard.tsx:550
 #: src/components/ProfileHoverCard/index.web.tsx:495
 #: src/components/ProfileHoverCard/index.web.tsx:506
 #: src/screens/Messages/ConversationSettings/Member.tsx:145
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:157
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:408
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:410
 #: src/screens/VideoFeed/index.tsx:866
 #: src/view/com/notifications/NotificationFeedItem.tsx:836
 #: src/view/com/notifications/NotificationFeedItem.tsx:843
@@ -4842,7 +4842,7 @@ msgstr ""
 
 #. placeholder {0}: profile.handle
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:144
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:396
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:398
 msgid "Follow {0}"
 msgstr ""
 
@@ -4888,9 +4888,9 @@ msgid "Follow all accounts"
 msgstr ""
 
 #. User is not following this account, click to follow back
-#: src/components/ProfileCard.tsx:545
+#: src/components/ProfileCard.tsx:546
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:155
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:406
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:408
 #: src/view/com/notifications/NotificationFeedItem.tsx:836
 #: src/view/com/notifications/NotificationFeedItem.tsx:843
 msgid "Follow back"
@@ -4940,11 +4940,11 @@ msgstr ""
 
 #. User is following this account, click to unfollow
 #. User is following this account, click to unfollow
-#: src/components/ProfileCard.tsx:540
+#: src/components/ProfileCard.tsx:541
 #: src/components/ProfileHoverCard/index.web.tsx:494
 #: src/components/ProfileHoverCard/index.web.tsx:505
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:160
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:404
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:406
 #: src/screens/VideoFeed/index.tsx:864
 #: src/view/com/notifications/NotificationFeedItem.tsx:814
 #: src/view/com/notifications/NotificationFeedItem.tsx:831
@@ -4960,8 +4960,8 @@ msgstr ""
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
-#: src/components/ProfileCard.tsx:501
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:268
+#: src/components/ProfileCard.tsx:502
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:270
 #: src/view/com/notifications/NotificationFeedItem.tsx:763
 msgid "Following {0}"
 msgstr ""
@@ -7316,8 +7316,8 @@ msgstr ""
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, )
 #. placeholder {0}: sanitizeDisplayName( profile.displayName || profile.handle, moderation.ui('displayName'), )
-#: src/components/ProfileCard.tsx:524
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:294
+#: src/components/ProfileCard.tsx:525
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:296
 #: src/view/com/notifications/NotificationFeedItem.tsx:785
 msgid "No longer following {0}"
 msgstr ""
@@ -10968,8 +10968,8 @@ msgstr ""
 msgid "That's everything!"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:206
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:421
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:208
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:423
 #: src/view/com/profile/ProfileMenu.tsx:551
 msgid "The account will be able to interact with you after unblocking."
 msgstr ""
@@ -11162,10 +11162,10 @@ msgstr ""
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:122
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:117
 #: src/screens/PostThread/components/ThreadItemAnchorFollowButton.tsx:130
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:96
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:278
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:305
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:321
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:98
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:280
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:307
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:323
 #: src/view/com/profile/ProfileMenu.tsx:152
 #: src/view/com/profile/ProfileMenu.tsx:164
 #: src/view/com/profile/ProfileMenu.tsx:180
@@ -11760,16 +11760,16 @@ msgid "Unavailable feed information"
 msgstr ""
 
 #: src/screens/Messages/ConversationSettings/MemberMenu.tsx:222
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:212
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:364
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:426
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:214
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:366
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:428
 #: src/screens/ProfileList/components/Header.tsx:166
 #: src/screens/ProfileList/components/Header.tsx:173
 #: src/view/com/profile/ProfileMenu.tsx:563
 msgid "Unblock"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:368
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:370
 msgctxt "action"
 msgid "Unblock"
 msgstr ""
@@ -11785,8 +11785,8 @@ msgstr "Unblock {displayName}"
 msgid "Unblock account"
 msgstr ""
 
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:204
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:419
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:206
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:421
 #: src/view/com/profile/ProfileMenu.tsx:545
 msgid "Unblock Account?"
 msgstr ""
@@ -11831,7 +11831,7 @@ msgid "Undo repost ({0, plural, one {# repost} other {# reposts}})"
 msgstr ""
 
 #. placeholder {0}: profile.handle
-#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:395
+#: src/screens/Profile/Header/ProfileHeaderStandard.tsx:397
 msgid "Unfollow {0}"
 msgstr ""
 
